@@ -1,0 +1,42 @@
+.footer-wrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 20px;
+}
+
+.say-hello h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icon-link {
+    margin: 0 15px;
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+
+    &:hover {
+        color: #007bff;
+    }
+}
+
+.bottom-line {
+    background-color: red;
+    height: 2px;
+    width: 100%;
+}
