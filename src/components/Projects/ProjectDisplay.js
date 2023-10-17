@@ -37,11 +37,11 @@ const ProjectDisplay = ({ image, title, type, description, link }) => {
 }
 
 ProjectDisplay.propTypes = {
-    imageSrc: PropTypes.string.isRequired,
-    projectName: PropTypes.string.isRequired,
-    projectType: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired, // Adjusted to match actual prop
+    title: PropTypes.string.isRequired, // Adjusted to match actual prop
+    type: PropTypes.string, // 'type' is not used in ProjectCard, so it's not required there. It remains required here in ProjectDisplay.
+    description: PropTypes.string.isRequired, // Adjusted to match actual prop
+    link: PropTypes.string.isRequired, // Adjusted to match actual prop
 };
 
 export default ProjectDisplay;

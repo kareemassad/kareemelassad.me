@@ -1,20 +1,15 @@
+// ProjectCard.js
+
 import React from 'react';
 import './ProjectCard.scss';
 
-const ProjectCard = ({ project }) => {
-    const { title, type, description, image, link } = project;
+const ProjectCard = ({ image, title, link }) => { // Changed to individual props
     return (
         <div className="project-card">
-            <div className="project-image">
-                <img src={image} alt={title} />
-            </div>
-            <div className="project-info">
+            <img src={image} alt={title} className="project-image" />
+            <div className="project-content">
                 <h3 className="project-title">{title}</h3>
-                <p className="project-type">{type}</p>
-                <p className="project-description">{description}</p>
-                <a className="project-link" href={link} target="_blank" rel="noopener noreferrer">
-                    View Project
-                </a>
+                <a href={link} target="_blank" rel="noopener noreferrer" className="project-link">View Project</a>
             </div>
         </div>
     );

@@ -1,44 +1,48 @@
+@import "../../variable.scss";
 .project-card {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd; // Or any other style
+    padding: 15px;
+    border-radius: 5px; // Optional: for rounded corners
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Optional: if you want a shadow
+    transition: all 0.3s ease-in-out; // Optional: if you want a hover effect
+    min-height: 200px;
+    margin: 0;
 
+    // Contain the image within the card, and maintain its aspect ratio
     .project-image {
-        img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
+        max-width: 100%;
+        height: auto; // Maintain aspect ratio
+        border-radius: 3px; // Optional: if you want rounded corners on the image
     }
 
-    .project-info {
-        margin-top: 10px;
+    .project-content {
+        margin-top: 10px; // Space between image and content
 
         .project-title {
-            font-size: 1.2em;
-            margin-bottom: 5px;
-        }
-
-        .project-type {
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .project-description {
-            margin-bottom: 5px;
+            margin: 0 0 10px 0; // Adjust as needed based on your design
+            font-size: 1.25em; // Larger font size for the title
         }
 
         .project-link {
-            color: #007BFF;
+            color: #3498db; // Optional: if you want a specific link color
             text-decoration: none;
 
             &:hover {
                 text-decoration: underline;
             }
         }
+    }
+
+    // Optional: if you want a hover effect on the entire card
+    &:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+}
+
+// Responsive Design
+@media screen and (max-width: 768px) { // Adjust breakpoint as needed
+    .project-card {
+        width: 100%; // or choose a percentage that works with your design
+        height: auto; // adjust as needed
     }
 }
