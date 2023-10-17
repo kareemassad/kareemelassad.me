@@ -1,30 +1,44 @@
+// Importing variables (assuming you have defined styles like colors, fonts, etc.)
 @import "../../variable.scss";
+
 .project-card {
-    border: 1px solid #ddd; // Or any other style
+    border: 1px solid #ddd;
     padding: 15px;
-    border-radius: 5px; // Optional: for rounded corners
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Optional: if you want a shadow
-    transition: all 0.3s ease-in-out; // Optional: if you want a hover effect
-    min-height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    min-height: 200px; // It's a good practice to keep a minimum height for content visibility
     margin: 0;
 
-    // Contain the image within the card, and maintain its aspect ratio
-    .project-image {
-        max-width: 100%;
-        height: auto; // Maintain aspect ratio
-        border-radius: 3px; // Optional: if you want rounded corners on the image
+    // IMAGE WRAPPER STYLES
+    .project-image-wrapper {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden; // This prevents the image from spilling over the container
+        border-radius: 3px; // Consistent with the design choice for rounded corners
+
+        .project-image {
+            flex-shrink: 0; // Prevents the image from compressing
+            width: 100%; // Takes the full width of the wrapper
+            height: 100%; // Takes the full height of the wrapper
+            object-fit: cover; // Preserves aspect ratio of the image
+        }
     }
 
+    // CONTENT STYLES
     .project-content {
-        margin-top: 10px; // Space between image and content
+        margin-top: 10px;
 
         .project-title {
-            margin: 0 0 10px 0; // Adjust as needed based on your design
-            font-size: 1.25em; // Larger font size for the title
+            margin: 0 0 10px 0;
+            font-size: 1.25em;
         }
 
         .project-link {
-            color: #3498db; // Optional: if you want a specific link color
+            color: blue; // Assuming you have color variables in your variable.scss
             text-decoration: none;
 
             &:hover {
@@ -33,16 +47,16 @@
         }
     }
 
-    // Optional: if you want a hover effect on the entire card
+    // HOVER EFFECTS
     &:hover {
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
 }
 
-// Responsive Design
-@media screen and (max-width: 768px) { // Adjust breakpoint as needed
+// RESPONSIVE STYLES
+@media screen and (max-width: 768px) {
     .project-card {
-        width: 100%; // or choose a percentage that works with your design
-        height: auto; // adjust as needed
+        width: 100%; // Makes it responsive, taking full width on smaller screens
+        height: auto;
     }
 }
