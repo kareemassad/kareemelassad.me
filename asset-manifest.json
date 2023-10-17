@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/kareemelassad.me/static/css/main.3801ffbb.css",
-    "main.js": "/kareemelassad.me/static/js/main.8afd25ed.js",
+    "main.css": "/kareemelassad.me/static/css/main.22f55503.css",
+    "main.js": "/kareemelassad.me/static/js/main.f3aa0c46.js",
     "static/js/787.98c98764.chunk.js": "/kareemelassad.me/static/js/787.98c98764.chunk.js",
     "static/media/full-gif-99comp.gif": "/kareemelassad.me/static/media/full-gif-99comp.08e67fd5498f41255e41.gif",
     "static/media/fa-solid-900.svg": "/kareemelassad.me/static/media/fa-solid-900.7a8b4f130182d19a2d7c.svg",
     "static/media/fa-brands-400.svg": "/kareemelassad.me/static/media/fa-brands-400.2f517e09eb2ca6650ff5.svg",
     "static/media/autonomous.png": "/kareemelassad.me/static/media/autonomous.b50355f891fbab3c4616.png",
     "static/media/kareem_op2.jpg": "/kareemelassad.me/static/media/kareem_op2.e4725b57dd96698d6831.jpg",
+    "static/media/basil-pic.png": "/kareemelassad.me/static/media/basil-pic.ab367d320e16d600e212.png",
     "static/media/fa-solid-900.eot": "/kareemelassad.me/static/media/fa-solid-900.9bbb245e67a133f6e486.eot",
     "static/media/fa-solid-900.ttf": "/kareemelassad.me/static/media/fa-solid-900.be9ee23c0c6390141475.ttf",
     "static/media/meS.svg": "/kareemelassad.me/static/media/meS.9ef0219a13ba73d8150ba4096f94ef2f.svg",
@@ -20,18 +21,24 @@
     "static/media/fa-brands-400.woff": "/kareemelassad.me/static/media/fa-brands-400.2285773e6b4b172f07d9.woff",
     "static/media/fa-solid-900.woff2": "/kareemelassad.me/static/media/fa-solid-900.1551f4f60c37af51121f.woff2",
     "static/media/fa-brands-400.woff2": "/kareemelassad.me/static/media/fa-brands-400.d878b0a6a1144760244f.woff2",
+    "static/media/empower.png": "/kareemelassad.me/static/media/empower.5b3f4ce201e59ed04e54.png",
+    "static/media/Arbitrading.png": "/kareemelassad.me/static/media/Arbitrading.7d3514ceffda30369a4c.png",
+    "static/media/portable-saw.jpg": "/kareemelassad.me/static/media/portable-saw.012dace32c53b15aa273.jpg",
     "static/media/fa-regular-400.eot": "/kareemelassad.me/static/media/fa-regular-400.77206a6bb316fa0aded5.eot",
     "static/media/fa-regular-400.ttf": "/kareemelassad.me/static/media/fa-regular-400.491974d108fe4002b2aa.ttf",
+    "static/media/JavaScript-logo.png": "/kareemelassad.me/static/media/JavaScript-logo.ac9e504211b46cfb0118.png",
+    "static/media/cu.png": "/kareemelassad.me/static/media/cu.895cb6b9479184f12b88.png",
     "static/media/fa-regular-400.woff": "/kareemelassad.me/static/media/fa-regular-400.bb58e57c48a3e911f15f.woff",
+    "static/media/hevyimg.png": "/kareemelassad.me/static/media/hevyimg.8c0b969fa196c683d571.png",
     "static/media/fa-regular-400.woff2": "/kareemelassad.me/static/media/fa-regular-400.7a3337626410ca2f4071.woff2",
     "static/media/logo.svg": "/kareemelassad.me/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/kareemelassad.me/index.html",
-    "main.3801ffbb.css.map": "/kareemelassad.me/static/css/main.3801ffbb.css.map",
-    "main.8afd25ed.js.map": "/kareemelassad.me/static/js/main.8afd25ed.js.map",
+    "main.22f55503.css.map": "/kareemelassad.me/static/css/main.22f55503.css.map",
+    "main.f3aa0c46.js.map": "/kareemelassad.me/static/js/main.f3aa0c46.js.map",
     "787.98c98764.chunk.js.map": "/kareemelassad.me/static/js/787.98c98764.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3801ffbb.css",
-    "static/js/main.8afd25ed.js"
+    "static/css/main.22f55503.css",
+    "static/js/main.f3aa0c46.js"
   ]
 }
