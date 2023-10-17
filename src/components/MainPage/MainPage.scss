@@ -1,0 +1,81 @@
+@import "../../variable.scss";
+
+.main-wrapper {
+    width: 80.75%;
+    margin: 2% auto 0 auto;  // Adjusted margin to reduce space from header
+}
+
+.banner-content {
+    color: $dark-color;
+    text-align: left;
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+}
+
+.banner-content h1 {
+    font-size: 42px;
+    color: $dark-color;
+    font-weight: 600;
+}
+
+.banner-content p {
+    font-size: 22px;
+    color: $dark-color;
+    margin-top: 2rem;
+}
+
+@media (max-width: 767px) {
+    .main-wrapper {
+        width: 90%;  // Increased width for smaller screens
+        margin: 10px auto 0 auto;  // Reduced margin for mobile
+    }
+
+    .banner-content {
+        margin: 20px 0;
+        padding: 10px;
+
+        h1 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    }
+
+    .btn {
+        visibility: hidden;
+    }
+
+    .me {
+        width: 100%;  // Set image width to 100% for responsiveness
+        margin: 0 auto;  // Center the image
+    }
+}
+
+.mail-icon {
+    margin-left: 5px;
+}
+
+.me {
+    margin: 10%;
+    position: relative;
+    width: 80%;
+}
+
+.theme-color {
+    color: $base-color;
+}
+
+.theme-color:hover {
+    background-color: $base-color;
+}
+
+#main {
+    padding-top: 20px;  // Reduced padding to bring closer to header
+    transition: margin-top 0.5s;
+}
+
+b, strong {
+    font-weight: bold !important;
+}
