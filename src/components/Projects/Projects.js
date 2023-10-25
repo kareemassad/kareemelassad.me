@@ -133,7 +133,6 @@ export default class Projects extends Component {
                 </div>
                 {/* Detailed Projects Section */}
                 <div className="container-projects detailed-projects">
-                    <h2>Detailed Projects</h2> {/* Heading for detailed projects */}
                     <div className="detailed-section">
                         {detailedProjects.map((project, index) => (
                             <ProjectDisplay key={index} {...project} />

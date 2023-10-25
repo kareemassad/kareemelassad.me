@@ -8,11 +8,11 @@ const ProjectDisplay = ({ image, title, type, description, link }) => {
             <div className="container">
                 <div className="row justify-content-center align-items-center">
 
-                    <div className="col-md-6 order-md-2">
+                    <div className="col-xl-6 order-lg-2">
                         <img src={image} className='project-image img-fluid' alt="Project" />
                     </div>
 
-                    <div className="col-md-6 order-md-1 project-description">
+                    <div className="col-xl-6 order-lg-1 project-description">
                         <div className="project-name">
                             {title}
                         </div>

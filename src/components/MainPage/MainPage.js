@@ -24,7 +24,7 @@ export default class MainPage extends Component {
                                 </button>
                             </div>
                         </div>
-                        <div className="col-lg-6 col-sm-6 col-xs-6 slide-in-blurred-bottom ">
+                        <div className="col-lg-6 col-md-6 col-xs-6 slide-in-blurred-bottom ">
                             <img src={me} className="me" alt="loading..." />
                         </div>
                     </div>
