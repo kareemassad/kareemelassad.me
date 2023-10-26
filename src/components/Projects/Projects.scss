@@ -43,10 +43,11 @@
         }
 
         .card-section {
+            padding: 20px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between; // Adjust if you prefer a different alignment
-            gap: 20px; // Adds space between the cards
+            gap: 30px; // Adds space between the cards
 
             > * { // Direct children of the sections
                 flex-basis: calc(33.333% - 20px); // For 3 per row, adjusting for gap. Change as needed.
