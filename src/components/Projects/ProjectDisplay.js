@@ -6,13 +6,13 @@ const ProjectDisplay = ({ image, title, type, description, link }) => {
     return (
         <div className="project-section">
             <div className="container">
-                <div className="row justify-content-center align-items-center">
-
-                    <div className="col-md-6 order-md-2">
-                        <img src={image} className='project-image img-fluid' alt="Project" />
+                <div className="row justify-content-left align-items-center">
+                    <div className="col-sm-6 order-sm-1">
+                        <div className='project-image'>
+                            <img src={image} className='img-fluid' alt="Project" />
+                        </div>
                     </div>
-
-                    <div className="col-md-6 order-md-1 project-description">
+                    <div className="col-sm-6 order-sm-2 project-description">
                         <div className="project-name">
                             {title}
                         </div>

@@ -2,7 +2,7 @@
 
 .main-wrapper {
     width: 80.75%;
-    margin: 2% auto 0 auto;  // Adjusted margin to reduce space from header
+    margin: 10% auto 15% auto;  // Adjusted margin to reduce space from header
 }
 
 .banner-content {
@@ -44,7 +44,7 @@
     }
 
     .btn {
-        visibility: hidden;
+        // visibility: hidden;
     }
 
     .me {
@@ -61,6 +61,7 @@
     margin: 10%;
     position: relative;
     width: 80%;
+    margin-top: 0;
 }
 
 .theme-color {
@@ -72,7 +73,7 @@
 }
 
 #main {
-    padding-top: 20px;  // Reduced padding to bring closer to header
+    padding-top: 75px;  // Reduced padding to bring closer to header
     transition: margin-top 0.5s;
 }
 

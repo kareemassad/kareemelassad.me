@@ -1,20 +1,25 @@
 @import "../../variable.scss";
+
+
 .project-section {
     padding: 20px;
     background-color: #ffffff;
     margin: 20px 0;
     border-radius: 10px;
-    min-height: 10px;
-    min-height: 80vh;
+    // min-height: 10px;
+    min-height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
     .container {
-        max-width: 1140px;
-        margin: auto;
+        max-width: 1440px;
+        height: auto;
+        margin: 10px;
         .row {
-            align-items: center;
+            min-height: 100%;
+            // height: 100%;
             .project-description {
+                text-align: left;
                 .project-name {
                     font-size: 24px;
                     margin-bottom: 5px;
@@ -38,23 +43,35 @@
                 }
             }
             .project-image {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 img {
-                    width: 100%;
-                    max-width: 400px;
+                    max-height: 100%;
+                    width: auto;
                     border-bottom: 2px solid #f0f0f0;
                     border-radius: 8px;
-                    object-fit: cover;
+                    object-fit: contain;
                 }
             }
+            
         }
     }
     @media (max-width: 767px) {
         min-height: auto;
         .container {
+            margin: 20px;
             .row {
-                flex-direction: column-reverse;
-                .project-description, .project-image {
+                // flex-direction: column-reverse;
+                .project-description{
+                    text-align: left;
+                    padding: 12px;
+                }
+                
+                .project-image {
                     text-align: center;
+                    padding: 12px;
                 }
                 .project-image img {
                     max-width: 100%;
