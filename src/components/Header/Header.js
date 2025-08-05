@@ -11,8 +11,9 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
-                            <Nav.Link href="#projects">Projects</Nav.Link>
-                            <Nav.Link href="#involvement">Involvement</Nav.Link>
+                            <Nav.Link href="#bell-collection">Teta's Bell Collection</Nav.Link>
+                            {/* <Nav.Link href="#projects">Projects</Nav.Link> */}
+                            {/* <Nav.Link href="#involvement">Involvement</Nav.Link> */}
                             <Nav.Link href="#resume">Resume</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

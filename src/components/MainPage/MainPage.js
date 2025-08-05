@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './MainPage.scss';
 import me from '../../assets/images/meS.svg';
-import me1 from '../../assets/images/kareem_op2.jpg';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class MainPage extends Component {
@@ -16,8 +15,7 @@ export default class MainPage extends Component {
                                     Hello! <span role="img"></span>
                                 </h1>
                                 <p>
-                                    My name is <b>Kareem El Assad</b> and I am a <b>Software Engineering</b> student based
-                                    in Ottawa, Canada. I am a <b>5th year student at Carleton University</b> and I love to break things!
+                                    My name is <b>Kareem El Assad</b> and I am a <b>Software Engineer</b> based in Ottawa, Canada.
                                 </p>
                                 <button type="button" className="btn btn-outline-danger theme-color">
                                     Send me a message <i className="fas fa-envelope"></i>
