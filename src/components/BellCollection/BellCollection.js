@@ -170,6 +170,10 @@ const BellCollection = () => {
                                 maxBoundsViscosity={1.0}
                                 style={{ height: '500px', width: '100%' }}
                                 className="bell-map"
+                                touchZoom={true}
+                                scrollWheelZoom={false}
+                                doubleClickZoom={true}
+                                dragging={true}
                             >
                                 <TileLayer
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -203,11 +207,15 @@ const BellCollection = () => {
                             </MapContainer>
                         </div>
                         <div className="map-legend mt-2">
-                            <small>
-                                <span style={{color: '#3388ff'}}>● Blue pins</span>: Specific city locations | 
-                                <span style={{color: '#dc3545'}}>▬ Red shading</span>: Countries with bells in collection
-                            </small>
-                            <div className="mt-2">
+                            <div className="legend-symbols mb-2">
+                                <small>
+                                    <span style={{color: '#3388ff'}}>● Blue pins</span>: Specific city locations
+                                    <br className="d-md-none" />
+                                    <span className="d-none d-md-inline"> | </span>
+                                    <span style={{color: '#dc3545'}}>▬ Red shading</span>: Countries with bells in collection
+                                </small>
+                            </div>
+                            <div className="legend-note">
                                 <small className="text-muted">
                                     <strong>Note:</strong> Countries are shaded red when we have bells from there. 
                                     Blue pins are dropped for specific cities, though we don't have complete city data for all bells in the collection.

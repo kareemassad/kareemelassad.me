@@ -197,19 +197,76 @@
 // Responsive adjustments
 @media (max-width: 768px) {
   .bell-collection {
+    padding: 60px 0; // Reduce padding on mobile
+    
     .stats {
       flex-direction: column;
       gap: 1rem;
     }
 
     .map-container {
+      margin-bottom: 1.5rem;
+      
       .bell-map {
-        height: 300px !important;
+        height: 450px !important; // Increased from 300px for better mobile viewing
+      }
+    }
+    
+    .map-legend {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      margin-top: 1rem;
+      
+      small {
+        display: block;
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
       }
     }
 
     .section-title {
       font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .section-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+// Smaller mobile devices
+@media (max-width: 480px) {
+  .bell-collection {
+    padding: 40px 0;
+    
+    .map-container {
+      .bell-map {
+        height: 400px !important; // Still generous for small screens
+      }
+    }
+    
+    .map-legend {
+      padding: 0.75rem;
+      
+      small {
+        font-size: 0.85rem;
+      }
+    }
+    
+    .section-title {
+      font-size: 1.75rem;
+    }
+    
+    .stats-card {
+      padding: 1rem !important;
+      
+      h4 {
+        font-size: 1.1rem;
+      }
     }
   }
 }
