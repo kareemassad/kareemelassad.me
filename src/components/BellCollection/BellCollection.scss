@@ -17,131 +17,28 @@
     margin-bottom: 2rem;
   }
 
+  /* Map improvements */
   .map-container {
-    border-radius: 10px;
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
+    box-shadow:
+      0 4px 6px rgba(0, 0, 0, 0.05),
+      0 10px 40px rgba(0, 0, 0, 0.13);
+    margin-bottom: 0.75rem;
+    border: 1px solid #dee2e6;
 
     .bell-map {
-      border-radius: 10px;
+      border-radius: 14px;
     }
-  }
-
-  .stats {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 1rem;
-
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-      .stat-number {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #dc3545;
-      }
-
-      .stat-label {
-        font-size: 0.9rem;
-        color: #6c757d;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-    }
-  }
-
-  .country-list {
-    background: white;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-    .country-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #e9ecef;
-
-      &:last-child {
-        border-bottom: none;
-      }
-
-      .country-name {
-        font-weight: 500;
-        color: #495057;
-      }
-
-      .country-count {
-        color: #dc3545;
-        font-weight: bold;
-      }
-    }
-  }
-
-  h4 {
-    color: #495057;
-    margin-bottom: 1rem;
-    font-weight: 600;
   }
 
   .map-legend {
     text-align: center;
     color: #6c757d;
     font-size: 0.875rem;
-    
+
     span {
       margin: 0 0.5rem;
-    }
-  }
-
-  .continent-list {
-    .continent-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #e9ecef;
-
-      &:last-child {
-        border-bottom: none;
-      }
-
-      .continent-name {
-        font-weight: 500;
-        color: #495057;
-      }
-
-      .continent-count {
-        color: #28a745;
-        font-weight: bold;
-      }
-    }
-  }
-
-  .loading-container {
-    padding: 3rem 0;
-    text-align: center;
-    
-    .spinner-border {
-      color: #0066cc;
-    }
-  }
-
-  .stats {
-    .stat-item {
-      &:nth-child(4) {
-        .stat-number {
-          color: #ffc107; // Special bells get yellow color
-        }
-      }
     }
   }
 
@@ -192,33 +89,117 @@
       }
     }
   }
-}
 
-// Responsive adjustments
-@media (max-width: 768px) {
-  .bell-collection {
-    padding: 60px 0; // Reduce padding on mobile
-    
-    .stats {
-      flex-direction: column;
-      gap: 1rem;
-    }
+  .country-list {
+    .country-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e9ecef;
 
-    .map-container {
-      margin-bottom: 1.5rem;
-      
-      .bell-map {
-        height: 450px !important; // Increased from 300px for better mobile viewing
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .country-name {
+        font-weight: 500;
+        color: #495057;
+      }
+
+      .country-count {
+        color: #dc3545;
+        font-weight: bold;
       }
     }
-    
+  }
+
+  .continent-list {
+    .continent-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e9ecef;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .continent-name {
+        font-weight: 500;
+        color: #495057;
+      }
+
+      .continent-count {
+        color: #28a745;
+        font-weight: bold;
+      }
+    }
+  }
+
+  /* Special bells callout */
+  .special-bells-card {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    h4 {
+      color: #495057;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid #0066cc;
+      padding-bottom: 0.5rem;
+    }
+
+    .special-bell-items {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .special-bell-item {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 20px;
+      padding: 0.35rem 1rem;
+      font-size: 0.95rem;
+      color: #495057;
+      font-style: italic;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .bell-collection {
+    padding: 60px 0;
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .map-container .bell-map {
+      height: 450px !important;
+    }
+
     .map-legend {
       text-align: center;
       padding: 1rem;
       background: rgba(255, 255, 255, 0.95);
       border-radius: 8px;
       margin-top: 1rem;
-      
+
       small {
         display: block;
         margin-bottom: 0.5rem;
@@ -226,44 +207,27 @@
       }
     }
 
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 0.75rem;
-    }
-    
-    .section-subtitle {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
+    .stats-card {
+      padding: 1rem;
     }
   }
 }
 
-// Smaller mobile devices
 @media (max-width: 480px) {
   .bell-collection {
     padding: 40px 0;
-    
-    .map-container {
-      .bell-map {
-        height: 400px !important; // Still generous for small screens
-      }
+
+    .map-container .bell-map {
+      height: 360px !important;
     }
-    
-    .map-legend {
-      padding: 0.75rem;
-      
-      small {
-        font-size: 0.85rem;
-      }
-    }
-    
+
     .section-title {
       font-size: 1.75rem;
     }
-    
+
     .stats-card {
       padding: 1rem !important;
-      
+
       h4 {
         font-size: 1.1rem;
       }

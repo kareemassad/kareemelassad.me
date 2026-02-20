@@ -1,27 +1,16 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-// import logo from './logo.svg';
 import './App.scss';
-import Header from './components/Header/Header';
-// import Projects from './components/Projects/Projects';
-// import Involvement from './components/Involvement/Involvement';
-import Footer from './components/Footer/Footer';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './components/MainPage/MainPage';
-import BellCollection from './components/BellCollection/BellCollection';
-
-
-
+import BellsPage from './components/BellsPage/BellsPage';
 
 function App() {
   return (
-    <div className='app'>
-      <Header />
-      <MainPage />
-      <BellCollection />
-      {/* <Projects /> */}
-      {/* <ProjectCards /> */}
-      {/* <Involvement /> */}
-      <Footer />
-    </div>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/bells" element={<BellsPage />} />
+      </Routes>
+    </HashRouter>
   );
 }
 

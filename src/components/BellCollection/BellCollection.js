@@ -150,7 +150,7 @@ const BellCollection = () => {
             <Container>
                 <Row className="mb-4">
                     <Col>
-                        <h2 className="section-title">Teta's Bell Collection</h2>
+                        <h2 className="section-title">&#x1F514; Teta&apos;s Bell Collection</h2>
                         <p className="section-subtitle">
                             A collection of {statistics.totalBells} bells from {statistics.totalCountries} countries 
                             {statistics.specialBells > 0 && ` (plus ${statistics.specialBells} special bells)`}
@@ -162,13 +162,15 @@ const BellCollection = () => {
                     <Col>
                         <div className="map-container">
                             <MapContainer
-                                center={[20, 0]}
-                                zoom={2}
+                                center={[35, 15]}
+                                zoom={2.5}
+                                zoomSnap={0.5}
+                                zoomDelta={0.5}
                                 minZoom={1}
                                 maxZoom={18}
                                 maxBounds={[[-90, -180], [90, 180]]}
                                 maxBoundsViscosity={1.0}
-                                style={{ height: '500px', width: '100%' }}
+                                style={{ height: '650px', width: '100%' }}
                                 className="bell-map"
                                 touchZoom={true}
                                 scrollWheelZoom={false}
@@ -176,8 +178,8 @@ const BellCollection = () => {
                                 dragging={true}
                             >
                                 <TileLayer
-                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                    url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
                                     noWrap={true}
                                 />
                                 
@@ -301,6 +303,23 @@ const BellCollection = () => {
                         </div>
                     </Col>
                 </Row>
+
+                {statistics.specialBells > 0 && (
+                    <Row className="mt-2 mb-2">
+                        <Col>
+                            <div className="special-bells-card">
+                                <h4>&#x2728; Special Bells in the Collection</h4>
+                                <div className="special-bell-items">
+                                    {bellsData
+                                        .filter(b => b.special)
+                                        .map((b, i) => (
+                                            <span key={i} className="special-bell-item">&ldquo;{b.special}&rdquo;</span>
+                                        ))}
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                )}
             </Container>
         </section>
     );

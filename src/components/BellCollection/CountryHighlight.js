@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GeoJSON } from 'react-leaflet';
+import L from 'leaflet';
 import { getUniqueCountries } from './bellsData';
 
 // Simplified country name mappings for GeoJSON matching
@@ -223,6 +224,7 @@ const CountryHighlight = ({ bellsData }) => {
             data={countryGeoData}
             style={getCountryStyle}
             onEachFeature={onEachCountry}
+            renderer={L.canvas({ padding: 0.5 })}
         />
     );
 };

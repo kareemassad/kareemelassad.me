@@ -1,82 +1,158 @@
-@import "../../variable.scss";
-
-.main-wrapper {
-    width: 80.75%;
-    margin: 10% auto 15% auto;  // Adjusted margin to reduce space from header
+.main-page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-.banner-content {
-    color: $dark-color;
-    text-align: left;
-    margin-top: 4rem;
-    margin-bottom: 5rem;
+/* Header */
+.mp-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
 }
 
-.banner-content h1 {
-    font-size: 42px;
-    color: $dark-color;
+.mp-subtitle {
+  margin: 0 0 0.75rem;
+  color: #555;
+}
+
+.mp-links {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+
+  a {
+    color: #1a1a1a;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.mp-sep {
+  color: #bbb;
+  user-select: none;
+}
+
+/* Dividers */
+hr {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 1.75rem 0;
+}
+
+/* Section label */
+.mp-section-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999;
+  margin: 0 0 1rem;
+}
+
+/* Work entries */
+.mp-job {
+  margin-bottom: 1.1rem;
+}
+
+.mp-job-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: baseline;
+}
+
+.mp-job-company {
+  font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.mp-job-meta {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.mp-job-stack {
+  font-size: 0.875rem;
+  color: #555;
+  margin-top: 0.1rem;
+}
+
+/* Projects */
+.mp-project {
+  margin-bottom: 0.6rem;
+}
+
+.mp-project-title {
+  a {
+    color: #1a1a1a;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.mp-project-stack {
+  font-size: 0.875rem;
+  color: #777;
+}
+
+/* Education */
+.mp-edu {
+  a {
     font-weight: 600;
-}
+    color: #1a1a1a;
+    text-decoration: none;
 
-.banner-content p {
-    font-size: 22px;
-    color: $dark-color;
-    margin-top: 2rem;
-}
-
-@media (max-width: 767px) {
-    .main-wrapper {
-        width: 90%;  // Increased width for smaller screens
-        margin: 10px auto 0 auto;  // Reduced margin for mobile
+    &:hover {
+      text-decoration: underline;
     }
+  }
+}
 
-    .banner-content {
-        margin: 20px 0;
-        padding: 10px;
+/* Bell Collection CTA */
+.mp-bells-link {
+  text-align: center;
+  padding: 0.5rem 0;
 
-        h1 {
-            font-size: 24px;
-        }
+  a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #c9810a;
+    text-decoration: none;
+    padding: 0.6rem 1.4rem;
+    border: 2px solid #c9810a;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background 0.15s, color 0.15s;
 
-        p {
-            font-size: 16px;
-        }
+    &:hover {
+      background: #c9810a;
+      color: #fff;
     }
-
-    .btn {
-        // visibility: hidden;
-    }
-
-    .me {
-        width: 100%;  // Set image width to 100% for responsiveness
-        margin: 0 auto;  // Center the image
-    }
+  }
 }
 
-.mail-icon {
-    margin-left: 5px;
-}
+@media (max-width: 480px) {
+  .main-page {
+    padding: 2rem 1.2rem 3rem;
+  }
 
-.me {
-    margin: 10%;
-    position: relative;
-    width: 80%;
-    margin-top: 0;
-}
-
-.theme-color {
-    color: $base-color;
-}
-
-.theme-color:hover {
-    background-color: $base-color;
-}
-
-#main {
-    padding-top: 75px;  // Reduced padding to bring closer to header
-    transition: margin-top 0.5s;
-}
-
-b, strong {
-    font-weight: bold !important;
+  .mp-job-top {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
 }
