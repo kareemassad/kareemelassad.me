@@ -45,7 +45,7 @@
   },
   "runtimeProfile": {
     "url": "runtime-profile.json",
-    "sha256": "43b374ff9ecc355b06cc0616ee9e558638b85a1cb1dc8f52766cad139d1a4181"
+    "sha256": "a58eb07fad0564b13cf1597401bf492ca97732583ec21f17f62f6695bbd4c0df"
   },
   "localModelAssetsHashes": [
     "9dedeacd23b20bbcdd413858d7d3886b115549075a080b1d342e1380a3c6014e"

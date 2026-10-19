@@ -42,6 +42,7 @@ const $=id=>document.getElementById(id);
 let matched=false,active=null,state=null,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,states=new Map(),frame=0,last=0,shape='',lastMetrics='',speed=1,busy=false;
 const reader=new ScrollReader($('pdf-scroll'),positionChanged,status);
 let shelf,preparedBook=null,loadedRevision=-1,currentSourceHash=null;
+const passageKey=passage=>JSON.stringify([passage?.packId||'',passage?.packVersion||0,passage?.id]);
 const learningModelFor=passage=>teachingModelFor(passage,currentSourceHash)||savedLearningModelFor(passage);
 let readingFollower=new ReadingFollower();
 function navigation(){
@@ -58,22 +59,22 @@ function positionChanged(position){
  let next=preparedBook?.at(position.page,position.y);
  const leading=preparedBook?.leading?.get(position.page);if(!next&&leading&&position.y<leading.y){const node=reader.nodes[position.page-1],rect=node.getBoundingClientRect(),pane=$('pdf-scroll').getBoundingClientRect(),top=rect.top+leading.y*rect.height-pane.top;if(top>=0&&top<reader.scroll.clientHeight-60)next=leading;}
  if(!next){if(active){active=null;shape='';cancelAnimationFrame(frame);frame=0;empty();}else if(!$('stage').querySelector('.empty-aid'))empty();return;}
- const changed=active?.id!==next.id;
+ const changed=passageKey(active)!==passageKey(next);
  const nextModel=learningModelFor(next);
- if(changed&&!states.has(next.id)&&nextModel?.restore){const saved=nextModel.restore(next);if(saved){states.set(next.id,saved.state);if(saved.exploring)readingFollower.manual(next);}}
+ if(changed&&!states.has(passageKey(next))&&nextModel?.restore){const saved=nextModel.restore(next);if(saved){states.set(passageKey(next),saved.state);if(saved.exploring)readingFollower.manual(next);}}
  const reading=readingFollower.update(next,position);
  active=next;reader.markActive(next);$('section').value=next.source.section;$('chapter').value=next.source.section.split('-')[0];
  $('source-ref').textContent=`p. ${next.source.printed} · ${next.source.ref}`;
  $('demo-title').textContent=next.title;$('demo-caption').textContent=reading?.following?reading.beat.caption:next.caption;
  if(changed){
-  state=states.get(next.id)||{...(learningModelFor(next)?.defaults(next)||initial(next.scene)),...next.defaults,variant:next.scene==='potential-loop'?'loop':'0'};state={...state,...learning.activate(next.scene,shelf?.current?.id||SOURCE.sha256,next.id,state,{explorationOnly:sourceExplorationNames.includes(next.scene)||/^chapter[124567]-/.test(next.packId||'')})};if(reading?.following)Object.assign(state,reading.beat.inputs);states.set(next.id,state);if(nextModel?.animated&&state.moving===false)playing=false;shape='';buildControls();render();last=0;start();
+  state=states.get(passageKey(next))||{...(learningModelFor(next)?.defaults(next)||initial(next.scene)),...next.defaults,variant:next.scene==='potential-loop'?'loop':'0'};state={...state,...learning.activate(next.scene,shelf?.current?.id||SOURCE.sha256,next.id,state,{explorationOnly:sourceExplorationNames.includes(next.scene)||/^chapter[124567]-/.test(next.packId||'')})};if(reading?.following)Object.assign(state,reading.beat.inputs);states.set(passageKey(next),state);if(nextModel?.animated&&state.moving===false)playing=false;shape='';buildControls();render();last=0;start();
  }
- else if(reading?.changed){const changedInputs=Object.entries(reading.beat.inputs).some(([key,value])=>state[key]!==value);Object.assign(state,reading.beat.inputs);states.set(next.id,state);if(changedInputs){render();if(nextModel?.animated){if(state.moving===false)playing=false;last=0;start();}}}
+ else if(reading?.changed){const changedInputs=Object.entries(reading.beat.inputs).some(([key,value])=>state[key]!==value);Object.assign(state,reading.beat.inputs);states.set(passageKey(next),state);if(changedInputs){render();if(nextModel?.animated){if(state.moving===false)playing=false;last=0;start();}}}
  updateReadingPlanControls($('learning-tools'),reading);
  learning.setPassage(next);
 }
 const adapter=new PreparedAdapter($('stage'),{onReady:()=>render(),onChange:(key,value)=>{if(!state||!active)return;pause();const c=controls(active.scene,state).find(c=>c.key===key);state[key]=extensionNames.includes(active.scene)&&c?Math.max(c.min,Math.min(c.max,Number((c.min+Math.round((value-c.min)/c.step)*c.step).toFixed(6)))):chapter3Names.includes(active.scene)&&c?.step===1?Math.round(value):value;render();},onError:()=>status('Geometry unavailable. Showing the reviewed static drawing.')});
-const learning=new LearningTools($('learning-tools'),{onApply:values=>{if(!state||!active)return;pause();Object.assign(state,values);states.set(active.id,state);shape='';buildControls();render();}});
+const learning=new LearningTools($('learning-tools'),{onApply:values=>{if(!state||!active)return;pause();Object.assign(state,values);states.set(passageKey(active),state);shape='';buildControls();render();}});
 function empty(){
  adapter.clear();
  learning.clear();
@@ -88,7 +89,7 @@ function buildControls(){
  $('reset-values').hidden=true;
  $('stage').closest('.demo').dataset.empty='false';
  $('play').disabled=staticAid(active.scene);$('restart').disabled=staticAid(active.scene);$('play').textContent=playing&&!staticAid(active.scene)?'Pause':'Play';
- const model=learningModelFor(active);if(model){$('parameters').replaceChildren();$('learning-tools').replaceChildren();$('scene').hidden=true;$('lines-label').hidden=true;$('contours-label').hidden=true;model.controls($('learning-tools'),active,state,values=>{if(active.reading){readingFollower.manual(active);$('demo-caption').textContent=active.caption;}Object.assign(state,values);states.set(active.id,state);render();const selection=readingFollower.update(active,reader.position());updateReadingPlanControls($('learning-tools'),selection);model.persist?.(active,state,selection);if(model.animated){playing=state.moving!==false;last=0;start();}});if(active.reading)readingPlanControls($('learning-tools'),()=>{const reading=readingFollower.resume(active,reader.position());Object.assign(state,reading.beat.inputs);states.set(active.id,state);$('demo-caption').textContent=reading.beat.caption;render();updateReadingPlanControls($('learning-tools'),reading);model.persist?.(active,state,reading);if(model.animated){playing=state.moving!==false;last=0;start();}},direction=>{const selection=readingFollower.update(active,reader.position()),index=Math.max(0,Math.min(active.reading.beats.length-1,selection.index+direction)),at=active.reading.beats[index].at;reader.jump(at.page,Math.min(.99,at.y+.012),false);});return;}
+ const model=learningModelFor(active);if(model){$('parameters').replaceChildren();$('learning-tools').replaceChildren();$('scene').hidden=true;$('lines-label').hidden=true;$('contours-label').hidden=true;model.controls($('learning-tools'),active,state,values=>{if(active.reading){readingFollower.manual(active);$('demo-caption').textContent=active.caption;}Object.assign(state,values);states.set(passageKey(active),state);render();const selection=readingFollower.update(active,reader.position());updateReadingPlanControls($('learning-tools'),selection);model.persist?.(active,state,selection);if(model.animated){playing=state.moving!==false;last=0;start();}});if(active.reading)readingPlanControls($('learning-tools'),()=>{const reading=readingFollower.resume(active,reader.position());Object.assign(state,reading.beat.inputs);states.set(passageKey(active),state);$('demo-caption').textContent=reading.beat.caption;render();updateReadingPlanControls($('learning-tools'),reading);model.persist?.(active,state,reading);if(model.animated){playing=state.moving!==false;last=0;start();}},direction=>{const selection=readingFollower.update(active,reader.position()),index=Math.max(0,Math.min(active.reading.beats.length-1,selection.index+direction)),at=active.reading.beats[index].at;reader.jump(at.page,Math.min(.99,at.y+.012),false);});return;}
  const params=controls(active.scene,state).filter(c=>c.key!=='progress');
  $('parameters').innerHTML=params.map(c=>`<label>${c.label}<output id="value-${c.key}"></output><input data-key="${c.key}" aria-label="${c.label}" type="range" min="${c.min}" max="${c.max}" step="${c.step}" value="${state[c.key]}"></label>`).join('');
  const potential=hasPotentialVariant(active.scene);$('scene').hidden=!potential;if(potential)$('scene').value=state.variant;
@@ -154,7 +155,7 @@ $('restart').addEventListener('click',()=>{
  for(const key of keys)state[key]=defaults[key];state.direction=1;shape='';render();last=0;start();
 });
 $('parameters').addEventListener('input',e=>{const key=e.target.dataset.key;if(!key)return;pause();state[key]=Number(e.target.value);normalizeTemplate(active.scene,state);if(active.scene==='quorum'&&key==='n')buildControls();shape='';render();$('reset-values').hidden=false;});
-$('reset-values').addEventListener('click',()=>{state={...(active.generated?generatedDefaults(active.generated.model):initial(active.scene)),...active.defaults,variant:active.scene==='potential-loop'?'loop':'0'};states.set(active.id,state);shape='';buildControls();render();});
+$('reset-values').addEventListener('click',()=>{state={...(active.generated?generatedDefaults(active.generated.model):initial(active.scene)),...active.defaults,variant:active.scene==='potential-loop'?'loop':'0'};states.set(passageKey(active),state);shape='';buildControls();render();});
 $('scene').addEventListener('change',e=>{state.variant=e.target.value;state.path=e.target.value==='1'?1:0;state.progress=0;shape='';render();});
 for(const key of ['lines','contours'])$(key).addEventListener('change',e=>{state[key]=e.target.checked;shape='';render();});
 $('speed').addEventListener('input',e=>speed=Number(e.target.value));

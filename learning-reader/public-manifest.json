@@ -35,12 +35,12 @@
     },
     {
       "path": "runtime-profile.json",
-      "sha256": "43b374ff9ecc355b06cc0616ee9e558638b85a1cb1dc8f52766cad139d1a4181",
+      "sha256": "a58eb07fad0564b13cf1597401bf492ca97732583ec21f17f62f6695bbd4c0df",
       "bytes": 47290
     },
     {
       "path": "site-config.json",
-      "sha256": "fba78cb83f85afb5a27b8138b4e7779008486eda51214c4a44e3fe7eeb0b52df",
+      "sha256": "783545855f4d7c70fb5c613c55528b50e879dd8ac4579e8574f46c8ef14b637d",
       "bytes": 1553
     },
     {
@@ -430,8 +430,8 @@
     },
     {
       "path": "src/reader.js",
-      "sha256": "16263eb7fa215374d505cf81b792edc8e7cce384cd306785f6e789f9d75dd7f8",
-      "bytes": 35268
+      "sha256": "b311d5e6e6c933af7dbb83fbaef2ed493a0c4778eff68e605731837a3d953eec",
+      "bytes": 35467
     },
     {
       "path": "src/reading-context.js",
