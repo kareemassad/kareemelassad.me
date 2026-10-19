@@ -1,20 +1,52 @@
 {
   "mode": "static",
-  "codeHash": "a078594a2436bf5ac18cb09b1324d2ef8d08beb1445c0a75023f54488838ecc7",
+  "codeHash": "54c3e62829b25bb2b3225ca21d49818b8abb4f00dd346fbecf21ec39830f42ed",
   "books": [
     {
-      "id": "a9964a8c5f2b4eba8ded247c0748cc666ca84cdc02691185af2d19496d1a4531",
-      "title": "Falling into orbit",
-      "subtitle": "Original companion notes · Newtonian gravity",
-      "pages": 2,
-      "cover": "orbit",
-      "localUrl": "src/books/orbit-companion.pdf",
+      "id": "17b2ad182d7eff221e983a0250793dc8fc73c97f6f68331726c2bb154af91a79",
+      "title": "The Feynman Lectures on Physics",
+      "pages": 566,
+      "builtin": true,
+      "requiresSource": true,
+      "cover": "plain",
+      "subtitle": "Volume II · Electromagnetism and matter",
+      "preparedPassages": 219,
       "initialPosition": {
-        "page": 1,
-        "y": 0.1873232323232323
+        "page": 20,
+        "y": 0.22185090909090907
+      }
+    },
+    {
+      "id": "905e1348c2b7955a3e799998ce9b45993b5c8cfa9ef6b93931af7a780b71ac02",
+      "title": "Designing Data-Intensive Applications",
+      "pages": 491,
+      "builtin": true,
+      "requiresSource": true,
+      "cover": "network",
+      "subtitle": "DDIA · Sixth early release · July 11, 2016",
+      "preparedPassages": 14,
+      "initialPosition": {
+        "page": 167,
+        "y": 0.16
+      },
+      "chapterStart": {
+        "page": 167,
+        "y": 0.16
       }
     }
   ],
+  "hiddenBookIds": [
+    "a9964a8c5f2b4eba8ded247c0748cc666ca84cdc02691185af2d19496d1a4531"
+  ],
+  "offlineEnabled": false,
+  "publicAids": {
+    "url": "preparation/library-aids.json",
+    "sha256": "abf1054fda86fa9cb5d6288e6dac89e7a93f914bf51c9fd7b258c776fac4d827"
+  },
+  "runtimeProfile": {
+    "url": "runtime-profile.json",
+    "sha256": "fb487749b41a7a18bdd5aa89474c9ab7ef60c98a4e9c6252f8c2d7f89163172f"
+  },
   "localModelAssetsHashes": [
     "9dedeacd23b20bbcdd413858d7d3886b115549075a080b1d342e1380a3c6014e"
   ]

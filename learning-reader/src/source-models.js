@@ -1,0 +1,10 @@
+import {domainNames,domainControls} from './laplace-domain-models.js';
+import {circumstancesNames,circumstancesControls} from './circumstances-models.js';
+import {electrostaticsNames,electrostaticsControls} from './electrostatics-models.js';
+import {gaussNames,gaussControls} from './gauss-models.js';
+import {electromagnetismNames,electromagnetismControls} from './electromagnetism-models.js';
+import {templateControls} from './templates.js';
+import {chapter3Names,chapter3ReaderControls} from './chapter3-models.js';
+import {foundationNames,foundationControls} from './foundation-models.js';
+export const sourceModelNames=Object.freeze([...chapter3Names,...foundationNames,...electromagnetismNames,...electrostaticsNames,...gaussNames,...circumstancesNames,...domainNames]);
+export const sourceModelReaderControls=scene=>domainNames.includes(scene)?domainControls(scene):circumstancesNames.includes(scene)?circumstancesControls(scene):gaussNames.includes(scene)?gaussControls(scene):electrostaticsNames.includes(scene)?electrostaticsControls(scene):electromagnetismNames.includes(scene)?electromagnetismControls(scene):foundationNames.includes(scene)?foundationControls(scene):chapter3Names.includes(scene)?chapter3ReaderControls(scene):templateControls(scene);

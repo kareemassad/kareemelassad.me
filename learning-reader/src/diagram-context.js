@@ -1,0 +1,14 @@
+import {electromagnetismNames,electromagnetismDefinition,electromagnetismDefaults} from './electromagnetism-models.js';
+import {foundationNames,foundationDefinition,foundationDefaults} from './foundation-models.js';
+import {chapter3Names,chapter3Definition,chapter3Defaults} from './chapter3-models.js';
+import {boundaryNames,boundaryContext} from './boundary-models.js';
+export function diagramContext(svg,scene,state=null){
+ const causal=scene.startsWith('causal-'),gradient=scene.startsWith('gradient-');
+ const transaction=['snapshot-write-skew','serializable-retry'].includes(scene);
+ const observation=['point','dipole','solid-sphere','spherical-shell','parallel-sheets','shell-cone','shell-power-law'].includes(scene);
+ const boundary=boundaryNames.includes(scene)?boundaryContext(scene):null;
+ const ch3=electromagnetismNames.includes(scene)?electromagnetismDefinition(scene,state||electromagnetismDefaults[scene]):foundationNames.includes(scene)?foundationDefinition(scene,state||foundationDefaults[scene]):chapter3Names.includes(scene)?chapter3Definition(scene,state||chapter3Defaults[scene]):null;
+ const values=ch3?ch3.sourceScope:boundary?boundary.values:causal?'One deterministic causal trace · no physical clock or network timing':scene==='gradient-direction'?'Smooth illustrative field · finite error = κh²/2 · z fixed':scene==='gradient-coordinates'?'Linear illustrative field (κ = 0) · z = z′ · dot product unchanged':scene==='charge-sampling'?'Static worked diagram · qualitative contact paths':scene==='null-comparison'?'Illustrative units · no apparatus calibration':transaction?'One fixed illustrative schedule':observation?'Illustrative values · moving observation point':scene==='sheet-background'?'Illustrative values · varying uniform background':scene==='quorum'?'Illustrative configuration · changing read group':'Illustrative values · scan of static configurations';
+ const hint=ch3?'Drag the control point · More controls below':boundary?boundary.hint:causal?'← / →: step · ↑ / ↓: comparison · Click or Space: pause / play':gradient?'← / →: distance or axis angle · ↑ / ↓: direction · Space: pause / play':scene==='quorum'?'↑ / ↓: read size · ← / →: read group · Click or Space: pause / play':scene==='shell-power-law'?'← / →: position · ↑ / ↓: exponent · Click or Space: pause / play':scene==='charge-sampling'?'Pointer deflection is qualitative · charge amount is unspecified':scene==='null-comparison'?'← / →: residual · ↑ / ↓: assumed error bound':transaction?'Left / Right: step · Click or Space: pause / play':scene==='statics'?'Static-field illustration':'Click or Space: pause / play';
+ return svg.replace('viewBox="0 0 600 400"','viewBox="0 0 600 452"').replace('</svg>',`<g class="diagram-context"><text x="300" y="421" text-anchor="middle" class="context-label">${values}</text><text x="300" y="442" text-anchor="middle" class="context-label">${hint}</text></g></svg>`);
+}

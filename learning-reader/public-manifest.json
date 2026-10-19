@@ -1,15 +1,13 @@
 {
   "format": "original-reader-public",
-  "version": 1,
-  "originalSourceHash": "a9964a8c5f2b4eba8ded247c0748cc666ca84cdc02691185af2d19496d1a4531",
-  "privateSourcesIncluded": false,
-  "thirdPartyApplicationCodeIncluded": false,
+  "version": 2,
+  "textbookPDFsIncluded": false,
+  "textbookCoversIncluded": false,
+  "textbookSelectorsIncluded": false,
+  "referenceSimulationsImported": 0,
+  "originalSavedPackages": 198,
+  "originalSavedPassages": 233,
   "files": [
-    {
-      "path": "PDFJS-LICENSE.txt",
-      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
-      "bytes": 10174
-    },
     {
       "path": "favicon.svg",
       "sha256": "1f918c557c2048d70b4386f1ad37e41253a67b1deda58464f73b16b8c76a1ec8",
@@ -17,18 +15,43 @@
     },
     {
       "path": "index.html",
-      "sha256": "64fed5bdb48df20ad0473239dfec321d96d00a851034b908802c8d8707c00f3d",
-      "bytes": 7692
+      "sha256": "30730227d51607d31eba3a9e85847d023e91baa7ace1c7592d80b0d3838b06af",
+      "bytes": 8051
+    },
+    {
+      "path": "PDFJS-LICENSE.txt",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "bytes": 10174
     },
     {
       "path": "preparation/catalog.json",
-      "sha256": "7cfaae91417cf9e3071e66c3d430585b83c4ac6b2ffe1ce532fd338c89aa91e4",
+      "sha256": "e69989d6dc406c7dadf4debde7b566ebc795a98016b976eafceaa8d476d0e7e2",
       "bytes": 9404
     },
     {
+      "path": "preparation/library-aids.json",
+      "sha256": "abf1054fda86fa9cb5d6288e6dac89e7a93f914bf51c9fd7b258c776fac4d827",
+      "bytes": 540542
+    },
+    {
+      "path": "runtime-profile.json",
+      "sha256": "fb487749b41a7a18bdd5aa89474c9ab7ef60c98a4e9c6252f8c2d7f89163172f",
+      "bytes": 45954
+    },
+    {
       "path": "site-config.json",
-      "sha256": "cc791f4ae57fa2f9f4b2ae3adb38ef55ea5df3a9afc015e10b626fa00f93b2e0",
-      "bytes": 603
+      "sha256": "1186e8e647a907f8807cce5a55e5a6635b7c273145a446c0a2207718290e000c",
+      "bytes": 1553
+    },
+    {
+      "path": "src/adapter-models.js",
+      "sha256": "369980bfecaa77e5c4734a96da6a968a3c7bde0b506ce5bed11305bdfce4c8b5",
+      "bytes": 10897
+    },
+    {
+      "path": "src/additional-learning-checks.js",
+      "sha256": "73f0148c4a75c2a71e32b796d2206a6eb21e568db77dd7862d2bb7803c1f5fcd",
+      "bytes": 8061
     },
     {
       "path": "src/assets.js",
@@ -44,6 +67,66 @@
       "path": "src/books/orbit-companion.pdf",
       "sha256": "a9964a8c5f2b4eba8ded247c0748cc666ca84cdc02691185af2d19496d1a4531",
       "bytes": 3124
+    },
+    {
+      "path": "src/boundary-models.js",
+      "sha256": "39840dd2cefc749f775514a4d22b293837defe014e4e4a550d93997a4c18eb64",
+      "bytes": 12074
+    },
+    {
+      "path": "src/causal-models.js",
+      "sha256": "9008d8fb83e89759d648fa7ecdad3588a170b5dfc259d7a6a117d4310f9413d0",
+      "bytes": 5315
+    },
+    {
+      "path": "src/causal-trace.js",
+      "sha256": "64127f8d6ba3af1e1f786c272354264f7fea80778074e6c9db6608bfa29de4a4",
+      "bytes": 4391
+    },
+    {
+      "path": "src/chapter3-models.js",
+      "sha256": "4f09a408ea3b4e3abdcb2eae6221b8d28b8d112d65c376ace55f196aa7280232",
+      "bytes": 19875
+    },
+    {
+      "path": "src/chapter8-argument-data.json",
+      "sha256": "328ba010f73274555b72fa4db1c03ad532a4f6905a3ed4dc9507800816133bd7",
+      "bytes": 10072
+    },
+    {
+      "path": "src/chapter8-argument-models.js",
+      "sha256": "687949b7a728e4390d828ea3c14bf4563956ac174dbde02cd0c2c998ec889763",
+      "bytes": 9733
+    },
+    {
+      "path": "src/chapter8-assembly-models.js",
+      "sha256": "945322a2b83a82e425250c447c5fea3536d20be3ee6fddf3646ea2ebadf2e7f0",
+      "bytes": 5093
+    },
+    {
+      "path": "src/chapter8-capacitance-models.js",
+      "sha256": "d0425f7173375f9b12958189248a94e729ae7c7fefa18a5e40232f398221c8c7",
+      "bytes": 11234
+    },
+    {
+      "path": "src/chapter8-crystal-nuclear-models.js",
+      "sha256": "0c141dc63153218fbe12d689f2ea05c5ab9c7697ac9e13bd7df94b878c1b25f7",
+      "bytes": 24682
+    },
+    {
+      "path": "src/chapter8-extension-models.js",
+      "sha256": "caaa443e31f02dd970272680a38dc52f0e02fe4a24e6d59d182b036932661285",
+      "bytes": 22492
+    },
+    {
+      "path": "src/chapter8-field-models.js",
+      "sha256": "29944da241d196cab742e768802b9c300c5f6465cb8d7007810b55481a40cef6",
+      "bytes": 27553
+    },
+    {
+      "path": "src/circumstances-models.js",
+      "sha256": "06f2e79a68441ee9de07f1dd8c9d06bcca63e47ee7f48d9a1ec8eab21e99729d",
+      "bytes": 28534
     },
     {
       "path": "src/clock-binding-book.js",
@@ -76,6 +159,46 @@
       "bytes": 2052
     },
     {
+      "path": "src/conductor-extension-models.js",
+      "sha256": "a7e056e38437f952abc909ed1c50e1160a5f46774f1464307dbcb0a5a98362f4",
+      "bytes": 25505
+    },
+    {
+      "path": "src/diagram-adapter.css",
+      "sha256": "f78360c1f819eee17c7066103c0104cdc4575ae15b738eb136c912b8d2d858f1",
+      "bytes": 852
+    },
+    {
+      "path": "src/diagram-adapter.js",
+      "sha256": "2f82d11a3e9163f8db53f6c56b5b7b7b15f17cf9c6edeace97ebf7e89248901a",
+      "bytes": 8480
+    },
+    {
+      "path": "src/diagram-context.js",
+      "sha256": "2a58dcdfac17ca84b3326b94c0059be7f4dd1360b7efc34da3d015eec6f9fa4f",
+      "bytes": 2982
+    },
+    {
+      "path": "src/dielectric-models.js",
+      "sha256": "3fa6c3368c8a6f1c8e100d97d61e1086c9ae71e6af619134dfc086a1f9299227",
+      "bytes": 5641
+    },
+    {
+      "path": "src/electromagnetism-models.js",
+      "sha256": "8caf7a087138ff63a3101c8d1bf2f4dea0bc60a58dca37535ffb886da663c658",
+      "bytes": 34510
+    },
+    {
+      "path": "src/electrostatics-models.js",
+      "sha256": "b4a19efd010af73fd041717572459d75b30e50f518fbc70631cc1450fe62e1db",
+      "bytes": 12719
+    },
+    {
+      "path": "src/energy-models.js",
+      "sha256": "9866a674f27065e9b6875086c91e48035bab6b5c08dbfb2921368b27026120e9",
+      "bytes": 11817
+    },
+    {
       "path": "src/explanation-package.js",
       "sha256": "113253f5960bad528707ed6c04089b6aaea8f0ca58e0adc03e2e96a99899328c",
       "bytes": 2441
@@ -86,14 +209,64 @@
       "bytes": 980
     },
     {
+      "path": "src/foundation-models.js",
+      "sha256": "03c31b5ba7b583c54db3811420e659e68b24ac73dad56f66922d839ca09828cf",
+      "bytes": 32847
+    },
+    {
+      "path": "src/gauss-models.js",
+      "sha256": "bfddd08a8b589aa54cfa60ccb4aa2b689bf89338b4b85450f3469124b196d974",
+      "bytes": 32088
+    },
+    {
+      "path": "src/generated-model.js",
+      "sha256": "fddebeb81cf9afe7d0a21d6f0dd84b35a07be69a6e1e41bf18b064c6db82c220",
+      "bytes": 12738
+    },
+    {
+      "path": "src/generated-view.css",
+      "sha256": "8d92259ab107c57d0dc22ebf456f5f043f310d25742cd869ed05eb6e5134a838",
+      "bytes": 2761
+    },
+    {
+      "path": "src/generated-view.js",
+      "sha256": "de22f73af9374a9779b8c4d02becf9fc1e35a58ac695b1634f07bd65ac6e902d",
+      "bytes": 7487
+    },
+    {
+      "path": "src/gradient-models.js",
+      "sha256": "fd09717132b2193c4c3b925d7606c15587b6f5fe0dd8bd99b966cf48b876eaab",
+      "bytes": 9284
+    },
+    {
+      "path": "src/hot-reload.js",
+      "sha256": "ae7e3f27dd56ab1e2a6db58059e548c2162b933dc91585312abeef142cc13d0f",
+      "bytes": 2557
+    },
+    {
+      "path": "src/laplace-domain-models.js",
+      "sha256": "7d4e26b2f8c68c1416b9429edf21a20d1bea1bda2b25265badde81cf2a9abff6",
+      "bytes": 21741
+    },
+    {
+      "path": "src/learning-checks.js",
+      "sha256": "e81527e59589254592146404cd27431c51e494542ccb36394b5ff9ea5294114e",
+      "bytes": 15007
+    },
+    {
+      "path": "src/learning-models.js",
+      "sha256": "05d664cf3110c4689f0803ffeb03b37e9c5c78f2c968d89b85018f5a55236ddf",
+      "bytes": 1704
+    },
+    {
       "path": "src/legacy-scopes.js",
       "sha256": "9cbc769867e73fef77ea5ffb8ccdbf82a36162dc6827beb27c30b4ddacfef0ba",
       "bytes": 92
     },
     {
       "path": "src/library-shell.css",
-      "sha256": "fa314168c37d02c6fd5560417ec767cb79b17df5094cc824000e5f99dea004d9",
-      "bytes": 6740
+      "sha256": "e685ba491eb7764c2e74e12250cc32110a4681fd9b487a0eacd2e5f6594ca8ad",
+      "bytes": 6842
     },
     {
       "path": "src/library-shell.js",
@@ -106,9 +279,59 @@
       "bytes": 3399
     },
     {
+      "path": "src/licenses/JSAV-MIT.txt",
+      "sha256": "05e0a5ea02c82bba081f4c6ed89bf8802afdd0a37ca5de53cae91f925a863bc7",
+      "bytes": 1095
+    },
+    {
+      "path": "src/licenses/Open-LA-Applets-Apache-2.0.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    {
+      "path": "src/local-pdf-cover.js",
+      "sha256": "cd218883fabc129b109f6139fe97f8993c4e609f4a0aa6dd129c7224a848de1d",
+      "bytes": 625
+    },
+    {
+      "path": "src/math-equations.css",
+      "sha256": "4ca1551cea1f863e0c93ad843561ae672daea5a9d6e1dad6cf158eaf4c13c0df",
+      "bytes": 21060
+    },
+    {
+      "path": "src/math-equations.json",
+      "sha256": "fb2d68a3947ec86607e98da6c3ed51f9d35d8e7276f51e20edc98069bed0832c",
+      "bytes": 681666
+    },
+    {
+      "path": "src/models.js",
+      "sha256": "9c785c4fac4ad990f584daea3b38dc01dc961e5e5f9494a076ac8860168e2974",
+      "bytes": 5873
+    },
+    {
+      "path": "src/molecular-emission-models.js",
+      "sha256": "d04d18c6bcfc34f7840d82ebba7d38f3923007d9aa1303842bd76be08f37b3f3",
+      "bytes": 21019
+    },
+    {
+      "path": "src/opening-context-a-models.js",
+      "sha256": "42e6f860dc19c70b2025382afc733a609db7fcd8aa513011c6698d5a5b586e0c",
+      "bytes": 24345
+    },
+    {
+      "path": "src/opening-context-b-models.js",
+      "sha256": "0d969229f9043b89cc1b67675b84bf94d3af4447439e19111d31b69ef983838a",
+      "bytes": 25732
+    },
+    {
+      "path": "src/opening-extension-models.js",
+      "sha256": "64cceb5406f28d9cd5a2adaf2ae0da92b915fc028a2f5d410f5a12b79fe1b32f",
+      "bytes": 29869
+    },
+    {
       "path": "src/orbit-companion-book.js",
-      "sha256": "aa80fd8a5fb3b9a8c8043e1eca699f6c7a8a59af3f9710334b2e31505a6342d2",
-      "bytes": 1209
+      "sha256": "86aff1cf8c37f3af65346c73930427a7fa921e114f53c2edadd6fa9969b1e793",
+      "bytes": 1235
     },
     {
       "path": "src/orbit-companion-data.json",
@@ -137,13 +360,13 @@
     },
     {
       "path": "src/pack-catalog.js",
-      "sha256": "b3e5185a1efd928f8e3c29a050c588b5435940ee07a27545d8028ef800e14a54",
+      "sha256": "dc47d9bf081651d6db145df546c1c294303bc1680a44ba4a61a9470021f31ad7",
       "bytes": 10526
     },
     {
       "path": "src/pack-schema.js",
-      "sha256": "a078594a2436bf5ac18cb09b1324d2ef8d08beb1445c0a75023f54488838ecc7",
-      "bytes": 770
+      "sha256": "54c3e62829b25bb2b3225ca21d49818b8abb4f00dd346fbecf21ec39830f42ed",
+      "bytes": 5150
     },
     {
       "path": "src/passage-breakpoints.js",
@@ -152,8 +375,18 @@
     },
     {
       "path": "src/passages.js",
-      "sha256": "f069f39a759a9ccaca7e6e88cef32bf70c61ada04ae0c643a69d0d29415b5a22",
-      "bytes": 173
+      "sha256": "b568c2624611f5cd046699499283ea6012651f31c45826309ce7943152873fa3",
+      "bytes": 184
+    },
+    {
+      "path": "src/physics.js",
+      "sha256": "33606a93dab6b3259a9778ee083fd59469956dbb0fdac6411a24318841219aa3",
+      "bytes": 6898
+    },
+    {
+      "path": "src/planar-models.js",
+      "sha256": "6de64774cf7102868d1e9d376caa51cccd9c05a678d18add879d984f50b077b0",
+      "bytes": 4640
     },
     {
       "path": "src/progress.js",
@@ -166,14 +399,29 @@
       "bytes": 4623
     },
     {
+      "path": "src/public-aids-v1.js",
+      "sha256": "663b2384d92f7e0116bd8ed5707c1e68f287c4667990c230f49a40fbe8b249d8",
+      "bytes": 3016
+    },
+    {
+      "path": "src/public-library-catalog.js",
+      "sha256": "a5dfd675c0fadd12d1aa47e057695a11bbd9e65a767dffa46a9bf18352ed5e0a",
+      "bytes": 5126
+    },
+    {
+      "path": "src/public-library-store.js",
+      "sha256": "3c68ccdbb4f890c8ea315f10c532aeb47fcee7be8a3b73c80c28cc5b0cf7fb70",
+      "bytes": 1622
+    },
+    {
       "path": "src/public-pack-catalog.js",
       "sha256": "e82607beeb356660062390e79f92dd9d8f2fa276ee3a77762e24aaca490523fd",
       "bytes": 1609
     },
     {
       "path": "src/reader-books.js",
-      "sha256": "7ad71275f3fbce35a32f5fe372d92379d49be691516394e5a1954d4ecf287bda",
-      "bytes": 237
+      "sha256": "8f67ba0a7eeac8c63421caed119c61b1e979578f5403b4ae780e2fb3602ee00c",
+      "bytes": 1091
     },
     {
       "path": "src/reader.css",
@@ -182,8 +430,8 @@
     },
     {
       "path": "src/reader.js",
-      "sha256": "4bc6ece9295dee253a0f4fbf9cfa066e907254ef8aee39ea39e3ef7e5814d25c",
-      "bytes": 8362
+      "sha256": "3588d85e312a862dbe70b1b58e6316b4b9557ff6e31dd79c9822d4a38d7a6050",
+      "bytes": 34903
     },
     {
       "path": "src/reading-context.js",
@@ -201,24 +449,64 @@
       "bytes": 2045
     },
     {
+      "path": "src/replication-lessons.js",
+      "sha256": "1989d1c2ef685ffac339433965f3128f244586a7ca755e44220ee76377cc6f21",
+      "bytes": 9868
+    },
+    {
+      "path": "src/replication-models.js",
+      "sha256": "253eb80ce0af5aa7421f9710a67940bbb5292c9b65d1d3eb81cbc656a43697e7",
+      "bytes": 6931
+    },
+    {
+      "path": "src/replication-package.js",
+      "sha256": "79ca62989a8acde4905980d1894b4f79138df22e85744e669949b0ea55ebc100",
+      "bytes": 2397
+    },
+    {
+      "path": "src/replication-view.js",
+      "sha256": "a15cbd6e7e470d63f3e8b8760c4fcf6b806d526e790d29fdfa1b169ed10db07d",
+      "bytes": 5654
+    },
+    {
       "path": "src/replication.css",
       "sha256": "4883487972557d14847038664b1a8806c9489edb0a48b147eb87a238e86b1d95",
       "bytes": 2981
     },
     {
+      "path": "src/reusable-explanation-v1.js",
+      "sha256": "564ffb7aa4ec435fe0c2c98b6609ecb713414291d2d319a597703d9a396ddabd",
+      "bytes": 7892
+    },
+    {
       "path": "src/reusable-explanation-v2.js",
-      "sha256": "fbe87d98027171901da3cc4c2bcb7b40d9657f8328d5455bcc2be629a3a7a447",
-      "bytes": 110
+      "sha256": "f69a82540bfa2634799009f50d4b4e01b87446926e467be08aa6de5532cae949",
+      "bytes": 5505
     },
     {
       "path": "src/reusable-explanation.js",
-      "sha256": "317dda7e87c7c4b84f41c5d519329bfdc63015d48dec27d696ec67f8d86b7ed9",
-      "bytes": 378
+      "sha256": "81e8673a1b7258d4b05696975ce364e8c20a9259f5a244754be20d5acd7d2eb6",
+      "bytes": 1577
+    },
+    {
+      "path": "src/scene-primitives.js",
+      "sha256": "8d698a90a0e2417d6a4798a2d39480876aceb3764c10f5c244ed72dd03fa038d",
+      "bytes": 1972
+    },
+    {
+      "path": "src/scenes.js",
+      "sha256": "2dce0c525661ed6ad277ad5fcf615100e2cc9fadbee23e984bf6c7628353b177",
+      "bytes": 17576
     },
     {
       "path": "src/scroll-reader.js",
       "sha256": "64864614b6981bd52978c72aaa3fa19d1f715b1fd4861356cfaf7fdadee08a3b",
       "bytes": 8556
+    },
+    {
+      "path": "src/series-models.js",
+      "sha256": "c3f31ecddb4ba7a17e019d1fa9fd88ec4839ec0d067d9ee0fd0fd90f32ef0819",
+      "bytes": 7088
     },
     {
       "path": "src/shelf.css",
@@ -227,18 +515,53 @@
     },
     {
       "path": "src/shelf.js",
-      "sha256": "5ab87aa9b21d91ccb9022848a78fcc0e0e3a4ee58b75caccb24b642eaaacaf01",
-      "bytes": 26941
+      "sha256": "7fd7b993deb7a5ea30ba21de4983e42b06b7d1b234d3fc2b928a02f41ed80582",
+      "bytes": 27979
+    },
+    {
+      "path": "src/shell-cone-model.js",
+      "sha256": "80073a0ec4d74f9462a8e1c9b6268a40995f63743a88e350c373c2eb2e968a7b",
+      "bytes": 5052
+    },
+    {
+      "path": "src/shell-experiments.js",
+      "sha256": "bfaddbaa706f498b3169c242c865adde1e5bfe980e3885ce5508fbaf0da8e44c",
+      "bytes": 9105
     },
     {
       "path": "src/site-config.js",
-      "sha256": "08bbf3bd0c07cf3bfaa1a60c4bee9b2533a98d850e86ce44a031fdb6dae6c71c",
-      "bytes": 1696
+      "sha256": "13f8abe9c9cb73df67c8fed448154e793d1e4b16faea3cb1b7384d517ad29443",
+      "bytes": 1727
     },
     {
       "path": "src/source-anchor.js",
       "sha256": "bbb0fd34b29113dd64989c936bfb5b43d2c8192fd907532d919e7cf8ea0d0bbd",
       "bytes": 620
+    },
+    {
+      "path": "src/source-contract.js",
+      "sha256": "3a6008a207043b3957d0a20a4d0d79cfe2d3870f8ea7b1b18802bfc780007e81",
+      "bytes": 17534
+    },
+    {
+      "path": "src/source-models.js",
+      "sha256": "9f28210db5ebe7fa938ebbc8b5f19b3ca93e40ff837bdedaa6974f65e1fd0746",
+      "bytes": 1264
+    },
+    {
+      "path": "src/spherical-models.js",
+      "sha256": "fb310aff072b15a7321c520e7652ff4a877db6811b02e1084499c21a1733d49b",
+      "bytes": 5126
+    },
+    {
+      "path": "src/templates.js",
+      "sha256": "ac8b9e62e06fb309ae0a251eeae955fc1b03835721fa3b110b4991efe1e5c829",
+      "bytes": 25782
+    },
+    {
+      "path": "src/transaction-models.js",
+      "sha256": "a1bba2f4f6db731ec20f4437c7cf11d77f92854124756198c5e1f2b1b8d402d9",
+      "bytes": 3545
     },
     {
       "path": "vendor/cmaps/78-EUC-H.bcmap",
@@ -521,16 +844,6 @@
       "bytes": 93
     },
     {
-      "path": "vendor/cmaps/ETHK-B5-H.bcmap",
-      "sha256": "d2f10fa519336bc4efcc7b6deb9604b75429946b40d82e311cb3a97a1994c89a",
-      "bytes": 4426
-    },
-    {
-      "path": "vendor/cmaps/ETHK-B5-V.bcmap",
-      "sha256": "1fea3fd0d9f0f679f80505800851ef2e4131d81127e18c006938ffa2f4c8b247",
-      "bytes": 158
-    },
-    {
       "path": "vendor/cmaps/ETen-B5-H.bcmap",
       "sha256": "87ee6b3f5bfda5fe26fa35431264c7d73070d10dbbf398a75185d63ae322c18d",
       "bytes": 1125
@@ -549,6 +862,16 @@
       "path": "vendor/cmaps/ETenms-B5-V.bcmap",
       "sha256": "18252fca90f472f479af1bddd60d6ab51c8e1b55dcf6845951426504934543e0",
       "bytes": 172
+    },
+    {
+      "path": "vendor/cmaps/ETHK-B5-H.bcmap",
+      "sha256": "d2f10fa519336bc4efcc7b6deb9604b75429946b40d82e311cb3a97a1994c89a",
+      "bytes": 4426
+    },
+    {
+      "path": "vendor/cmaps/ETHK-B5-V.bcmap",
+      "sha256": "1fea3fd0d9f0f679f80505800851ef2e4131d81127e18c006938ffa2f4c8b247",
+      "bytes": 158
     },
     {
       "path": "vendor/cmaps/EUC-H.bcmap",
@@ -631,6 +954,16 @@
       "bytes": 181
     },
     {
+      "path": "vendor/cmaps/GBpc-EUC-H.bcmap",
+      "sha256": "3c4a4eb82f05abe51f6650985c630e180438bfdd491318f5d20d2ec29236e1c3",
+      "bytes": 557
+    },
+    {
+      "path": "vendor/cmaps/GBpc-EUC-V.bcmap",
+      "sha256": "215bdfa2842705624b4cf4cd29b8e3c720f1e192365e0305c11030a424c84d7c",
+      "bytes": 181
+    },
+    {
       "path": "vendor/cmaps/GBT-EUC-H.bcmap",
       "sha256": "dc5f44e48a39f3367ae28665027d8ab1d8cedb5a9dcc5068a900acd6709f60f9",
       "bytes": 7290
@@ -661,19 +994,19 @@
       "bytes": 182
     },
     {
-      "path": "vendor/cmaps/GBpc-EUC-H.bcmap",
-      "sha256": "3c4a4eb82f05abe51f6650985c630e180438bfdd491318f5d20d2ec29236e1c3",
-      "bytes": 557
-    },
-    {
-      "path": "vendor/cmaps/GBpc-EUC-V.bcmap",
-      "sha256": "215bdfa2842705624b4cf4cd29b8e3c720f1e192365e0305c11030a424c84d7c",
-      "bytes": 181
-    },
-    {
       "path": "vendor/cmaps/H.bcmap",
       "sha256": "a0233e21047ec00b852125b243cbcf30abee511155b6d8159c24f944384bc9ee",
       "bytes": 553
+    },
+    {
+      "path": "vendor/cmaps/Hankaku.bcmap",
+      "sha256": "b454701f7aecd7856769016dfd04ca64280a060f2c67a2466d50b4395d24974e",
+      "bytes": 132
+    },
+    {
+      "path": "vendor/cmaps/Hiragana.bcmap",
+      "sha256": "2ed669394756dd9458651cd9995ab29ab691ecb7686659003306cdf22767a414",
+      "bytes": 124
     },
     {
       "path": "vendor/cmaps/HKdla-B5-H.bcmap",
@@ -736,14 +1069,9 @@
       "bytes": 159
     },
     {
-      "path": "vendor/cmaps/Hankaku.bcmap",
-      "sha256": "b454701f7aecd7856769016dfd04ca64280a060f2c67a2466d50b4395d24974e",
-      "bytes": 132
-    },
-    {
-      "path": "vendor/cmaps/Hiragana.bcmap",
-      "sha256": "2ed669394756dd9458651cd9995ab29ab691ecb7686659003306cdf22767a414",
-      "bytes": 124
+      "path": "vendor/cmaps/Katakana.bcmap",
+      "sha256": "3b6ca6642fbf8822da00d5e58a8aa275216d5c32dbf2bd73e934197fc9fc5c53",
+      "bytes": 100
     },
     {
       "path": "vendor/cmaps/KSC-EUC-H.bcmap",
@@ -804,11 +1132,6 @@
       "path": "vendor/cmaps/KSCpc-EUC-V.bcmap",
       "sha256": "031707887d6fc2378a36cdb6775334fd7a236c3f95048d8436abf43fe26fc49d",
       "bytes": 166
-    },
-    {
-      "path": "vendor/cmaps/Katakana.bcmap",
-      "sha256": "3b6ca6642fbf8822da00d5e58a8aa275216d5c32dbf2bd73e934197fc9fc5c53",
-      "bytes": 100
     },
     {
       "path": "vendor/cmaps/LICENSE",
@@ -1096,6 +1419,331 @@
       "bytes": 2395538
     },
     {
+      "path": "vendor/renderers/jsxgraph/core.LICENSE.txt",
+      "sha256": "7f15c10b7ed23971076d2eae092f817ff481e14cfe9fd9ecf61be5345e9981ca",
+      "bytes": 127
+    },
+    {
+      "path": "vendor/renderers/jsxgraph/core.mjs",
+      "sha256": "26638eb27ea090ebdb1d99fb68ebcc9d430c53c502881a5dbfb0512d76f5c105",
+      "bytes": 1000492
+    },
+    {
+      "path": "vendor/renderers/jsxgraph/LICENSE.MIT",
+      "sha256": "43e325001487de7f09745fbe086b054bb1b70d4ab58060e87153849365b23ff1",
+      "bytes": 1201
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_AMS-Regular.ttf",
+      "sha256": "68534840bcfdd2bffb6f0e8deb48684dd01e7f04ea2813267577afb906de1d13",
+      "bytes": 63632
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_AMS-Regular.woff",
+      "sha256": "30da91e84c893f875e252689faebdc590b2871145e8adc7f9a9d4dbd8ce0b251",
+      "bytes": 33516
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_AMS-Regular.woff2",
+      "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+      "bytes": 28076
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Caligraphic-Bold.ttf",
+      "sha256": "07d8e303ce4fc12b4bb54f1004170dd190a1f3db45d400fe68060df3e0897268",
+      "bytes": 12368
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Caligraphic-Bold.woff",
+      "sha256": "1ae6bd7475590e97e7f145a89e09ccde322f7a6bc0b91607b1c8b8ee28290fed",
+      "bytes": 7716
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Caligraphic-Bold.woff2",
+      "sha256": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c",
+      "bytes": 6912
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Caligraphic-Regular.ttf",
+      "sha256": "ed0b74372feefcbb9c0666b2e210da37b7e49fa7fbbf3eeb11db5f693dacfbb7",
+      "bytes": 12344
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Caligraphic-Regular.woff",
+      "sha256": "3398dd02302557a793f2863f88e02d96ce10df2abffa07c8e9fa90775116e65c",
+      "bytes": 7656
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Caligraphic-Regular.woff2",
+      "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b",
+      "bytes": 6908
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Fraktur-Bold.ttf",
+      "sha256": "9163df9c7122432e6495b4229fa9071cf9ae86a758ae5efc4924ec2e1a6dbce1",
+      "bytes": 19584
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Fraktur-Bold.woff",
+      "sha256": "9be7ceb88004ab8ad124082246fbfcca4091e36385d4ec6ed1df67375dad50fb",
+      "bytes": 13296
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Fraktur-Bold.woff2",
+      "sha256": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f",
+      "bytes": 11348
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Fraktur-Regular.ttf",
+      "sha256": "1e6f9579e90e2cac37f8f60a597c436e075c114385652b7cbeb0dec0421291b3",
+      "bytes": 19572
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Fraktur-Regular.woff",
+      "sha256": "5e28753be717dac97f559f49bc10be9cf3c124ddcabda6659d11cb68febc6463",
+      "bytes": 13208
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Fraktur-Regular.woff2",
+      "sha256": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc",
+      "bytes": 11316
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Main-Bold.ttf",
+      "sha256": "138ac28d1663b3037e9c5f52371fa5c63d8324f4a38d22cd573e6ea3a3fd0cf8",
+      "bytes": 51336
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Main-Bold.woff",
+      "sha256": "c76c5d696297d51b9cb1639c7da4334f0e7dec81b42b11213b5e25ef671bb822",
+      "bytes": 29912
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Main-Bold.woff2",
+      "sha256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021",
+      "bytes": 25324
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Main-BoldItalic.ttf",
+      "sha256": "70ee1f64a20f2048c21940ef46d0144fd215baa953ca69afd1e31e98544f708f",
+      "bytes": 32968
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Main-BoldItalic.woff",
+      "sha256": "a6f7ec0d846ac7ad975adb8959c37ed49b94acbc4ae436db9ce9e20287e4a64c",
+      "bytes": 19412
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Main-BoldItalic.woff2",
+      "sha256": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b",
+      "bytes": 16780
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Main-Italic.ttf",
+      "sha256": "0d85ae7cc30f23790a7f1a58c4a112fdca8aae769b6ba11429af1d98b1b6cb3a",
+      "bytes": 33580
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Main-Italic.woff",
+      "sha256": "f1d6ef86f3b11a528bd5185199bd2443ecb2b0dead96d88674b5a2c12be24bdf",
+      "bytes": 19676
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Main-Italic.woff2",
+      "sha256": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267",
+      "bytes": 16988
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Main-Regular.ttf",
+      "sha256": "d0332f52868370fd83ae7fa46470f90c8f2eab2fcf12bc4f88080b340c95a830",
+      "bytes": 53580
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Main-Regular.woff",
+      "sha256": "c6368d87e8a1a3a5d337623d83d8dc4b868f242a9ad476237d6f8d1e0f168cdc",
+      "bytes": 30772
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Main-Regular.woff2",
+      "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+      "bytes": 26272
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Math-BoldItalic.ttf",
+      "sha256": "f9377ab0271cda59af24bcffbd46a4d0c8a3572ffafdbb38de2ad5ea7b0d5ee5",
+      "bytes": 31196
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Math-BoldItalic.woff",
+      "sha256": "850c0af5c2238497febaf5e461d880bf458c341f42f4f330f1b1ab5698b1998e",
+      "bytes": 18668
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Math-BoldItalic.woff2",
+      "sha256": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1",
+      "bytes": 16400
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Math-Italic.ttf",
+      "sha256": "08ce98e51b04d58945a301e639e02b6998af29fdfd61a7b8afdd07bbfc479d4a",
+      "bytes": 31308
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Math-Italic.woff",
+      "sha256": "8a8d244581371912b8f3f5a23e2437cb2a59cd9bcaebb0346e722c05737a2571",
+      "bytes": 18748
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Math-Italic.woff2",
+      "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+      "bytes": 16440
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Bold.ttf",
+      "sha256": "1ece03f79f95277d57dc7f6b435a74e1379b0d46104a8530286b60ff49369ea0",
+      "bytes": 24504
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Bold.woff",
+      "sha256": "ece03cfd83e22c212cdef66feb8442d25a083beb988db3f1883f3f9738d750ba",
+      "bytes": 14408
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Bold.woff2",
+      "sha256": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62",
+      "bytes": 12216
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Italic.ttf",
+      "sha256": "3931dd81faed86ba021bb2bbdc36f5bed9a38d6b4f4077aca59b265aa1b02083",
+      "bytes": 22364
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Italic.woff",
+      "sha256": "91ee67500cc0129aa0ace3ac5c61ff1692102f0f31d02b69347fba35dcb75bf2",
+      "bytes": 14112
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Italic.woff2",
+      "sha256": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a",
+      "bytes": 12028
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Regular.ttf",
+      "sha256": "f36ea897e19f4a2e571d1e900e4e3710e438deb05a842486045ba0a3e616a4ad",
+      "bytes": 19436
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Regular.woff",
+      "sha256": "11e4dc8a6471ff6d6ee561d53d10fde8f7489e798257ff449c5d37c197435605",
+      "bytes": 12316
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Regular.woff2",
+      "sha256": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342",
+      "bytes": 10344
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Script-Regular.ttf",
+      "sha256": "1c67f068fea8bb09bf099c088b1cf64bd27516a6e07f4684344873564bb66a67",
+      "bytes": 16648
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Script-Regular.woff",
+      "sha256": "d96cdf2b3bdd4d64a8fd5f74a4c467f123a8a73931cd435889f08ffaf9bf947a",
+      "bytes": 10588
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Script-Regular.woff2",
+      "sha256": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b",
+      "bytes": 9644
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Size1-Regular.ttf",
+      "sha256": "95b6d2f1a50173bfedb8c63e1d1c99b10427d0a4df4201cb44513b226951a22b",
+      "bytes": 12228
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Size1-Regular.woff",
+      "sha256": "c943cc986384f59e86bea5fd7dc50a9c4dfe567a7c05eb40d6790720dead97c9",
+      "bytes": 6496
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Size1-Regular.woff2",
+      "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+      "bytes": 5468
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Size2-Regular.ttf",
+      "sha256": "a6b2099fb555c60e3a0db3a08842ebf1d732c6eb4e4bf44913613bed4fc4e39b",
+      "bytes": 11508
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Size2-Regular.woff",
+      "sha256": "2014c523c3210bcc166648c4d4cc57f05b747df07a24277bf71c51e67dc79e3d",
+      "bytes": 6188
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Size2-Regular.woff2",
+      "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+      "bytes": 5208
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Size3-Regular.ttf",
+      "sha256": "500e04d54f0d51666332c9d2089aa803be22aa878eca539e59fa53c6e522b082",
+      "bytes": 7588
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Size3-Regular.woff",
+      "sha256": "6ab6b62e9b62dae2c00dd90f791bd10950be0ecc3490d7d6045f51c2e8fe0949",
+      "bytes": 4420
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Size3-Regular.woff2",
+      "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+      "bytes": 3624
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Size4-Regular.ttf",
+      "sha256": "c647367d1dd4e162468717d020e1fc0f1dc5c26ebfdffbe55261713bf88c5877",
+      "bytes": 10364
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Size4-Regular.woff",
+      "sha256": "99f9c6750b489c9462bf04900bd3f939df9b829339daaaaa99ef5495cdddea58",
+      "bytes": 5980
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Size4-Regular.woff2",
+      "sha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0",
+      "bytes": 4928
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Typewriter-Regular.ttf",
+      "sha256": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa",
+      "bytes": 27556
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Typewriter-Regular.woff",
+      "sha256": "e14fed02b1aba7ce9f5afd5844b5d0321b22351febc720e0de8b8723527609f7",
+      "bytes": 16028
+    },
+    {
+      "path": "vendor/renderers/katex/fonts/KaTeX_Typewriter-Regular.woff2",
+      "sha256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
+      "bytes": 13568
+    },
+    {
+      "path": "vendor/renderers/katex/katex.min.css",
+      "sha256": "d4ab5b8ee16989b070cdb0ea24bd6ad48fc8df1b787f280f29d3ae4f959f2c00",
+      "bytes": 24793
+    },
+    {
+      "path": "vendor/renderers/katex/LICENSE",
+      "sha256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3",
+      "bytes": 1107
+    },
+    {
       "path": "vendor/standard_fonts/FoxitDingbats.pfb",
       "sha256": "845c752392b6c914fb989c75a08b7792b88f542d2499042ef2889f8c814a16ed",
       "bytes": 29513
@@ -1146,16 +1794,6 @@
       "bytes": 16729
     },
     {
-      "path": "vendor/standard_fonts/LICENSE_FOXIT",
-      "sha256": "b578cdd2345840ada550bd12519533812320d5f1d21cf4c1c7e1b1b0a31c98b7",
-      "bytes": 1553
-    },
-    {
-      "path": "vendor/standard_fonts/LICENSE_LIBERATION",
-      "sha256": "d2c4d5b3e115a519cb58eb691aa64538397e2611f9ebe801392cf9667997e7dc",
-      "bytes": 22154
-    },
-    {
       "path": "vendor/standard_fonts/LiberationSans-Bold.ttf",
       "sha256": "361c61b82d575c5c35fd9157fda8b0194bcfcd0d88ea8521a4fb5dd53d33dddc",
       "bytes": 137052
@@ -1174,6 +1812,26 @@
       "path": "vendor/standard_fonts/LiberationSans-Regular.ttf",
       "sha256": "f8ace1f892b2bd9dc1792ba7f097fa7588f84fed48321480e04de5390828221f",
       "bytes": 139512
+    },
+    {
+      "path": "vendor/standard_fonts/LICENSE_FOXIT",
+      "sha256": "b578cdd2345840ada550bd12519533812320d5f1d21cf4c1c7e1b1b0a31c98b7",
+      "bytes": 1553
+    },
+    {
+      "path": "vendor/standard_fonts/LICENSE_LIBERATION",
+      "sha256": "d2c4d5b3e115a519cb58eb691aa64538397e2611f9ebe801392cf9667997e7dc",
+      "bytes": 22154
+    },
+    {
+      "path": "vendor/wasm/jbig2_nowasm_fallback.js",
+      "sha256": "04c795a6657a4553a64b781ea3e85256203d913c3b71b72b85fa3ce00622f458",
+      "bytes": 145703
+    },
+    {
+      "path": "vendor/wasm/jbig2.wasm",
+      "sha256": "e6bee67724a7b5436fe8162638e3708cfc8d52b6342db69a49715e30ff27cfdc",
+      "bytes": 104852
     },
     {
       "path": "vendor/wasm/LICENSE_JBIG2",
@@ -1206,24 +1864,14 @@
       "bytes": 1121
     },
     {
-      "path": "vendor/wasm/jbig2.wasm",
-      "sha256": "e6bee67724a7b5436fe8162638e3708cfc8d52b6342db69a49715e30ff27cfdc",
-      "bytes": 104852
-    },
-    {
-      "path": "vendor/wasm/jbig2_nowasm_fallback.js",
-      "sha256": "04c795a6657a4553a64b781ea3e85256203d913c3b71b72b85fa3ce00622f458",
-      "bytes": 145703
+      "path": "vendor/wasm/openjpeg_nowasm_fallback.js",
+      "sha256": "0f998419819da4491d8302222aa9e2ff2494685641aa2a6c21c3760c29f3e319",
+      "bytes": 451590
     },
     {
       "path": "vendor/wasm/openjpeg.wasm",
       "sha256": "004a0e62db930ba9ff2a22212f4554d0bb57a0635a8287caf70f98117cee14ba",
       "bytes": 252032
-    },
-    {
-      "path": "vendor/wasm/openjpeg_nowasm_fallback.js",
-      "sha256": "0f998419819da4491d8302222aa9e2ff2494685641aa2a6c21c3760c29f3e319",
-      "bytes": 451590
     },
     {
       "path": "vendor/wasm/qcms_bg.wasm",

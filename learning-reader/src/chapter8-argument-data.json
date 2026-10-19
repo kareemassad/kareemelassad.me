@@ -1,0 +1,282 @@
+{
+  "energy-state-comparison-map": {
+    "unitId": "c8-u01",
+    "title": "Energy conservation compares system states without solving motion",
+    "claims": [
+      {
+        "id": "state-comparison",
+        "title": "Compare states",
+        "statement": "Energy accounting can relate two mechanical states without reconstructing what happened between them.",
+        "status": "established"
+      },
+      {
+        "id": "electrostatic-transfer",
+        "title": "Use electrostatic energy",
+        "statement": "The passage introduces energy conservation as a useful way to investigate electrostatic systems.",
+        "status": "motivation"
+      },
+      {
+        "id": "trajectory-not-specified",
+        "title": "No trajectory supplied",
+        "statement": "Comparing states through energy does not itself specify the intervening motion.",
+        "status": "limitation"
+      }
+    ],
+    "relations": [
+      {
+        "id": "transfer-bookkeeping",
+        "from": "state-comparison",
+        "to": "electrostatic-transfer",
+        "kind": "support"
+      },
+      {
+        "id": "trajectory-limit",
+        "from": "trajectory-not-specified",
+        "to": "state-comparison",
+        "kind": "qualifies"
+      }
+    ]
+  },
+  "crystal-corrections-map": {
+    "unitId": "c8-u15",
+    "title": "Repulsion and crystal-vibration corrections",
+    "claims": [
+      {
+        "id": "repulsion-release",
+        "title": "Repulsion releases stored energy",
+        "statement": "Short-range ionic repulsion stores deformation energy that is released on separation, reducing dissociation work.",
+        "status": "established"
+      },
+      {
+        "id": "compressibility-estimate",
+        "title": "Compressibility estimate",
+        "statement": "The source reports a compressibility-based repulsive contribution of about one ninth-point-four of the attractive contribution, with the opposite sign.",
+        "status": "established"
+      },
+      {
+        "id": "reported-comparison",
+        "title": "Prediction and measured work",
+        "statement": "Subtracting the repulsive contribution gives the source-reported 7.99 eV per NaCl formula unit, closer to its observed 7.92 eV.",
+        "status": "established"
+      },
+      {
+        "id": "vibration-unquantified",
+        "title": "Vibration amount unspecified",
+        "statement": "The source also invokes crystal-vibration kinetic energy but supplies no numerical vibration correction or microscopic dynamical model.",
+        "status": "limitation"
+      },
+      {
+        "id": "electrostatic-dominance-inference",
+        "title": "Electrostatic contribution dominates",
+        "statement": "The passage interprets the corrected comparison as support for electrostatics being the main contribution to NaCl crystal binding.",
+        "status": "source-era-limitation"
+      }
+    ],
+    "relations": [
+      {
+        "id": "repulsion-to-estimate",
+        "from": "repulsion-release",
+        "to": "compressibility-estimate",
+        "kind": "support"
+      },
+      {
+        "id": "estimate-to-comparison",
+        "from": "compressibility-estimate",
+        "to": "reported-comparison",
+        "kind": "support"
+      },
+      {
+        "id": "vibration-limits-comparison",
+        "from": "vibration-unquantified",
+        "to": "reported-comparison",
+        "kind": "qualifies"
+      },
+      {
+        "id": "comparison-to-dominance-inference",
+        "from": "reported-comparison",
+        "to": "electrostatic-dominance-inference",
+        "kind": "support"
+      }
+    ]
+  },
+  "nuclear-dependencies-map": {
+    "unitId": "c8-u16",
+    "title": "Nuclear force depends on distance, spin and motion",
+    "claims": [
+      {
+        "id": "multiple-dependencies",
+        "title": "Several interaction dependencies",
+        "statement": "The source rejects a universal scalar separation law for the described nucleon interaction.",
+        "status": "established"
+      },
+      {
+        "id": "distance-dependence",
+        "title": "Distance dependence",
+        "statement": "The source describes attraction at larger separations and repulsion at closer separations, without specifying a numerical potential.",
+        "status": "established"
+      },
+      {
+        "id": "relative-spin",
+        "title": "Relative spin directions",
+        "statement": "Changing the relative spin directions changes the described interaction.",
+        "status": "established"
+      },
+      {
+        "id": "separation-to-spins",
+        "title": "Separation direction versus spins",
+        "statement": "The direction of separation relative to the spin axes also changes the described interaction.",
+        "status": "established"
+      },
+      {
+        "id": "motion-spin-orbit",
+        "title": "Motion and spin\u2013orbit alignment",
+        "statement": "Relative motion and the sense of orbital rotation compared with spin are additional dependencies.",
+        "status": "established"
+      },
+      {
+        "id": "historical-mechanism-limit",
+        "title": "Historical mechanism statement",
+        "statement": "The source\u2019s claims about incomplete knowledge describe its historical account; the passage supplies no quantitative nuclear force or scattering law.",
+        "status": "source-era-limitation"
+      }
+    ],
+    "relations": [
+      {
+        "id": "distance-support",
+        "from": "distance-dependence",
+        "to": "multiple-dependencies",
+        "kind": "support"
+      },
+      {
+        "id": "spin-support",
+        "from": "relative-spin",
+        "to": "multiple-dependencies",
+        "kind": "support"
+      },
+      {
+        "id": "axis-support",
+        "from": "separation-to-spins",
+        "to": "multiple-dependencies",
+        "kind": "support"
+      },
+      {
+        "id": "motion-support",
+        "from": "motion-spin-orbit",
+        "to": "multiple-dependencies",
+        "kind": "support"
+      },
+      {
+        "id": "historical-limit",
+        "from": "historical-mechanism-limit",
+        "to": "multiple-dependencies",
+        "kind": "qualifies"
+      }
+    ]
+  },
+  "nuclear-component-symmetry-map": {
+    "unitId": "c8-u17",
+    "title": "Approximate charge independence of nuclear interactions",
+    "claims": [
+      {
+        "id": "nuclear-component-symmetry",
+        "title": "Nuclear-component symmetry",
+        "statement": "In the source\u2019s charge-independence approximation, substituting proton and neutron leaves the nuclear component of their interactions unchanged.",
+        "status": "established"
+      },
+      {
+        "id": "total-force-distinction",
+        "title": "Electrical contribution is separate",
+        "statement": "This comparison concerns the nuclear component; it is not equality of the complete forces including electrical effects.",
+        "status": "limitation"
+      },
+      {
+        "id": "broader-strong-symmetry",
+        "title": "Broader strong-interaction symmetry",
+        "statement": "The passage connects this substitution principle to a broader symmetry of strongly interacting particles.",
+        "status": "motivation"
+      },
+      {
+        "id": "historical-mechanism-status",
+        "title": "Historical explanation statement",
+        "statement": "The statement that the fundamental reason is unknown belongs to the source\u2019s historical discussion.",
+        "status": "source-era-limitation"
+      }
+    ],
+    "relations": [
+      {
+        "id": "component-to-broader",
+        "from": "nuclear-component-symmetry",
+        "to": "broader-strong-symmetry",
+        "kind": "support"
+      },
+      {
+        "id": "component-scope",
+        "from": "total-force-distinction",
+        "to": "nuclear-component-symmetry",
+        "kind": "qualifies"
+      },
+      {
+        "id": "historical-status",
+        "from": "historical-mechanism-status",
+        "to": "broader-strong-symmetry",
+        "kind": "qualifies"
+      }
+    ]
+  },
+  "nuclear-core-refinement-map": {
+    "unitId": "c8-u21",
+    "title": "Core-plus-outer-proton correction and inference limits",
+    "claims": [
+      {
+        "id": "outside-core-hypothesis",
+        "title": "Tentative core and outer particle",
+        "statement": "The passage tentatively describes the extra particle as outside a core containing five protons and five neutrons.",
+        "status": "conditional"
+      },
+      {
+        "id": "five-versus-six-energy",
+        "title": "Five-versus-six Coulomb cost",
+        "statement": "Under that geometry, adding an outside proton costs ZB qe\u00b2/(4\u03c0 \u03b50 r), five sixths of the preceding uniform-model energy difference.",
+        "status": "conditional"
+      },
+      {
+        "id": "radius-comparison",
+        "title": "Conditional radius comparison",
+        "statement": "For the same inferred energy difference, the radius is five sixths of the preceding estimate and is reported to agree more closely with direct measurements.",
+        "status": "conditional"
+      },
+      {
+        "id": "historical-inference-limit",
+        "title": "Source-era conclusions",
+        "statement": "The passage interprets the agreement as support for electrical laws at nuclear distances and equality of the nonelectrical nucleon interactions; these are its historical inferences.",
+        "status": "source-era-limitation"
+      }
+    ],
+    "relations": [
+      {
+        "id": "core-to-energy",
+        "from": "outside-core-hypothesis",
+        "to": "five-versus-six-energy",
+        "kind": "support"
+      },
+      {
+        "id": "energy-to-radius",
+        "from": "five-versus-six-energy",
+        "to": "radius-comparison",
+        "kind": "support"
+      },
+      {
+        "id": "comparison-to-inference",
+        "from": "radius-comparison",
+        "to": "historical-inference-limit",
+        "kind": "support"
+      },
+      {
+        "id": "tentative-structure",
+        "from": "outside-core-hypothesis",
+        "to": "historical-inference-limit",
+        "kind": "qualifies"
+      }
+    ]
+  }
+}

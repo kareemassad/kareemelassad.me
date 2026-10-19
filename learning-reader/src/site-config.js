@@ -3,7 +3,7 @@ export async function siteConfiguration(){
  try{const response=await fetch(assetURL('site-config.json'));if(!response.ok)throw Error();const config=await response.json();if(!['local','static'].includes(config.mode)||!/^[a-f0-9]{64}$/.test(config.codeHash))throw Error();return config;}catch{return {mode:'local',codeHash:null};}
 }
 export async function offlineCopy(config,notice){
- if(config.mode!=='static')return;
+ if(config.mode!=='static'||config.offlineEnabled===false)return;
  if(!('serviceWorker' in navigator)){notice('This browser cannot keep an offline reader copy. Online reading is available.');return;}
  notice('Saving the reader for offline use…');
  try{const registration=await navigator.serviceWorker.register(assetURL('sw.js'));

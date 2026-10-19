@@ -1,0 +1,1001 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "file": "src/adapter-models.js",
+      "sourceSHA256": "369980bfecaa77e5c4734a96da6a968a3c7bde0b506ce5bed11305bdfce4c8b5",
+      "publicSHA256": "369980bfecaa77e5c4734a96da6a968a3c7bde0b506ce5bed11305bdfce4c8b5",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/additional-learning-checks.js",
+      "sourceSHA256": "73f0148c4a75c2a71e32b796d2206a6eb21e568db77dd7862d2bb7803c1f5fcd",
+      "publicSHA256": "73f0148c4a75c2a71e32b796d2206a6eb21e568db77dd7862d2bb7803c1f5fcd",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/assets.js",
+      "sourceSHA256": "517a14a8de8a45631678fd70d700fd8023a379b7252f27eb24bf9319f7ce0f10",
+      "publicSHA256": "517a14a8de8a45631678fd70d700fd8023a379b7252f27eb24bf9319f7ce0f10",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/book-bundle.js",
+      "sourceSHA256": "d3bc2671ff506d13824a933cf73a67f1b66af3b464675248cb7ed81bf7ca4179",
+      "publicSHA256": "d3bc2671ff506d13824a933cf73a67f1b66af3b464675248cb7ed81bf7ca4179",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/boundary-models.js",
+      "sourceSHA256": "39840dd2cefc749f775514a4d22b293837defe014e4e4a550d93997a4c18eb64",
+      "publicSHA256": "39840dd2cefc749f775514a4d22b293837defe014e4e4a550d93997a4c18eb64",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/causal-models.js",
+      "sourceSHA256": "9008d8fb83e89759d648fa7ecdad3588a170b5dfc259d7a6a117d4310f9413d0",
+      "publicSHA256": "9008d8fb83e89759d648fa7ecdad3588a170b5dfc259d7a6a117d4310f9413d0",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/causal-trace.js",
+      "sourceSHA256": "64127f8d6ba3af1e1f786c272354264f7fea80778074e6c9db6608bfa29de4a4",
+      "publicSHA256": "64127f8d6ba3af1e1f786c272354264f7fea80778074e6c9db6608bfa29de4a4",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/chapter3-models.js",
+      "sourceSHA256": "4f09a408ea3b4e3abdcb2eae6221b8d28b8d112d65c376ace55f196aa7280232",
+      "publicSHA256": "4f09a408ea3b4e3abdcb2eae6221b8d28b8d112d65c376ace55f196aa7280232",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/chapter8-argument-data.json",
+      "sourceSHA256": "328ba010f73274555b72fa4db1c03ad532a4f6905a3ed4dc9507800816133bd7",
+      "publicSHA256": "328ba010f73274555b72fa4db1c03ad532a4f6905a3ed4dc9507800816133bd7",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/chapter8-argument-models.js",
+      "sourceSHA256": "687949b7a728e4390d828ea3c14bf4563956ac174dbde02cd0c2c998ec889763",
+      "publicSHA256": "687949b7a728e4390d828ea3c14bf4563956ac174dbde02cd0c2c998ec889763",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/chapter8-assembly-models.js",
+      "sourceSHA256": "945322a2b83a82e425250c447c5fea3536d20be3ee6fddf3646ea2ebadf2e7f0",
+      "publicSHA256": "945322a2b83a82e425250c447c5fea3536d20be3ee6fddf3646ea2ebadf2e7f0",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/chapter8-capacitance-models.js",
+      "sourceSHA256": "d0425f7173375f9b12958189248a94e729ae7c7fefa18a5e40232f398221c8c7",
+      "publicSHA256": "d0425f7173375f9b12958189248a94e729ae7c7fefa18a5e40232f398221c8c7",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/chapter8-crystal-nuclear-models.js",
+      "sourceSHA256": "0c141dc63153218fbe12d689f2ea05c5ab9c7697ac9e13bd7df94b878c1b25f7",
+      "publicSHA256": "0c141dc63153218fbe12d689f2ea05c5ab9c7697ac9e13bd7df94b878c1b25f7",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/chapter8-extension-models.js",
+      "sourceSHA256": "caaa443e31f02dd970272680a38dc52f0e02fe4a24e6d59d182b036932661285",
+      "publicSHA256": "caaa443e31f02dd970272680a38dc52f0e02fe4a24e6d59d182b036932661285",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/chapter8-field-models.js",
+      "sourceSHA256": "29944da241d196cab742e768802b9c300c5f6465cb8d7007810b55481a40cef6",
+      "publicSHA256": "29944da241d196cab742e768802b9c300c5f6465cb8d7007810b55481a40cef6",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/circumstances-models.js",
+      "sourceSHA256": "06f2e79a68441ee9de07f1dd8c9d06bcca63e47ee7f48d9a1ec8eab21e99729d",
+      "publicSHA256": "06f2e79a68441ee9de07f1dd8c9d06bcca63e47ee7f48d9a1ec8eab21e99729d",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/clock-binding-book.js",
+      "sourceSHA256": "d716a64625d167b22c20067f2ea0de9fc65d060594173b4445baa7a85ef1da08",
+      "publicSHA256": "d716a64625d167b22c20067f2ea0de9fc65d060594173b4445baa7a85ef1da08",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/clock-path-package-v1.js",
+      "sourceSHA256": "652a70e69c6dba573b0941e05ec81f995cab478caa3f16957cda9d9996b0d9c4",
+      "publicSHA256": "652a70e69c6dba573b0941e05ec81f995cab478caa3f16957cda9d9996b0d9c4",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/clock-path-state.js",
+      "sourceSHA256": "bff73939e77d7be336cbe09bb4fe70dd27091ff77495ac80e393f6d856a8e2cf",
+      "publicSHA256": "bff73939e77d7be336cbe09bb4fe70dd27091ff77495ac80e393f6d856a8e2cf",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/clock-path-v1.js",
+      "sourceSHA256": "6e3c417c5c193f6d173ce0f872e39d982f0318d2a892b98d305e9e35b4a4d09f",
+      "publicSHA256": "6e3c417c5c193f6d173ce0f872e39d982f0318d2a892b98d305e9e35b4a4d09f",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/clock-path-view.js",
+      "sourceSHA256": "8e20574d9c33ba0c880d6ca494a6d78e3e90e6049d69aaac138ebb4cae4abbb7",
+      "publicSHA256": "8e20574d9c33ba0c880d6ca494a6d78e3e90e6049d69aaac138ebb4cae4abbb7",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/clock-path.css",
+      "sourceSHA256": "84523f0f1e61c33010cb7d9861dda32cd8a2d67b39cb818ec60b11f84596759d",
+      "publicSHA256": "84523f0f1e61c33010cb7d9861dda32cd8a2d67b39cb818ec60b11f84596759d",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/conductor-extension-models.js",
+      "sourceSHA256": "a7e056e38437f952abc909ed1c50e1160a5f46774f1464307dbcb0a5a98362f4",
+      "publicSHA256": "a7e056e38437f952abc909ed1c50e1160a5f46774f1464307dbcb0a5a98362f4",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/diagram-adapter.css",
+      "sourceSHA256": "f78360c1f819eee17c7066103c0104cdc4575ae15b738eb136c912b8d2d858f1",
+      "publicSHA256": "f78360c1f819eee17c7066103c0104cdc4575ae15b738eb136c912b8d2d858f1",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/diagram-adapter.js",
+      "sourceSHA256": "2f82d11a3e9163f8db53f6c56b5b7b7b15f17cf9c6edeace97ebf7e89248901a",
+      "publicSHA256": "2f82d11a3e9163f8db53f6c56b5b7b7b15f17cf9c6edeace97ebf7e89248901a",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/diagram-context.js",
+      "sourceSHA256": "2a58dcdfac17ca84b3326b94c0059be7f4dd1360b7efc34da3d015eec6f9fa4f",
+      "publicSHA256": "2a58dcdfac17ca84b3326b94c0059be7f4dd1360b7efc34da3d015eec6f9fa4f",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/dielectric-models.js",
+      "sourceSHA256": "3fa6c3368c8a6f1c8e100d97d61e1086c9ae71e6af619134dfc086a1f9299227",
+      "publicSHA256": "3fa6c3368c8a6f1c8e100d97d61e1086c9ae71e6af619134dfc086a1f9299227",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/electromagnetism-models.js",
+      "sourceSHA256": "8caf7a087138ff63a3101c8d1bf2f4dea0bc60a58dca37535ffb886da663c658",
+      "publicSHA256": "8caf7a087138ff63a3101c8d1bf2f4dea0bc60a58dca37535ffb886da663c658",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/electrostatics-models.js",
+      "sourceSHA256": "b4a19efd010af73fd041717572459d75b30e50f518fbc70631cc1450fe62e1db",
+      "publicSHA256": "b4a19efd010af73fd041717572459d75b30e50f518fbc70631cc1450fe62e1db",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/energy-models.js",
+      "sourceSHA256": "9866a674f27065e9b6875086c91e48035bab6b5c08dbfb2921368b27026120e9",
+      "publicSHA256": "9866a674f27065e9b6875086c91e48035bab6b5c08dbfb2921368b27026120e9",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/explanation-package.js",
+      "sourceSHA256": "113253f5960bad528707ed6c04089b6aaea8f0ca58e0adc03e2e96a99899328c",
+      "publicSHA256": "113253f5960bad528707ed6c04089b6aaea8f0ca58e0adc03e2e96a99899328c",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/flight-exploration.js",
+      "sourceSHA256": "bbcc699fa8e48bf191d8b3c54c5dbf848501951f909bc333145ff4eb35b72a4d",
+      "publicSHA256": "bbcc699fa8e48bf191d8b3c54c5dbf848501951f909bc333145ff4eb35b72a4d",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/foundation-models.js",
+      "sourceSHA256": "03c31b5ba7b583c54db3811420e659e68b24ac73dad56f66922d839ca09828cf",
+      "publicSHA256": "03c31b5ba7b583c54db3811420e659e68b24ac73dad56f66922d839ca09828cf",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/gauss-models.js",
+      "sourceSHA256": "bfddd08a8b589aa54cfa60ccb4aa2b689bf89338b4b85450f3469124b196d974",
+      "publicSHA256": "bfddd08a8b589aa54cfa60ccb4aa2b689bf89338b4b85450f3469124b196d974",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/generated-model.js",
+      "sourceSHA256": "fddebeb81cf9afe7d0a21d6f0dd84b35a07be69a6e1e41bf18b064c6db82c220",
+      "publicSHA256": "fddebeb81cf9afe7d0a21d6f0dd84b35a07be69a6e1e41bf18b064c6db82c220",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/generated-view.css",
+      "sourceSHA256": "8d92259ab107c57d0dc22ebf456f5f043f310d25742cd869ed05eb6e5134a838",
+      "publicSHA256": "8d92259ab107c57d0dc22ebf456f5f043f310d25742cd869ed05eb6e5134a838",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/generated-view.js",
+      "sourceSHA256": "de22f73af9374a9779b8c4d02becf9fc1e35a58ac695b1634f07bd65ac6e902d",
+      "publicSHA256": "de22f73af9374a9779b8c4d02becf9fc1e35a58ac695b1634f07bd65ac6e902d",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/gradient-models.js",
+      "sourceSHA256": "fd09717132b2193c4c3b925d7606c15587b6f5fe0dd8bd99b966cf48b876eaab",
+      "publicSHA256": "fd09717132b2193c4c3b925d7606c15587b6f5fe0dd8bd99b966cf48b876eaab",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/hot-reload.js",
+      "sourceSHA256": "ae7e3f27dd56ab1e2a6db58059e548c2162b933dc91585312abeef142cc13d0f",
+      "publicSHA256": "ae7e3f27dd56ab1e2a6db58059e548c2162b933dc91585312abeef142cc13d0f",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/laplace-domain-models.js",
+      "sourceSHA256": "7d4e26b2f8c68c1416b9429edf21a20d1bea1bda2b25265badde81cf2a9abff6",
+      "publicSHA256": "7d4e26b2f8c68c1416b9429edf21a20d1bea1bda2b25265badde81cf2a9abff6",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/learning-checks.js",
+      "sourceSHA256": "e81527e59589254592146404cd27431c51e494542ccb36394b5ff9ea5294114e",
+      "publicSHA256": "e81527e59589254592146404cd27431c51e494542ccb36394b5ff9ea5294114e",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/learning-models.js",
+      "sourceSHA256": "05d664cf3110c4689f0803ffeb03b37e9c5c78f2c968d89b85018f5a55236ddf",
+      "publicSHA256": "05d664cf3110c4689f0803ffeb03b37e9c5c78f2c968d89b85018f5a55236ddf",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/legacy-scopes.js",
+      "sourceSHA256": "ca3892e5717c6d4d8989772e5eefee9682f528be38bae570862307ef16e19cc7",
+      "publicSHA256": "9cbc769867e73fef77ea5ffb8ccdbf82a36162dc6827beb27c30b4ddacfef0ba",
+      "metadataAdapted": true
+    },
+    {
+      "file": "src/library-shell.css",
+      "sourceSHA256": "e685ba491eb7764c2e74e12250cc32110a4681fd9b487a0eacd2e5f6594ca8ad",
+      "publicSHA256": "e685ba491eb7764c2e74e12250cc32110a4681fd9b487a0eacd2e5f6594ca8ad",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/library-shell.js",
+      "sourceSHA256": "918e3fd3dd9f41b490b84e2c76b8a1b86443387c12de80fb27eb50ae96a5437e",
+      "publicSHA256": "918e3fd3dd9f41b490b84e2c76b8a1b86443387c12de80fb27eb50ae96a5437e",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/library-store.js",
+      "sourceSHA256": "ee4c961accf51c731a0cf8e989df827f84ba5fd9ecde6f446a60c77c0e97f73b",
+      "publicSHA256": "ee4c961accf51c731a0cf8e989df827f84ba5fd9ecde6f446a60c77c0e97f73b",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/local-pdf-cover.js",
+      "sourceSHA256": "cd218883fabc129b109f6139fe97f8993c4e609f4a0aa6dd129c7224a848de1d",
+      "publicSHA256": "cd218883fabc129b109f6139fe97f8993c4e609f4a0aa6dd129c7224a848de1d",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/math-equations.css",
+      "sourceSHA256": "4ca1551cea1f863e0c93ad843561ae672daea5a9d6e1dad6cf158eaf4c13c0df",
+      "publicSHA256": "4ca1551cea1f863e0c93ad843561ae672daea5a9d6e1dad6cf158eaf4c13c0df",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/math-equations.json",
+      "sourceSHA256": "fb2d68a3947ec86607e98da6c3ed51f9d35d8e7276f51e20edc98069bed0832c",
+      "publicSHA256": "fb2d68a3947ec86607e98da6c3ed51f9d35d8e7276f51e20edc98069bed0832c",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/models.js",
+      "sourceSHA256": "9c785c4fac4ad990f584daea3b38dc01dc961e5e5f9494a076ac8860168e2974",
+      "publicSHA256": "9c785c4fac4ad990f584daea3b38dc01dc961e5e5f9494a076ac8860168e2974",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/molecular-emission-models.js",
+      "sourceSHA256": "a3298f9816262e5e65ff8d6f0fa8438635c3a06f887549a5b55d95dd6381e451",
+      "publicSHA256": "d04d18c6bcfc34f7840d82ebba7d38f3923007d9aa1303842bd76be08f37b3f3",
+      "metadataAdapted": true
+    },
+    {
+      "file": "src/opening-context-a-models.js",
+      "sourceSHA256": "8c44bc0090f0775a0652052cff7f130272f14adbb8290018c1e01a2a1b9c1165",
+      "publicSHA256": "42e6f860dc19c70b2025382afc733a609db7fcd8aa513011c6698d5a5b586e0c",
+      "metadataAdapted": true
+    },
+    {
+      "file": "src/opening-context-b-models.js",
+      "sourceSHA256": "3c274d6f4e6ff14184c1f6e8058c5b97a888a1af13110d0a5e44a9f706e83129",
+      "publicSHA256": "0d969229f9043b89cc1b67675b84bf94d3af4447439e19111d31b69ef983838a",
+      "metadataAdapted": true
+    },
+    {
+      "file": "src/opening-extension-models.js",
+      "sourceSHA256": "ba6bf5f58f49d47cbcdf0a7ecac32f964501c96940b8b8882859557acfbd1a40",
+      "publicSHA256": "64cceb5406f28d9cd5a2adaf2ae0da92b915fc028a2f5d410f5a12b79fe1b32f",
+      "metadataAdapted": true
+    },
+    {
+      "file": "src/orbit-companion-book.js",
+      "sourceSHA256": "86aff1cf8c37f3af65346c73930427a7fa921e114f53c2edadd6fa9969b1e793",
+      "publicSHA256": "86aff1cf8c37f3af65346c73930427a7fa921e114f53c2edadd6fa9969b1e793",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/orbit-companion-data.json",
+      "sourceSHA256": "6d178d0814a12dcbbd7da7c23f13ecd752bc7e388361059c64d526573366241c",
+      "publicSHA256": "6d178d0814a12dcbbd7da7c23f13ecd752bc7e388361059c64d526573366241c",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/orbital-flight-package-v1.js",
+      "sourceSHA256": "98115693586f05e1f2bbb8a663ce9d0afc5a655e963dc2d26171900c433e394f",
+      "publicSHA256": "98115693586f05e1f2bbb8a663ce9d0afc5a655e963dc2d26171900c433e394f",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/orbital-flight-v1.js",
+      "sourceSHA256": "924e2e69e1d2d0ce16c133e8268a7eac31b34267f3d01a4a7800fc5a98482912",
+      "publicSHA256": "924e2e69e1d2d0ce16c133e8268a7eac31b34267f3d01a4a7800fc5a98482912",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/orbital-flight-view.js",
+      "sourceSHA256": "26401f35892fb4388a71b7363c0c450c73aae08bf226215b9dabb5e153ef16ee",
+      "publicSHA256": "26401f35892fb4388a71b7363c0c450c73aae08bf226215b9dabb5e153ef16ee",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/orbital-flight.css",
+      "sourceSHA256": "32f4c2211a9ca9c2d2dd38c4408908ca3778da939baba00dd09a23a74e1d85b2",
+      "publicSHA256": "32f4c2211a9ca9c2d2dd38c4408908ca3778da939baba00dd09a23a74e1d85b2",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/pack-catalog.js",
+      "sourceSHA256": "eeccfea03b820ec1cbc1fa445eae410c46c8229daac32e988150edd9f4ba48da",
+      "publicSHA256": "dc47d9bf081651d6db145df546c1c294303bc1680a44ba4a61a9470021f31ad7",
+      "metadataAdapted": true
+    },
+    {
+      "file": "src/pack-schema.js",
+      "sourceSHA256": "54c3e62829b25bb2b3225ca21d49818b8abb4f00dd346fbecf21ec39830f42ed",
+      "publicSHA256": "54c3e62829b25bb2b3225ca21d49818b8abb4f00dd346fbecf21ec39830f42ed",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/passage-breakpoints.js",
+      "sourceSHA256": "5f2df8d0a8ef248623ab8400d15ce9cd9cb959489f19df08bec03cfa949db600",
+      "publicSHA256": "5f2df8d0a8ef248623ab8400d15ce9cd9cb959489f19df08bec03cfa949db600",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/passages.js",
+      "sourceSHA256": "b2840c210c5c2eb3e4e4cdd0cee66fdb7266a7f089a4519e369b5df2b702a32b",
+      "publicSHA256": "b568c2624611f5cd046699499283ea6012651f31c45826309ce7943152873fa3",
+      "metadataAdapted": true
+    },
+    {
+      "file": "src/physics.js",
+      "sourceSHA256": "33606a93dab6b3259a9778ee083fd59469956dbb0fdac6411a24318841219aa3",
+      "publicSHA256": "33606a93dab6b3259a9778ee083fd59469956dbb0fdac6411a24318841219aa3",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/planar-models.js",
+      "sourceSHA256": "6de64774cf7102868d1e9d376caa51cccd9c05a678d18add879d984f50b077b0",
+      "publicSHA256": "6de64774cf7102868d1e9d376caa51cccd9c05a678d18add879d984f50b077b0",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/progress.js",
+      "sourceSHA256": "a137073d4f69161352632284ca6db7706aaa5957b057a25be70b565ec2a11ca1",
+      "publicSHA256": "a137073d4f69161352632284ca6db7706aaa5957b057a25be70b565ec2a11ca1",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/protocol-book-bundle.js",
+      "sourceSHA256": "7a22d3529d98bb42bda7ee4c077b1353127d7c6d1229b0fe72c90743cab040ae",
+      "publicSHA256": "7a22d3529d98bb42bda7ee4c077b1353127d7c6d1229b0fe72c90743cab040ae",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/public-aids-v1.js",
+      "sourceSHA256": "663b2384d92f7e0116bd8ed5707c1e68f287c4667990c230f49a40fbe8b249d8",
+      "publicSHA256": "663b2384d92f7e0116bd8ed5707c1e68f287c4667990c230f49a40fbe8b249d8",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/public-library-catalog.js",
+      "sourceSHA256": "a5dfd675c0fadd12d1aa47e057695a11bbd9e65a767dffa46a9bf18352ed5e0a",
+      "publicSHA256": "a5dfd675c0fadd12d1aa47e057695a11bbd9e65a767dffa46a9bf18352ed5e0a",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/public-library-store.js",
+      "sourceSHA256": "3c68ccdbb4f890c8ea315f10c532aeb47fcee7be8a3b73c80c28cc5b0cf7fb70",
+      "publicSHA256": "3c68ccdbb4f890c8ea315f10c532aeb47fcee7be8a3b73c80c28cc5b0cf7fb70",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/public-pack-catalog.js",
+      "sourceSHA256": "e82607beeb356660062390e79f92dd9d8f2fa276ee3a77762e24aaca490523fd",
+      "publicSHA256": "e82607beeb356660062390e79f92dd9d8f2fa276ee3a77762e24aaca490523fd",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/reader-books.js",
+      "sourceSHA256": "40fb63b82a7e7678d1e53acda84456085de71e6631bbeb8581c4b1ab0738e3b4",
+      "publicSHA256": "8f67ba0a7eeac8c63421caed119c61b1e979578f5403b4ae780e2fb3602ee00c",
+      "metadataAdapted": true
+    },
+    {
+      "file": "src/reader.css",
+      "sourceSHA256": "410268e205590eeb4a2511ca971963518c287d83efc84446aad59e8ef122dea5",
+      "publicSHA256": "410268e205590eeb4a2511ca971963518c287d83efc84446aad59e8ef122dea5",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/reader.js",
+      "sourceSHA256": "3588d85e312a862dbe70b1b58e6316b4b9557ff6e31dd79c9822d4a38d7a6050",
+      "publicSHA256": "3588d85e312a862dbe70b1b58e6316b4b9557ff6e31dd79c9822d4a38d7a6050",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/reading-context.js",
+      "sourceSHA256": "f3312d43231acb2485a2a9d46ec2b62e5a71fbe79e92d22cbae14b68d7d634c5",
+      "publicSHA256": "f3312d43231acb2485a2a9d46ec2b62e5a71fbe79e92d22cbae14b68d7d634c5",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/reading-plan-view.js",
+      "sourceSHA256": "bfd1d387c84046efa8189a73c0dafa8a1cab1673771d58588db4002f7c9d3115",
+      "publicSHA256": "bfd1d387c84046efa8189a73c0dafa8a1cab1673771d58588db4002f7c9d3115",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/reading-plan.js",
+      "sourceSHA256": "c64de8e9143cfe9685634d72e9f06e505fea4280543e52ecab5b3f6c7b77f822",
+      "publicSHA256": "c64de8e9143cfe9685634d72e9f06e505fea4280543e52ecab5b3f6c7b77f822",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/replication-lessons.js",
+      "sourceSHA256": "10282712ffa15a110a43f975118dbe88f9d4dcecada1f5f6c10ed83d345fdd2c",
+      "publicSHA256": "1989d1c2ef685ffac339433965f3128f244586a7ca755e44220ee76377cc6f21",
+      "metadataAdapted": true
+    },
+    {
+      "file": "src/replication-models.js",
+      "sourceSHA256": "253eb80ce0af5aa7421f9710a67940bbb5292c9b65d1d3eb81cbc656a43697e7",
+      "publicSHA256": "253eb80ce0af5aa7421f9710a67940bbb5292c9b65d1d3eb81cbc656a43697e7",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/replication-package.js",
+      "sourceSHA256": "79ca62989a8acde4905980d1894b4f79138df22e85744e669949b0ea55ebc100",
+      "publicSHA256": "79ca62989a8acde4905980d1894b4f79138df22e85744e669949b0ea55ebc100",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/replication-view.js",
+      "sourceSHA256": "a15cbd6e7e470d63f3e8b8760c4fcf6b806d526e790d29fdfa1b169ed10db07d",
+      "publicSHA256": "a15cbd6e7e470d63f3e8b8760c4fcf6b806d526e790d29fdfa1b169ed10db07d",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/replication.css",
+      "sourceSHA256": "4883487972557d14847038664b1a8806c9489edb0a48b147eb87a238e86b1d95",
+      "publicSHA256": "4883487972557d14847038664b1a8806c9489edb0a48b147eb87a238e86b1d95",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/reusable-explanation-v1.js",
+      "sourceSHA256": "564ffb7aa4ec435fe0c2c98b6609ecb713414291d2d319a597703d9a396ddabd",
+      "publicSHA256": "564ffb7aa4ec435fe0c2c98b6609ecb713414291d2d319a597703d9a396ddabd",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/reusable-explanation-v2.js",
+      "sourceSHA256": "f69a82540bfa2634799009f50d4b4e01b87446926e467be08aa6de5532cae949",
+      "publicSHA256": "f69a82540bfa2634799009f50d4b4e01b87446926e467be08aa6de5532cae949",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/reusable-explanation.js",
+      "sourceSHA256": "81e8673a1b7258d4b05696975ce364e8c20a9259f5a244754be20d5acd7d2eb6",
+      "publicSHA256": "81e8673a1b7258d4b05696975ce364e8c20a9259f5a244754be20d5acd7d2eb6",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/scene-primitives.js",
+      "sourceSHA256": "8d698a90a0e2417d6a4798a2d39480876aceb3764c10f5c244ed72dd03fa038d",
+      "publicSHA256": "8d698a90a0e2417d6a4798a2d39480876aceb3764c10f5c244ed72dd03fa038d",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/scenes.js",
+      "sourceSHA256": "2dce0c525661ed6ad277ad5fcf615100e2cc9fadbee23e984bf6c7628353b177",
+      "publicSHA256": "2dce0c525661ed6ad277ad5fcf615100e2cc9fadbee23e984bf6c7628353b177",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/scroll-reader.js",
+      "sourceSHA256": "64864614b6981bd52978c72aaa3fa19d1f715b1fd4861356cfaf7fdadee08a3b",
+      "publicSHA256": "64864614b6981bd52978c72aaa3fa19d1f715b1fd4861356cfaf7fdadee08a3b",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/series-models.js",
+      "sourceSHA256": "c3f31ecddb4ba7a17e019d1fa9fd88ec4839ec0d067d9ee0fd0fd90f32ef0819",
+      "publicSHA256": "c3f31ecddb4ba7a17e019d1fa9fd88ec4839ec0d067d9ee0fd0fd90f32ef0819",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/shelf.css",
+      "sourceSHA256": "0ad62ee0926bd73c4a1f72f25e4714d8e6a619d925781bac8b9a9d877b7d55bd",
+      "publicSHA256": "0ad62ee0926bd73c4a1f72f25e4714d8e6a619d925781bac8b9a9d877b7d55bd",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/shelf.js",
+      "sourceSHA256": "7fd7b993deb7a5ea30ba21de4983e42b06b7d1b234d3fc2b928a02f41ed80582",
+      "publicSHA256": "7fd7b993deb7a5ea30ba21de4983e42b06b7d1b234d3fc2b928a02f41ed80582",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/shell-cone-model.js",
+      "sourceSHA256": "80073a0ec4d74f9462a8e1c9b6268a40995f63743a88e350c373c2eb2e968a7b",
+      "publicSHA256": "80073a0ec4d74f9462a8e1c9b6268a40995f63743a88e350c373c2eb2e968a7b",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/shell-experiments.js",
+      "sourceSHA256": "bfaddbaa706f498b3169c242c865adde1e5bfe980e3885ce5508fbaf0da8e44c",
+      "publicSHA256": "bfaddbaa706f498b3169c242c865adde1e5bfe980e3885ce5508fbaf0da8e44c",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/site-config.js",
+      "sourceSHA256": "08bbf3bd0c07cf3bfaa1a60c4bee9b2533a98d850e86ce44a031fdb6dae6c71c",
+      "publicSHA256": "13f8abe9c9cb73df67c8fed448154e793d1e4b16faea3cb1b7384d517ad29443",
+      "metadataAdapted": true
+    },
+    {
+      "file": "src/source-anchor.js",
+      "sourceSHA256": "bbb0fd34b29113dd64989c936bfb5b43d2c8192fd907532d919e7cf8ea0d0bbd",
+      "publicSHA256": "bbb0fd34b29113dd64989c936bfb5b43d2c8192fd907532d919e7cf8ea0d0bbd",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/source-contract.js",
+      "sourceSHA256": "3a6008a207043b3957d0a20a4d0d79cfe2d3870f8ea7b1b18802bfc780007e81",
+      "publicSHA256": "3a6008a207043b3957d0a20a4d0d79cfe2d3870f8ea7b1b18802bfc780007e81",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/source-models.js",
+      "sourceSHA256": "9f28210db5ebe7fa938ebbc8b5f19b3ca93e40ff837bdedaa6974f65e1fd0746",
+      "publicSHA256": "9f28210db5ebe7fa938ebbc8b5f19b3ca93e40ff837bdedaa6974f65e1fd0746",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/spherical-models.js",
+      "sourceSHA256": "fb310aff072b15a7321c520e7652ff4a877db6811b02e1084499c21a1733d49b",
+      "publicSHA256": "fb310aff072b15a7321c520e7652ff4a877db6811b02e1084499c21a1733d49b",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/templates.js",
+      "sourceSHA256": "ac8b9e62e06fb309ae0a251eeae955fc1b03835721fa3b110b4991efe1e5c829",
+      "publicSHA256": "ac8b9e62e06fb309ae0a251eeae955fc1b03835721fa3b110b4991efe1e5c829",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/transaction-models.js",
+      "sourceSHA256": "a1bba2f4f6db731ec20f4437c7cf11d77f92854124756198c5e1f2b1b8d402d9",
+      "publicSHA256": "a1bba2f4f6db731ec20f4437c7cf11d77f92854124756198c5e1f2b1b8d402d9",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/jsxgraph/core.LICENSE.txt",
+      "sourceSHA256": "7f15c10b7ed23971076d2eae092f817ff481e14cfe9fd9ecf61be5345e9981ca",
+      "publicSHA256": "7f15c10b7ed23971076d2eae092f817ff481e14cfe9fd9ecf61be5345e9981ca",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/jsxgraph/core.mjs",
+      "sourceSHA256": "26638eb27ea090ebdb1d99fb68ebcc9d430c53c502881a5dbfb0512d76f5c105",
+      "publicSHA256": "26638eb27ea090ebdb1d99fb68ebcc9d430c53c502881a5dbfb0512d76f5c105",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/jsxgraph/LICENSE.MIT",
+      "sourceSHA256": "43e325001487de7f09745fbe086b054bb1b70d4ab58060e87153849365b23ff1",
+      "publicSHA256": "43e325001487de7f09745fbe086b054bb1b70d4ab58060e87153849365b23ff1",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_AMS-Regular.ttf",
+      "sourceSHA256": "68534840bcfdd2bffb6f0e8deb48684dd01e7f04ea2813267577afb906de1d13",
+      "publicSHA256": "68534840bcfdd2bffb6f0e8deb48684dd01e7f04ea2813267577afb906de1d13",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_AMS-Regular.woff",
+      "sourceSHA256": "30da91e84c893f875e252689faebdc590b2871145e8adc7f9a9d4dbd8ce0b251",
+      "publicSHA256": "30da91e84c893f875e252689faebdc590b2871145e8adc7f9a9d4dbd8ce0b251",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_AMS-Regular.woff2",
+      "sourceSHA256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+      "publicSHA256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Caligraphic-Bold.ttf",
+      "sourceSHA256": "07d8e303ce4fc12b4bb54f1004170dd190a1f3db45d400fe68060df3e0897268",
+      "publicSHA256": "07d8e303ce4fc12b4bb54f1004170dd190a1f3db45d400fe68060df3e0897268",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Caligraphic-Bold.woff",
+      "sourceSHA256": "1ae6bd7475590e97e7f145a89e09ccde322f7a6bc0b91607b1c8b8ee28290fed",
+      "publicSHA256": "1ae6bd7475590e97e7f145a89e09ccde322f7a6bc0b91607b1c8b8ee28290fed",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Caligraphic-Bold.woff2",
+      "sourceSHA256": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c",
+      "publicSHA256": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Caligraphic-Regular.ttf",
+      "sourceSHA256": "ed0b74372feefcbb9c0666b2e210da37b7e49fa7fbbf3eeb11db5f693dacfbb7",
+      "publicSHA256": "ed0b74372feefcbb9c0666b2e210da37b7e49fa7fbbf3eeb11db5f693dacfbb7",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Caligraphic-Regular.woff",
+      "sourceSHA256": "3398dd02302557a793f2863f88e02d96ce10df2abffa07c8e9fa90775116e65c",
+      "publicSHA256": "3398dd02302557a793f2863f88e02d96ce10df2abffa07c8e9fa90775116e65c",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Caligraphic-Regular.woff2",
+      "sourceSHA256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b",
+      "publicSHA256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Fraktur-Bold.ttf",
+      "sourceSHA256": "9163df9c7122432e6495b4229fa9071cf9ae86a758ae5efc4924ec2e1a6dbce1",
+      "publicSHA256": "9163df9c7122432e6495b4229fa9071cf9ae86a758ae5efc4924ec2e1a6dbce1",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Fraktur-Bold.woff",
+      "sourceSHA256": "9be7ceb88004ab8ad124082246fbfcca4091e36385d4ec6ed1df67375dad50fb",
+      "publicSHA256": "9be7ceb88004ab8ad124082246fbfcca4091e36385d4ec6ed1df67375dad50fb",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Fraktur-Bold.woff2",
+      "sourceSHA256": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f",
+      "publicSHA256": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Fraktur-Regular.ttf",
+      "sourceSHA256": "1e6f9579e90e2cac37f8f60a597c436e075c114385652b7cbeb0dec0421291b3",
+      "publicSHA256": "1e6f9579e90e2cac37f8f60a597c436e075c114385652b7cbeb0dec0421291b3",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Fraktur-Regular.woff",
+      "sourceSHA256": "5e28753be717dac97f559f49bc10be9cf3c124ddcabda6659d11cb68febc6463",
+      "publicSHA256": "5e28753be717dac97f559f49bc10be9cf3c124ddcabda6659d11cb68febc6463",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Fraktur-Regular.woff2",
+      "sourceSHA256": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc",
+      "publicSHA256": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Main-Bold.ttf",
+      "sourceSHA256": "138ac28d1663b3037e9c5f52371fa5c63d8324f4a38d22cd573e6ea3a3fd0cf8",
+      "publicSHA256": "138ac28d1663b3037e9c5f52371fa5c63d8324f4a38d22cd573e6ea3a3fd0cf8",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Main-Bold.woff",
+      "sourceSHA256": "c76c5d696297d51b9cb1639c7da4334f0e7dec81b42b11213b5e25ef671bb822",
+      "publicSHA256": "c76c5d696297d51b9cb1639c7da4334f0e7dec81b42b11213b5e25ef671bb822",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Main-Bold.woff2",
+      "sourceSHA256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021",
+      "publicSHA256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Main-BoldItalic.ttf",
+      "sourceSHA256": "70ee1f64a20f2048c21940ef46d0144fd215baa953ca69afd1e31e98544f708f",
+      "publicSHA256": "70ee1f64a20f2048c21940ef46d0144fd215baa953ca69afd1e31e98544f708f",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Main-BoldItalic.woff",
+      "sourceSHA256": "a6f7ec0d846ac7ad975adb8959c37ed49b94acbc4ae436db9ce9e20287e4a64c",
+      "publicSHA256": "a6f7ec0d846ac7ad975adb8959c37ed49b94acbc4ae436db9ce9e20287e4a64c",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Main-BoldItalic.woff2",
+      "sourceSHA256": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b",
+      "publicSHA256": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Main-Italic.ttf",
+      "sourceSHA256": "0d85ae7cc30f23790a7f1a58c4a112fdca8aae769b6ba11429af1d98b1b6cb3a",
+      "publicSHA256": "0d85ae7cc30f23790a7f1a58c4a112fdca8aae769b6ba11429af1d98b1b6cb3a",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Main-Italic.woff",
+      "sourceSHA256": "f1d6ef86f3b11a528bd5185199bd2443ecb2b0dead96d88674b5a2c12be24bdf",
+      "publicSHA256": "f1d6ef86f3b11a528bd5185199bd2443ecb2b0dead96d88674b5a2c12be24bdf",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Main-Italic.woff2",
+      "sourceSHA256": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267",
+      "publicSHA256": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Main-Regular.ttf",
+      "sourceSHA256": "d0332f52868370fd83ae7fa46470f90c8f2eab2fcf12bc4f88080b340c95a830",
+      "publicSHA256": "d0332f52868370fd83ae7fa46470f90c8f2eab2fcf12bc4f88080b340c95a830",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Main-Regular.woff",
+      "sourceSHA256": "c6368d87e8a1a3a5d337623d83d8dc4b868f242a9ad476237d6f8d1e0f168cdc",
+      "publicSHA256": "c6368d87e8a1a3a5d337623d83d8dc4b868f242a9ad476237d6f8d1e0f168cdc",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Main-Regular.woff2",
+      "sourceSHA256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+      "publicSHA256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Math-BoldItalic.ttf",
+      "sourceSHA256": "f9377ab0271cda59af24bcffbd46a4d0c8a3572ffafdbb38de2ad5ea7b0d5ee5",
+      "publicSHA256": "f9377ab0271cda59af24bcffbd46a4d0c8a3572ffafdbb38de2ad5ea7b0d5ee5",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Math-BoldItalic.woff",
+      "sourceSHA256": "850c0af5c2238497febaf5e461d880bf458c341f42f4f330f1b1ab5698b1998e",
+      "publicSHA256": "850c0af5c2238497febaf5e461d880bf458c341f42f4f330f1b1ab5698b1998e",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Math-BoldItalic.woff2",
+      "sourceSHA256": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1",
+      "publicSHA256": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Math-Italic.ttf",
+      "sourceSHA256": "08ce98e51b04d58945a301e639e02b6998af29fdfd61a7b8afdd07bbfc479d4a",
+      "publicSHA256": "08ce98e51b04d58945a301e639e02b6998af29fdfd61a7b8afdd07bbfc479d4a",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Math-Italic.woff",
+      "sourceSHA256": "8a8d244581371912b8f3f5a23e2437cb2a59cd9bcaebb0346e722c05737a2571",
+      "publicSHA256": "8a8d244581371912b8f3f5a23e2437cb2a59cd9bcaebb0346e722c05737a2571",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Math-Italic.woff2",
+      "sourceSHA256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+      "publicSHA256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Bold.ttf",
+      "sourceSHA256": "1ece03f79f95277d57dc7f6b435a74e1379b0d46104a8530286b60ff49369ea0",
+      "publicSHA256": "1ece03f79f95277d57dc7f6b435a74e1379b0d46104a8530286b60ff49369ea0",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Bold.woff",
+      "sourceSHA256": "ece03cfd83e22c212cdef66feb8442d25a083beb988db3f1883f3f9738d750ba",
+      "publicSHA256": "ece03cfd83e22c212cdef66feb8442d25a083beb988db3f1883f3f9738d750ba",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Bold.woff2",
+      "sourceSHA256": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62",
+      "publicSHA256": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Italic.ttf",
+      "sourceSHA256": "3931dd81faed86ba021bb2bbdc36f5bed9a38d6b4f4077aca59b265aa1b02083",
+      "publicSHA256": "3931dd81faed86ba021bb2bbdc36f5bed9a38d6b4f4077aca59b265aa1b02083",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Italic.woff",
+      "sourceSHA256": "91ee67500cc0129aa0ace3ac5c61ff1692102f0f31d02b69347fba35dcb75bf2",
+      "publicSHA256": "91ee67500cc0129aa0ace3ac5c61ff1692102f0f31d02b69347fba35dcb75bf2",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Italic.woff2",
+      "sourceSHA256": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a",
+      "publicSHA256": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Regular.ttf",
+      "sourceSHA256": "f36ea897e19f4a2e571d1e900e4e3710e438deb05a842486045ba0a3e616a4ad",
+      "publicSHA256": "f36ea897e19f4a2e571d1e900e4e3710e438deb05a842486045ba0a3e616a4ad",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Regular.woff",
+      "sourceSHA256": "11e4dc8a6471ff6d6ee561d53d10fde8f7489e798257ff449c5d37c197435605",
+      "publicSHA256": "11e4dc8a6471ff6d6ee561d53d10fde8f7489e798257ff449c5d37c197435605",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_SansSerif-Regular.woff2",
+      "sourceSHA256": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342",
+      "publicSHA256": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Script-Regular.ttf",
+      "sourceSHA256": "1c67f068fea8bb09bf099c088b1cf64bd27516a6e07f4684344873564bb66a67",
+      "publicSHA256": "1c67f068fea8bb09bf099c088b1cf64bd27516a6e07f4684344873564bb66a67",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Script-Regular.woff",
+      "sourceSHA256": "d96cdf2b3bdd4d64a8fd5f74a4c467f123a8a73931cd435889f08ffaf9bf947a",
+      "publicSHA256": "d96cdf2b3bdd4d64a8fd5f74a4c467f123a8a73931cd435889f08ffaf9bf947a",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Script-Regular.woff2",
+      "sourceSHA256": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b",
+      "publicSHA256": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Size1-Regular.ttf",
+      "sourceSHA256": "95b6d2f1a50173bfedb8c63e1d1c99b10427d0a4df4201cb44513b226951a22b",
+      "publicSHA256": "95b6d2f1a50173bfedb8c63e1d1c99b10427d0a4df4201cb44513b226951a22b",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Size1-Regular.woff",
+      "sourceSHA256": "c943cc986384f59e86bea5fd7dc50a9c4dfe567a7c05eb40d6790720dead97c9",
+      "publicSHA256": "c943cc986384f59e86bea5fd7dc50a9c4dfe567a7c05eb40d6790720dead97c9",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Size1-Regular.woff2",
+      "sourceSHA256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+      "publicSHA256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Size2-Regular.ttf",
+      "sourceSHA256": "a6b2099fb555c60e3a0db3a08842ebf1d732c6eb4e4bf44913613bed4fc4e39b",
+      "publicSHA256": "a6b2099fb555c60e3a0db3a08842ebf1d732c6eb4e4bf44913613bed4fc4e39b",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Size2-Regular.woff",
+      "sourceSHA256": "2014c523c3210bcc166648c4d4cc57f05b747df07a24277bf71c51e67dc79e3d",
+      "publicSHA256": "2014c523c3210bcc166648c4d4cc57f05b747df07a24277bf71c51e67dc79e3d",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Size2-Regular.woff2",
+      "sourceSHA256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+      "publicSHA256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Size3-Regular.ttf",
+      "sourceSHA256": "500e04d54f0d51666332c9d2089aa803be22aa878eca539e59fa53c6e522b082",
+      "publicSHA256": "500e04d54f0d51666332c9d2089aa803be22aa878eca539e59fa53c6e522b082",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Size3-Regular.woff",
+      "sourceSHA256": "6ab6b62e9b62dae2c00dd90f791bd10950be0ecc3490d7d6045f51c2e8fe0949",
+      "publicSHA256": "6ab6b62e9b62dae2c00dd90f791bd10950be0ecc3490d7d6045f51c2e8fe0949",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Size3-Regular.woff2",
+      "sourceSHA256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+      "publicSHA256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Size4-Regular.ttf",
+      "sourceSHA256": "c647367d1dd4e162468717d020e1fc0f1dc5c26ebfdffbe55261713bf88c5877",
+      "publicSHA256": "c647367d1dd4e162468717d020e1fc0f1dc5c26ebfdffbe55261713bf88c5877",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Size4-Regular.woff",
+      "sourceSHA256": "99f9c6750b489c9462bf04900bd3f939df9b829339daaaaa99ef5495cdddea58",
+      "publicSHA256": "99f9c6750b489c9462bf04900bd3f939df9b829339daaaaa99ef5495cdddea58",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Size4-Regular.woff2",
+      "sourceSHA256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0",
+      "publicSHA256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Typewriter-Regular.ttf",
+      "sourceSHA256": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa",
+      "publicSHA256": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Typewriter-Regular.woff",
+      "sourceSHA256": "e14fed02b1aba7ce9f5afd5844b5d0321b22351febc720e0de8b8723527609f7",
+      "publicSHA256": "e14fed02b1aba7ce9f5afd5844b5d0321b22351febc720e0de8b8723527609f7",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/fonts/KaTeX_Typewriter-Regular.woff2",
+      "sourceSHA256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
+      "publicSHA256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/katex.min.css",
+      "sourceSHA256": "d4ab5b8ee16989b070cdb0ea24bd6ad48fc8df1b787f280f29d3ae4f959f2c00",
+      "publicSHA256": "d4ab5b8ee16989b070cdb0ea24bd6ad48fc8df1b787f280f29d3ae4f959f2c00",
+      "metadataAdapted": false
+    },
+    {
+      "file": "vendor/renderers/katex/LICENSE",
+      "sourceSHA256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3",
+      "publicSHA256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3",
+      "metadataAdapted": false
+    }
+  ]
+}

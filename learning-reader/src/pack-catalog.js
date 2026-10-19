@@ -3,7 +3,7 @@ import {validateExplanationPackage} from './explanation-package.js';
 import {validateReaderPack, isNativeReaderPack} from './reusable-explanation.js';
 import {readingLocations} from './reusable-explanation-v2.js';
 const physicsPack=null;
-const csPack={source:{sha256:"0000000000000000000000000000000000000000000000000000000000000000",pages:2}};
+const csPack={source:{sha256:'0000000000000000000000000000000000000000000000000000000000000000',pages:2}};
 import {leadingBodyPassage} from './reading-context.js';
 import {SOURCE} from './passages.js';
 import {scopedLegacyPassages as legacy,scopedLegacyAt as legacyAt,legacyCoverage} from './legacy-scopes.js';
