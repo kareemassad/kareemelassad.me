@@ -603,8 +603,8 @@
     },
     {
       "file": "src/teaching-content-v1.js",
-      "sourceSHA256": "6391379af6e2642cda845ba27e4e4da1a2dfcf0f3ff6ea3bd6a5cb3f892849a1",
-      "publicSHA256": "6391379af6e2642cda845ba27e4e4da1a2dfcf0f3ff6ea3bd6a5cb3f892849a1",
+      "sourceSHA256": "2901603f5c4d4d553d17c05cfcde0b9cde3498dea78a93a7cc8c912de12a6ab6",
+      "publicSHA256": "2901603f5c4d4d553d17c05cfcde0b9cde3498dea78a93a7cc8c912de12a6ab6",
       "metadataAdapted": false
     },
     {
@@ -621,8 +621,8 @@
     },
     {
       "file": "src/teaching-view-v1.js",
-      "sourceSHA256": "7bb7379f6b491788f4c15158a6213de1bc8a0e2020c2fbcb7976efe40465e3f7",
-      "publicSHA256": "7bb7379f6b491788f4c15158a6213de1bc8a0e2020c2fbcb7976efe40465e3f7",
+      "sourceSHA256": "d38ef703999bf806367f8ab241f81f37881bbef293cb0bfea0a87b9e783dfe6c",
+      "publicSHA256": "d38ef703999bf806367f8ab241f81f37881bbef293cb0bfea0a87b9e783dfe6c",
       "metadataAdapted": false
     },
     {

@@ -83,7 +83,7 @@ function surface(binding,s) {
  return {figure:svg(body,'An oriented surface patch and its unit normal in a uniform field. The curve shows signed flux versus normal angle.'),readouts:[['Actual area',fmt(m.a)+' m²'],['Normal component',fmt(m.component)+' W/m²'],['Signed heat rate',fmt(m.flux)+' W']],result:Math.abs(m.flux)<1e-8?'The field is tangent to the patch. No heat crosses it.':m.flux>0?'Positive flux crosses in the direction of the selected normal.':'Negative flux crosses opposite to the selected normal.',detail:'Green: field C. Blue: unit normal n. Dashed segment: projection. Arrow lengths use separate scales. The curve and patch use the same model.',question:'Is the signed flux positive at this angle?',correct:m.flux>1e-8,feedback:'The sign follows C · n. A positive area changes the magnitude, not the sign.'};
 }
 function cylinder(binding,s) {
- const m=lineCylinder(s),cx=270,cy=150,rx=33+m.r*28,ry=rx*.4,half=32+m.length*22;let body='';
+ const m=lineCylinder(s),cx=270,cy=150,rx=m.r*28,ry=rx*.4,half=m.length*25;let body='';
  body+=`<path d="M${cx-rx} ${cy-half}v${half*2}a${rx} ${ry} 0 0 0 ${rx*2} 0v-${half*2}" class="teach-cylinder"/><ellipse cx="${cx}" cy="${cy-half}" rx="${rx}" ry="${ry}" class="teach-cylinder"/><ellipse cx="${cx}" cy="${cy+half}" rx="${rx}" ry="${ry}" class="teach-cylinder-end"/>`;
  body+=line(cx,28,cx,280,'charge');
  for(let y=40;y<=275;y+=23)body+=text(cx-5,y,'+','teach-charge-label');
