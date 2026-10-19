@@ -45,6 +45,7 @@
 /* Retain the existing floating reading controls and their animation geometry. */
 #reader-shell header #bookmark-close{min-width:0;width:38px;height:38px;border-radius:7px;border:1px solid #d3dccf;background:#fbfcf7f2;color:#3d5642;box-shadow:0 2px 10px #253d2810;padding:10px;font-weight:400}
 #reader-shell header #bookmark-close:hover{background:#edf3e8;border-color:#a7b79d}
+#reader-shell header #bookmark-close svg{fill:currentColor;stroke:currentColor}
 #reader-shell header #page-label{height:38px;border-color:#d6ded1;background:#fbfcf7f2;color:#60745d;border-radius:7px;padding:8px 12px;font-size:11px;box-shadow:0 2px 10px #253d2810}
 #reader-shell header #mobile-pane{border-radius:7px;border-color:#d6ded1;background:#fbfcf7f2;color:#466145}
 @media(min-width:1600px){#shelf .shelf-content{margin-top:66px}}

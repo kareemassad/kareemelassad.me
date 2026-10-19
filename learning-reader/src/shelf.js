@@ -11,8 +11,8 @@ const ribbon='<svg viewBox="0 0 18 24" aria-hidden="true"><path d="M3 2h12v19l-6
 const art='<svg viewBox="0 0 200 130" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width=".7"><ellipse cx="100" cy="65" rx="76" ry="29"/><ellipse cx="100" cy="65" rx="29" ry="59"/><ellipse cx="100" cy="65" rx="65" ry="39" transform="rotate(-28 100 65)"/><ellipse cx="100" cy="65" rx="65" ry="39" transform="rotate(28 100 65)"/><path d="M19 65h162M100 4v122" stroke-dasharray="2 4"/><circle cx="100" cy="65" r="7"/></g><circle cx="165" cy="39" r="3" fill="currentColor"/></svg>';
 const defaultBook=readerBooks[0];
 export class BookShelf{
- constructor({load,capture,suspend,resume,configuration={}}){
-  this.library=new LocalLibrary();this.catalog=new PackCatalog(this.library,{configuration});this.configuration=configuration;this.pendingSourceId=null;this.load=load;this.capture=capture;this.suspend=suspend;this.resume=resume;this.mode='shelf';this.current=null;this.timer=0;this.loaded=false;
+ constructor({load,capture,suspend,resume,configuration={},catalogFactory}){
+  this.library=new LocalLibrary();this.catalog=catalogFactory?catalogFactory(this.library):new PackCatalog(this.library,{configuration});this.configuration=configuration;this.pendingSourceId=null;this.load=load;this.capture=capture;this.suspend=suspend;this.resume=resume;this.mode='shelf';this.current=null;this.timer=0;this.loaded=false;
   let storage;try{storage=localStorage;}catch{}
   this.progress=new ProgressStore(storage);this.books=new Map((configuration.mode==='static'?configuration.books.map(book=>[book.id,book]):readerBooks.map(book=>[book.id,{...book}])));this.motion=matchMedia('(prefers-reduced-motion: reduce)');
   $('bookmark-close').innerHTML=ribbon;$('bookmark-close').addEventListener('click',()=>this.close(true));$('back-to-shelf').addEventListener('click',()=>this.close(false));

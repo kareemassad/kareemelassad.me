@@ -17,8 +17,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "7e67b93dcd8a415bdbb9925ec15e06dbef9dd1837558c75406662f1227805125",
-      "bytes": 7641
+      "sha256": "64fed5bdb48df20ad0473239dfec321d96d00a851034b908802c8d8707c00f3d",
+      "bytes": 7692
     },
     {
       "path": "preparation/catalog.json",
@@ -27,8 +27,8 @@
     },
     {
       "path": "site-config.json",
-      "sha256": "dc24e0a921c354cbee9bb5ea01362660e79d5886072f5e8867d4a19eb49d4ff2",
-      "bytes": 497
+      "sha256": "cc791f4ae57fa2f9f4b2ae3adb38ef55ea5df3a9afc015e10b626fa00f93b2e0",
+      "bytes": 603
     },
     {
       "path": "src/assets.js",
@@ -44,6 +44,36 @@
       "path": "src/books/orbit-companion.pdf",
       "sha256": "a9964a8c5f2b4eba8ded247c0748cc666ca84cdc02691185af2d19496d1a4531",
       "bytes": 3124
+    },
+    {
+      "path": "src/clock-binding-book.js",
+      "sha256": "d716a64625d167b22c20067f2ea0de9fc65d060594173b4445baa7a85ef1da08",
+      "bytes": 927
+    },
+    {
+      "path": "src/clock-path-package-v1.js",
+      "sha256": "652a70e69c6dba573b0941e05ec81f995cab478caa3f16957cda9d9996b0d9c4",
+      "bytes": 3690
+    },
+    {
+      "path": "src/clock-path-state.js",
+      "sha256": "bff73939e77d7be336cbe09bb4fe70dd27091ff77495ac80e393f6d856a8e2cf",
+      "bytes": 925
+    },
+    {
+      "path": "src/clock-path-v1.js",
+      "sha256": "6e3c417c5c193f6d173ce0f872e39d982f0318d2a892b98d305e9e35b4a4d09f",
+      "bytes": 1190
+    },
+    {
+      "path": "src/clock-path-view.js",
+      "sha256": "8e20574d9c33ba0c880d6ca494a6d78e3e90e6049d69aaac138ebb4cae4abbb7",
+      "bytes": 8498
+    },
+    {
+      "path": "src/clock-path.css",
+      "sha256": "84523f0f1e61c33010cb7d9861dda32cd8a2d67b39cb818ec60b11f84596759d",
+      "bytes": 2052
     },
     {
       "path": "src/explanation-package.js",
@@ -62,8 +92,8 @@
     },
     {
       "path": "src/library-shell.css",
-      "sha256": "ae24aa53a04722913ae147be34280ece900b91697a8081bf7f13d307f9f027c3",
-      "bytes": 6660
+      "sha256": "fa314168c37d02c6fd5560417ec767cb79b17df5094cc824000e5f99dea004d9",
+      "bytes": 6740
     },
     {
       "path": "src/library-shell.js",
@@ -136,6 +166,11 @@
       "bytes": 4623
     },
     {
+      "path": "src/public-pack-catalog.js",
+      "sha256": "e82607beeb356660062390e79f92dd9d8f2fa276ee3a77762e24aaca490523fd",
+      "bytes": 1609
+    },
+    {
       "path": "src/reader-books.js",
       "sha256": "7ad71275f3fbce35a32f5fe372d92379d49be691516394e5a1954d4ecf287bda",
       "bytes": 237
@@ -147,8 +182,8 @@
     },
     {
       "path": "src/reader.js",
-      "sha256": "9702f384a3cebe4d7d8e63f754cc48089948e9ed3c9acfd0f1dcf612c62bef22",
-      "bytes": 7575
+      "sha256": "4bc6ece9295dee253a0f4fbf9cfa066e907254ef8aee39ea39e3ef7e5814d25c",
+      "bytes": 8362
     },
     {
       "path": "src/reading-context.js",
@@ -177,8 +212,8 @@
     },
     {
       "path": "src/reusable-explanation.js",
-      "sha256": "e7d156b3911a8c4c48ba21f6d4f1cd3afe5b02b0f4ee1cc695d9c4efc5931004",
-      "bytes": 209
+      "sha256": "317dda7e87c7c4b84f41c5d519329bfdc63015d48dec27d696ec67f8d86b7ed9",
+      "bytes": 378
     },
     {
       "path": "src/scroll-reader.js",
@@ -192,8 +227,8 @@
     },
     {
       "path": "src/shelf.js",
-      "sha256": "fd876e8a1a3fb9852ce9154c958b2514b6b1f82499a7f7c36f02f4a848d3b736",
-      "bytes": 26882
+      "sha256": "5ab87aa9b21d91ccb9022848a78fcc0e0e3a4ee58b75caccb24b642eaaacaf01",
+      "bytes": 26941
     },
     {
       "path": "src/site-config.js",
