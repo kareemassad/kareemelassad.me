@@ -9,5 +9,5 @@
 #reader-shell header #bookmark-close:hover{background:#9e302b;border-color:#8e2c26}
 #reader-shell header #bookmark-close svg{fill:#fff;stroke:#fff;width:20px;height:27px}
 @media(max-width:580px){#reader-shell .stage:has(.teaching-lab){padding-top:64px}body:has(.teaching-lab) #mobile-help{display:none}#reader-shell header #bookmark-close{top:8px;left:8px;width:44px;min-width:44px;height:44px}#reader-shell header #mobile-pane{margin-left:50px}}
-#reader-shell .stage:has(.teaching-saved){display:block;padding-top:44px;touch-action:pan-x pan-y}.teaching-saved{width:600px;margin:auto}.teaching-saved svg{display:block;width:100%;height:auto}.teaching-saved .teaching-stats{padding-inline:18px}
-@media(max-width:580px){#reader-shell .stage:has(.teaching-saved){padding-top:82px}}
+#reader-shell .stage:has(.teaching-saved){display:block;padding-top:44px;touch-action:pan-x pan-y}.teaching-saved{width:100%;max-width:600px;margin:auto}.teaching-saved svg{display:block;width:100%;height:auto}.teaching-saved .teaching-stats{padding-inline:18px}
+@media(max-width:580px){#reader-shell .stage:has(.teaching-saved){padding-top:82px}.teaching-saved{width:600px;max-width:none}}

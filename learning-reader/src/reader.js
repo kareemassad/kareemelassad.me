@@ -67,6 +67,7 @@ function positionChanged(position){
  $('source-ref').textContent=`p. ${next.source.printed} · ${next.source.ref}`;
  $('demo-title').textContent=next.title;$('demo-caption').textContent=reading?.following?reading.beat.caption:next.caption;
  if(changed){
+  delete $('stage').dataset.teachingBinding;$('stage').scrollTop=0;
   state=states.get(passageKey(next))||{...(learningModelFor(next)?.defaults(next)||initial(next.scene)),...next.defaults,variant:next.scene==='potential-loop'?'loop':'0'};state={...state,...learning.activate(next.scene,shelf?.current?.id||SOURCE.sha256,next.id,state,{explorationOnly:sourceExplorationNames.includes(next.scene)||/^chapter[124567]-/.test(next.packId||'')})};if(reading?.following)Object.assign(state,reading.beat.inputs);states.set(passageKey(next),state);if(nextModel?.animated&&state.moving===false)playing=false;shape='';buildControls();render();last=0;start();
  }
  else if(reading?.changed){const changedInputs=Object.entries(reading.beat.inputs).some(([key,value])=>state[key]!==value);Object.assign(state,reading.beat.inputs);states.set(passageKey(next),state);if(changedInputs){render();if(nextModel?.animated){if(state.moving===false)playing=false;last=0;start();}}}
@@ -98,8 +99,10 @@ function buildControls(){
 }
 function render(){
  if(!active||!state)return;
- const model=learningModelFor(active);if(model){adapter.clear();model.render($('stage'),active,state);model.syncControls?.($('learning-tools'),state);$('readouts').replaceChildren();return;}
- const scene=type(),result=draw(scene,state),explorationOnly=sourceExplorationNames.includes(scene)||/^chapter[124567]-/.test(active.packId||'');if(explorationOnly)result.svg=result.svg.replaceAll('Click or Space: pause / play','More controls below').replaceAll('Space: pause / play','More controls below');
+ const model=learningModelFor(active),savedScene=model?.savedScene?.(active,state);if(model&&!savedScene){adapter.clear();model.render($('stage'),active,state);model.syncControls?.($('learning-tools'),state);$('readouts').replaceChildren();lastMetrics='';return;}
+ if($('stage').dataset.teachingBinding){delete $('stage').dataset.teachingBinding;$('stage').scrollTop=0;}
+ if(savedScene)model.syncControls?.($('learning-tools'),state);
+ const scene=savedScene||type(),result=draw(scene,state),explorationOnly=sourceExplorationNames.includes(scene)||/^chapter[124567]-/.test(active.packId||'');if(explorationOnly)result.svg=result.svg.replaceAll('Click or Space: pause / play','More controls below').replaceAll('Space: pause / play','More controls below');
  learning.update(state);
  const displayState=['snapshot-write-skew','serializable-retry',...causalNames].includes(scene)?{...state,progress:Math.floor(state.progress)}:state;
  const key=scene+':'+JSON.stringify(Object.fromEntries(Object.entries(displayState).filter(([k])=>!((['dipole','point','potential','potential-loop'].includes(scene)&&['x','y','angle','progress'].includes(k))||(['solid-sphere','spherical-shell','parallel-sheets'].includes(scene)&&k==='r')||(scene==='sheet-background'&&k==='b')||(scene==='quorum'&&k==='progress')))));

@@ -35,12 +35,12 @@
     },
     {
       "path": "runtime-profile.json",
-      "sha256": "a58eb07fad0564b13cf1597401bf492ca97732583ec21f17f62f6695bbd4c0df",
+      "sha256": "f5b8b4df3ff125d479a26c76ab9a35d60315d99141386100150b435f53a8c75a",
       "bytes": 47290
     },
     {
       "path": "site-config.json",
-      "sha256": "783545855f4d7c70fb5c613c55528b50e879dd8ac4579e8574f46c8ef14b637d",
+      "sha256": "970b0899178126209e241285a4f23dccdb2d84815ff440e88f426b9dfc89f96c",
       "bytes": 1553
     },
     {
@@ -430,8 +430,8 @@
     },
     {
       "path": "src/reader.js",
-      "sha256": "b311d5e6e6c933af7dbb83fbaef2ed493a0c4778eff68e605731837a3d953eec",
-      "bytes": 35467
+      "sha256": "f8f5eb298f1e16a8fd018274d94965d821623ce2bf7e0a1f4244cfe5124dbf9a",
+      "bytes": 35791
     },
     {
       "path": "src/reading-context.js",
@@ -555,8 +555,8 @@
     },
     {
       "path": "src/teaching-adapter-v1.js",
-      "sha256": "2770f91fc0cca4dca439765b253c00355d47febb1bfcc36ee2f7adf96754f21a",
-      "bytes": 904
+      "sha256": "9573a115ecdce063096380503df8899d50b19681e72374e9190fc759d2e92714",
+      "bytes": 1000
     },
     {
       "path": "src/teaching-content-v1.js",
@@ -570,13 +570,13 @@
     },
     {
       "path": "src/teaching-reader-v1.css",
-      "sha256": "b11842bb13cb97fb2bb01bda9f559adf0fa4c523bfb59e7b8fb513dfe16e4eb6",
-      "bytes": 5995
+      "sha256": "535e6615031d12ab0cb83db8629bc15fa4d0e321ba05fa5007a08ed2d470f617",
+      "bytes": 6053
     },
     {
       "path": "src/teaching-view-v1.js",
-      "sha256": "d38ef703999bf806367f8ab241f81f37881bbef293cb0bfea0a87b9e783dfe6c",
-      "bytes": 19660
+      "sha256": "68ecd5736a1154a645bbc744934f49986323168c5ec54d0e5bcb4c676bc70198",
+      "bytes": 20165
     },
     {
       "path": "src/templates.js",

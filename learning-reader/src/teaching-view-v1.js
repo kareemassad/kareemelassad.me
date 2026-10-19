@@ -94,18 +94,21 @@ function cylinder(binding,s) {
 }
 const calculations={timing,quorum,vectors,surface,line:cylinder};
 export function renderTeaching(container,binding,s,onApply) {
+ const key=JSON.stringify([binding.pack,binding.version,binding.id,binding.page,!!s.savedDiagram]);
+ const sameBinding=container.dataset.teachingBinding===key;
+ const scroll=sameBinding?container.scrollTop:0;
+ container.dataset.teachingBinding=key;
  container.dataset.teaching=binding.kind;
  if(s.savedDiagram){
   if(binding.scene==='replication-lab')renderReplication(container,binding.id.slice(5),{...replicationDefaults(binding.id.slice(5)),...s});
   else {const saved=draw(binding.scene,s);container.innerHTML=`<article class="teaching-saved"><div>${saved.svg}</div>${stats(saved.metrics.map(item=>[item.label,item.value]))}</article>`;}
-  return;
+  container.scrollTop=scroll;return;
  }
  const m=calculations[binding.kind](binding,s);
  const focused=container.contains(document.activeElement)?document.activeElement:null;
  const focusKey=focused?.dataset.readSet!==undefined?'readSet':focused?.dataset.predict!==undefined?'predict':null;
  const focusValue=focusKey?focused.dataset[focusKey]:null;
- const open=Object.fromEntries(['prediction','limits'].map(key=>[key,container.querySelector('.teaching-'+key)?.open]));
- const scroll=container.scrollTop;
+ const open=Object.fromEntries(['prediction','limits'].map(key=>[key,sameBinding&&container.querySelector('.teaching-'+key)?.open]));
  container.innerHTML=`<article class="teaching-lab"><p class="teaching-kicker">SAVED EXPERIMENT · VERSION 1</p><h2>${esc(binding.title)}</h2><p class="teaching-intro">${esc(binding.intro)}</p><div class="teaching-drawing">${m.figure}</div>${stats(m.readouts)}<p class="teaching-result" role="status">${esc(m.result)}</p><p class="teaching-detail">${esc(m.detail)}</p>${m.sets?`<div class="teaching-sets" aria-label="All possible read response sets">${m.sets.map((set,i)=>`<button type="button" data-read-set="${i}" aria-pressed="${i===s.selection}" aria-label="Read ${names(set.read)}; ${set.overlap.length?'finds v2':'misses v2'}" class="${set.overlap.length?'':'teach-miss'}">${set.read.map(j=>'ABCDE'[j]).join('')} <span>${set.overlap.length?'v2':'v1'}</span></button>`).join('')}</div>`:''}<details class="teaching-prediction"><summary>Check your reasoning</summary><p>${esc(m.question)}</p><div><button type="button" data-predict="yes" aria-pressed="${s.prediction==='yes'}">Yes</button><button type="button" data-predict="no" aria-pressed="${s.prediction==='no'}">No</button></div><p role="status">${s.prediction?m.correct===null?'Choose a time after promotion to evaluate the read.':((s.prediction==='yes')===m.correct?'Correct. ':'Try the model again. ')+esc(m.feedback):'Choose an answer, then test it with the controls.'}</p></details><details class="teaching-limits"><summary>Assumptions and source</summary><p>${esc(binding.limit)}</p><p>Bound to this PDF edition, saved package ${esc(binding.pack)} v${binding.version}, PDF page ${binding.page}. Other passages retain their saved diagrams.</p></details></article>`;
  for(const key of ['prediction','limits'])container.querySelector('.teaching-'+key).open=!!open[key];
  container.scrollTop=scroll;
@@ -123,8 +126,9 @@ function choose(container,s,apply,key,label,options) {
  options.forEach(([value,name])=>{const option=el('option',name);option.value=value;select.append(option);});select.value=s[key];select.addEventListener('change',()=>apply({[key]:Number(select.value),prediction:null}));row.append(title,select);container.append(row);
 }
 export function teachingControls(container,binding,s,apply) {
- container.replaceChildren();container.hidden=false;
- const toolbar=el('div');toolbar.className='teaching-toolbar';const toggle=el('button',s.savedDiagram?'Use new experiment':'View original saved diagram');toggle.type='button';toggle.addEventListener('click',()=>{apply({savedDiagram:s.savedDiagram?0:1});teachingControls(container,binding,s,apply);});toolbar.append(toggle);container.append(toolbar);
+ const help=container.querySelector(':scope > .prepared-help');
+ container.replaceChildren(...(help?[help]:[]));container.hidden=false;
+ const toolbar=el('div');toolbar.className='teaching-toolbar';const toggle=el('button',s.savedDiagram?'Use new experiment':'View original saved diagram');toggle.type='button';toggle.dataset.teachingToggle='';toggle.addEventListener('click',()=>{const focused=document.activeElement===toggle;apply({savedDiagram:s.savedDiagram?0:1});teachingControls(container,binding,s,apply);if(focused)container.querySelector('[data-teaching-toggle]').focus({preventScroll:true});});toolbar.append(toggle);container.append(toolbar);
  if(s.savedDiagram&&binding.scene==='replication-lab'){
   const original=el('div');container.append(original);replicationControls(original,binding.id.slice(5),{...replicationDefaults(binding.id.slice(5)),...s},values=>apply({...values,...('w' in values||'r' in values?{selection:0}:{}),prediction:null}));return;
  }
