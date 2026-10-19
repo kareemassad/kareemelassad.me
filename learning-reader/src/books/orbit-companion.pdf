@@ -1,0 +1,77 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Times-Roman >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 1028 >>
+stream
+0.98 0.98 0.96 rg 0 0 612 792 re f
+0.18 0.25 0.19 rg
+BT /F1 9 Tf 54 748 Td (ORIGINAL COMPANION NOTES) Tj ET
+BT /F2 28 Tf 54 700 Td (Falling into orbit) Tj ET
+BT /F2 17 Tf 54 634 Td (A fall with a sideways start) Tj ET
+BT /F1 12 Tf 54 606 Td (The launch gives the ball sideways speed. Gravity keeps turning its) Tj ET
+BT /F1 12 Tf 54 587 Td (velocity toward Earth. With a slow launch, the ground gets in the way.) Tj ET
+BT /F2 17 Tf 54 462 Td (Faster sends it farther) Tj ET
+BT /F1 12 Tf 54 434 Td (A faster launch carries the ball farther around the curved surface before) Tj ET
+BT /F1 12 Tf 54 415 Td (it lands. It is still falling the whole time.) Tj ET
+BT /F2 17 Tf 54 290 Td (Keep falling. Keep missing.) Tj ET
+BT /F1 12 Tf 54 262 Td (At circular speed, the path bends just as quickly as the surface curves) Tj ET
+BT /F1 12 Tf 54 243 Td (away. The ball stays at one radius because it is continually falling around) Tj ET
+BT /F1 12 Tf 54 224 Td (Earth.) Tj ET
+BT /F1 9 Tf 54 36 Td (Learning Reader | Original notes | 1) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 1213 >>
+stream
+0.98 0.98 0.96 rg 0 0 612 792 re f
+0.18 0.25 0.19 rg
+BT /F1 9 Tf 54 748 Td (ORIGINAL COMPANION NOTES) Tj ET
+BT /F2 28 Tf 54 700 Td (Falling into orbit) Tj ET
+BT /F2 17 Tf 54 634 Td (An orbit need not be a circle) Tj ET
+BT /F1 12 Tf 54 606 Td (A little more speed lifts the far side of the orbit. Gravity slows the ball) Tj ET
+BT /F1 12 Tf 54 587 Td (as it climbs and speeds it up as it comes back.) Tj ET
+BT /F2 17 Tf 54 444 Td (Enough energy to leave) Tj ET
+BT /F1 12 Tf 54 416 Td (At the escape threshold, the ball can keep moving outward without another) Tj ET
+BT /F1 12 Tf 54 397 Td (push. That threshold is sqrt\(2\) times the circular speed at the same launch) Tj ET
+BT /F1 12 Tf 54 378 Td (height.) Tj ET
+BT /F2 13 Tf 54 200 Td (Model assumptions) Tj ET
+BT /F1 10 Tf 54 178 Td (A spherical Earth and an unpowered test mass. No atmosphere, rotation,) Tj ET
+BT /F1 10 Tf 54 163 Td (other bodies or relativity. Launch height is 5% of the radius. Speeds are) Tj ET
+BT /F1 10 Tf 54 148 Td (relative to circular speed at that height. The companion is original) Tj ET
+BT /F1 10 Tf 54 133 Td (instructional material, not a page from Feynman.) Tj ET
+BT /F1 9 Tf 54 36 Td (Learning Reader | Original notes | 2) Tj ET
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000000263 00000 n 
+0000000399 00000 n 
+0000001479 00000 n 
+0000001615 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+2880
+%%EOF

@@ -1,0 +1,1 @@
+export const scopedLegacyPassages=[],legacyCoverage=[];export const scopedLegacyAt=()=>null;

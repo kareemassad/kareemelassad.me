@@ -1,0 +1,4 @@
+const valid=s=>s&&Number.isFinite(s.speed)&&s.speed>=0&&s.speed<=1.65&&Number.isInteger(s.phase)&&s.phase>=0&&s.phase<=4&&Number.isFinite(s.trace)&&s.trace>=0&&s.trace<=1&&['moving','compare','straight'].every(k=>typeof s[k]==='boolean');
+const key=p=>'learning-reader.flight.v1:'+p.packId+':'+(p.packVersion||1)+':'+p.id;
+export function restoreFlight(p,storage){try{storage??=globalThis.localStorage;const saved=JSON.parse(storage.getItem(key(p)));return saved?.version===1&&typeof saved.exploring==='boolean'&&valid(saved.state)?saved:null;}catch{return null;}}
+export function persistFlight(p,state,selection,storage){try{storage??=globalThis.localStorage;const snapshot={speed:state.speed,phase:state.phase,trace:state.trace||0,moving:!!state.moving,compare:!!state.compare,straight:!!state.straight};if(!valid(snapshot))return false;storage.setItem(key(p),JSON.stringify({version:1,state:snapshot,exploring:selection?.following===false}));return true;}catch{return false;}}

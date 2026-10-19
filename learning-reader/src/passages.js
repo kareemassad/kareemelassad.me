@@ -1,0 +1,1 @@
+export const SOURCE={sha256:"0000000000000000000000000000000000000000000000000000000000000000",pages:0};export const passages=[],sections=[];export const passageAt=()=>null;

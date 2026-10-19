@@ -1,0 +1,1 @@
+export const readerBooks=[];export const visibleReaderBook=()=>true;export function restoredReaderBook(record,known){const {blob,...metadata}=record;return {...known,...metadata,persistent:!!blob,requiresSource:!blob&&!known?.localUrl};}

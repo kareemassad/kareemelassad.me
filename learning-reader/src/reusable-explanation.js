@@ -1,0 +1,1 @@
+import {validateOrbitalFlightPack} from "./orbital-flight-package-v1.js"; export const isNativeReaderPack=p=>p?.format==="orbital-flight-explanations";export const validateReaderPack=validateOrbitalFlightPack;

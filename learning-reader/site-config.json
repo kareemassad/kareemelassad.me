@@ -1,0 +1,18 @@
+{
+  "mode": "static",
+  "codeHash": "a078594a2436bf5ac18cb09b1324d2ef8d08beb1445c0a75023f54488838ecc7",
+  "books": [
+    {
+      "id": "a9964a8c5f2b4eba8ded247c0748cc666ca84cdc02691185af2d19496d1a4531",
+      "title": "Falling into orbit",
+      "subtitle": "Original companion notes · Newtonian gravity",
+      "pages": 2,
+      "cover": "orbit",
+      "localUrl": "src/books/orbit-companion.pdf",
+      "initialPosition": {
+        "page": 1,
+        "y": 0.1873232323232323
+      }
+    }
+  ]
+}

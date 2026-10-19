@@ -1,0 +1,53 @@
+/* Library and reader chrome. Book covers, source pages, and visualizations keep their existing styles. */
+#shelf{background:#f7f6f1;color:#26362c;scrollbar-color:#c9cec4 transparent}
+#shelf .shelf-top{max-width:1360px;margin:auto;padding:30px 52px;min-height:100px;gap:24px;flex-wrap:nowrap}
+#shelf .room-mark{font-family:ReaderSerif,Georgia,serif;font-size:23px;letter-spacing:-.025em;color:#26362c;text-decoration:none;gap:13px;white-space:nowrap}
+#shelf .room-mark svg{width:27px;height:27px;stroke:#394b3c;stroke-width:1.1;fill:none}
+#shelf .shelf-tools{display:flex;align-items:center;gap:14px;flex-wrap:nowrap;width:auto}
+#shelf .upload-book{display:inline-flex;align-items:center;gap:9px;min-height:43px;border:1px solid #293f32;border-radius:5px;background:#293f32;color:#fff;padding:11px 17px;font-size:12px;font-weight:500;letter-spacing:.01em;white-space:nowrap}
+#shelf .upload-book:hover{background:#1f3327;border-color:#1f3327}
+#shelf .upload-book svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.3;fill:none}
+#shelf .shelf-content{display:block;max-width:1140px;margin:48px auto 0;padding:0 56px 80px;min-height:0}
+#shelf .shelf-kicker{font-size:10px;letter-spacing:.15em;color:#6d786b;font-weight:500}
+#shelf .shelf-intro h1{font-size:clamp(43px,5vw,64px);font-weight:400;line-height:1.13;letter-spacing:-.045em;margin:16px 0 15px;color:#26362c}
+#shelf .shelf-intro h1>span{color:#83907b}
+#shelf .shelf-intro p{font-size:14px;color:#6c7469;line-height:1.7}
+#shelf .shelf-label{margin-top:42px;padding-top:20px;border-color:#d9ddd2;font-size:11px;letter-spacing:.01em;color:#737e70}
+#shelf .bookcase{margin-top:40px;padding:0}
+#shelf .book-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:62px 44px;padding:0 18px;align-items:start}
+#shelf .book-card{width:auto;padding-bottom:0;min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+#shelf .book-card:after{display:none}
+#shelf .book-label{position:static;width:100%;max-width:245px;margin-top:28px}
+#shelf .book-label h2{font-size:19px;line-height:1.4;letter-spacing:-.01em;color:#293b30;margin:0 0 8px}
+#shelf .book-label p{font-size:11px;line-height:1.7;color:#727b6e}
+#shelf .book-label .book-place{font-size:11px;color:#465e49;margin-top:12px}
+#shelf .chapter-start{display:none}
+#shelf .remove-book{position:static;margin-top:12px;font-size:10px;padding:3px 0;color:#7f6b5b}
+#shelf .shelf-ledge{display:none}
+#shelf-notice{margin:34px 0 0!important;padding:12px 15px;border:1px solid #d8dfd0;background:#eff3e9;border-radius:5px;font-size:12px!important;color:#425741!important;max-width:680px}
+#shelf-notice.save-error{background:#fbf1e7;border-color:#e3cdb9;color:#8e4e29!important}
+#shelf .library-options{position:relative;color:#586851}
+#shelf .library-options>summary{display:grid;place-items:center;list-style:none;cursor:pointer;width:42px;height:43px;border:1px solid transparent;border-radius:5px}
+#shelf .library-options>summary::-webkit-details-marker{display:none}
+#shelf .library-options>summary svg{width:20px;height:20px;fill:currentColor}
+#shelf .library-options>summary:hover,#shelf .library-options[open]>summary{background:#eaece4;border-color:#d6dccf}
+#shelf .library-options-panel{position:absolute;right:0;top:54px;width:245px;padding:9px;background:#fdfdf9;border:1px solid #dde1d6;border-radius:9px;box-shadow:0 14px 42px #26362c16;z-index:40}
+#shelf .library-options-panel button{display:block;width:100%;text-align:left;background:transparent;border:0;padding:10px 12px;color:#425340;border-radius:4px;font-size:12px;line-height:1.5}
+#shelf .library-options-panel button:hover{background:#edf1e6}
+#shelf .library-options-panel hr{border:0;border-top:1px solid #e5e8df;margin:6px 8px}
+#shelf .library-options-panel p{margin:6px 12px;font-size:11px;line-height:1.7;color:#6c7667}
+#shelf .library-options-panel p:empty{display:none}
+#shelf-empty{text-align:center;padding:58px 20px 48px;border:1px dashed #d5dbce;border-radius:8px;margin-top:35px;color:#64745d}
+#shelf-empty svg{width:38px;height:38px;fill:none;stroke:#819576;stroke-width:1}
+#shelf-empty h2{font:27px ReaderSerif,Georgia,serif;margin:18px 0 8px;color:#334b35}
+#shelf-empty p{font-size:13px;margin:0}
+#shelf button:focus-visible,#shelf summary:focus-visible,#shelf a:focus-visible{outline:2px solid #718368;outline-offset:5px}
+/* Retain the existing floating reading controls and their animation geometry. */
+#reader-shell header #bookmark-close{min-width:0;width:38px;height:38px;border-radius:7px;border:1px solid #d3dccf;background:#fbfcf7f2;color:#3d5642;box-shadow:0 2px 10px #253d2810;padding:10px;font-weight:400}
+#reader-shell header #bookmark-close:hover{background:#edf3e8;border-color:#a7b79d}
+#reader-shell header #page-label{height:38px;border-color:#d6ded1;background:#fbfcf7f2;color:#60745d;border-radius:7px;padding:8px 12px;font-size:11px;box-shadow:0 2px 10px #253d2810}
+#reader-shell header #mobile-pane{border-radius:7px;border-color:#d6ded1;background:#fbfcf7f2;color:#466145}
+@media(min-width:1600px){#shelf .shelf-content{margin-top:66px}}
+@media(max-width:900px){#shelf .shelf-top{padding:25px 34px;min-height:88px}#shelf .shelf-content{padding:0 42px 60px;margin-top:40px}#shelf .book-row{grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:48px 30px;padding:0 8px}}
+@media(max-width:600px){#shelf .shelf-top{padding:21px 22px;gap:12px;min-height:84px}#shelf .room-mark{font-size:20px;gap:9px}#shelf .room-mark svg{width:23px;height:23px}#shelf .upload-book{min-height:40px;padding:10px 12px;font-size:11px;gap:6px}#shelf .upload-book svg{width:13px;height:13px}#shelf .shelf-tools{gap:3px}#shelf .library-options>summary{width:30px;height:40px}#shelf .library-options-panel{top:49px;width:235px}#shelf .shelf-content{padding:0 28px 50px;margin-top:35px}#shelf .shelf-intro h1{font-size:47px;margin:14px 0}#shelf .shelf-kicker{font-size:9px}#shelf .shelf-intro p{font-size:13px}#shelf .shelf-label{margin-top:31px;padding-top:17px}#shelf .bookcase{margin-top:32px}#shelf .book-row{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:45px;padding:0 15px}#shelf .book-label{max-width:260px;margin-top:24px}#shelf .book-label h2{font-size:20px}#shelf .remove-book{visibility:visible;font-size:11px}#reader-shell header #bookmark-close{width:38px;min-width:38px;height:38px}#reader-shell header #page-label{font-size:10px}}
+@media(max-width:370px){#shelf .shelf-top{padding:18px 15px;gap:8px}#shelf .room-mark{font-size:18px;gap:7px}#shelf .room-mark svg{width:21px;height:21px}#shelf .upload-book{padding:10px;font-size:10px}#shelf .shelf-content{padding:0 22px}#shelf .book-row{padding:0 10px}}

@@ -1,0 +1,223 @@
+{
+  "codeHash": "a078594a2436bf5ac18cb09b1324d2ef8d08beb1445c0a75023f54488838ecc7",
+  "packs": [],
+  "jobs": [],
+  "sessions": [],
+  "sections": [],
+  "explanationPackages": [
+    {
+      "format": "learning-explanation-package",
+      "schemaVersion": 1,
+      "id": "falling-into-orbit",
+      "version": 2,
+      "source": {
+        "sha256": "a9964a8c5f2b4eba8ded247c0748cc666ca84cdc02691185af2d19496d1a4531",
+        "pages": 2,
+        "title": "Falling into orbit",
+        "edition": "Original companion notes, 2026"
+      },
+      "packHash": "84035fec514fb7861f1e6846d215f5f9dc523c17f70ba47dd2eca6879f6f7762",
+      "modelAssetsHash": "994906e91093a44a17f0f5e223df029b5648824c01bdaa2508c2b687f3df1e6b",
+      "coverage": [
+        {
+          "start": {
+            "page": 1,
+            "anchor": "A fall with a sideways start",
+            "y": 0.1823232323232323
+          },
+          "end": {
+            "page": 2,
+            "anchor": "Learning Reader | Original notes | 2",
+            "y": 0.9454545454545454
+          }
+        }
+      ],
+      "provenance": {
+        "kind": "authored-source-package",
+        "originalAcceptedPackHash": "84035fec514fb7861f1e6846d215f5f9dc523c17f70ba47dd2eca6879f6f7762",
+        "originalReview": {
+          "type": "agent",
+          "reviewer": "Learning Reader original-companion author review",
+          "sourceHash": "a9964a8c5f2b4eba8ded247c0748cc666ca84cdc02691185af2d19496d1a4531",
+          "proposalHash": "996937b9ba0aed9796c14edbb706eb75efa85ea2fa74644235827380ce6511f4",
+          "extractionHash": "4cc42138e0bc96c140feeb1fc70cab02c93ec80f6a9706863984cad0af2a79a6",
+          "codeHash": "994906e91093a44a17f0f5e223df029b5648824c01bdaa2508c2b687f3df1e6b",
+          "sourceReviewed": true,
+          "modelReviewed": true,
+          "visualsReviewed": true,
+          "note": "Original instructional prose and numerical model; not copied or inferred textbook content. Acceptance follows actual source, physics and rendered-reader inspection."
+        },
+        "providerCalls": 0,
+        "authorship": "Original Learning Reader companion. Not a textbook excerpt or third-party app."
+      },
+      "pack": {
+        "format": "orbital-flight-explanations",
+        "schemaVersion": 1,
+        "id": "falling-into-orbit",
+        "version": 2,
+        "source": {
+          "sha256": "a9964a8c5f2b4eba8ded247c0748cc666ca84cdc02691185af2d19496d1a4531",
+          "pages": 2,
+          "title": "Falling into orbit",
+          "edition": "Original companion notes, 2026"
+        },
+        "passages": [
+          {
+            "id": "orbital-reading",
+            "scene": "orbital-flight",
+            "lab": "newtonian-cannon",
+            "page": 1,
+            "y": 0.1823232323232323,
+            "title": "Falling into orbit",
+            "caption": "Follow a sideways launch from a short fall to an orbit and an escape.",
+            "defaults": {
+              "speed": 0.35,
+              "phase": 0
+            },
+            "source": {
+              "page": 1,
+              "printed": "1-2",
+              "section": "gravity-1",
+              "ref": "Original companion notes",
+              "anchor": "A fall with a sideways start",
+              "text": "Sideways launch and inward gravity act together. Increase launch speed to compare impact, a circle, an ellipse and unbound motion. Energy distinguishes a bound orbit from escape.",
+              "limit": "Newtonian two-body motion, GM = 1 in dimensionless units. Launch radius 1.05 Earth radii. No atmosphere, rotation, thrust, other bodies or relativity. This is an original companion, not a Feynman excerpt."
+            },
+            "reading": {
+              "pages": [
+                {
+                  "page": 1,
+                  "summary": "Increase sideways speed while keeping gravity fixed. The ball lands farther around Earth until it can continually miss the surface.",
+                  "evidence": [
+                    {
+                      "page": 1,
+                      "anchor": "A fall with a sideways start",
+                      "y": 0.1823232323232323
+                    }
+                  ]
+                },
+                {
+                  "page": 2,
+                  "summary": "Extra launch speed stretches a bound orbit. Enough energy allows unbound motion even while gravity continues to slow the ball.",
+                  "evidence": [
+                    {
+                      "page": 2,
+                      "anchor": "An orbit need not be a circle",
+                      "y": 0.1823232323232323
+                    }
+                  ]
+                }
+              ],
+              "beats": [
+                {
+                  "id": "flight-0",
+                  "at": {
+                    "page": 1,
+                    "anchor": "A fall with a sideways start",
+                    "y": 0.1823232323232323
+                  },
+                  "caption": "The launch gives the ball sideways speed. Gravity keeps turning its velocity toward Earth. With a slow launch, the ground gets in the way.",
+                  "inputs": {
+                    "speed": 0.35,
+                    "phase": 0
+                  }
+                },
+                {
+                  "id": "flight-1",
+                  "at": {
+                    "page": 1,
+                    "anchor": "Faster sends it farther",
+                    "y": 0.39949494949494946
+                  },
+                  "caption": "A faster launch carries the ball farther around the curved surface before it lands. It is still falling the whole time.",
+                  "inputs": {
+                    "speed": 0.8,
+                    "phase": 1
+                  }
+                },
+                {
+                  "id": "flight-2",
+                  "at": {
+                    "page": 1,
+                    "anchor": "Keep falling. Keep missing.",
+                    "y": 0.6166666666666666
+                  },
+                  "caption": "At circular speed, the path bends just as quickly as the surface curves away. The ball stays at one radius because it is continually falling around Earth.",
+                  "inputs": {
+                    "speed": 1,
+                    "phase": 2
+                  }
+                },
+                {
+                  "id": "flight-3",
+                  "at": {
+                    "page": 2,
+                    "anchor": "An orbit need not be a circle",
+                    "y": 0.1823232323232323
+                  },
+                  "caption": "A little more speed lifts the far side of the orbit. Gravity slows the ball as it climbs and speeds it up as it comes back.",
+                  "inputs": {
+                    "speed": 1.15,
+                    "phase": 3
+                  }
+                },
+                {
+                  "id": "flight-4",
+                  "at": {
+                    "page": 2,
+                    "anchor": "Enough energy to leave",
+                    "y": 0.4222222222222222
+                  },
+                  "caption": "At the escape threshold, the ball can keep moving outward without another push. That threshold is √2 times the circular speed at the same launch height.",
+                  "inputs": {
+                    "speed": 1.4142135623730951,
+                    "phase": 4
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "coverage": [
+          {
+            "start": {
+              "page": 1,
+              "anchor": "A fall with a sideways start",
+              "y": 0.1823232323232323
+            },
+            "end": {
+              "page": 2,
+              "anchor": "Learning Reader | Original notes | 2",
+              "y": 0.9454545454545454
+            }
+          }
+        ],
+        "validation": {
+          "workflow": {
+            "status": "accepted",
+            "sourceHash": "a9964a8c5f2b4eba8ded247c0748cc666ca84cdc02691185af2d19496d1a4531",
+            "proposalHash": "996937b9ba0aed9796c14edbb706eb75efa85ea2fa74644235827380ce6511f4",
+            "extractionHash": "4cc42138e0bc96c140feeb1fc70cab02c93ec80f6a9706863984cad0af2a79a6",
+            "codeHash": "994906e91093a44a17f0f5e223df029b5648824c01bdaa2508c2b687f3df1e6b",
+            "review": {
+              "type": "agent",
+              "reviewer": "Learning Reader original-companion author review",
+              "sourceHash": "a9964a8c5f2b4eba8ded247c0748cc666ca84cdc02691185af2d19496d1a4531",
+              "proposalHash": "996937b9ba0aed9796c14edbb706eb75efa85ea2fa74644235827380ce6511f4",
+              "extractionHash": "4cc42138e0bc96c140feeb1fc70cab02c93ec80f6a9706863984cad0af2a79a6",
+              "codeHash": "994906e91093a44a17f0f5e223df029b5648824c01bdaa2508c2b687f3df1e6b",
+              "sourceReviewed": true,
+              "modelReviewed": true,
+              "visualsReviewed": true,
+              "note": "Original instructional prose and numerical model; not copied or inferred textbook content. Acceptance follows actual source, physics and rendered-reader inspection."
+            }
+          }
+        }
+      }
+    }
+  ],
+  "explanationModelAssetsHashes": [
+    "994906e91093a44a17f0f5e223df029b5648824c01bdaa2508c2b687f3df1e6b"
+  ],
+  "explanationSchemaCompatibilityHash": "9dbe2353c9c4dd42ba577742d76c270a33e9cf53fa2b81fd3a4c8337c96538eb"
+}

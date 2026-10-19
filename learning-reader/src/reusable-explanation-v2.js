@@ -1,0 +1,1 @@
+export const readingLocations=plan=>plan?[...plan.pages.flatMap(p=>p.evidence),...plan.beats.map(b=>b.at)]:[];
