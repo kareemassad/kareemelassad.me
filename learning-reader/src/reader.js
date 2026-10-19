@@ -1,4 +1,5 @@
-import {learningModelFor,hasLearningModel} from './learning-models.js';
+import {learningModelFor as savedLearningModelFor,hasLearningModel} from './learning-models.js';
+import {teachingModelFor} from './teaching-adapter-v1.js';
 import {ReadingFollower} from './reading-plan.js';
 import {readingPlanControls,updateReadingPlanControls} from './reading-plan-view.js';
 import {chapter8AssemblyNames} from './chapter8-assembly-models.js';
@@ -40,7 +41,8 @@ import {normalizeTemplate,templateNames} from './templates.js';
 const $=id=>document.getElementById(id);
 let matched=false,active=null,state=null,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,states=new Map(),frame=0,last=0,shape='',lastMetrics='',speed=1,busy=false;
 const reader=new ScrollReader($('pdf-scroll'),positionChanged,status);
-let shelf,preparedBook=null,loadedRevision=-1;
+let shelf,preparedBook=null,loadedRevision=-1,currentSourceHash=null;
+const learningModelFor=passage=>teachingModelFor(passage,currentSourceHash)||savedLearningModelFor(passage);
 let readingFollower=new ReadingFollower();
 function navigation(){
  const items=preparedBook?.sections||[];$('section').replaceChildren();const empty=document.createElement('option');empty.value='';empty.disabled=true;empty.textContent='Read normally';$('section').append(empty);for(const [id,title] of items){const o=document.createElement('option');o.value=id;o.textContent=id+' · '+title;$('section').append(o);}
@@ -80,7 +82,7 @@ function empty(){
  $('demo-title').textContent='READING';$('demo-caption').textContent=preparedBook?'No prepared diagram at this passage. Keep reading or choose a prepared section.':'This PDF has no prepared diagrams yet.';
  $('play').disabled=true;$('restart').disabled=true;$('scene').hidden=true;$('lines-label').hidden=true;$('contours-label').hidden=true;$('source-ref').textContent='';
 }
-const staticAid=scene=>(hasLearningModel(scene)&&!learningModelFor({scene})?.animated)||sourceExplorationNames.includes(scene)||['statics','charge-sampling','null-comparison',...chapter3Names,...energyNames,...dielectricNames].includes(scene)||/^chapter[124567]-/.test(active?.packId||'');
+const staticAid=scene=>!!teachingModelFor(active,currentSourceHash)||(hasLearningModel(scene)&&!learningModelFor({scene})?.animated)||sourceExplorationNames.includes(scene)||['statics','charge-sampling','null-comparison',...chapter3Names,...energyNames,...dielectricNames].includes(scene)||/^chapter[124567]-/.test(active?.packId||'');
 function type(){return readingScene(active.scene,state.variant);}
 function buildControls(){
  $('reset-values').hidden=true;
@@ -199,7 +201,7 @@ async function openBook(book){
   await reader.open(bytes,[],sourceMatches);preparedBook=await shelf.catalog.forBook(reader.document,hash);reader.markers=preparedBook?.breakpoints||[];reader.build();loadedRevision=shelf.catalog.revision;matched=!!preparedBook;navigation();states.clear();readingFollower.clear();active=null;
   const title=book.builtin?book.title:sourceMatches?'The Feynman Lectures on Physics':(file.name||book.title||'Local PDF');
   $('book-title').textContent=sourceMatches?'The Feynman Lectures · Vol. II':title;$('chapter').disabled=!matched;$('section').disabled=!matched;
-  reader.jump(saved.page,saved.y,false,saved.gap);$('pdf-scroll').scrollLeft=saved.left;status('');
+  currentSourceHash=hash;reader.jump(saved.page,saved.y,false,saved.gap);$('pdf-scroll').scrollLeft=saved.left;status('');
   return {id:hash,title,pages:reader.count,...(hostedLibrary?{coverDataUrl:await localPDFCover(reader.document)}:{})};
  }finally{busy=false;$('open-pdf').disabled=false;reader.schedule();}
 }
@@ -209,7 +211,7 @@ $('page-form').addEventListener('submit',e=>{if(e.submitter?.value!=='go')return
 document.addEventListener('keydown',e=>{if(shelf?.mode!=='reader'||document.querySelector('dialog[open]')||['INPUT','SELECT','TEXTAREA'].includes(e.target.tagName))return;
  if((e.ctrlKey||e.metaKey)&&['+','=','-','0'].includes(e.key)){e.preventDefault();const scale=reader.scales?.[reader.position().page-1]||1,options=[1,1.25,1.5],next=e.key==='-'?[...options].reverse().find(v=>v<scale-.005):options.find(v=>v>scale+.005),value=e.key==='0'?'fit':next===undefined?reader.zoom:String(next);$('zoom').value=value;reader.setZoom(value);}
  else if(e.key==='Escape'){e.preventDefault();shelf.close(false);}
- else if(e.code==='Space'&&e.target.closest('#stage')){e.preventDefault();$('play').click();}
+ else if(e.code==='Space'&&e.target.closest('#stage')&&!e.target.closest('button,summary,a,[role="button"],[contenteditable="true"]')){e.preventDefault();$('play').click();}
 });
 const mobileView=matchMedia('(max-width:580px)');document.body.dataset.mobilePane='source';
 function mobilePane(value){document.body.dataset.mobilePane=value;$('mobile-pane').textContent=value==='source'?'Diagram':'Source';$('mobile-pane').setAttribute('aria-label',value==='source'?'Show diagram':'Show source');$('mobile-help').textContent=value==='source'?'Swipe sideways for the full source page':'Swipe sideways for the full diagram';if(value==='diagram')start();else{cancelAnimationFrame(frame);frame=0;}}

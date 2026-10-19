@@ -15,8 +15,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "30730227d51607d31eba3a9e85847d023e91baa7ace1c7592d80b0d3838b06af",
-      "bytes": 8051
+      "sha256": "652f04859354fa61026ad88eb32dcffda4e51837a18243eb57205cc9242ce4a4",
+      "bytes": 8110
     },
     {
       "path": "PDFJS-LICENSE.txt",
@@ -35,12 +35,12 @@
     },
     {
       "path": "runtime-profile.json",
-      "sha256": "fb487749b41a7a18bdd5aa89474c9ab7ef60c98a4e9c6252f8c2d7f89163172f",
-      "bytes": 45954
+      "sha256": "68b033f7d53e76e114e192ea3b87f8d522ae6cec8d28033bf357812be013d4d3",
+      "bytes": 47290
     },
     {
       "path": "site-config.json",
-      "sha256": "1186e8e647a907f8807cce5a55e5a6635b7c273145a446c0a2207718290e000c",
+      "sha256": "13ecdc2791e78d2c2849e291fa12d81749fc040918b59ed2cc329438e1da7ac1",
       "bytes": 1553
     },
     {
@@ -430,8 +430,8 @@
     },
     {
       "path": "src/reader.js",
-      "sha256": "3588d85e312a862dbe70b1b58e6316b4b9557ff6e31dd79c9822d4a38d7a6050",
-      "bytes": 34903
+      "sha256": "16263eb7fa215374d505cf81b792edc8e7cce384cd306785f6e789f9d75dd7f8",
+      "bytes": 35268
     },
     {
       "path": "src/reading-context.js",
@@ -552,6 +552,31 @@
       "path": "src/spherical-models.js",
       "sha256": "fb310aff072b15a7321c520e7652ff4a877db6811b02e1084499c21a1733d49b",
       "bytes": 5126
+    },
+    {
+      "path": "src/teaching-adapter-v1.js",
+      "sha256": "2770f91fc0cca4dca439765b253c00355d47febb1bfcc36ee2f7adf96754f21a",
+      "bytes": 904
+    },
+    {
+      "path": "src/teaching-content-v1.js",
+      "sha256": "6391379af6e2642cda845ba27e4e4da1a2dfcf0f3ff6ea3bd6a5cb3f892849a1",
+      "bytes": 3818
+    },
+    {
+      "path": "src/teaching-models-v1.js",
+      "sha256": "361a00e671dc831b9592c2027d8f04285446e3311c67a659c667f7d2c2e3ae95",
+      "bytes": 4078
+    },
+    {
+      "path": "src/teaching-reader-v1.css",
+      "sha256": "b11842bb13cb97fb2bb01bda9f559adf0fa4c523bfb59e7b8fb513dfe16e4eb6",
+      "bytes": 5995
+    },
+    {
+      "path": "src/teaching-view-v1.js",
+      "sha256": "7bb7379f6b491788f4c15158a6213de1bc8a0e2020c2fbcb7976efe40465e3f7",
+      "bytes": 19666
     },
     {
       "path": "src/templates.js",
