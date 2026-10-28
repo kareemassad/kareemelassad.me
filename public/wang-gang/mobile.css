@@ -1,0 +1,195 @@
+/* Phone layouts keep the same league data and calculations. */
+#mobile-best-list,.mobile-luck-math,.mobile-score-meta{display:none}
+@media(max-width:650px){
+  html{scroll-padding-top:calc(80px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  .topbar{backdrop-filter:none;filter:none;display:flex;flex-wrap:nowrap;min-height:64px;padding:10px max(14px,env(safe-area-inset-right,0px)) 10px max(14px,env(safe-area-inset-left,0px));padding-top:calc(10px + env(safe-area-inset-top,0px));gap:10px}
+  .brand{font-size:16px;min-width:0}
+  .brand>b{width:38px;height:38px}
+  .brand small{font-size:9px}
+  .header-actions{flex:none}
+  .header-actions .button{min-height:44px;padding:10px 12px;font-size:12px}
+  .topbar nav{position:fixed;top:auto;bottom:0;left:0;right:0;z-index:80;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;width:100%;margin:0;padding:7px max(8px,env(safe-area-inset-right,0px)) calc(7px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px));background:#f8faf5f5;border-top:1px solid #dce4d4;box-shadow:0 -5px 20px #193e3208;backdrop-filter:blur(14px)}
+  .topbar nav a{display:grid;place-items:center;min-height:46px;padding:10px 4px;font-size:12px;border-radius:8px;white-space:nowrap}
+  main{padding:0 14px 16px}
+  .update-line{flex-direction:row;align-items:center;gap:10px;padding:13px 0 17px;font-size:10px}
+  #update-status{max-width:47%;font-size:9px;text-align:right;line-height:1.5}
+  .section-heading h1,.section-heading h2{font-size:24px}
+  .button,select{min-height:44px}
+  select,#chart-toolbar select,.controls select,.week-picker select{font-size:16px;min-height:44px;padding:10px 28px 10px 10px;min-width:0}
+  .button{font-size:12px;padding:10px 12px}
+  #best>.section-heading,#charts>.section-heading,#scores>.section-heading{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}
+  .section-heading>.button{min-height:44px;padding:10px 12px;font-size:12px;align-self:center}
+  #report>.section-heading{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:12px 10px}
+  #report>.section-heading>div:first-child{grid-column:1;grid-row:1}
+  #report h1{font-size:22px;white-space:nowrap}
+  #report .controls{display:contents}
+  #download{grid-column:2;grid-row:1;justify-self:end;min-height:44px;font-size:12px}
+  #mode{grid-column:1;grid-row:2;width:100%}
+  #sort{grid-column:2;grid-row:2;width:100%}
+  .mobile-hint{font-size:11px;padding:12px 13px;color:#718466}
+  .table-scroll,.luck-table-scroll{overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+  .matrix{min-width:760px}
+  .matrix thead th:first-child,.matrix tbody th{width:122px}
+  .matrix .team-label{max-width:98px}
+  .matrix .identity-text>small{max-width:96px}
+  .matrix .identity-text>strong{font-size:12px}
+  .matrix thead th:first-child{font-size:7px;letter-spacing:0}
+  .matrix tbody th{height:54px}
+  .record-cell{min-height:46px;font-size:12px}
+  .matrix .rank{width:15px}
+  .table-key{font-size:9px;gap:14px;flex-wrap:wrap}
+  .manager-spotlights,.luck-spotlights{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .manager-spotlight,.luck-spotlight{padding:13px;min-width:0}
+  .manager-spotlight h3,.luck-spotlight h3{font-size:8px;letter-spacing:.04em;line-height:1.5;margin-bottom:10px}
+  .manager-spotlight-body,.luck-spotlight-body{flex-direction:column;align-items:stretch;gap:11px}
+  .manager-spotlight .manager-badge,.luck-spotlight .manager-badge{display:none}
+  .manager-spotlight .identity-text>strong,.luck-spotlight .identity-text>strong{font-size:14px}
+  .manager-spotlight .identity-text>small,.luck-spotlight .identity-text>small{font-size:9px!important;max-width:100%}
+  .manager-profile-button,.luck-spotlight .luck-team-button{min-height:40px;width:100%}
+  .manager-spotlight-value,.luck-spotlight-value{text-align:left}
+  .manager-spotlight-value strong,.luck-spotlight-value strong{font-size:29px}
+  .manager-spotlight-value span,.luck-spotlight-value span{font-size:9px;line-height:1.4;margin-top:4px}
+  .manager-mini-stats{gap:7px;padding-top:10px;margin-top:11px}
+  .manager-mini-stats>span{display:block}
+  .manager-mini-stats b{display:block;font-size:18px}
+  .manager-mini-stats small{display:block;font-size:7px;letter-spacing:0;margin-top:3px;white-space:normal;line-height:1.5}
+  .luck-spotlight p{font-size:9px;line-height:1.6;margin-top:10px}
+  .desktop-best-table{display:none}
+  #mobile-best-list{display:block}
+  .phone-standings-head{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;font-size:8px;font-weight:600;letter-spacing:.04em;color:#7b8970;border-bottom:1px solid #e4eadc}
+  .phone-standing{border-bottom:1px solid #e5ebdf}
+  .phone-standing:last-child{border-bottom:0}
+  .phone-standing>summary{display:flex;align-items:center;gap:10px;padding:13px 14px;min-height:72px;cursor:pointer;list-style:none}
+  .phone-standing>summary::-webkit-details-marker,.phone-math-week>summary::-webkit-details-marker{display:none}
+  .phone-standing-team{flex:1;min-width:0}
+  .phone-standing .team-identity{display:flex;gap:8px}
+  .phone-standing .manager-badge{width:30px;height:33px;font-size:12px;border-radius:9px}
+  .phone-standing .identity-text>strong{font-size:13px}
+  .phone-standing .identity-text>small{font-size:9px!important;max-width:100%}
+  .phone-standing-record{display:flex;align-items:center;gap:7px;flex:none;font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .phone-standing-record i{font-style:normal;color:#9ca990;font-size:12px}
+  .phone-standing-record b{font-size:15px;font-weight:650;color:#315f3b}
+  .phone-standing-record b.negative{color:#a46e4c}
+  .phone-chevron{font-size:15px;font-style:normal;color:#8e9e80;flex:none}
+  details[open]>.phone-standing>summary .phone-chevron{transform:rotate(180deg)}
+  .phone-standing[open]{background:#f9fcf4}
+  .phone-standing[open]>summary .phone-chevron,.phone-math-week[open]>summary .phone-chevron{transform:rotate(180deg)}
+  .phone-standing-detail{padding:0 14px 14px}
+  .phone-metrics{display:grid;grid-template-columns:1fr 1fr;gap:15px 20px;padding:14px;border:1px solid #e2ead9;border-radius:9px;background:#fff}
+  .phone-metrics>span{min-width:0}
+  .phone-metrics small{display:block;font-size:9px;color:#829173;line-height:1.5;letter-spacing:.02em;margin-bottom:4px}
+  .phone-metrics strong{font-size:18px;font-weight:600;color:#35582c;font-variant-numeric:tabular-nums}
+  .phone-metrics em{font-size:10px;font-style:normal;color:#8b977e;display:block;margin-top:4px}
+  .phone-standing-detail>.button{width:100%;margin-top:10px;min-height:46px;font-size:13px}
+  .best-topline{padding:11px 13px;font-size:9px}
+  .bench-receipts{gap:10px}
+  .receipt-card{padding:13px}
+  .receipt-card .receipt-player strong{font-size:13px;line-height:1.4}
+  .receipt-card .receipt-player small,.receipt-swap{font-size:10px}
+  .receipt-context,.receipt-context>span{font-size:9px}
+  .luck-table{min-width:0;width:100%}
+  .luck-manager-column{width:37%}.luck-actual-column{width:16%}.luck-expected-column{width:22%}.luck-difference-column{width:25%}
+  .luck-table tbody th,.luck-table tbody td,.luck-table thead th{padding:12px 8px}
+  .luck-table thead th{font-size:8px;letter-spacing:0;line-height:1.5;white-space:normal;height:55px}
+  .luck-table thead th small{display:none}
+  .luck-table tbody th,.luck-table tbody td{height:65px}
+  .luck-table .identity-text>strong{font-size:13px}
+  .luck-table .identity-text>small{font-size:8px!important;max-width:100%}
+  .luck-table .luck-team-button{gap:5px;min-height:42px}
+  .luck-table .luck-calc-link{font-size:11px}
+  .luck-table .luck-delta-track{display:none}
+  .luck-difference{display:block;text-align:right}
+  .luck-number,.luck-difference>strong{font-size:13px}
+  .compact-method>summary{min-height:24px;line-height:24px;font-size:12px}
+  #chart-toolbar select{font-size:16px;min-height:46px}
+  #chart-toolbar label{font-size:10px;letter-spacing:.02em}
+  .chart-mode-tabs button{font-size:13px;min-height:46px;padding:10px 8px}
+  .chart-title-line{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;align-items:center}
+  .chart-title h3{font-size:21px;grid-column:1;grid-row:1;min-width:0}
+  .chart-title-tools{display:contents}
+  .chart-unit{grid-column:1/-1;grid-row:2;max-width:none;text-align:left;white-space:normal;font-size:10px;margin:3px 0 0}
+  .chart-comparison-help{grid-column:2;grid-row:1}
+  .chart-comparison-help .button{min-height:44px;font-size:12px;padding:10px 11px}
+  .library-chart{touch-action:pan-y}
+  .chart-series-key{font-size:12px}
+  .rich-tooltip{min-width:160px;max-width:min(300px,calc(100vw - 64px));font-size:12px}
+  .rich-tooltip>b{font-size:13px}
+  .rich-tooltip p{font-size:11px;line-height:1.7}
+  .line-readout .tooltip-row{font-size:12px;min-width:150px}
+  .week-picker{gap:6px}
+  .week-picker select{font-size:16px;width:143px;max-width:100%}
+  .score-table{min-width:calc(118px + var(--score-week-count,3)*68px)!important;width:100%}
+  .score-table th:first-child{width:110px}
+  .score-table thead th:nth-last-child(-n+2),.score-table td.total{display:none}
+  .score-table tbody th .identity-text>small{display:none}
+  .score-table tbody th .identity-text>strong{font-size:13px}
+  .mobile-score-meta{display:block;margin-top:5px;line-height:1.5}
+  .score-table tbody th .mobile-score-meta small{display:block;font-size:8px;color:#7c8a72;margin:2px 0 0;white-space:nowrap}
+  .score-table td{height:66px;font-size:12px}
+  .score-table th{font-size:10px}
+  dialog,#best-dialog,#luck-dialog{width:calc(100vw - 16px);max-height:calc(100vh - 24px);max-height:calc(100dvh - 16px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));padding:15px;border-radius:15px;overscroll-behavior:contain}
+  .dialog-top{top:-15px;padding:3px 0 10px;font-size:9px;gap:10px}
+  .close{width:44px;height:44px;font-size:27px;flex:none}
+  .dialog-top .button{min-height:44px;font-size:12px}
+  .comparison-title,#best-dialog-content>h2,#luck-dialog-content>h2{font-size:25px}
+  .comparison-team{font-size:12px;line-height:1.5}
+  .best-summary{padding:16px;gap:10px}
+  .best-summary small{font-size:7px;line-height:1.4}
+  .best-summary strong{font-size:25px}
+  .best-week>summary{min-height:66px;padding:13px 10px;grid-template-columns:minmax(0,1fr) 42px 103px;gap:7px;font-size:11px}
+  .best-week>summary>span:first-child{min-width:0}
+  .best-week>summary small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;font-size:9px}
+  .best-week>summary span:last-child{font-size:11px}
+  .lineup-player b{font-size:13px}
+  .lineup-side td{font-size:13px;padding:11px 2px}
+  .lineup-side td small{font-size:9px}
+  .lineup-side .player-photo{width:40px;height:40px}
+  .luck-math-scroll{display:none}
+  .mobile-luck-math{display:block}
+  .luck-math-summary{padding:15px;gap:9px}
+  .luck-math-summary strong{font-size:25px}
+  .luck-math-explanation{font-size:11px}
+  .phone-math-week{border:1px solid #e0e8d8;border-radius:10px;margin:9px 0;overflow:hidden}
+  .phone-math-week>summary{display:flex;align-items:center;gap:12px;padding:14px;list-style:none;cursor:pointer;min-height:66px;background:#fafcf6}
+  .phone-math-week>summary>span{flex:1;min-width:0}
+  .phone-math-week>summary b{font-size:13px;font-weight:600}
+  .phone-math-week>summary small{display:block;font-size:11px;color:#829173;margin-top:5px}
+  .phone-math-week>summary>strong{font-size:17px;font-variant-numeric:tabular-nums}
+  .phone-math-body{padding:0 12px 12px}
+  .phone-math-body .phone-metrics{padding:13px;border:0;background:#f7faf2}
+  .phone-math-body p{margin:12px 0 0;font-size:12px;line-height:1.7;text-align:center;color:#748568;font-variant-numeric:tabular-nums}
+  .toast{bottom:calc(82px + env(safe-area-inset-bottom,0px));max-width:90vw;font-size:13px;text-align:center}
+}
+@media(max-width:350px){
+  .topbar nav a{font-size:11px}
+  .brand{font-size:15px}.brand small{font-size:8px}
+  .header-actions .button{font-size:11px;padding:10px}
+  .section-heading h1,.section-heading h2{font-size:22px}
+  .week-picker select{width:130px}
+  .manager-spotlight,.luck-spotlight{padding:11px}
+  .manager-spotlight-value strong,.luck-spotlight-value strong{font-size:26px}
+  .phone-standing>summary{padding:13px 11px;gap:7px}
+  .phone-standing .manager-badge{display:none}
+  .phone-standing-record{gap:5px;font-size:12px}
+  .phone-standing-record b{font-size:14px}
+  .best-summary{padding:13px;gap:7px}.best-summary strong{font-size:23px}
+  .best-week>summary{grid-template-columns:minmax(0,1fr) 34px 96px;gap:5px}
+  .best-week>summary span:last-child{font-size:10px}
+}
+
+@media(max-width:650px){.manager-mini-stats small{font-size:9px}.manager-spotlight h3,.luck-spotlight h3{font-size:9px}.phone-standings-head{font-size:9px}.score-table{min-width:calc(103px + var(--score-week-count,3)*52px)!important}.score-table th:first-child{width:95px}.score-table tbody th .mobile-score-meta small{font-size:9px}.week-picker{font-size:0;gap:0}}
+@media(pointer:coarse){select,#chart-toolbar select,.controls select{font-size:16px!important;min-height:44px}.button,.close{min-height:44px}.topbar nav a{min-height:44px}}
+
+@media(max-width:650px){dialog,#best-dialog,#luck-dialog{width:calc(100% - 16px);max-width:calc(100% - 16px)}.topbar nav a:hover{background:transparent}.topbar nav a[aria-current=page]{background:#e6eddf}}
+
+.recharts-tooltip-wrapper:has(.phone-tooltip){position:fixed!important;top:auto!important;left:12px!important;right:12px!important;bottom:calc(76px + env(safe-area-inset-bottom,0px))!important;transform:none!important;width:auto!important;z-index:200!important}
+.phone-tooltip{position:relative;width:100%;min-width:0;max-width:none!important;max-height:60vh;max-height:60dvh;overflow:auto;border-radius:14px;padding:18px;box-shadow:0 -5px 32px #173a2c26;pointer-events:auto}
+.phone-tooltip>b{padding-right:42px;font-size:14px;line-height:1.5}
+.phone-tooltip p{font-size:12px;line-height:1.7}
+.chart-tooltip-close{position:absolute;right:8px;top:7px;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:#57794b;font-size:27px;line-height:1}
+.phone-tooltip .tooltip-row{font-size:13px;margin:11px 0}
+.phone-tooltip .tooltip-row strong{font-size:14px}
+@media(min-width:651px){.recharts-tooltip-wrapper:has(.phone-tooltip){bottom:16px!important;max-width:420px;margin:auto}}
+
+@media(max-width:650px){.compact-method>summary,.method>summary{min-height:44px;line-height:1.5;padding:11px 0}.manager-profile-button,.luck-spotlight .luck-team-button,.luck-table .luck-team-button{min-height:44px}}
