@@ -1,4 +1,4 @@
-import {MANAGERS} from './identity.mjs?v=13978723b8da';
+import {MANAGERS} from './identity.mjs?v=0d6b293e43de';
 export const sum = xs => xs.reduce((a,b)=>a+b,0);
 export const compare = (a,b) => a>b ? 1 : a<b ? -1 : 0;
 export const record = xs => ({w:xs.filter(x=>x>0).length,l:xs.filter(x=>x<0).length,t:xs.filter(x=>x===0).length});

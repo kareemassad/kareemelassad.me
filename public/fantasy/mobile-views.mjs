@@ -1,5 +1,5 @@
-import {teamIdentity,manager,esc} from './identity.mjs?v=13978723b8da';
-import {recordText} from './engine.mjs?v=13978723b8da';
+import {teamIdentity,manager,esc} from './identity.mjs?v=0d6b293e43de';
+import {recordText} from './engine.mjs?v=0d6b293e43de';
 const fixed=v=>Number(v).toFixed(2),signed=v=>Math.abs(v)<1e-9?'0':`${v>0?'+':'−'}${Math.abs(v)}`;
 const difference=v=>Math.abs(v)<1e-9?'0.00':`${v>0?'+':'−'}${fixed(Math.abs(v))}`;
 export function mobileStandings(data,openIds=new Set()){

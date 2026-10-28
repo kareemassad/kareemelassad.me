@@ -1,11 +1,11 @@
-import seed from './data.mjs?v=13978723b8da';
-import {API_BASE} from './config.mjs?v=13978723b8da';
-import {createLeague,record,recordText} from './engine.mjs?v=13978723b8da';
-import {mountCharts} from './charts.mjs?v=13978723b8da';
-import {mountBestLineups} from './best-ui.mjs?v=13978723b8da';
-import {teamIdentity,manager,fullName,enablePhotoFallback} from './identity.mjs?v=13978723b8da';
-import {mountNavigation} from './navigation.mjs?v=13978723b8da';
-import {mountScheduleLuck} from './luck-ui.mjs?v=13978723b8da';
+import seed from './data.mjs?v=0d6b293e43de';
+import {API_BASE} from './config.mjs?v=0d6b293e43de';
+import {createLeague,record,recordText} from './engine.mjs?v=0d6b293e43de';
+import {mountCharts} from './charts.mjs?v=0d6b293e43de';
+import {mountBestLineups} from './best-ui.mjs?v=0d6b293e43de';
+import {teamIdentity,manager,fullName,enablePhotoFallback} from './identity.mjs?v=0d6b293e43de';
+import {mountNavigation} from './navigation.mjs?v=0d6b293e43de';
+import {mountScheduleLuck} from './luck-ui.mjs?v=0d6b293e43de';
 const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let league=createLeague(seed),order='standings',mode='record',selected=null,priorFocus=null;
 const fmt=n=>(n/100).toFixed(2),sign=n=>Math.abs(n)<.00001?'0':`${n>0?'+':'−'}${Math.abs(n).toFixed(Number.isInteger(n)?0:2)}`;
@@ -28,14 +28,14 @@ async function downloadGraphic(){
   const canvas=document.createElement('canvas'),n=league.teams.length;canvas.width=2600;canvas.height=640+n*79;const c=canvas.getContext('2d');const ink='#1e2c26',green='#193e32',muted='#6b756a',paper='#f6f6ef';
   c.fillStyle=paper;c.fillRect(0,0,canvas.width,canvas.height);
   const text=(s,x,y,size=28,color=ink,bold=false,align='left')=>{c.fillStyle=color;c.font=`${bold?650:400} ${size}px Segoe UI, sans-serif`;c.textAlign=align;c.fillText(s,x,y);};
-  text('WANG GANG FOOTBALL LEAGUE',65,70,27,green,true);text(`${league.season}  /  WEEKS ${league.weeks[0].week}–${league.weeks.at(-1).week}`,2535,70,24,green,true,'right');text('Your record has an alibi.',60,177,82,ink,true);text('Read across: row team’s scores → column team’s schedule. Outline = actual record.',65,237,30,muted);
+  text('WG FANTASY LEAGUE',65,70,27,green,true);text(`${league.season}  /  WEEKS ${league.weeks[0].week}–${league.weeks.at(-1).week}`,2535,70,24,green,true,'right');text('Your record has an alibi.',60,177,82,ink,true);text('Read across: row team’s scores → column team’s schedule. Outline = actual record.',65,237,30,muted);
   const teams=ordered(),x0=630,cw=163,y0=374,rh=79;
   text('TEAM / SCORES',76,321,22,muted,true);text('ACTUAL',2400,321,22,muted,true,'center');
   teams.forEach((t,k)=>{const lines=[manager(t),...shortName(t.name).split('<br>')].map(s=>s.replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"'));lines.forEach((s,j)=>text(s,x0+k*cw+(cw-9)/2,305+j*27,21,muted,true,'center'));});
   teams.forEach((t,row)=>{const y=y0+row*rh;c.fillStyle=row%2===0?'#fff':paper;c.fillRect(65,y,2470,rh-5);text(String(row+1).padStart(2,'0'),82,y+46,22,muted);let size=30;c.font=`400 ${size}px Segoe UI`;while(c.measureText(t.name).width>465){size--;c.font=`400 ${size}px Segoe UI`;}text(manager(t),138,y+31,30,ink,true);text(t.name,138,y+59,21,muted);teams.forEach((s,col)=>{const x=x0+col*cw,r=t.matrix[s.id];c.fillStyle=color(r.w+r.t*.5);c.beginPath();c.roundRect(x,y+5,cw-9,rh-17,6);c.fill();if(t.id===s.id){c.strokeStyle=green;c.lineWidth=3;c.stroke();}text(recordText(r),x+(cw-9)/2,y+46,31,ink,true,'center');});text(recordText(t.actual),2400,y+46,31,green,true,'center');});
   const foot=y0+n*rh+48;text('Fewer wins',65,foot,22,muted,true);for(let k=0;k<=league.weeksPlayed;k++){const x=250+k*(Math.min(75,1100/(league.weeksPlayed+1)));c.fillStyle=color(k);c.fillRect(x,foot-30,Math.min(65,1000/(league.weeksPlayed+1)),45);text(k,x+Math.min(65,1000/(league.weeksPlayed+1))/2,foot+2,24,ink,true,'center');}text('More wins',1460,foot,22,muted,true);
   text('Keep scores in their original weeks. If the swapped teams originally met, preserve that matchup. Equal scores are ties.',65,foot+81,25,muted);text(`SLEEPER  /  UPDATED ${league.updatedAt?new Date(league.updatedAt).toISOString().slice(0,10):league.asOf}  /  REGULAR SEASON`,65,foot+137,20,green,true);
-  const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob){toast('Could not create the graphic. Please try again.');return;}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`wang-gang-weeks-${league.weeks[0].week}-${league.weeks.at(-1).week}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),5000);
+  const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob){toast('Could not create the graphic. Please try again.');return;}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`wg-weeks-${league.weeks[0].week}-${league.weeks.at(-1).week}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),5000);
 }
 $('#matrix').addEventListener('click',e=>{const b=e.target.closest('[data-team]');if(b)showSwap(b.dataset.team,b.dataset.schedule);});$('#mode').addEventListener('change',e=>{mode=e.target.value;renderMatrix();});$('#sort').addEventListener('change',e=>{order=e.target.value;renderMatrix();renderScores();});$('#score-window').addEventListener('change',()=>{scoreWindowTouched=true;renderScores();});$('#share').addEventListener('click',copyLink);$('#download').addEventListener('click',downloadGraphic);$('#close-dialog').addEventListener('click',closeDialog);$('#detail').addEventListener('cancel',e=>{e.preventDefault();closeDialog();});$('#detail').addEventListener('click',e=>{if(e.target===$('#detail')){const r=$('#detail').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDialog();}});
 function readHash(){const m=location.hash.match(/^#swap=(\d+),(\d+)$/);if(m)showSwap(m[1],m[2],true);best.readHash();luck.readHash();}

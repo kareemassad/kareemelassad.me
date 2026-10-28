@@ -1,4 +1,4 @@
-import {compare,sum} from './engine.mjs?v=13978723b8da';
+import {compare,sum} from './engine.mjs?v=0d6b293e43de';
 
 // One equally likely opponent among the other managers, using that week's scores.
 export function scheduleLuckBreakdown(league,teamId){
