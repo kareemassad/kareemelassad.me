@@ -38,3 +38,6 @@ if(location.pathname.startsWith('/learning-reader/')){
   style.textContent='body #shelf,body #reader-shell{top:48px}body #reader-shell header{top:60px}';
   document.head.append(style);
 }
+
+// Compatibility with the currently published portfolio build; its JSX also removes these links.
+if(location.pathname==='/'||location.pathname==='/index.html'){const style=document.createElement('style');style.textContent='.mp-bells-link,.bells-page-back,.main-page>hr:has(+.mp-bells-link){display:none!important}';document.head.append(style);}

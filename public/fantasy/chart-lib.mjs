@@ -24314,7 +24314,7 @@ function MF({ active: e, payload: t, label: n, model: r, dismissed: i, onDismiss
 		]
 	});
 	let l = t.filter((e) => e.value !== null && e.value !== void 0);
-	return /* @__PURE__ */ (0, $.jsxs)("div", {
+	return r.everyone && l.sort((e, t) => Number(t.value) - Number(e.value)), /* @__PURE__ */ (0, $.jsxs)("div", {
 		className: `rich-tooltip line-readout ${r.touch ? "phone-tooltip" : ""}`,
 		role: "status",
 		children: [
@@ -24398,16 +24398,17 @@ function NF({ model: e }) {
 				tickFormatter: (t) => Number(t).toLocaleString("en-CA", { maximumFractionDigits: +(e.unit === "wins") })
 			}),
 			c,
-			i.map((e) => /* @__PURE__ */ (0, $.jsx)(oM, {
-				dataKey: e.key,
-				name: e.name,
+			i.map((t) => /* @__PURE__ */ (0, $.jsx)(oM, {
+				dataKey: t.key,
+				name: t.name,
 				type: "linear",
-				stroke: e.color,
-				strokeDasharray: e.baseline ? "5 5" : void 0,
-				strokeWidth: e.baseline ? 2 : 3.5,
-				dot: e.baseline ? !1 : {
+				stroke: t.color,
+				strokeDasharray: t.baseline ? "5 5" : void 0,
+				strokeOpacity: e.highlight && e.highlight !== t.key ? .18 : 1,
+				strokeWidth: e.highlight === t.key ? 4 : t.baseline ? 2 : e.everyone ? 2.3 : 3.5,
+				dot: t.baseline || e.everyone ? !1 : {
 					r: 4,
-					fill: e.color,
+					fill: t.color,
 					stroke: "#fff",
 					strokeWidth: 2
 				},
@@ -24417,7 +24418,7 @@ function NF({ model: e }) {
 					strokeWidth: 2
 				},
 				isAnimationActive: !1
-			}, e.key))
+			}, t.key))
 		]
 	}) : /* @__PURE__ */ (0, $.jsxs)(EF, {
 		data: a,

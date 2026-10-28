@@ -1,6 +1,6 @@
-import {seasonInsights,benchRegrets,mean} from './insights.mjs?v=0d6b293e43de';
-import {perfectStandings} from './best-lineups.mjs?v=0d6b293e43de';
-import {manager,fullName} from './identity.mjs?v=0d6b293e43de';
+import {seasonInsights,benchRegrets,mean} from './insights.mjs?v=dac01f61efdc';
+import {perfectStandings} from './best-lineups.mjs?v=dac01f61efdc';
+import {manager,fullName} from './identity.mjs?v=dac01f61efdc';
 
 export const CHARTS=[
   {id:'pointsleft',group:'rankings',label:'Points set on fire'},
@@ -19,16 +19,18 @@ const hindsight='Hindsight only. Current position eligibility and recorded reser
 export function makeChartModel(league,state={}){
   const type=normalizeChartType(state.type),mode=['weekly','rolling','cumulative'].includes(state.mode)?state.mode:'weekly';
   const group=CHARTS.find(c=>c.id===type).group,line=group==='trends',compact=!!state.compact,stats=seasonInsights(league);
+  const everyone=line&&state.primary==='everyone';
   const color=id=>palette[Math.max(0,league.ids.indexOf(Number(id)))%palette.length];
   let primary=league.byId[Number(state.primary)]?Number(state.primary):null;
   let comparison=league.byId[Number(state.comparison)]?Number(state.comparison):null;
-  if(type==='luck'&&primary===null){
+  if(type==='luck'&&primary===null&&!everyone&&state.primary!=='baseline'){
     const sorted=[...stats.teams].sort((a,b)=>b.luck-a.luck);
     if(Math.abs(sorted[0].luck-sorted.at(-1).luck)>1e-9){primary=sorted[0].id;comparison=sorted.at(-1).id;}
   }
   if(primary===null||comparison===primary)comparison=null;
-  const selected=line?[primary,comparison].filter(id=>id!==null).map(id=>stats.teams.find(t=>t.id===id)):stats.teams.filter(t=>primary===null||t.id===primary);
-  const model={type,group,mode,primary,comparison:line?comparison:null,kind:line?'line':'bars',rows:[],series:[],compact,touch:!!state.touch,focus:primary,unit:'pts',title:'',subtitle:'',detail:'',note:'',axisLabel:'Fantasy points'};
+  const selected=line?(everyone?stats.teams:[primary,comparison].filter(id=>id!==null).map(id=>stats.teams.find(t=>t.id===id))):stats.teams.filter(t=>primary===null||t.id===primary);
+  const hidden=everyone?[...new Set((state.hidden||[]).map(Number).filter(id=>league.ids.includes(id)))].sort((a,b)=>a-b):[];
+  const model={type,group,mode,primary:everyone?'everyone':line&&primary===null?'baseline':primary,comparison:line?comparison:null,everyone,hidden,kind:line?'line':'bars',rows:[],series:[],compact,touch:!!state.touch,focus:primary,unit:'pts',title:'',subtitle:'',detail:'',note:'',axisLabel:'Fantasy points'};
 
   if(line){
     const luck=type==='luck',key=luck?'luckTrail':mode==='rolling'?'rolling':mode==='cumulative'?'cumulativePoints':'points';
@@ -38,11 +40,12 @@ export function makeChartModel(league,state={}){
     model.title=luck?'Schedule luck':mode==='rolling'?'Three-week scoring':mode==='cumulative'?'Season points':'Weekly scoring';
     model.subtitle=selected.length?`${selected.map(t=>manager(t)).join(' vs ')}${luck?'':' · dashed line = league average'}`:'The league average. Choose a manager to compare, then add a second if you want.';
     model.series=[{key:'baseline',name:luck?'Zero difference':'League average',color:selected.length?'#91a18a':'#216c50',baseline:selected.length>0},...selected.map(t=>({key:'team'+t.id,name:manager(t),teamName:t.name,color:color(t.id)}))];
+    model.legendSeries=model.series;
+    if(everyone){model.series=model.series.filter(s=>s.key==='baseline'||!hidden.includes(Number(s.key.slice(4))));model.subtitle=`${league.ids.length-hidden.length} of ${league.ids.length} managers shown. Select names in the legend to hide or show lines.`;}
     model.rows=league.weeks.map(({week},i)=>({week,baseline:baseline[i],...Object.fromEntries(selected.map(t=>['team'+t.id,t[key][i]]))}));
     model.domain=!luck&&mode==='cumulative'?[0,'auto']:['auto','auto'];
-    model.height=compact?345:390;
+    model.height=everyone?(compact?370:430):(compact?345:390);
     model.detail=luck?'Above zero = more wins than expected from your weekly scores. Below zero = fewer. Expected wins comes from comparing the same week’s score against every other manager; open Schedule luck for the full calculation.':mode==='rolling'?'Each point averages the most recent three available weeks. The first two points use the available one or two weeks.':mode==='cumulative'?'Each point includes all points scored through that week. The league average uses every team.':'Each point is one finalized week. Hover, tap, or use the arrow keys for the exact scores.';
-    if(luck&&!selected.length)model.empty='Every manager is level with the all-play baseline so far.';
   }else if(type==='points'){
     model.title='Total points';model.subtitle='Season points, highest to lowest.';model.axisLabel='Total fantasy points';
     model.rows=selected.sort((a,b)=>b.pf-a.pf).map(t=>({label:manager(t),fullLabel:fullName(t),value:t.pf,detail:`${n(t.avg,2)} points per week`,shortDetail:`${n(t.avg)} points / week`,extra:`Actual record: ${t.actual.w}–${t.actual.l}${t.actual.t?'–'+t.actual.t:''}.`,color:color(t.id)}));
@@ -59,8 +62,8 @@ export function makeChartModel(league,state={}){
   }else if(type==='bench'){
     const rows=benchRegrets(league).filter(r=>primary===null||r.teamId===primary).slice(0,8);
     model.title='Bench hall of shame';model.subtitle='The eight biggest single-player upgrades left unused.';model.axisLabel='Extra points from one swap';
-    model.rows=rows.map(r=>({label:league.playerInfo[r.benchId].name,fullLabel:league.playerInfo[r.benchId].name,value:r.gain/100,detail:`${fullName(league.byId[r.teamId])} · Week ${r.week}`,shortDetail:`${manager(league.byId[r.teamId])} · Week ${r.week}`,extra:`${n(r.benchPoints/100,2)} points instead of ${r.starterId?league.playerInfo[r.starterId]?.name??'the recorded starter':'an empty slot'} (${n(r.starterPoints/100,2)}).${r.scorelineFlip?' This would turn the actual loss or tie into a win.':''}`,color:r.scorelineFlip?'#a2693c':'#639873'}));
-    model.detail='Brown bars would turn an actual loss or tie into a win against the opponent’s actual lineup. Only the best single swap per manager-week is included.';model.note=hindsight;
+    model.rows=rows.map(r=>({label:league.playerInfo[r.benchId].name,fullLabel:league.playerInfo[r.benchId].name,value:r.gain/100,detail:`${fullName(league.byId[r.teamId])} · Week ${r.week}`,shortDetail:`${manager(league.byId[r.teamId])} · Week ${r.week}`,extra:`${n(r.benchPoints/100,2)} points instead of ${r.starterId?league.playerInfo[r.starterId]?.name??'the recorded starter':'an empty slot'} (${n(r.starterPoints/100,2)}).${r.scorelineFlip?' This would turn the actual loss or tie into a win.':''}`,color:'#639873'}));
+    model.detail='Only the best single swap per manager-week is included. The tooltip notes when a swap would have turned the actual loss or tie into a win.';model.note=hindsight;
     if(!rows.length)model.empty='No positive eligible single-player upgrades in this selection.';
   }else if(type==='badbeats'){
     model.title='Robbery victims';model.subtitle='Strong weekly scores that still lost. Each bar is one matchup.';model.axisLabel='Points scored in the loss';

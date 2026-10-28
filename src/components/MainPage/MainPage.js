@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './MainPage.scss';
 
 const work = [
@@ -128,11 +127,6 @@ export default function MainPage() {
         </div>
       </section>
 
-      <hr />
-
-      <div className="mp-bells-link">
-        <Link to="/bells">&#x1F514; Teta&apos;s Bell Collection &rarr;</Link>
-      </div>
     </div>
   );
 }
