@@ -1,5 +1,5 @@
-import {CHARTS,normalizeChartType,makeChartModel} from './chart-model.mjs?v=13978723b8da';
-import {manager,fullName,esc} from './identity.mjs?v=13978723b8da';
+import {CHARTS,normalizeChartType,makeChartModel} from './chart-model.mjs?v=0d6b293e43de';
+import {manager,fullName,esc} from './identity.mjs?v=0d6b293e43de';
 
 export function mountCharts(getLeague,toast){
   const $=s=>document.querySelector(s);
@@ -39,7 +39,7 @@ export function mountCharts(getLeague,toast){
     if(renderChart){renderChart($('#chart-plot'),model);}
     else if(!rendererPromise){
       $('#chart-plot').innerHTML='<p class="chart-empty">Loading chart…</p>';
-      rendererPromise=import('./chart-lib.mjs?v=13978723b8da').then(module=>{renderChart=module.renderChart;render();}).catch(()=>{rendererPromise=null;$('#chart-plot').innerHTML='<p class="chart-empty">Could not load the chart. Choose a graph to try again.</p>';});
+      rendererPromise=import('./chart-lib.mjs?v=0d6b293e43de').then(module=>{renderChart=module.renderChart;render();}).catch(()=>{rendererPromise=null;$('#chart-plot').innerHTML='<p class="chart-empty">Could not load the chart. Choose a graph to try again.</p>';});
     }
   }
   function shareView(){
@@ -73,12 +73,12 @@ export function mountCharts(getLeague,toast){
       const header=65+titles.length*28+subtitles.length*17+16,scale=Math.max(1.5,1800/w);
       canvas.width=Math.ceil(w*scale);canvas.height=Math.ceil((header+h+45+foot.length*17)*scale);ctx.scale(scale,scale);
       ctx.fillStyle='#f6f6ef';ctx.fillRect(0,0,w,canvas.height/scale);ctx.fillStyle='#193e32';ctx.font='600 11px Segoe UI';
-      ctx.fillText(`WANG GANG · ${league.season} · WEEKS ${league.weeks[0].week}–${league.weeks.at(-1).week}`,20,28);
+      ctx.fillText(`WG · ${league.season} · WEEKS ${league.weeks[0].week}–${league.weeks.at(-1).week}`,20,28);
       ctx.font='600 23px Segoe UI';titles.forEach((s,i)=>ctx.fillText(s,20,65+i*28));
       ctx.fillStyle='#637165';ctx.font='12px Segoe UI';subtitles.forEach((s,i)=>ctx.fillText(s,20,65+titles.length*28+i*17));
       ctx.drawImage(image,0,header,w,h);ctx.font='11px Segoe UI';foot.forEach((s,i)=>ctx.fillText(s,20,header+h+26+i*17));URL.revokeObjectURL(svgUrl);
       const png=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!png)throw new Error('Export failed');
-      const url=URL.createObjectURL(png),a=document.createElement('a');a.href=url;a.download=`wang-gang-${type}-week-${league.weeks.at(-1).week}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),5000);
+      const url=URL.createObjectURL(png),a=document.createElement('a');a.href=url;a.download=`wg-${type}-week-${league.weeks.at(-1).week}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),5000);
     }catch{toast('Could not create the chart PNG. Please try again.');}
   }
   $('#chart-groups').addEventListener('click',e=>{
