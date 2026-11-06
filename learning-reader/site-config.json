@@ -21,7 +21,9 @@
       "subtitle": "DDIA · Sixth early release · July 11, 2016",
       "pages": 491,
       "localUrl": "books/ddia.pdf",
+      "coverUrl": "books/ddia-jacket.png",
       "cover": "network",
+      "reference": true,
       "builtin": true,
       "initialPosition": {
         "page": 167,
@@ -45,7 +47,7 @@
   },
   "runtimeProfile": {
     "url": "runtime-profile.json",
-    "sha256": "195b987b1600eae1c350e4e0e76c7f91d41171e114104157c8c17bf4e7710904"
+    "sha256": "773bb534f0d1f704370d96a9f2645f9c096d4c7c9850810cfef07cffe6b46ce6"
   },
   "localModelAssetsHashes": [
     "9dedeacd23b20bbcdd413858d7d3886b115549075a080b1d342e1380a3c6014e"

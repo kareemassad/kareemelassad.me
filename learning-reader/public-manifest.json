@@ -11,6 +11,11 @@
   "originalSavedPassages": 233,
   "files": [
     {
+      "path": "books/ddia-jacket.png",
+      "sha256": "0e61340a9256ce8650243e01daa47b70fb12e9e13f80d1cb62094ab81305de41",
+      "bytes": 195186
+    },
+    {
       "path": "books/ddia.pdf",
       "sha256": "905e1348c2b7955a3e799998ce9b45993b5c8cfa9ef6b93931af7a780b71ac02",
       "bytes": 4377248
@@ -24,6 +29,16 @@
       "path": "index.html",
       "sha256": "2e79806dcc1e8822c1a8be6d4cdcec78d48c8b751149412311a9c76f269736d7",
       "bytes": 8284
+    },
+    {
+      "path": "interactive/index.html",
+      "sha256": "caeda312ec787202fd6bf53127fb8a149b6bee72030460cd3e8cc7fe9ca737ac",
+      "bytes": 3080
+    },
+    {
+      "path": "interactive/runtime.js",
+      "sha256": "3200d1092f364bdcf25e317146af64ff5bf05cc898cfe5d26f82e7d539e37277",
+      "bytes": 1622577
     },
     {
       "path": "PDFJS-LICENSE.txt",
@@ -1372,13 +1387,13 @@
     },
     {
       "path": "runtime-profile.json",
-      "sha256": "195b987b1600eae1c350e4e0e76c7f91d41171e114104157c8c17bf4e7710904",
-      "bytes": 48096
+      "sha256": "773bb534f0d1f704370d96a9f2645f9c096d4c7c9850810cfef07cffe6b46ce6",
+      "bytes": 48632
     },
     {
       "path": "site-config.json",
-      "sha256": "e5d3fc2791ac589438c7c7e57fefceccb6835493a3522fbd2f4d9ab5a2d412d5",
-      "bytes": 1576
+      "sha256": "987739cfbcd1398f2034ce12160e9d1e8f3352f3df40c6b835b885b931726f32",
+      "bytes": 1644
     },
     {
       "path": "src/adapter-models.js",
@@ -1501,6 +1516,16 @@
       "bytes": 25505
     },
     {
+      "path": "src/ddia-interactive-book.js",
+      "sha256": "916b32e6d5caa5581afad056b3f4bd5a3121b8bc34df7e0b61a6d48e8b14e33a",
+      "bytes": 11953
+    },
+    {
+      "path": "src/ddia-interactive.css",
+      "sha256": "943a363c3f99f22b4f5f6f41847031f13f54755773a81127ca9b5b636386da04",
+      "bytes": 2041
+    },
+    {
       "path": "src/diagram-adapter.css",
       "sha256": "f78360c1f819eee17c7066103c0104cdc4575ae15b738eb136c912b8d2d858f1",
       "bytes": 852
@@ -1542,18 +1567,18 @@
     },
     {
       "path": "src/feynman-book-theme.css",
-      "sha256": "fc2bc07efcfe9841462e1d4866aa9a6326c9ed343a5d9f78efa3dd6fdb4717c2",
-      "bytes": 4102
+      "sha256": "0a9c21b36deeb9d1ca1e0ffa868b5e43a98c7c328fd1be8b583fd8507a3d2234",
+      "bytes": 4352
     },
     {
       "path": "src/feynman-reference-book.js",
-      "sha256": "28c432226adcd78312f9bd6bf7e105e384eff46c929ef6377e7c540e5ef402ec",
-      "bytes": 3249
+      "sha256": "fbe31e499d58e4fe278fd13e20d0b1f9f9bcccce6263575a79a819829daff5c0",
+      "bytes": 5461
     },
     {
       "path": "src/feynman-reference.css",
-      "sha256": "171f1f146b01e4cd1cb0fcf7b9b71bdd9a498833579c521f81f8de0009e3cf88",
-      "bytes": 843
+      "sha256": "ac319bb3e3f3bd1f13dd11609d7600a442b50e0181d2ec57c608bc9a81d78561",
+      "bytes": 1661
     },
     {
       "path": "src/flight-exploration.js",
@@ -1772,13 +1797,13 @@
     },
     {
       "path": "src/reader-books.js",
-      "sha256": "39d0046818a00c17434676364668e724154626231ea887a00742eb7236e56e6f",
-      "bytes": 1115
+      "sha256": "2f8f236cace7877a93552f83eb3a19bb2ea3280cc38d501a7d1eb6de28a1ae57",
+      "bytes": 1284
     },
     {
       "path": "src/reader.css",
-      "sha256": "410268e205590eeb4a2511ca971963518c287d83efc84446aad59e8ef122dea5",
-      "bytes": 19041
+      "sha256": "b95d01be28b4d94c5e6edab9d8eab2ad18739786fe3ea121ab8d597fa4ea1600",
+      "bytes": 19702
     },
     {
       "path": "src/reader.js",
@@ -1862,13 +1887,13 @@
     },
     {
       "path": "src/shelf.css",
-      "sha256": "0ad62ee0926bd73c4a1f72f25e4714d8e6a619d925781bac8b9a9d877b7d55bd",
-      "bytes": 13060
+      "sha256": "a2f2856d92274491d8c29fc14075d6d27860677c5deca7df46bcc2d32c8ca86b",
+      "bytes": 13345
     },
     {
       "path": "src/shelf.js",
-      "sha256": "d8b9d2ff5fdc7186422ed0ec9ddec5e0aa8d77d7f78748ae0b8f3057f796a320",
-      "bytes": 29443
+      "sha256": "0890e69eb60a0441471d1001b51fc7020ac6b9496bf013de2ca1cdc39fab104a",
+      "bytes": 29431
     },
     {
       "path": "src/shell-cone-model.js",

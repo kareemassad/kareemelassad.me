@@ -65,3 +65,12 @@
 .pdf-cover img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;pointer-events:none}
 .physical-book{aspect-ratio:3/4}
 @media(max-width:580px){#reader-shell header #bookmark-close{width:42px;min-width:42px;height:42px;padding:8px}}
+
+/* Keep the native reader on the same paper palette as the interactive volume. */
+#reader-shell .demo{background:linear-gradient(90deg,#fcfaf3 96%,#ece6d7)}
+#reader-shell .pdf-scroll{background:#eee8db;scrollbar-color:#c9bea7 #eee8db}
+#reader-shell .pdf-page{box-shadow:0 1px 0 #d4c9b4,2px 3px 0 #f8f3e7,3px 4px 0 #d8cdb8,0 9px 18px #51462b14}
+#reader-shell .divider{background:linear-gradient(90deg,#dbd2bf,#bdb39f 45%,#eee8da);border:0}
+#reader-shell .learning-tools{background:#faf7ee}
+#reader-shell header #bookmark-close{background:#785641;border-color:#684832;border-radius:2px 2px 7px 2px}
+#reader-shell header #bookmark-close:hover{background:#60432f}

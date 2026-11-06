@@ -111,17 +111,18 @@ export class BookShelf{
  expanded(){const surface=this.sourceSurface(),pane=surface.pane.getBoundingClientRect(),inset=12;return {width:Math.max(180,pane.width-inset*2),height:Math.max(180,pane.height-inset*2),left:surface.left+pane.left+inset,top:surface.top+pane.top+inset};}
  snapshot(node){
   const target=this.expanded(),surface=this.sourceSurface(),pane=surface.pane.getBoundingClientRect(),snapshot=document.createElement('div');snapshot.className='source-snapshot';
-  for(const canvas of surface.canvases){const rect=canvas.getBoundingClientRect();if(rect.bottom<pane.top||rect.top>pane.bottom)continue;const img=document.createElement('img');img.alt='';img.src=canvas.toDataURL();Object.assign(img.style,{left:surface.left+rect.left-target.left+'px',top:surface.top+rect.top-target.top+'px',width:rect.width+'px',height:rect.height+'px'});snapshot.append(img);}
+  for(const canvas of surface.canvases){const rect=canvas.getBoundingClientRect();if(rect.bottom<pane.top||rect.top>pane.bottom)continue;const img=document.createElement('canvas');img.width=canvas.width;img.height=canvas.height;img.getContext('2d').drawImage(canvas,0,0);Object.assign(img.style,{left:surface.left+rect.left-target.left+'px',top:surface.top+rect.top-target.top+'px',width:rect.width+'px',height:rect.height+'px'});snapshot.append(img);}
   node.querySelector('.transition-pages').append(snapshot);
  }
  async open(book,{position}={}){
+  const explicitPosition=!!position;
   if(this.mode!=='shelf')return;position??=this.progress.get(book.id)?.position||book.initialPosition;if(book.requiresSource&&this.configuration.noUploads){this.notice('This hosted book is unavailable. Please reload the page.',true);return;}if(book.requiresSource){this.pendingSourceId=book.id;this.pendingSourcePosition=position;this.notice('Choose the matching PDF for this prepared book. The exact source hash is checked.');$('pdf-file').click();return;}const button=this.locate(book);if(!button)return;this.ownTransition(book);this.setMode('opening');this.suspend();this.notice('');
   const transition=this.makeTransition(book,button.getBoundingClientRect());this.transitionPhase='loading';
   try{
    if(book.persistent&&!book.file){try{book={...book,...await this.library.getBook(book.id)};}catch(error){if(!book.localUrl)throw error;book={...book,persistent:false};}}
-   const result=await this.load(position?{...book,openingPosition:position}:book);if(!result)throw Error('The PDF could not be opened.');
+   const result=await this.load(position?{...book,openingPosition:position,explicitPosition}:book);if(!result)throw Error('The PDF could not be opened.');
    this.current={...book,...result};await this.remember(this.current);this.books.set(this.current.id,this.current);this.loaded=true;await this.sourceFrame();this.transitionPhase='expanding';await this.frame();this.place(transition,this.expanded());await this.settle(transition,['left','top','width','height'],1000);this.snapshot(transition);this.transitionPhase='unfolding';transition.classList.add('cover-open');await this.settle(transition.querySelector('.transition-cover'),'transform',850);
-   document.body.dataset.readerReveal='true';transition.classList.add('handoff');await this.settle(transition,'opacity',350);this.releaseTransition();this.setMode('reader');this.resume();this.save();if(this.importNotice){this.notice(this.importNotice,!this.current.persistent);this.importNotice='';}$('pdf-scroll').focus({preventScroll:true});return true;
+   this.releaseTransition();this.setMode('reader');this.resume();this.save();if(this.importNotice){this.notice(this.importNotice,!this.current.persistent);this.importNotice='';}$('pdf-scroll').focus({preventScroll:true});return true;
   }catch(error){this.releaseTransition();this.loaded=false;this.current=null;this.setMode('shelf');this.notice(error.message,true);this.locate(book)?.focus({preventScroll:true});return false;}
  }
  async openFile(file){

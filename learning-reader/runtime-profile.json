@@ -140,6 +140,18 @@
       "metadataAdapted": false
     },
     {
+      "file": "src/ddia-interactive-book.js",
+      "sourceSHA256": "916b32e6d5caa5581afad056b3f4bd5a3121b8bc34df7e0b61a6d48e8b14e33a",
+      "publicSHA256": "916b32e6d5caa5581afad056b3f4bd5a3121b8bc34df7e0b61a6d48e8b14e33a",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/ddia-interactive.css",
+      "sourceSHA256": "943a363c3f99f22b4f5f6f41847031f13f54755773a81127ca9b5b636386da04",
+      "publicSHA256": "943a363c3f99f22b4f5f6f41847031f13f54755773a81127ca9b5b636386da04",
+      "metadataAdapted": false
+    },
+    {
       "file": "src/diagram-adapter.css",
       "sourceSHA256": "f78360c1f819eee17c7066103c0104cdc4575ae15b738eb136c912b8d2d858f1",
       "publicSHA256": "f78360c1f819eee17c7066103c0104cdc4575ae15b738eb136c912b8d2d858f1",
@@ -189,20 +201,20 @@
     },
     {
       "file": "src/feynman-book-theme.css",
-      "sourceSHA256": "fc2bc07efcfe9841462e1d4866aa9a6326c9ed343a5d9f78efa3dd6fdb4717c2",
-      "publicSHA256": "fc2bc07efcfe9841462e1d4866aa9a6326c9ed343a5d9f78efa3dd6fdb4717c2",
+      "sourceSHA256": "0a9c21b36deeb9d1ca1e0ffa868b5e43a98c7c328fd1be8b583fd8507a3d2234",
+      "publicSHA256": "0a9c21b36deeb9d1ca1e0ffa868b5e43a98c7c328fd1be8b583fd8507a3d2234",
       "metadataAdapted": false
     },
     {
       "file": "src/feynman-reference-book.js",
-      "sourceSHA256": "28c432226adcd78312f9bd6bf7e105e384eff46c929ef6377e7c540e5ef402ec",
-      "publicSHA256": "28c432226adcd78312f9bd6bf7e105e384eff46c929ef6377e7c540e5ef402ec",
+      "sourceSHA256": "fbe31e499d58e4fe278fd13e20d0b1f9f9bcccce6263575a79a819829daff5c0",
+      "publicSHA256": "fbe31e499d58e4fe278fd13e20d0b1f9f9bcccce6263575a79a819829daff5c0",
       "metadataAdapted": false
     },
     {
       "file": "src/feynman-reference.css",
-      "sourceSHA256": "171f1f146b01e4cd1cb0fcf7b9b71bdd9a498833579c521f81f8de0009e3cf88",
-      "publicSHA256": "171f1f146b01e4cd1cb0fcf7b9b71bdd9a498833579c521f81f8de0009e3cf88",
+      "sourceSHA256": "ac319bb3e3f3bd1f13dd11609d7600a442b50e0181d2ec57c608bc9a81d78561",
+      "publicSHA256": "ac319bb3e3f3bd1f13dd11609d7600a442b50e0181d2ec57c608bc9a81d78561",
       "metadataAdapted": false
     },
     {
@@ -453,14 +465,14 @@
     },
     {
       "file": "src/reader-books.js",
-      "sourceSHA256": "a55908cca6de5bd47e49bd1affda2ef9c77902465899c190f1951540a4746d77",
-      "publicSHA256": "39d0046818a00c17434676364668e724154626231ea887a00742eb7236e56e6f",
+      "sourceSHA256": "2e7b5f256815df9e7a62b89166106de849a3a61ac8f5e1da12815d690f37b0fd",
+      "publicSHA256": "2f8f236cace7877a93552f83eb3a19bb2ea3280cc38d501a7d1eb6de28a1ae57",
       "metadataAdapted": true
     },
     {
       "file": "src/reader.css",
-      "sourceSHA256": "410268e205590eeb4a2511ca971963518c287d83efc84446aad59e8ef122dea5",
-      "publicSHA256": "410268e205590eeb4a2511ca971963518c287d83efc84446aad59e8ef122dea5",
+      "sourceSHA256": "b95d01be28b4d94c5e6edab9d8eab2ad18739786fe3ea121ab8d597fa4ea1600",
+      "publicSHA256": "b95d01be28b4d94c5e6edab9d8eab2ad18739786fe3ea121ab8d597fa4ea1600",
       "metadataAdapted": false
     },
     {
@@ -561,14 +573,14 @@
     },
     {
       "file": "src/shelf.css",
-      "sourceSHA256": "0ad62ee0926bd73c4a1f72f25e4714d8e6a619d925781bac8b9a9d877b7d55bd",
-      "publicSHA256": "0ad62ee0926bd73c4a1f72f25e4714d8e6a619d925781bac8b9a9d877b7d55bd",
+      "sourceSHA256": "a2f2856d92274491d8c29fc14075d6d27860677c5deca7df46bcc2d32c8ca86b",
+      "publicSHA256": "a2f2856d92274491d8c29fc14075d6d27860677c5deca7df46bcc2d32c8ca86b",
       "metadataAdapted": false
     },
     {
       "file": "src/shelf.js",
-      "sourceSHA256": "d8b9d2ff5fdc7186422ed0ec9ddec5e0aa8d77d7f78748ae0b8f3057f796a320",
-      "publicSHA256": "d8b9d2ff5fdc7186422ed0ec9ddec5e0aa8d77d7f78748ae0b8f3057f796a320",
+      "sourceSHA256": "0890e69eb60a0441471d1001b51fc7020ac6b9496bf013de2ca1cdc39fab104a",
+      "publicSHA256": "0890e69eb60a0441471d1001b51fc7020ac6b9496bf013de2ca1cdc39fab104a",
       "metadataAdapted": false
     },
     {
