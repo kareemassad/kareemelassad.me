@@ -1,3 +1,4 @@
+import {continuousSvgDemo} from './continuous-svg-demo.js';
 import {partitionDefaults,partitionModel} from './partitioning-model-v1.js';
 const range=(key,label,min,max)=>({key,label,type:'range',min,max,step:1});
 const select=(key,label,labels)=>({key,label,type:'select',options:labels.map((label,value)=>({value:String(value),label}))});
@@ -22,7 +23,7 @@ export function partitionFrame(kind,input,time=0){
  const state=Object.fromEntries(Object.keys(partitionDefaults(kind)).map(k=>[k,Math.round(Number(input[k]))])),m=partitionModel(kind,state),t=Math.max(0,time);let svg='',result='';
  if(kind==='placement'){
   svg+=text(20,28,state.query?'A range query needs every possible owner':'Follow the same keys into four partitions','scene-title');
-  const slots=[0,0,0,0],arrived=[0,0,0,0];m.records.forEach((r,i)=>{const start=[40+i*28,85],slot=slots[r.partition]++,end=[48+r.partition*176+(slot%5)*27,207+Math.floor(slot/5)*29],progress=(t-i*.06)/1.5,p=state.query?end:interpolate(start,end,progress),hit=!state.query||(r.key>=8&&r.key<=11);if(progress>=1||state.query)arrived[r.partition]++;if(progress>0&&progress<1&&!state.query)svg+=line(start,end);svg+=dot(p[0],p[1],state.workload===2&&state.method&&state.salts>1?r.key+String.fromCharCode(97+r.salt):r.key,colors[r.partition],hit?1:.22);});
+  const slots=[0,0,0,0],arrived=[0,0,0,0];m.records.forEach((r,i)=>{const start=[40+i*28,85],slot=slots[r.partition]++,end=[48+r.partition*176+(slot%5)*27,207+Math.floor(slot/5)*29],progress=(t-i*.06)/1.5,p=state.query?end:interpolate(start,end,progress),hit=!state.query||(r.key>=8&&r.key<=11);if(progress>=1||state.query)arrived[r.partition]++;if(progress>0&&progress<1&&!state.query)svg+=line(start,end);svg+=dot(p[0],p[1],progress>0&&progress<1&&!state.query?'':state.workload===2&&state.method&&state.salts>1?r.key+String.fromCharCode(97+r.salt):r.key,colors[r.partition],hit?1:.22);});
   for(let p=0;p<4;p++){svg+=`<rect x="${22+p*176}" y="164" width="164" height="210" rx="8" fill="none" stroke="${state.query&&m.contacted.includes(p)?'#447866':'#ccd3c4'}" stroke-width="${state.query&&m.contacted.includes(p)?3:1}"/>`+text(35+p*176,188,state.method?'Hash partition '+p:`Keys ${p*6}–${p*6+5}`)+text(35+p*176,352,arrived[p]+' writes')+`<rect x="${35+p*176}" y="362" width="${138*arrived[p]/24}" height="5" rx="2" fill="${colors[p]}"/>`;}
   if(state.query){svg+=text(370,75,'Read keys 8–11','small','middle');for(const p of m.contacted){const a=[370,90],b=[104+p*176,164];svg+=packet(a,b,t/1.1)+packet(b,a,(t-1.7)/1.1);}}
   svg+=text(20,410,state.query?`${m.contacted.length} partitions contacted · ${t<2.8?0:m.matching.length} matches returned`:`Busiest partition: ${Math.max(...arrived)} of ${arrived.reduce((a,b)=>a+b,0)} writes`,'equation');
@@ -38,7 +39,7 @@ export function partitionFrame(kind,input,time=0){
  }else if(kind==='rebalance'){
   svg+=text(20,28,'Add node 3: what must move?','scene-title');
   for(let n=0;n<4;n++)svg+=box(20+n*180,65,165,300,'Node '+n,n===3);
-  const oldSlots=[0,0,0],newSlots=[0,0,0,0];m.records.forEach(r=>{const a=oldSlots[r.old]++,b=newSlots[r.next]++,start=[46+r.old*180+(a%4)*33,130+Math.floor(a/4)*55],end=[46+r.next*180+(b%4)*33,130+Math.floor(b/4)*55],p=interpolate(start,end,(t-.4)/3);if(r.moved){if(t<3.4)svg+=dot(start[0],start[1],state.fixed?'p'+r.partition:r.id,colors[r.old],.25);svg+=line(start,end,'pending');}svg+=dot(p[0],p[1],state.fixed?'p'+r.partition:r.id,colors[r.old]);});
+  const oldSlots=[0,0,0],newSlots=[0,0,0,0];m.records.forEach(r=>{const a=oldSlots[r.old]++,b=newSlots[r.next]++,start=[46+r.old*180+(a%4)*33,130+Math.floor(a/4)*55],end=[46+r.next*180+(b%4)*33,130+Math.floor(b/4)*55],p=interpolate(start,end,(t-.4)/3);if(r.moved){if(t<3.4)svg+=dot(start[0],start[1],state.fixed?'p'+r.partition:r.id,colors[r.old],.25);svg+=line(start,end,'pending');}svg+=dot(p[0],p[1],t>.4&&t<3.4?'':state.fixed?'p'+r.partition:r.id,colors[r.old]);});
   svg+=text(20,402,`${m.moved} / 24 records move · final loads ${m.loads.join(' / ')}`,'equation');svg+=text(20,433,t<3.4?'Copying: requests still use the old ownership map.':'Transfer complete: the new ownership map takes effect.');result=state.fixed?'Partition IDs stay fixed. Three complete partitions move to the new node; existing nodes keep the rest.':'Changing modulo 3 to modulo 4 changes many owners, even between existing nodes. Compare fixed partitions.';
  }else if(kind==='split'){
   svg+=text(20,28,'A range grows, then splits','scene-title')+box(25,90,330,270,'Node 0')+box(385,90,330,270,'Node 1');
@@ -69,28 +70,9 @@ export function partitionLoopFrame(kind,state,time,{reducedMotion=false}={}){
  return {...frame,phase,svg:`<g data-loop-phase="${phase.toFixed(3)}"><g opacity="${1-blend}">${frame.svg}</g>${opening?`<g opacity="${blend}">${opening.svg}</g>`:''}${text(720,49,caption,'tick','end')}<path d="M20 447 H720" class="lane"/><path d="M20 447 H${20+700*phase/PARTITION_LOOP_SECONDS}" stroke="#72937a" stroke-width="2"/></g>`};
 }
 export function partitionReaderParams(kind,state){return Object.fromEntries(Object.entries(state).map(([key,value])=>[key,partitionControls[kind].find(c=>c.key===key)?.type==='select'?String(value):value]));}
-let outgoingFrame=null;
-export function partitionDemo(kind,title){return {
- id:'ddia-partition-'+kind,title,camera:{mode:'2d',center:[0,0],height:12,width:18},params:partitionReaderParams(kind,partitionDefaults(kind)),controls:partitionControls[kind],resetOn:Object.keys(partitionDefaults(kind)),
- create(ctx){
-  const wrap=document.getElementById('canvas-wrap'),host=document.createElementNS('http://www.w3.org/2000/svg','svg');
-  host.classList.add('ddia-scene');host.setAttribute('viewBox','0 0 740 450');host.setAttribute('role','img');host.setAttribute('aria-label',title);wrap.append(host);
-  const motion=matchMedia('(prefers-reduced-motion: reduce)');
-  let old=outgoingFrame?.wrap===wrap&&performance.now()-outgoingFrame.at<100?outgoingFrame.svg:null;
-  outgoingFrame=null;
-  let elapsed=0,current='',previous='';
-  const status=document.createElement('p');status.className='ddia-result';
-  const details=document.createElement('details'),summary=document.createElement('summary'),p=document.createElement('p');summary.textContent='Model assumptions';p.textContent=limits[kind]+' Playback repeats the same example; it does not add operations to the model.';details.append(summary,p);ctx.panel.append(status,details);
-  function frame(ctx,dt=0){
-   elapsed+=dt;const result=partitionLoopFrame(kind,ctx.params,ctx.time,{reducedMotion:motion.matches});
-   const mix=motion.matches?1:ease(elapsed/.65);
-   current=result.svg;
-   const svg=old&&mix<1?`<g opacity="${1-mix}" aria-hidden="true">${old}</g><g opacity="${mix}">${current}</g>`:current;
-   if(mix>=1)old=null;
-   if(svg!==previous){host.innerHTML=svg;previous=svg;}
-   if(status.textContent!==result.result)status.textContent=result.result;
-  }
-  frame(ctx);
-  return {frame,onParams(){old=document.getElementById('play')?.getAttribute('aria-pressed')==='true'?null:current;elapsed=0;},reset(){/* The reader resets its clock; Pause remains in control. */},dispose(){outgoingFrame={wrap,svg:current,at:performance.now()};host.remove();}};
- }
-};}
+export function partitionDemo(kind,title){return continuousSvgDemo({
+ duration:PARTITION_LOOP_SECONDS,
+ id:'ddia-partition-'+kind,title,params:partitionReaderParams(kind,partitionDefaults(kind)),controls:partitionControls[kind],
+ limits:limits[kind]+' Playback repeats the same example; it does not add operations to the model.',
+ loopFrame:(params,time,options)=>partitionLoopFrame(kind,params,time,options)
+});}

@@ -1,0 +1,5 @@
+const integer=(value,min,max)=>{if(!Number.isInteger(value)||value<min||value>max)throw Error('Invalid tradeoff input');return value;};
+export function reliabilityModel({copies=3,faults=1,common=0}={}){integer(copies,1,4);integer(faults,0,4);integer(common,0,1);const failed=common&&faults?copies:Math.min(copies,faults);return {copies,failed,available:copies-failed,serving:copies>failed};}
+export function fanoutModel({calls=8,slowPercent=5}={}){integer(calls,1,20);integer(slowPercent,0,100);return {calls,slowPercent,slowProbability:1-(1-slowPercent/100)**calls};}
+export function feedWorkModel({followers=6,reads=3,push=1}={}){integer(followers,1,12);integer(reads,0,8);integer(push,0,1);return {followers,reads,push,postWrites:1+(push?followers:0),timelineAssemblies:push?0:followers*reads,cacheReads:push?followers*reads:0};}
+export function changeSurfaceModel({boundary=1,contract=0}={}){integer(boundary,0,1);integer(contract,0,1);return {boundary,contract,affectedClients:boundary&&!contract?[]:[0,1,2,3,4],implementationChanges:boundary?1:5};}

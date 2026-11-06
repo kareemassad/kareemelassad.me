@@ -20,6 +20,24 @@
       "metadataAdapted": false
     },
     {
+      "file": "src/batch-content-v1.js",
+      "sourceSHA256": "7e1358c105c195f750740da0ea973ab398b0fd1c0a2c738becee258b573779f1",
+      "publicSHA256": "7e1358c105c195f750740da0ea973ab398b0fd1c0a2c738becee258b573779f1",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/batch-model-v1.js",
+      "sourceSHA256": "c3415d87929583ffda6f27168c45ee8426c76d48d9f3aca384e4c3a144b3de98",
+      "publicSHA256": "c3415d87929583ffda6f27168c45ee8426c76d48d9f3aca384e4c3a144b3de98",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/batch-view-v1.js",
+      "sourceSHA256": "9ea80310ce1b8e0c284ca82160eaef30e42df0a9bb5aee7d66616b31048a6602",
+      "publicSHA256": "9ea80310ce1b8e0c284ca82160eaef30e42df0a9bb5aee7d66616b31048a6602",
+      "metadataAdapted": false
+    },
+    {
       "file": "src/book-bundle.js",
       "sourceSHA256": "d3bc2671ff506d13824a933cf73a67f1b66af3b464675248cb7ed81bf7ca4179",
       "publicSHA256": "d3bc2671ff506d13824a933cf73a67f1b66af3b464675248cb7ed81bf7ca4179",
@@ -140,15 +158,57 @@
       "metadataAdapted": false
     },
     {
+      "file": "src/consensus-content-v1.js",
+      "sourceSHA256": "f6d0e5b221ebd503fb04dcc26be31334277a87166b27bd5bec58200631d58816",
+      "publicSHA256": "f6d0e5b221ebd503fb04dcc26be31334277a87166b27bd5bec58200631d58816",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/consensus-model-v1.js",
+      "sourceSHA256": "6c46a50127ab97258915a8e20ab7799daf229acf2129e60839f21997d36ce805",
+      "publicSHA256": "6c46a50127ab97258915a8e20ab7799daf229acf2129e60839f21997d36ce805",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/consensus-view-v1.js",
+      "sourceSHA256": "ebcdeea21c1d53b2da0f9688f32e8b68ad588e9adf8fe3fe3db96778eddaf3a0",
+      "publicSHA256": "ebcdeea21c1d53b2da0f9688f32e8b68ad588e9adf8fe3fe3db96778eddaf3a0",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/continuous-svg-demo.js",
+      "sourceSHA256": "d57c77976f1728179da6a7eda4095b78d023ac7c88b0e9cd91a6e76b2c85bf27",
+      "publicSHA256": "d57c77976f1728179da6a7eda4095b78d023ac7c88b0e9cd91a6e76b2c85bf27",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/data-shape-model-v1.js",
+      "sourceSHA256": "3faa1058eb014bffa7274316c3e5691c108c74f0b20bd42d60b85b60617db881",
+      "publicSHA256": "3faa1058eb014bffa7274316c3e5691c108c74f0b20bd42d60b85b60617db881",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/data-shape-view-v1.js",
+      "sourceSHA256": "e9450cb310b74b8a53aa6d83405e76e95e2f0e3300765f57cf4a4e2a76081607",
+      "publicSHA256": "e9450cb310b74b8a53aa6d83405e76e95e2f0e3300765f57cf4a4e2a76081607",
+      "metadataAdapted": false
+    },
+    {
       "file": "src/ddia-interactive-book.js",
-      "sourceSHA256": "6a5980e7740e836e264db3b048eb841e18b5d377b2fd7b0b8eda0d00ae10e9b2",
-      "publicSHA256": "6a5980e7740e836e264db3b048eb841e18b5d377b2fd7b0b8eda0d00ae10e9b2",
+      "sourceSHA256": "b9abbdfb2378063a555503c1570310d7c337e413d8cf4c2b97edfa91e80239d7",
+      "publicSHA256": "b9abbdfb2378063a555503c1570310d7c337e413d8cf4c2b97edfa91e80239d7",
       "metadataAdapted": false
     },
     {
       "file": "src/ddia-interactive.css",
-      "sourceSHA256": "943a363c3f99f22b4f5f6f41847031f13f54755773a81127ca9b5b636386da04",
-      "publicSHA256": "943a363c3f99f22b4f5f6f41847031f13f54755773a81127ca9b5b636386da04",
+      "sourceSHA256": "4bd9763ae4453a7b82ac9250b88897b68d33f443ee1d02b965f116f113310cba",
+      "publicSHA256": "4bd9763ae4453a7b82ac9250b88897b68d33f443ee1d02b965f116f113310cba",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/ddia-story-cues-v1.js",
+      "sourceSHA256": "6217fc8bcc40f38d2236689ec6a445f7d7f977e7c0d503e608bacea038050aa6",
+      "publicSHA256": "6217fc8bcc40f38d2236689ec6a445f7d7f977e7c0d503e608bacea038050aa6",
       "metadataAdapted": false
     },
     {
@@ -176,6 +236,24 @@
       "metadataAdapted": false
     },
     {
+      "file": "src/distributed-content-v1.js",
+      "sourceSHA256": "09a79281675b427a5178f88f269827bf73fae67231cfd0c21e5890d12d730169",
+      "publicSHA256": "09a79281675b427a5178f88f269827bf73fae67231cfd0c21e5890d12d730169",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/distributed-fault-model-v1.js",
+      "sourceSHA256": "94dd2fcebdc34d4aaa3410b4a16c1f77580f92517759bec1c344b95607799cb1",
+      "publicSHA256": "94dd2fcebdc34d4aaa3410b4a16c1f77580f92517759bec1c344b95607799cb1",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/distributed-fault-view-v1.js",
+      "sourceSHA256": "7b6af8ac82dd12d67c9f5b2f5cd1395be9e873a0a509b233eb1d994d20fdc1d9",
+      "publicSHA256": "7b6af8ac82dd12d67c9f5b2f5cd1395be9e873a0a509b233eb1d994d20fdc1d9",
+      "metadataAdapted": false
+    },
+    {
       "file": "src/electromagnetism-models.js",
       "sourceSHA256": "8caf7a087138ff63a3101c8d1bf2f4dea0bc60a58dca37535ffb886da663c658",
       "publicSHA256": "8caf7a087138ff63a3101c8d1bf2f4dea0bc60a58dca37535ffb886da663c658",
@@ -185,6 +263,18 @@
       "file": "src/electrostatics-models.js",
       "sourceSHA256": "b4a19efd010af73fd041717572459d75b30e50f518fbc70631cc1450fe62e1db",
       "publicSHA256": "b4a19efd010af73fd041717572459d75b30e50f518fbc70631cc1450fe62e1db",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/encoding-model-v1.js",
+      "sourceSHA256": "31240d456ae859aacf161870b6cddd49f7737b389ddf9e6d5a832e32c09f961e",
+      "publicSHA256": "31240d456ae859aacf161870b6cddd49f7737b389ddf9e6d5a832e32c09f961e",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/encoding-view-v1.js",
+      "sourceSHA256": "98edc61c9bb56a18d67bfe428d3b0f28b2e65f8dfbd3074a0c11e0ded0e1e0cc",
+      "publicSHA256": "98edc61c9bb56a18d67bfe428d3b0f28b2e65f8dfbd3074a0c11e0ded0e1e0cc",
       "metadataAdapted": false
     },
     {
@@ -230,6 +320,12 @@
       "metadataAdapted": false
     },
     {
+      "file": "src/foundations-content-v1.js",
+      "sourceSHA256": "f788606033dbfa4f2f9858abb02e1bcd5211dd45706aa172b3a720c74aec42ea",
+      "publicSHA256": "f788606033dbfa4f2f9858abb02e1bcd5211dd45706aa172b3a720c74aec42ea",
+      "metadataAdapted": false
+    },
+    {
       "file": "src/gauss-models.js",
       "sourceSHA256": "bfddd08a8b589aa54cfa60ccb4aa2b689bf89338b4b85450f3469124b196d974",
       "publicSHA256": "bfddd08a8b589aa54cfa60ccb4aa2b689bf89338b4b85450f3469124b196d974",
@@ -269,6 +365,18 @@
       "file": "src/laplace-domain-models.js",
       "sourceSHA256": "7d4e26b2f8c68c1416b9429edf21a20d1bea1bda2b25265badde81cf2a9abff6",
       "publicSHA256": "7d4e26b2f8c68c1416b9429edf21a20d1bea1bda2b25265badde81cf2a9abff6",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/leader-log-model-v1.js",
+      "sourceSHA256": "cbc05bc0e1852b8c639c07bfbe60e488d967f32fe8faf201d14c5e6ba6ed7bfd",
+      "publicSHA256": "cbc05bc0e1852b8c639c07bfbe60e488d967f32fe8faf201d14c5e6ba6ed7bfd",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/leader-log-view-v1.js",
+      "sourceSHA256": "ac3067beda1eb666a9c588b3695c263a6d0ce542c5c8dd45bd7cf74cd1a05aa6",
+      "publicSHA256": "ac3067beda1eb666a9c588b3695c263a6d0ce542c5c8dd45bd7cf74cd1a05aa6",
       "metadataAdapted": false
     },
     {
@@ -417,8 +525,8 @@
     },
     {
       "file": "src/partitioning-view-v1.js",
-      "sourceSHA256": "e51ae092b0c1935685e43fe2f30a7a72a0a36f3a4be2991023a52a57cbd2fc85",
-      "publicSHA256": "e51ae092b0c1935685e43fe2f30a7a72a0a36f3a4be2991023a52a57cbd2fc85",
+      "sourceSHA256": "c8c1547bf15a65682ab9fb734158ced392429444fdf91c8572da455568435ba8",
+      "publicSHA256": "c8c1547bf15a65682ab9fb734158ced392429444fdf91c8572da455568435ba8",
       "metadataAdapted": false
     },
     {
@@ -548,6 +656,18 @@
       "metadataAdapted": false
     },
     {
+      "file": "src/response-time-model-v1.js",
+      "sourceSHA256": "f6e681b9774ec0cd44c5747a9d1b8d9fca526266ea50e8822fbb351823abc9ff",
+      "publicSHA256": "f6e681b9774ec0cd44c5747a9d1b8d9fca526266ea50e8822fbb351823abc9ff",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/response-time-view-v1.js",
+      "sourceSHA256": "819acc9266c8c01c9b48858bfc50983db7f6f6f2f9a95833bb948c3a9827a349",
+      "publicSHA256": "819acc9266c8c01c9b48858bfc50983db7f6f6f2f9a95833bb948c3a9827a349",
+      "metadataAdapted": false
+    },
+    {
       "file": "src/reusable-explanation-v1.js",
       "sourceSHA256": "564ffb7aa4ec435fe0c2c98b6609ecb713414291d2d319a597703d9a396ddabd",
       "publicSHA256": "564ffb7aa4ec435fe0c2c98b6609ecb713414291d2d319a597703d9a396ddabd",
@@ -644,6 +764,72 @@
       "metadataAdapted": false
     },
     {
+      "file": "src/storage-layout-model-v1.js",
+      "sourceSHA256": "38b8dd41f59b5f3366fe0d69b4caf8e7982e92896a2b7727629e38e72f87bb84",
+      "publicSHA256": "38b8dd41f59b5f3366fe0d69b4caf8e7982e92896a2b7727629e38e72f87bb84",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/storage-layout-view-v1.js",
+      "sourceSHA256": "c3a07f676a9bfcb234c29d1f82070913f870ad89a5c5065728ca0e5d12f3f3f4",
+      "publicSHA256": "c3a07f676a9bfcb234c29d1f82070913f870ad89a5c5065728ca0e5d12f3f3f4",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/storage-model-v1.js",
+      "sourceSHA256": "3f737015a18bfa80b69c72b5c63014120312ff6c91bdf56b5656b90b8cd655b9",
+      "publicSHA256": "3f737015a18bfa80b69c72b5c63014120312ff6c91bdf56b5656b90b8cd655b9",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/storage-story-model-v1.js",
+      "sourceSHA256": "e7b85eb88283bdf15dd80fb2c900f906d3ae893f9638f9301e3716b01b09a88a",
+      "publicSHA256": "e7b85eb88283bdf15dd80fb2c900f906d3ae893f9638f9301e3716b01b09a88a",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/storage-story-view-v1.js",
+      "sourceSHA256": "e4f1997678d59aba57ef92cf846cad296cee0f90cc39ca1f0b8649b41d77a361",
+      "publicSHA256": "e4f1997678d59aba57ef92cf846cad296cee0f90cc39ca1f0b8649b41d77a361",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/storage-view-v1.js",
+      "sourceSHA256": "a6a225993ce36ea8eb0a82766207bb8cdbadde82dd4a6a0dd77e6e7feb735a7d",
+      "publicSHA256": "a6a225993ce36ea8eb0a82766207bb8cdbadde82dd4a6a0dd77e6e7feb735a7d",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/stream-content-v1.js",
+      "sourceSHA256": "d403e269c2220c7bfb9fcac32ee17bfcc1ba1508e7b796be884a828ff1f6c24f",
+      "publicSHA256": "d403e269c2220c7bfb9fcac32ee17bfcc1ba1508e7b796be884a828ff1f6c24f",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/stream-model-v1.js",
+      "sourceSHA256": "5f737f51ef13350130558e6847cd11dfb49e0fbda0742506511a4c8ac52bec54",
+      "publicSHA256": "5f737f51ef13350130558e6847cd11dfb49e0fbda0742506511a4c8ac52bec54",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/stream-view-v1.js",
+      "sourceSHA256": "b73eba96c251f685975e42e08f0af387aeaa08df160e2f4848be6bda8783f5e2",
+      "publicSHA256": "b73eba96c251f685975e42e08f0af387aeaa08df160e2f4848be6bda8783f5e2",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/system-tradeoffs-model-v1.js",
+      "sourceSHA256": "263544986aa586d4e8d253e7460132d4c6e57ddc06acdbee2c406f45c241c254",
+      "publicSHA256": "263544986aa586d4e8d253e7460132d4c6e57ddc06acdbee2c406f45c241c254",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/system-tradeoffs-view-v1.js",
+      "sourceSHA256": "c828b055a2e0be4c5e918730aaa99384cc05bef13e3f18cd9252246bb3678e14",
+      "publicSHA256": "c828b055a2e0be4c5e918730aaa99384cc05bef13e3f18cd9252246bb3678e14",
+      "metadataAdapted": false
+    },
+    {
       "file": "src/teaching-adapter-v1.js",
       "sourceSHA256": "9573a115ecdce063096380503df8899d50b19681e72374e9190fc759d2e92714",
       "publicSHA256": "9573a115ecdce063096380503df8899d50b19681e72374e9190fc759d2e92714",
@@ -680,9 +866,21 @@
       "metadataAdapted": false
     },
     {
+      "file": "src/transaction-model-v1.js",
+      "sourceSHA256": "fcbd7df29cc0c8e9c1d9ba8b6787100b82e6fdee855989dc08aa27c05bc9f61e",
+      "publicSHA256": "fcbd7df29cc0c8e9c1d9ba8b6787100b82e6fdee855989dc08aa27c05bc9f61e",
+      "metadataAdapted": false
+    },
+    {
       "file": "src/transaction-models.js",
       "sourceSHA256": "a1bba2f4f6db731ec20f4437c7cf11d77f92854124756198c5e1f2b1b8d402d9",
       "publicSHA256": "a1bba2f4f6db731ec20f4437c7cf11d77f92854124756198c5e1f2b1b8d402d9",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/transaction-view-v1.js",
+      "sourceSHA256": "77223650dd258c23bbc654f322a79f203e66669d96a178f399954ba3ca53d6dd",
+      "publicSHA256": "77223650dd258c23bbc654f322a79f203e66669d96a178f399954ba3ca53d6dd",
       "metadataAdapted": false
     },
     {
