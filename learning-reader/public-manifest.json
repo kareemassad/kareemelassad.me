@@ -11,14 +11,19 @@
   "originalSavedPassages": 233,
   "files": [
     {
+      "path": "books/ddia.pdf",
+      "sha256": "905e1348c2b7955a3e799998ce9b45993b5c8cfa9ef6b93931af7a780b71ac02",
+      "bytes": 4377248
+    },
+    {
       "path": "favicon.svg",
       "sha256": "1f918c557c2048d70b4386f1ad37e41253a67b1deda58464f73b16b8c76a1ec8",
       "bytes": 223
     },
     {
       "path": "index.html",
-      "sha256": "5d70ce6e7031c17d16c3c242bdb9b6d243ebdf88d282faca583c83fbb4c25b2e",
-      "bytes": 8168
+      "sha256": "2e79806dcc1e8822c1a8be6d4cdcec78d48c8b751149412311a9c76f269736d7",
+      "bytes": 8284
     },
     {
       "path": "PDFJS-LICENSE.txt",
@@ -352,8 +357,8 @@
     },
     {
       "path": "reference/feynman/index.html",
-      "sha256": "472fc1b65b4b938cce41fb34d4a7935387181eebbb62bd9167f7c519554e1a1d",
-      "bytes": 2915
+      "sha256": "75bb1c48b397f5653fb8dbf57e8d5933b4297120a758097699d5adfc78184da9",
+      "bytes": 2981
     },
     {
       "path": "reference/feynman/pdfjs/cmaps/78-EUC-H.bcmap",
@@ -1357,8 +1362,8 @@
     },
     {
       "path": "reference/feynman/provenance.json",
-      "sha256": "ad255e0f848f5cccafe81b57a79edb6c917e5f74a4e6e766291e00895497483e",
-      "bytes": 111687
+      "sha256": "15913778c7bf9896d9073284d9bf8168634bc850ab3f6a333d0e00a0f5cd2a54",
+      "bytes": 111768
     },
     {
       "path": "reference/feynman/vol1.pdf",
@@ -1367,13 +1372,13 @@
     },
     {
       "path": "runtime-profile.json",
-      "sha256": "97846c59dc64ed54c728b4df8309674679bf77b23c4178ec58a9c359c7acb480",
-      "bytes": 47828
+      "sha256": "97ec4e2089afecb2a16b7fcac145505f50aadd84e067f2c1a8db27d9dadfc539",
+      "bytes": 48096
     },
     {
       "path": "site-config.json",
-      "sha256": "b7c34c5cac5ffcd6cf1a274a52446751857c761906cb8c713ad951c64a51b32d",
-      "bytes": 2289
+      "sha256": "f80101ccdb5a16963567652b57ec76c75113afc9cbc073f5ca8cacfd637581d1",
+      "bytes": 1576
     },
     {
       "path": "src/adapter-models.js",
@@ -1534,6 +1539,11 @@
       "path": "src/explanation-package.js",
       "sha256": "113253f5960bad528707ed6c04089b6aaea8f0ca58e0adc03e2e96a99899328c",
       "bytes": 2441
+    },
+    {
+      "path": "src/feynman-book-theme.css",
+      "sha256": "fc2bc07efcfe9841462e1d4866aa9a6326c9ed343a5d9f78efa3dd6fdb4717c2",
+      "bytes": 4102
     },
     {
       "path": "src/feynman-reference-book.js",
@@ -1762,8 +1772,8 @@
     },
     {
       "path": "src/reader-books.js",
-      "sha256": "3aeccad9b985d4cdf5e3d6fd91546a34e84ddbba24f7ed114fcaee934623d819",
-      "bytes": 1626
+      "sha256": "39d0046818a00c17434676364668e724154626231ea887a00742eb7236e56e6f",
+      "bytes": 1115
     },
     {
       "path": "src/reader.css",
@@ -1772,8 +1782,8 @@
     },
     {
       "path": "src/reader.js",
-      "sha256": "b14c5b0d9cb9dc183c4f299837fe1ec9b0297c4e169e01737c3072f6a675e242",
-      "bytes": 35912
+      "sha256": "a193789154db0960de4afc4b89bde9a23897b03c700fda7a34617da72d1a390c",
+      "bytes": 36154
     },
     {
       "path": "src/reading-context.js",
@@ -1857,8 +1867,8 @@
     },
     {
       "path": "src/shelf.js",
-      "sha256": "e64778551a1e325a41d2cd4c2dc930f397df55d8cac2eff6cc9e0ea6881a1f45",
-      "bytes": 28461
+      "sha256": "6616834226105601c70a9aa7df8b660ab8f23ecee35a6cb551a2a15bc6652d06",
+      "bytes": 29219
     },
     {
       "path": "src/shell-cone-model.js",

@@ -197,9 +197,9 @@ async function openBook(book){
    }
    status('');return {id:book.id,title:shelf.current.title,pages:reader.count};
   }
-  let file=book.file;if(!file){if(!book.localUrl&&book.id!==SOURCE.sha256)throw Error('Import the matching PDF to read this prepared book.');const response=await fetch(assetURL(book.localUrl||SOURCE.localUrl));if(!response.ok)throw Error('Sample PDF is missing. Select it with Open PDF.');file=await response.blob();}
+  let file=book.file;if(!file){if(!book.localUrl&&book.id!==SOURCE.sha256)throw Error('Import the matching PDF to read this prepared book.');const response=await fetch(assetURL(book.localUrl||SOURCE.localUrl));if(!response.ok)throw Error(configuration.noUploads?'This hosted book could not be loaded. Please reload and try again.':'Sample PDF is missing. Select it with Open PDF.');file=await response.blob();}
   if(file.size>MAX_PDF_BYTES)throw Error('This reader supports local PDFs up to 128 MiB.');const bytes=await file.arrayBuffer(),hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(x=>x.toString(16).padStart(2,'0')).join(''),sourceMatches=hash===SOURCE.sha256;
-  if(book.builtin&&book.id!==hash)throw Error('This local PDF does not match the selected book. Import the matching PDF.');
+  if(book.builtin&&book.id!==hash)throw Error(configuration.noUploads?'The hosted PDF does not match this book. Please report this error.':'This local PDF does not match the selected book. Import the matching PDF.');
   const saved={page:1,y:0,gap:0,zoom:'fit',split:50,left:0,...(book.openingPosition||shelf.progress.get(hash)?.position||{}),hideAid:false};
   reader.zoom=saved.zoom;$('zoom').value=saved.zoom;split(saved.split);$('workspace').classList.toggle('hide-aid',saved.hideAid);$('hide-aid').textContent=saved.hideAid?'Show demo':'Hide demo';
   await reader.open(bytes,[],sourceMatches);preparedBook=await shelf.catalog.forBook(reader.document,hash);reader.markers=preparedBook?.breakpoints||[];reader.build();loadedRevision=shelf.catalog.revision;matched=!!preparedBook;navigation();states.clear();readingFollower.clear();active=null;
@@ -231,9 +231,9 @@ shelf=new BookShelf({configuration,libraryFactory:hostedLibrary?()=>new PublicLi
 import {installFeynmanReference} from './feynman-reference-book.js';
 await installFeynmanReference(shelf,configuration);
 import {installOrbitCompanion} from './orbit-companion-book.js';
-await installOrbitCompanion(shelf,configuration);
+if(!configuration.noUploads)await installOrbitCompanion(shelf,configuration);
 import {installClockBinding} from './clock-binding-book.js';
-await installClockBinding(shelf);
+if(!configuration.noUploads)await installClockBinding(shelf);
 
 offlineCopy(configuration,message=>{const node=document.getElementById('offline-state');node.textContent=message;node.hidden=false;});
 

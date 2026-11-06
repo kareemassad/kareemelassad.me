@@ -188,6 +188,12 @@
       "metadataAdapted": false
     },
     {
+      "file": "src/feynman-book-theme.css",
+      "sourceSHA256": "fc2bc07efcfe9841462e1d4866aa9a6326c9ed343a5d9f78efa3dd6fdb4717c2",
+      "publicSHA256": "fc2bc07efcfe9841462e1d4866aa9a6326c9ed343a5d9f78efa3dd6fdb4717c2",
+      "metadataAdapted": false
+    },
+    {
       "file": "src/feynman-reference-book.js",
       "sourceSHA256": "8736e571ea56f7c5f6497b29619947d4969e77465dd4e28e5fa294a75f8f288b",
       "publicSHA256": "8736e571ea56f7c5f6497b29619947d4969e77465dd4e28e5fa294a75f8f288b",
@@ -447,8 +453,8 @@
     },
     {
       "file": "src/reader-books.js",
-      "sourceSHA256": "c2babe71ea5fe506f9914a8860543a22ca4ffcca7fe5f0d4ac19e45c8319af2c",
-      "publicSHA256": "3aeccad9b985d4cdf5e3d6fd91546a34e84ddbba24f7ed114fcaee934623d819",
+      "sourceSHA256": "a55908cca6de5bd47e49bd1affda2ef9c77902465899c190f1951540a4746d77",
+      "publicSHA256": "39d0046818a00c17434676364668e724154626231ea887a00742eb7236e56e6f",
       "metadataAdapted": true
     },
     {
@@ -459,8 +465,8 @@
     },
     {
       "file": "src/reader.js",
-      "sourceSHA256": "b14c5b0d9cb9dc183c4f299837fe1ec9b0297c4e169e01737c3072f6a675e242",
-      "publicSHA256": "b14c5b0d9cb9dc183c4f299837fe1ec9b0297c4e169e01737c3072f6a675e242",
+      "sourceSHA256": "a193789154db0960de4afc4b89bde9a23897b03c700fda7a34617da72d1a390c",
+      "publicSHA256": "a193789154db0960de4afc4b89bde9a23897b03c700fda7a34617da72d1a390c",
       "metadataAdapted": false
     },
     {
@@ -561,8 +567,8 @@
     },
     {
       "file": "src/shelf.js",
-      "sourceSHA256": "e64778551a1e325a41d2cd4c2dc930f397df55d8cac2eff6cc9e0ea6881a1f45",
-      "publicSHA256": "e64778551a1e325a41d2cd4c2dc930f397df55d8cac2eff6cc9e0ea6881a1f45",
+      "sourceSHA256": "6616834226105601c70a9aa7df8b660ab8f23ecee35a6cb551a2a15bc6652d06",
+      "publicSHA256": "6616834226105601c70a9aa7df8b660ab8f23ecee35a6cb551a2a15bc6652d06",
       "metadataAdapted": false
     },
     {

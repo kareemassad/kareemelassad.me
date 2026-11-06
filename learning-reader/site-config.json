@@ -2,6 +2,7 @@
   "mode": "static",
   "referenceFeynman": true,
   "restrictBooks": true,
+  "noUploads": true,
   "codeHash": "54c3e62829b25bb2b3225ca21d49818b8abb4f00dd346fbecf21ec39830f42ed",
   "books": [
     {
@@ -15,28 +16,13 @@
       "reference": true
     },
     {
-      "id": "17b2ad182d7eff221e983a0250793dc8fc73c97f6f68331726c2bb154af91a79",
-      "title": "The Feynman Lectures on Physics",
-      "pages": 566,
-      "builtin": true,
-      "requiresSource": true,
-      "cover": "plain",
-      "subtitle": "Volume II · Electromagnetism and matter",
-      "preparedPassages": 219,
-      "initialPosition": {
-        "page": 20,
-        "y": 0.22185090909090907
-      }
-    },
-    {
       "id": "905e1348c2b7955a3e799998ce9b45993b5c8cfa9ef6b93931af7a780b71ac02",
       "title": "Designing Data-Intensive Applications",
-      "pages": 491,
-      "builtin": true,
-      "requiresSource": true,
-      "cover": "network",
       "subtitle": "DDIA · Sixth early release · July 11, 2016",
-      "preparedPassages": 14,
+      "pages": 491,
+      "localUrl": "books/ddia.pdf",
+      "cover": "network",
+      "builtin": true,
       "initialPosition": {
         "page": 167,
         "y": 0.16
@@ -44,17 +30,9 @@
       "chapterStart": {
         "page": 167,
         "y": 0.16
-      }
-    },
-    {
-      "id": "d5b322e8a6c0b294ded529a3a2027ee1caa8af15f53fa6642fa5a6e4d981bb03",
-      "title": "The Feynman Lectures on Physics · Volume III",
-      "subtitle": "Quantum mechanics · No saved explanations yet",
-      "pages": 688,
-      "cover": "plain",
-      "builtin": true,
-      "preparedPassages": 0,
-      "requiresSource": true
+      },
+      "requiresSource": false,
+      "preparedPassages": 14
     }
   ],
   "hiddenBookIds": [
@@ -67,7 +45,7 @@
   },
   "runtimeProfile": {
     "url": "runtime-profile.json",
-    "sha256": "97846c59dc64ed54c728b4df8309674679bf77b23c4178ec58a9c359c7acb480"
+    "sha256": "97ec4e2089afecb2a16b7fcac145505f50aadd84e067f2c1a8db27d9dadfc539"
   },
   "localModelAssetsHashes": [
     "9dedeacd23b20bbcdd413858d7d3886b115549075a080b1d342e1380a3c6014e"

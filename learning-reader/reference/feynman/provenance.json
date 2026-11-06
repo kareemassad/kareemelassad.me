@@ -450,8 +450,8 @@
       "path": "index.html",
       "url": "https://huggingface.co/spaces/mishig/feynman-interactive/resolve/a7566b3c6eede3452508ed14a256fe042027e1fa/site/index.html",
       "originalSHA256": "94b21aeed3ba5874feeca3438d1113859c774367031f52fa2c2a9bb03f71e234",
-      "sha256": "472fc1b65b4b938cce41fb34d4a7935387181eebbb62bd9167f7c519554e1a1d",
-      "bytes": 2915
+      "sha256": "75bb1c48b397f5653fb8dbf57e8d5933b4297120a758097699d5adfc78184da9",
+      "bytes": 2981
     },
     {
       "path": "pdfjs/cmaps/78-EUC-H.bcmap",
@@ -1865,6 +1865,7 @@
     "Absolute PDF.js resource URLs derived from document base",
     "Namespaced saved position and split",
     "Source-position bridge to Learning Reader",
-    "Chapter menu targets first chapter cue to avoid cropped preceding page"
+    "Chapter menu targets first chapter cue to avoid cropped preceding page",
+    "Learning Reader paper, typography and control theme; model code unchanged"
   ]
 }
