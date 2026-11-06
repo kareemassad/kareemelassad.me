@@ -141,8 +141,8 @@
     },
     {
       "file": "src/ddia-interactive-book.js",
-      "sourceSHA256": "916b32e6d5caa5581afad056b3f4bd5a3121b8bc34df7e0b61a6d48e8b14e33a",
-      "publicSHA256": "916b32e6d5caa5581afad056b3f4bd5a3121b8bc34df7e0b61a6d48e8b14e33a",
+      "sourceSHA256": "6a5980e7740e836e264db3b048eb841e18b5d377b2fd7b0b8eda0d00ae10e9b2",
+      "publicSHA256": "6a5980e7740e836e264db3b048eb841e18b5d377b2fd7b0b8eda0d00ae10e9b2",
       "metadataAdapted": false
     },
     {
@@ -279,8 +279,8 @@
     },
     {
       "file": "src/learning-models.js",
-      "sourceSHA256": "05d664cf3110c4689f0803ffeb03b37e9c5c78f2c968d89b85018f5a55236ddf",
-      "publicSHA256": "05d664cf3110c4689f0803ffeb03b37e9c5c78f2c968d89b85018f5a55236ddf",
+      "sourceSHA256": "ccb0e63ed406221cedac90105662e9015e35920e767f6c4b9ba5e82f6d93b6aa",
+      "publicSHA256": "ccb0e63ed406221cedac90105662e9015e35920e767f6c4b9ba5e82f6d93b6aa",
       "metadataAdapted": false
     },
     {
@@ -401,6 +401,24 @@
       "file": "src/pack-schema.js",
       "sourceSHA256": "54c3e62829b25bb2b3225ca21d49818b8abb4f00dd346fbecf21ec39830f42ed",
       "publicSHA256": "54c3e62829b25bb2b3225ca21d49818b8abb4f00dd346fbecf21ec39830f42ed",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/partitioning-content-v1.js",
+      "sourceSHA256": "f20d8bad60d9e794b5c609672d83827a865f15446f2a8557a0ae908ae7b8c16f",
+      "publicSHA256": "f20d8bad60d9e794b5c609672d83827a865f15446f2a8557a0ae908ae7b8c16f",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/partitioning-model-v1.js",
+      "sourceSHA256": "2c1010f5a25849c65d0f2b21a9a5c228e57d6dddb918cd49a6be0fc9c281aa18",
+      "publicSHA256": "2c1010f5a25849c65d0f2b21a9a5c228e57d6dddb918cd49a6be0fc9c281aa18",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/partitioning-view-v1.js",
+      "sourceSHA256": "e51ae092b0c1935685e43fe2f30a7a72a0a36f3a4be2991023a52a57cbd2fc85",
+      "publicSHA256": "e51ae092b0c1935685e43fe2f30a7a72a0a36f3a4be2991023a52a57cbd2fc85",
       "metadataAdapted": false
     },
     {

@@ -1,3 +1,4 @@
+import {partitioningLearningModel} from './partitioning-view-v1.js';
 import {replicationDefaults} from './replication-lessons.js';
 import {replicationControls, renderReplication} from './replication-view.js';
 import {generatedDefaults} from './generated-model.js';
@@ -8,6 +9,7 @@ import {clockPathModel} from './clock-path-view.js';
 // Add a checked model family here. The reader uses the same interface for each
 // family; book data cannot register a renderer or execute code.
 const models = new Map([
+ ['partitioning-lab-v1', partitioningLearningModel],
  ['clock-path', clockPathModel],
  ['orbital-flight', orbitalFlightModel],
  ['replication-lab', Object.freeze({

@@ -1,3 +1,4 @@
+import {partitionDemos,partitionChapter,partitionCues} from './partitioning-content-v1.js';
 // Original DDIA scenes for the shared reader. Accepted packages remain immutable.
 import {replicationLessons,DDIA_SOURCE} from './replication-lessons.js';
 import {replicationState,quorumResult} from './replication-models.js';
@@ -71,11 +72,12 @@ const questions={
  vectors:['Are [1,0] and [0,1] earlier and later versions?',['Yes','They are concurrent'],1,'Each history has an update missing from the other. Neither includes the other.'],
  monotonic:['Can a consistently stale session still be monotonic?',['Yes','No'],0,'Reading v1 twice does not move backward. Monotonic does not mean current.']
 };
-const unsupported={id:'ddia-unprepared',title:'Read at your own pace',camera,params:{},create(ctx){const p=document.createElement('p');p.textContent='Experiments are prepared for selected passages in Chapter 5. Use the section menu to open one.';ctx.panel.append(p);return {frame(){}};}};
-const demos=replicationLessons.map(createScene),cues=[{at:{page:0,y:0},demo:unsupported.id,note:'The full book is readable. Interactive coverage is limited to selected replication passages.'}];
+const unsupported={id:'ddia-unprepared',title:'Read at your own pace',camera,params:{},create(ctx){const p=document.createElement('p');p.textContent='Experiments are prepared for selected passages in Chapters 5 and 6. Use the section menu to open one.';ctx.panel.append(p);return {frame(){}};}};
+const demos=replicationLessons.map(createScene),cues=[{at:{page:0,y:0},demo:unsupported.id,note:'The full book is readable. Interactive coverage is limited to selected replication and partitioning passages.'}];
 for(const lesson of replicationLessons){
  const q=questions[lesson.id],timing=['leader','ack','failover'].includes(lesson.id);
  cues.push({at:{page:lesson.start.page-1,y:lesson.start.y},demo:'ddia-'+lesson.id,params:timing?{run:true}:undefined,note:lesson.caption,...(q?{predict:{q:q[0],options:q[1],answer:q[2],explain:q[3],...(timing?{reveal:{run:true}}:{})}}:{})});
  const next=replicationLessons[replicationLessons.indexOf(lesson)+1];if(!next||next.start.page+next.start.y>lesson.end.page+lesson.end.y+.001)cues.push({at:{page:lesson.end.page-1,y:lesson.end.y},demo:unsupported.id,note:'No experiment is prepared for this interval. Continue reading or choose a lesson.'});
 }
-export const ddiaInteractiveBook={id:'ddia-interactive-v2',source:DDIA_SOURCE,pdf:'../../books/ddia.pdf',openingPosition:{page:166,y:.155},crops:Array.from({length:491},()=>[0,0,504,661.5]),metadata:{pages:491,chapters:[{n:5,title:'Replication · 14 interactive lessons',page:166,sections:replicationLessons.map(l=>({id:'5-'+l.id,title:l.title,page:l.start.page-1,y:l.start.y}))}],figures:{},tables:{}},demos:[unsupported,...demos],cues};
+cues.push(...partitionCues);cues.sort((a,b)=>a.at.page-b.at.page||a.at.y-b.at.y);
+export const ddiaInteractiveBook={id:'ddia-interactive-v2',source:DDIA_SOURCE,pdf:'../../books/ddia.pdf',openingPosition:{page:166,y:.155},crops:Array.from({length:491},()=>[0,0,504,661.5]),metadata:{pages:491,chapters:[{n:5,title:'Replication · 14 interactive lessons',page:166,sections:replicationLessons.map(l=>({id:'5-'+l.id,title:l.title,page:l.start.page-1,y:l.start.y}))},partitionChapter],figures:{},tables:{}},demos:[unsupported,...demos,...partitionDemos],cues};

@@ -37,8 +37,8 @@
     },
     {
       "path": "interactive/runtime.js",
-      "sha256": "3200d1092f364bdcf25e317146af64ff5bf05cc898cfe5d26f82e7d539e37277",
-      "bytes": 1622577
+      "sha256": "c9603343886d79d04ac545a7eb2de2a852c5f73788a1e2e507c3bd243d06e21f",
+      "bytes": 1622611
     },
     {
       "path": "PDFJS-LICENSE.txt",
@@ -1387,12 +1387,12 @@
     },
     {
       "path": "runtime-profile.json",
-      "sha256": "773bb534f0d1f704370d96a9f2645f9c096d4c7c9850810cfef07cffe6b46ce6",
-      "bytes": 48632
+      "sha256": "b0c33167eb8947b4853b09b72f35a473c92d17a82e6322072c7543483fa184d2",
+      "bytes": 49443
     },
     {
       "path": "site-config.json",
-      "sha256": "987739cfbcd1398f2034ce12160e9d1e8f3352f3df40c6b835b885b931726f32",
+      "sha256": "a39f45c511f26db5d604b3dbe80dada2f76b9437960575b856111aa7062cc4b7",
       "bytes": 1644
     },
     {
@@ -1517,8 +1517,8 @@
     },
     {
       "path": "src/ddia-interactive-book.js",
-      "sha256": "916b32e6d5caa5581afad056b3f4bd5a3121b8bc34df7e0b61a6d48e8b14e33a",
-      "bytes": 11953
+      "sha256": "6a5980e7740e836e264db3b048eb841e18b5d377b2fd7b0b8eda0d00ae10e9b2",
+      "bytes": 12186
     },
     {
       "path": "src/ddia-interactive.css",
@@ -1632,8 +1632,8 @@
     },
     {
       "path": "src/learning-models.js",
-      "sha256": "05d664cf3110c4689f0803ffeb03b37e9c5c78f2c968d89b85018f5a55236ddf",
-      "bytes": 1704
+      "sha256": "ccb0e63ed406221cedac90105662e9015e35920e767f6c4b9ba5e82f6d93b6aa",
+      "bytes": 1826
     },
     {
       "path": "src/legacy-scopes.js",
@@ -1744,6 +1744,21 @@
       "path": "src/pack-schema.js",
       "sha256": "54c3e62829b25bb2b3225ca21d49818b8abb4f00dd346fbecf21ec39830f42ed",
       "bytes": 5150
+    },
+    {
+      "path": "src/partitioning-content-v1.js",
+      "sha256": "f20d8bad60d9e794b5c609672d83827a865f15446f2a8557a0ae908ae7b8c16f",
+      "bytes": 4177
+    },
+    {
+      "path": "src/partitioning-model-v1.js",
+      "sha256": "2c1010f5a25849c65d0f2b21a9a5c228e57d6dddb918cd49a6be0fc9c281aa18",
+      "bytes": 3786
+    },
+    {
+      "path": "src/partitioning-view-v1.js",
+      "sha256": "e51ae092b0c1935685e43fe2f30a7a72a0a36f3a4be2991023a52a57cbd2fc85",
+      "bytes": 14723
     },
     {
       "path": "src/passage-breakpoints.js",
