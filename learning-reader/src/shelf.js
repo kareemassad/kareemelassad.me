@@ -93,13 +93,14 @@ export class BookShelf{
   }while(performance.now()-started<limit);
  }
  resizeTransition(){
-  if(!this.transitionNode)return;
+  if(!this.transitionNode||this.transitionPhase==='loading')return;
   const target=this.transitionPhase==='returning'?this.locate({id:this.transitionBookId})?.getBoundingClientRect():this.expanded();
   if(target)this.place(this.transitionNode,target);
  }
+ sourceSurface(){return {pane:$('pdf-scroll'),canvases:[...$('pdf-scroll').querySelectorAll('.pdf-page.rendered canvas')],left:0,top:0};}
  async sourceFrame(){
   const started=performance.now();
-  do{const pane=$('pdf-scroll').getBoundingClientRect();if([...$('pdf-scroll').querySelectorAll('.pdf-page.rendered canvas')].some(c=>{const r=c.getBoundingClientRect();return r.bottom>pane.top&&r.top<pane.bottom;}))return;await new Promise(resolve=>requestAnimationFrame(resolve));}while(performance.now()-started<2000);
+  do{const {pane,canvases}=this.sourceSurface(),bounds=pane.getBoundingClientRect();if(canvases.some(c=>{const r=c.getBoundingClientRect();return r.bottom>bounds.top&&r.top<bounds.bottom;}))return;await new Promise(resolve=>requestAnimationFrame(resolve));}while(performance.now()-started<5000);
  }
  makeTransition(book,rect,opened=false){
   const node=document.createElement('div');node.className='book-transition';node.setAttribute('aria-hidden','true');
@@ -107,20 +108,19 @@ export class BookShelf{
   node.querySelector('.transition-cover').append(this.cover(book));document.body.append(node);this.place(node,rect);if(opened)node.classList.add('cover-open');this.transitionNode=node;return node;
  }
  place(node,rect){for(const key of ['left','top','width','height'])node.style[key]=rect[key]+'px';}
- expanded(){const pane=$('pdf-scroll').getBoundingClientRect(),inset=12;return {width:Math.max(180,pane.width-inset*2),height:Math.max(180,pane.height-inset*2),left:pane.left+inset,top:pane.top+inset};}
+ expanded(){const surface=this.sourceSurface(),pane=surface.pane.getBoundingClientRect(),inset=12;return {width:Math.max(180,pane.width-inset*2),height:Math.max(180,pane.height-inset*2),left:surface.left+pane.left+inset,top:surface.top+pane.top+inset};}
  snapshot(node){
-  const target=this.expanded(),pane=$('pdf-scroll').getBoundingClientRect(),snapshot=document.createElement('div');snapshot.className='source-snapshot';
-  for(const canvas of $('pdf-scroll').querySelectorAll('canvas')){const rect=canvas.getBoundingClientRect();if(rect.bottom<pane.top||rect.top>pane.bottom)continue;const img=document.createElement('img');img.alt='';img.src=canvas.toDataURL();Object.assign(img.style,{left:rect.left-target.left+'px',top:rect.top-target.top+'px',width:rect.width+'px',height:rect.height+'px'});snapshot.append(img);}
+  const target=this.expanded(),surface=this.sourceSurface(),pane=surface.pane.getBoundingClientRect(),snapshot=document.createElement('div');snapshot.className='source-snapshot';
+  for(const canvas of surface.canvases){const rect=canvas.getBoundingClientRect();if(rect.bottom<pane.top||rect.top>pane.bottom)continue;const img=document.createElement('img');img.alt='';img.src=canvas.toDataURL();Object.assign(img.style,{left:surface.left+rect.left-target.left+'px',top:surface.top+rect.top-target.top+'px',width:rect.width+'px',height:rect.height+'px'});snapshot.append(img);}
   node.querySelector('.transition-pages').append(snapshot);
  }
  async open(book,{position}={}){
   if(this.mode!=='shelf')return;position??=this.progress.get(book.id)?.position||book.initialPosition;if(book.requiresSource&&this.configuration.noUploads){this.notice('This hosted book is unavailable. Please reload the page.',true);return;}if(book.requiresSource){this.pendingSourceId=book.id;this.pendingSourcePosition=position;this.notice('Choose the matching PDF for this prepared book. The exact source hash is checked.');$('pdf-file').click();return;}const button=this.locate(book);if(!button)return;this.ownTransition(book);this.setMode('opening');this.suspend();this.notice('');
-  const transition=this.makeTransition(book,button.getBoundingClientRect());this.transitionPhase='expanding';
-  await this.frame();this.place(transition,this.expanded());const expanding=this.settle(transition,['left','top','width','height'],1000);
+  const transition=this.makeTransition(book,button.getBoundingClientRect());this.transitionPhase='loading';
   try{
    if(book.persistent&&!book.file){try{book={...book,...await this.library.getBook(book.id)};}catch(error){if(!book.localUrl)throw error;book={...book,persistent:false};}}
    const result=await this.load(position?{...book,openingPosition:position}:book);if(!result)throw Error('The PDF could not be opened.');
-   this.current={...book,...result};await this.remember(this.current);this.books.set(this.current.id,this.current);this.loaded=true;await expanding;await this.sourceFrame();this.snapshot(transition);this.transitionPhase='unfolding';transition.classList.add('cover-open');await this.settle(transition.querySelector('.transition-cover'),'transform',850);
+   this.current={...book,...result};await this.remember(this.current);this.books.set(this.current.id,this.current);this.loaded=true;await this.sourceFrame();this.transitionPhase='expanding';await this.frame();this.place(transition,this.expanded());await this.settle(transition,['left','top','width','height'],1000);this.snapshot(transition);this.transitionPhase='unfolding';transition.classList.add('cover-open');await this.settle(transition.querySelector('.transition-cover'),'transform',850);
    document.body.dataset.readerReveal='true';transition.classList.add('handoff');await this.settle(transition,'opacity',350);this.releaseTransition();this.setMode('reader');this.resume();this.save();if(this.importNotice){this.notice(this.importNotice,!this.current.persistent);this.importNotice='';}$('pdf-scroll').focus({preventScroll:true});return true;
   }catch(error){this.releaseTransition();this.loaded=false;this.current=null;this.setMode('shelf');this.notice(error.message,true);this.locate(book)?.focus({preventScroll:true});return false;}
  }

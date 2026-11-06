@@ -4,7 +4,7 @@ export async function installFeynmanReference(shelf,configuration){
  if(configuration.mode==='static'&&!configuration.referenceFeynman)return;
  await shelf.restored;shelf.books.set(feynmanReferenceBook.id,{...feynmanReferenceBook,builtin:false});shelf.render();
  let panel=null,frame=null,position={page:1,y:0},ready=null,finish=null;
- const methods=Object.fromEntries(['load','capture','suspend','resume','expanded','sourceFrame','snapshot','setMode'].map(k=>[k,shelf[k].bind(shelf)]));
+ const methods=Object.fromEntries(['load','capture','suspend','resume','sourceSurface','setMode'].map(k=>[k,shelf[k].bind(shelf)]));
  const remove=()=>{panel?.remove();panel=null;frame=null;delete document.body.dataset.referenceReader;};
  window.addEventListener('message',event=>{
   if(event.origin!==location.origin||event.source!==frame?.contentWindow||event.data?.type!=='feynman-position')return;
@@ -25,7 +25,9 @@ export async function installFeynmanReference(shelf,configuration){
  };
  shelf.capture=()=>frame?{...position,zoom:'fit',split:50,left:0}:methods.capture();
  shelf.suspend=()=>{if(!frame)methods.suspend();};shelf.resume=()=>{if(!frame)methods.resume();};
- shelf.expanded=()=>frame?frame.getBoundingClientRect():methods.expanded();
- shelf.sourceFrame=()=>frame?ready:methods.sourceFrame();shelf.snapshot=node=>{if(!frame)methods.snapshot(node);};
+ shelf.sourceSurface=()=>{
+  const pane=frame?.contentDocument?.getElementById('reader');if(!pane)return methods.sourceSurface();
+  const {left,top}=frame.getBoundingClientRect();return {pane,canvases:[...pane.querySelectorAll('.page canvas')],left,top};
+ };
  shelf.setMode=mode=>{methods.setMode(mode);if(mode==='shelf')remove();};
 }

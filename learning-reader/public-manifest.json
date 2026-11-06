@@ -1372,12 +1372,12 @@
     },
     {
       "path": "runtime-profile.json",
-      "sha256": "97ec4e2089afecb2a16b7fcac145505f50aadd84e067f2c1a8db27d9dadfc539",
+      "sha256": "195b987b1600eae1c350e4e0e76c7f91d41171e114104157c8c17bf4e7710904",
       "bytes": 48096
     },
     {
       "path": "site-config.json",
-      "sha256": "f80101ccdb5a16963567652b57ec76c75113afc9cbc073f5ca8cacfd637581d1",
+      "sha256": "e5d3fc2791ac589438c7c7e57fefceccb6835493a3522fbd2f4d9ab5a2d412d5",
       "bytes": 1576
     },
     {
@@ -1547,8 +1547,8 @@
     },
     {
       "path": "src/feynman-reference-book.js",
-      "sha256": "8736e571ea56f7c5f6497b29619947d4969e77465dd4e28e5fa294a75f8f288b",
-      "bytes": 3201
+      "sha256": "28c432226adcd78312f9bd6bf7e105e384eff46c929ef6377e7c540e5ef402ec",
+      "bytes": 3249
     },
     {
       "path": "src/feynman-reference.css",
@@ -1867,8 +1867,8 @@
     },
     {
       "path": "src/shelf.js",
-      "sha256": "6616834226105601c70a9aa7df8b660ab8f23ecee35a6cb551a2a15bc6652d06",
-      "bytes": 29219
+      "sha256": "d8b9d2ff5fdc7186422ed0ec9ddec5e0aa8d77d7f78748ae0b8f3057f796a320",
+      "bytes": 29443
     },
     {
       "path": "src/shell-cone-model.js",
