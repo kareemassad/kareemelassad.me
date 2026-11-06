@@ -1,7 +1,19 @@
 {
   "mode": "static",
+  "referenceFeynman": true,
+  "restrictBooks": true,
   "codeHash": "54c3e62829b25bb2b3225ca21d49818b8abb4f00dd346fbecf21ec39830f42ed",
   "books": [
+    {
+      "id": "6d9d04812712a5029bc0f9a04e893cb4c8a3c638ede7d8ff13fb71edac9249af",
+      "title": "Feynman · Interactive Volume I",
+      "subtitle": "Chapters 1–14 · Text and interactive models",
+      "pages": 138,
+      "cover": "orbit",
+      "builtin": true,
+      "requiresSource": false,
+      "reference": true
+    },
     {
       "id": "17b2ad182d7eff221e983a0250793dc8fc73c97f6f68331726c2bb154af91a79",
       "title": "The Feynman Lectures on Physics",
@@ -33,6 +45,16 @@
         "page": 167,
         "y": 0.16
       }
+    },
+    {
+      "id": "d5b322e8a6c0b294ded529a3a2027ee1caa8af15f53fa6642fa5a6e4d981bb03",
+      "title": "The Feynman Lectures on Physics · Volume III",
+      "subtitle": "Quantum mechanics · No saved explanations yet",
+      "pages": 688,
+      "cover": "plain",
+      "builtin": true,
+      "preparedPassages": 0,
+      "requiresSource": true
     }
   ],
   "hiddenBookIds": [
@@ -45,7 +67,7 @@
   },
   "runtimeProfile": {
     "url": "runtime-profile.json",
-    "sha256": "f5b8b4df3ff125d479a26c76ab9a35d60315d99141386100150b435f53a8c75a"
+    "sha256": "97846c59dc64ed54c728b4df8309674679bf77b23c4178ec58a9c359c7acb480"
   },
   "localModelAssetsHashes": [
     "9dedeacd23b20bbcdd413858d7d3886b115549075a080b1d342e1380a3c6014e"

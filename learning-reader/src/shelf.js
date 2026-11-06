@@ -16,6 +16,7 @@ export class BookShelf{
   let storage;try{storage=localStorage;}catch{}
   this.progress=new ProgressStore(storage);this.books=new Map((configuration.mode==='static'?configuration.books.map(book=>[book.id,book]):readerBooks.map(book=>[book.id,{...book}])));this.motion=matchMedia('(prefers-reduced-motion: reduce)');
   $('bookmark-close').innerHTML=ribbon;$('bookmark-close').addEventListener('click',()=>this.close(true));$('back-to-shelf').addEventListener('click',()=>this.close(false));
+  if(this.configuration.restrictBooks)$('shelf-open-pdf').hidden=true;
   $('shelf-open-pdf').addEventListener('click',()=>$('pdf-file').click());
   $('export-progress').addEventListener('click',()=>this.export());$('import-progress').addEventListener('click',()=>$('progress-file').click());
   $('progress-file').addEventListener('change',async e=>{const file=e.target.files[0];e.target.value='';if(!file||this.mode!=='shelf')return;try{if(file.size>1000000)throw Error('Progress file is too large.');const result=this.progress.import(await file.text());this.render();this.notice(result.ok?'Progress imported.':result.error,!result.ok);}catch(error){this.notice(error.message,true);}});
@@ -37,13 +38,14 @@ export class BookShelf{
   $('storage-details').addEventListener('click',async()=>{try{const estimate=await navigator.storage?.estimate();$('storage-status').textContent=estimate?'Browser storage: about '+(estimate.usage/1048576).toFixed(1)+' MiB used of '+(estimate.quota/1048576).toFixed(0)+' MiB available. This includes offline assets; the browser can clear stored data. Local PDFs are limited to 128 MiB each.':'Storage estimates are unavailable. Keep the original PDF and export a prepared book.';}catch{$('storage-status').textContent='Storage estimates are unavailable. Keep your original PDF.';}});
  }
  preparedPacks(id){return [...this.catalog.packs.values()].filter(p=>p.source.sha256===id&&this.catalog.compatible(p)&&!this.catalog.jobs.some(j=>j.id===p.validation?.workflow?.jobId&&j.status!=='accepted'));}
+ acceptsBook(id){return !this.configuration.restrictBooks||this.configuration.books.some(book=>book.id===id);}
  async importPrepared(file){
-  await this.catalog.ready;const {manifest,source}=await readReaderBook(file),packs=this.catalog.preflight(manifest.packs),known=this.books.get(manifest.source.sha256),book={...known,...manifest.book,id:manifest.source.sha256,pages:manifest.source.pages};if(source)book.file=new File([source],book.title+'.pdf',{type:'application/pdf'});
+  await this.catalog.ready;const {manifest,source}=await readReaderBook(file),packs=this.catalog.preflight(manifest.packs),known=this.books.get(manifest.source.sha256),book={...known,...manifest.book,id:manifest.source.sha256,pages:manifest.source.pages};if(!this.acceptsBook(book.id))throw Error('This library accepts only its listed books.');if(source)book.file=new File([source],book.title+'.pdf',{type:'application/pdf'});
   let saved=false;try{const record=await this.library.putPreparedBook(book,source?book.file:null,packs);book.persistent=true;book.requiresSource=!record.blob;saved=true;}catch{book.persistent=!!known?.persistent&&!source;book.requiresSource=!book.file&&!book.persistent;}
   this.catalog.applyPrepared(packs);this.books.set(book.id,book);let progressSaved=true;if(manifest.progress)progressSaved=this.progress.import(JSON.stringify(manifest.progress)).ok;this.render();this.notice(saved&&progressSaved?'Prepared book saved in this browser. '+(book.requiresSource?'Import the matching PDF to read.':'Its exact source and bookmark are ready.'):'Prepared book is available for this session. Browser storage could not save everything; keep your export.',!saved||!progressSaved);
  }
  async restoreBooks(){
-  try{for(const record of await this.library.listBooks()){this.books.set(record.id,restoredReaderBook(record,this.books.get(record.id)));}this.render();}catch{this.notice('Local book storage is unavailable. Imported PDFs will be session copies.',true);}
+  try{for(const record of await this.library.listBooks()){if(!this.acceptsBook(record.id))continue;this.books.set(record.id,restoredReaderBook(record,this.books.get(record.id)));}this.render();}catch{this.notice('Local book storage is unavailable. Imported PDFs will be session copies.',true);}
  }
  async remember(book){
   const known=this.books.get(book.id);if(known?.builtin)Object.assign(book,{...known,file:book.file,persistent:book.persistent,requiresSource:book.requiresSource});if(!book.file||book.persistent)return;
@@ -122,6 +124,7 @@ export class BookShelf{
  }
  async openFile(file){
   if(!['shelf','reader'].includes(this.mode))return;if(file.size>MAX_PDF_BYTES){this.notice('This reader supports local PDFs up to 128 MiB.',true);return;}
+  if(this.configuration.restrictBooks&&!this.acceptsBook(await sha256(file))){this.notice('This library accepts only the exact PDFs for its listed books.',true);return;}
   if(this.pendingSourceId){const expected=this.pendingSourceId;if(await sha256(file)!==expected){this.notice('That PDF does not match this prepared book. Choose the exact source file.',true);return;}const book=this.books.get(expected);this.pendingSourceId=null;const position=this.pendingSourcePosition;this.pendingSourcePosition=null;await this.open({...book,file,persistent:false,requiresSource:false},{position});return;}
   if(this.mode==='shelf'){
    const id=await sha256(file),known=this.books.get(id)||readerBooks.find(b=>b.id===id);

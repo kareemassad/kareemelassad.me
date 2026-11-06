@@ -228,6 +228,8 @@ divider.addEventListener('pointerdown',e=>{divider.setPointerCapture(e.pointerId
 
 shelf=new BookShelf({configuration,libraryFactory:hostedLibrary?()=>new PublicLibraryStore():undefined,catalogFactory:hostedLibrary?library=>new PublicLibraryCatalog(library,{configuration}):undefined,load:openBook,capture:()=>({...reader.position(),zoom:reader.zoom,split:Number(divider.getAttribute('aria-valuenow')),left:$('pdf-scroll').scrollLeft,hideAid:$('workspace').classList.contains('hide-aid')}),suspend:()=>{if(active&&state)learningModelFor(active)?.persist?.(active,state,readingFollower.update(active,reader.position()));cancelAnimationFrame(frame);frame=0;last=0;},resume:()=>{reader.schedule();last=0;start();}});
 
+import {installFeynmanReference} from './feynman-reference-book.js';
+await installFeynmanReference(shelf,configuration);
 import {installOrbitCompanion} from './orbit-companion-book.js';
 await installOrbitCompanion(shelf,configuration);
 import {installClockBinding} from './clock-binding-book.js';
