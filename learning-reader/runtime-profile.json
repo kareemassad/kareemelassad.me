@@ -183,8 +183,8 @@
     },
     {
       "file": "src/continuous-svg-demo.js",
-      "sourceSHA256": "4ec3105b90c60db6eaf497ad78c72a4b7ded62a4ec78c2f46cf0e0a61c55bf62",
-      "publicSHA256": "4ec3105b90c60db6eaf497ad78c72a4b7ded62a4ec78c2f46cf0e0a61c55bf62",
+      "sourceSHA256": "5f68bb8af6e492c2ff5b33fbc8fe36f80c941dc4aa6a14eb589de1afd0ea8f77",
+      "publicSHA256": "5f68bb8af6e492c2ff5b33fbc8fe36f80c941dc4aa6a14eb589de1afd0ea8f77",
       "metadataAdapted": false
     },
     {
@@ -237,8 +237,8 @@
     },
     {
       "file": "src/ddia-reader-layout.js",
-      "sourceSHA256": "0555b1c1a35d0aa4ecfcfa68d7abe364ad7975c19001fa28e8079410ab3a7179",
-      "publicSHA256": "0555b1c1a35d0aa4ecfcfa68d7abe364ad7975c19001fa28e8079410ab3a7179",
+      "sourceSHA256": "764662668879923679bbd7c2ac9867e8d466555a0b4d3b22d531c8c2d0a36962",
+      "publicSHA256": "764662668879923679bbd7c2ac9867e8d466555a0b4d3b22d531c8c2d0a36962",
       "metadataAdapted": false
     },
     {
@@ -333,14 +333,14 @@
     },
     {
       "file": "src/feynman-reference-book.js",
-      "sourceSHA256": "4b577b39e949b60e9680260bfdf20d5741e8fe59fc255b78723f4124b95b2d05",
-      "publicSHA256": "4b577b39e949b60e9680260bfdf20d5741e8fe59fc255b78723f4124b95b2d05",
+      "sourceSHA256": "c1d3a0d91829158689671ac372663d4fbb2d54fe29a0cd44a7457120df1b86fb",
+      "publicSHA256": "c1d3a0d91829158689671ac372663d4fbb2d54fe29a0cd44a7457120df1b86fb",
       "metadataAdapted": false
     },
     {
       "file": "src/feynman-reference.css",
-      "sourceSHA256": "223f61402c42653eead1b2193f09540004345f17fdb9ff834316d0c133972e42",
-      "publicSHA256": "223f61402c42653eead1b2193f09540004345f17fdb9ff834316d0c133972e42",
+      "sourceSHA256": "32022138c1f94d219a7ef7128a44f6f499e5a69922496f183f50d6546db6f70b",
+      "publicSHA256": "32022138c1f94d219a7ef7128a44f6f499e5a69922496f183f50d6546db6f70b",
       "metadataAdapted": false
     },
     {
@@ -435,8 +435,8 @@
     },
     {
       "file": "src/library-shell.css",
-      "sourceSHA256": "8f292edd29bc7665be039f6b682783bfd2eefd8312eacdace248c77bef2a224f",
-      "publicSHA256": "8f292edd29bc7665be039f6b682783bfd2eefd8312eacdace248c77bef2a224f",
+      "sourceSHA256": "7ba0ee2f93923dd97c919f656bf37226c4e0479b3f31f3134aa865b8cd692abf",
+      "publicSHA256": "7ba0ee2f93923dd97c919f656bf37226c4e0479b3f31f3134aa865b8cd692abf",
       "metadataAdapted": false
     },
     {
@@ -621,8 +621,8 @@
     },
     {
       "file": "src/public-library-catalog.js",
-      "sourceSHA256": "a5dfd675c0fadd12d1aa47e057695a11bbd9e65a767dffa46a9bf18352ed5e0a",
-      "publicSHA256": "a5dfd675c0fadd12d1aa47e057695a11bbd9e65a767dffa46a9bf18352ed5e0a",
+      "sourceSHA256": "006b85af4698c0b4dd5a0aa58c089e72a92c89a9d2a8ff97a3f7b677c3b6bb21",
+      "publicSHA256": "006b85af4698c0b4dd5a0aa58c089e72a92c89a9d2a8ff97a3f7b677c3b6bb21",
       "metadataAdapted": false
     },
     {
@@ -639,9 +639,15 @@
     },
     {
       "file": "src/reader-books.js",
-      "sourceSHA256": "2e7b5f256815df9e7a62b89166106de849a3a61ac8f5e1da12815d690f37b0fd",
-      "publicSHA256": "2f8f236cace7877a93552f83eb3a19bb2ea3280cc38d501a7d1eb6de28a1ae57",
+      "sourceSHA256": "18b3c1e3d3e29a4157fb73cfe4de1d3dfd8d88ba2d6dfcf796c06af2426489b0",
+      "publicSHA256": "4816c37f1ddfabceae75eb3980cfef86e30b5e56946dc397976dd0cbe94da073",
       "metadataAdapted": true
+    },
+    {
+      "file": "src/reader-room.css",
+      "sourceSHA256": "9f12927708146e14e5a5eefc4d62319092d9a96b49a9b425b9ac6c0b1c2f2b8c",
+      "publicSHA256": "9f12927708146e14e5a5eefc4d62319092d9a96b49a9b425b9ac6c0b1c2f2b8c",
+      "metadataAdapted": false
     },
     {
       "file": "src/reader.css",
@@ -771,8 +777,8 @@
     },
     {
       "file": "src/shelf.js",
-      "sourceSHA256": "8fbef5e7e1eeb831b8c8886b2019ca5cb96a61df8563fa523a19f2c5dedd30de",
-      "publicSHA256": "8fbef5e7e1eeb831b8c8886b2019ca5cb96a61df8563fa523a19f2c5dedd30de",
+      "sourceSHA256": "594e74143e3f0dfa1874ffc7a890a497b319bc22a6b5a1909fd0136c4e2c27e3",
+      "publicSHA256": "594e74143e3f0dfa1874ffc7a890a497b319bc22a6b5a1909fd0136c4e2c27e3",
       "metadataAdapted": false
     },
     {

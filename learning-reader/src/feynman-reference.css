@@ -1,29 +1,29 @@
 body[data-reference-reader] #reader-shell > :not(#reference-reader){display:none!important}
-#reference-reader{position:absolute;inset:0;display:grid;grid-template-rows:46px minmax(0,1fr);background:#f6f3ed}
-.reference-toolbar{display:flex;align-items:center;gap:20px;padding:6px 18px;border-bottom:1px solid #d4d7cb;color:#393c38;font:12px system-ui}
-.reference-toolbar button{border:1px solid #cbd0c3;background:#faf9f5;padding:7px 12px;border-radius:4px;cursor:pointer;color:inherit}
-.reference-toolbar a{margin-left:auto;color:#586654;text-decoration:underline}
-#reference-reader iframe{width:100%;height:100%;border:0;min-height:0;background:#faf9f5}
-@media(max-width:600px){.reference-toolbar{gap:8px;padding:5px 8px;font-size:10px}.reference-toolbar strong{display:none}}
 body[data-reference-reader] #mobile-help{display:none!important}
-
-.reference-toolbar{background:#ede9df;border-bottom:1px solid #d4ccbc}
-.reference-toolbar strong{font:normal 16px ReaderSerif,Georgia,serif;letter-spacing:.01em}
-.reference-toolbar button{border-color:#c8baa3;background:#f9f5eb;color:#4e5948;border-radius:2px}
-.reference-toolbar a{font-size:10px;color:#586654;text-underline-offset:3px}
-
-.reference-page-jump{display:flex;align-items:center;gap:4px;margin-left:auto}.reference-page-jump input{width:54px;padding:6px 3px;border:1px solid #c8baa3;border-radius:2px;background:#fcfaf3;color:#45503e;font-size:11px}.reference-page-jump button{padding:6px}.reference-toolbar a{margin-left:0}@media(max-width:600px){.reference-toolbar a{max-width:115px;font-size:9px}.reference-page-jump input{width:42px}.reference-toolbar button{padding:6px}.reference-toolbar{gap:6px}}
-
-/* Keep page navigation usable by touch in the outer book frame. */
-#reference-reader{grid-template-rows:auto minmax(0,1fr)}
-.reference-toolbar{min-height:56px;flex-wrap:wrap;gap:10px}
-.reference-toolbar button,.reference-page-jump input{min-height:44px;font-size:13px;touch-action:manipulation}
-.reference-page-jump input{font-size:16px;width:60px}
-.reference-toolbar a{line-height:1.4}
+#reference-reader{position:absolute;inset:0;display:grid;grid-template-rows:auto minmax(0,1fr);background:#f4f0e8}
+.reference-surface{position:relative;min-height:0;overflow:hidden}
+#reference-reader iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#f4f0e8}
+.reference-toolbar{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:18px;min-height:58px;padding:7px 24px;border-bottom:1px solid #d6d0c2;color:#2e433b;background:#f4f0e8;font:12px ReaderSans,"Helvetica Neue",sans-serif}
+.reference-toolbar strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:normal 17px ReaderSerif,Georgia,serif;letter-spacing:-.01em}
+.reference-toolbar button{min-height:40px;padding:7px 12px;border:1px solid #d6d0c2;border-radius:5px;background:transparent;color:inherit;font:inherit;cursor:pointer;touch-action:manipulation}
+.reference-toolbar>button{display:flex;align-items:center;gap:9px;border-color:transparent;padding-left:0}
+.reference-toolbar button:hover{background:#e9e9de}
+.reference-toolbar :is(button,input,a):focus-visible{outline:2px solid #4c7060;outline-offset:3px}
+.reference-close-icon{font-size:20px;line-height:1}
+.reference-page-jump{display:flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
+.reference-page-caption,.reference-page-total{color:#5e6c61;font-size:11px}
+.reference-page-jump input{width:60px;min-height:38px;padding:6px 4px 6px 9px;border:1px solid #d6d0c2;border-radius:4px;background:#fffefa;color:#2e433b;font:16px ReaderSans,sans-serif}
+.reference-page-jump button{border-color:transparent;padding-inline:8px}
+.reference-toolbar a{display:flex;align-items:center;justify-content:center;min-height:40px;color:#5e6c61;font-size:11px;text-decoration:none;text-underline-offset:4px}
+.reference-toolbar a:hover{text-decoration:underline;color:#2e433b}
 @media(max-width:600px){
- .reference-toolbar{gap:6px;padding:6px 8px}
- .reference-toolbar>button{flex:1;max-width:160px}
- .reference-page-jump input{width:58px}
- .reference-page-jump button{min-width:44px}
- .reference-toolbar a{flex-basis:100%;max-width:none;font-size:10px}
+ .reference-toolbar{gap:8px;padding:4px 12px;min-height:54px}
+ .reference-toolbar strong{font-size:15px}
+ .reference-toolbar>button{width:44px;padding:0;justify-content:center}
+ .reference-close-label,.reference-page-caption,.reference-page-total{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ .reference-toolbar button,.reference-toolbar input,.reference-toolbar a{min-height:44px}
+ .reference-page-jump{gap:2px}
+ .reference-page-jump input{width:60px}
+ .reference-page-jump button{padding-inline:5px}
+ .reference-toolbar a{font-size:10px}
 }

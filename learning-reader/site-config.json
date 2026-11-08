@@ -26,8 +26,8 @@
       "reference": true,
       "builtin": true,
       "initialPosition": {
-        "page": 167,
-        "y": 0.16
+        "page": 26,
+        "y": 0.557
       },
       "chapterStart": {
         "page": 167,
@@ -47,7 +47,7 @@
   },
   "runtimeProfile": {
     "url": "runtime-profile.json",
-    "sha256": "55c2daee163623f1312fda60b60b04c68e3f452631b2cd931133b2a1708b6da2"
+    "sha256": "ab117fa4921e6d7ca4de11e7cb57aa03699a34bd310da843a81c5669c42dfaf2"
   },
   "localModelAssetsHashes": [
     "9dedeacd23b20bbcdd413858d7d3886b115549075a080b1d342e1380a3c6014e"

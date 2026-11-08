@@ -27,18 +27,18 @@
     },
     {
       "path": "index.html",
-      "sha256": "486e9551c3e4e928c6f3223fb9da901f478e87d7952594c7afebb8c992274f66",
-      "bytes": 8900
+      "sha256": "c24962e8c429c35de3745dfb7075ff4a0ff062d0ef3494fb732e24d2e82d5138",
+      "bytes": 8914
     },
     {
       "path": "interactive/index.html",
-      "sha256": "caeda312ec787202fd6bf53127fb8a149b6bee72030460cd3e8cc7fe9ca737ac",
-      "bytes": 3080
+      "sha256": "4f2cd83bd8a293bfb59c81a7ee8cae78df49a5e848578e83fed7901cd53d84b6",
+      "bytes": 3136
     },
     {
       "path": "interactive/runtime.js",
-      "sha256": "0a9922edbad2f4e34696ea06d30b0429d5d0f70d96dfe2ebc415cc7e89a79217",
-      "bytes": 1623246
+      "sha256": "09dc9db092ae2dadf6c7206a4f2ddec87961f7d508088692982c0a5349060c4a",
+      "bytes": 1623929
     },
     {
       "path": "PDFJS-LICENSE.txt",
@@ -1387,12 +1387,12 @@
     },
     {
       "path": "runtime-profile.json",
-      "sha256": "55c2daee163623f1312fda60b60b04c68e3f452631b2cd931133b2a1708b6da2",
-      "bytes": 60685
+      "sha256": "ab117fa4921e6d7ca4de11e7cb57aa03699a34bd310da843a81c5669c42dfaf2",
+      "bytes": 60946
     },
     {
       "path": "site-config.json",
-      "sha256": "32067e572707864acaddfe15e3bf7f853f4e668361e148e6630f7d1834c7564f",
+      "sha256": "354189c8fb8ceae453fb64349b1b56dd2b78a7d5ca47ef502299986767908fd0",
       "bytes": 1644
     },
     {
@@ -1552,8 +1552,8 @@
     },
     {
       "path": "src/continuous-svg-demo.js",
-      "sha256": "4ec3105b90c60db6eaf497ad78c72a4b7ded62a4ec78c2f46cf0e0a61c55bf62",
-      "bytes": 5886
+      "sha256": "5f68bb8af6e492c2ff5b33fbc8fe36f80c941dc4aa6a14eb589de1afd0ea8f77",
+      "bytes": 5986
     },
     {
       "path": "src/cozy-c3po.svg",
@@ -1597,8 +1597,8 @@
     },
     {
       "path": "src/ddia-reader-layout.js",
-      "sha256": "0555b1c1a35d0aa4ecfcfa68d7abe364ad7975c19001fa28e8079410ab3a7179",
-      "bytes": 1921
+      "sha256": "764662668879923679bbd7c2ac9867e8d466555a0b4d3b22d531c8c2d0a36962",
+      "bytes": 9505
     },
     {
       "path": "src/ddia-story-cues-v1.js",
@@ -1677,13 +1677,13 @@
     },
     {
       "path": "src/feynman-reference-book.js",
-      "sha256": "4b577b39e949b60e9680260bfdf20d5741e8fe59fc255b78723f4124b95b2d05",
-      "bytes": 5922
+      "sha256": "c1d3a0d91829158689671ac372663d4fbb2d54fe29a0cd44a7457120df1b86fb",
+      "bytes": 6805
     },
     {
       "path": "src/feynman-reference.css",
-      "sha256": "223f61402c42653eead1b2193f09540004345f17fdb9ff834316d0c133972e42",
-      "bytes": 2327
+      "sha256": "32022138c1f94d219a7ef7128a44f6f499e5a69922496f183f50d6546db6f70b",
+      "bytes": 2623
     },
     {
       "path": "src/flight-exploration.js",
@@ -1762,8 +1762,8 @@
     },
     {
       "path": "src/library-shell.css",
-      "sha256": "8f292edd29bc7665be039f6b682783bfd2eefd8312eacdace248c77bef2a224f",
-      "bytes": 7662
+      "sha256": "7ba0ee2f93923dd97c919f656bf37226c4e0479b3f31f3134aa865b8cd692abf",
+      "bytes": 7343
     },
     {
       "path": "src/library-shell.js",
@@ -1927,8 +1927,8 @@
     },
     {
       "path": "src/public-library-catalog.js",
-      "sha256": "a5dfd675c0fadd12d1aa47e057695a11bbd9e65a767dffa46a9bf18352ed5e0a",
-      "bytes": 5126
+      "sha256": "006b85af4698c0b4dd5a0aa58c089e72a92c89a9d2a8ff97a3f7b677c3b6bb21",
+      "bytes": 5398
     },
     {
       "path": "src/public-library-store.js",
@@ -1942,8 +1942,13 @@
     },
     {
       "path": "src/reader-books.js",
-      "sha256": "2f8f236cace7877a93552f83eb3a19bb2ea3280cc38d501a7d1eb6de28a1ae57",
+      "sha256": "4816c37f1ddfabceae75eb3980cfef86e30b5e56946dc397976dd0cbe94da073",
       "bytes": 1284
+    },
+    {
+      "path": "src/reader-room.css",
+      "sha256": "9f12927708146e14e5a5eefc4d62319092d9a96b49a9b425b9ac6c0b1c2f2b8c",
+      "bytes": 14173
     },
     {
       "path": "src/reader.css",
@@ -2052,8 +2057,8 @@
     },
     {
       "path": "src/shelf.js",
-      "sha256": "8fbef5e7e1eeb831b8c8886b2019ca5cb96a61df8563fa523a19f2c5dedd30de",
-      "bytes": 38860
+      "sha256": "594e74143e3f0dfa1874ffc7a890a497b319bc22a6b5a1909fd0136c4e2c27e3",
+      "bytes": 39042
     },
     {
       "path": "src/shell-cone-model.js",

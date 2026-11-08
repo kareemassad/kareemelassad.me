@@ -73,6 +73,3 @@ body #reader-shell header #bookmark-close{top:calc(var(--site-nav-height) + 12px
 }
 @media(max-width:360px){.cozy-canvas{height:330px}.cozy-book-thumb{display:none}.cozy-book-choice{padding-inline:9px}.cozy-book-title{font-size:16px}}
 @media(prefers-reduced-motion:reduce){.cozy-book-choice,.cozy-book-thumb,.cozy-book-arrow,.cozy-choices{transition:none}.cozy-book-choice:hover .cozy-book-thumb,.cozy-book-choice:hover .cozy-book-arrow{transform:none}}
-.reference-toolbar{font-family:ReaderSans,"Helvetica Neue",sans-serif;background:#f4f0e8;color:var(--room-ink);border-bottom-color:var(--room-line)}
-.reference-toolbar button,.reference-page-jump input{border-color:#cfc8b8;border-radius:5px;background:#fffdf7;color:var(--room-ink)}
-.reference-toolbar a{color:#52664f}

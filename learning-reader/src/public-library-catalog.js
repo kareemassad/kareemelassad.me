@@ -6,7 +6,7 @@ import {positionNumber,canonical} from './pack-schema.js';
 import {passageBreakpoints} from './passage-breakpoints.js';
 
 export const publicLibraryEnabled=configuration=>configuration.mode==='static'&&!!configuration.publicAids&&!!configuration.runtimeProfile;
-const rendererPath=file=>/^src\/[a-z0-9-]+\.(?:js|css|json)$/.test(file)||/^vendor\/renderers\/(?:jsxgraph\/(?:core\.mjs|LICENSE\.MIT|core\.LICENSE\.txt)|katex\/(?:katex\.min\.css|LICENSE|fonts\/KaTeX_[A-Za-z0-9_-]+\.(?:ttf|woff2?)))$/.test(file);
+const rendererPath=file=>/^src\/[a-z0-9-]+\.(?:js|css|json)$/.test(file)||/^src\/(?:cozy-(?:c3po|feynman|tony)\.svg|licenses\/(?:Bookshelf-animation-MIT|Three-MIT)\.txt)$/.test(file)||/^vendor\/renderers\/(?:jsxgraph\/(?:core\.mjs|LICENSE\.MIT|core\.LICENSE\.txt)|katex\/(?:katex\.min\.css|LICENSE|fonts\/KaTeX_[A-Za-z0-9_-]+\.(?:ttf|woff2?)))$/.test(file);
 
 export class PublicLibraryCatalog extends PublicPackCatalog{
  constructor(library,options){
@@ -33,7 +33,9 @@ export class PublicLibraryCatalog extends PublicPackCatalog{
   const profileResponse=await fetch(assetURL(runtime.url),{cache:'no-cache'});if(!profileResponse.ok)throw Error('The saved renderer profile is unavailable.');
   const profileBytes=await profileResponse.arrayBuffer();if(profileBytes.byteLength>200000||await sha256(profileBytes)!==runtime.sha256)throw Error('The renderer profile differs from this release.');
   const profile=JSON.parse(new TextDecoder().decode(profileBytes));
-  if(profile.schemaVersion!==1||!Array.isArray(profile.files)||!profile.files.length||profile.files.length>200||new Set(profile.files.map(f=>f.file)).size!==profile.files.length||profile.files.some(f=>!rendererPath(f.file)||!/^[a-f0-9]{64}$/.test(f.publicSHA256)))throw Error('Invalid saved renderer profile.');
+  // The reviewed module closure includes shelf assets and vendor fonts (221 files).
+  // Keep a bounded profile while allowing room for additional book modules.
+  if(profile.schemaVersion!==1||!Array.isArray(profile.files)||!profile.files.length||profile.files.length>512||new Set(profile.files.map(f=>f.file)).size!==profile.files.length||profile.files.some(f=>!rendererPath(f.file)||!/^[a-f0-9]{64}$/.test(f.publicSHA256)))throw Error('Invalid saved renderer profile.');
   for(let start=0;start<profile.files.length;start+=8)await Promise.all(profile.files.slice(start,start+8).map(async file=>{const r=await fetch(assetURL(file.file),{cache:'no-cache'});if(!r.ok||await sha256(await r.arrayBuffer())!==file.publicSHA256)throw Error('The renderer changed. Reload the current reader before opening saved aids.');}));
   this.publicBooks=checked.books;
  }

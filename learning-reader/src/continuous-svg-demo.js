@@ -15,7 +15,7 @@ export function continuousSvgDemo({id,title,params,controls,draw,loopFrame,limit
   const speedLabel=document.createElement('label');speedLabel.textContent='Speed';
   const speed=document.createElement('select');speed.setAttribute('aria-label','Animation speed');
   for(const [value,label]of [[.5,'½×'],[1,'1×']]){const option=document.createElement('option');option.value=String(value);option.textContent=label;speed.append(option);}speed.value='1';
-  positionLabel.append(seek);speedLabel.append(speed);transport.append(positionLabel,progress,speedLabel);ctx.panel.insertBefore(transport,details);
+  positionLabel.append(seek);speedLabel.append(speed);transport.append(positionLabel,progress,speedLabel);const settings=document.querySelector('.ddia-settings');if(settings)settings.append(transport);else ctx.panel.insertBefore(transport,details);
   let playbackRate=1,timeOffset=0,inspection=null,pendingInspection=null;
   const controlRows=[...document.querySelectorAll('#controls > .ctl')];
   const syncVisibility=()=>{for(const [i,control]of controls.entries())if(control.visibleWhen&&controlRows[i])controlRows[i].hidden=!control.visibleWhen(ctx.params);};
