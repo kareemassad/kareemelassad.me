@@ -4,7 +4,8 @@ export const smooth=t=>{const v=Math.max(0,Math.min(1,t));return v*v*(3-2*v);};
 let outgoing=null;
 export function continuousSvgDemo({id,title,params,controls,draw,loopFrame,limits,duration=10}){
  return {id,title,params,controls,resetOn:Object.keys(params),camera:{mode:'2d',center:[0,0],height:12,width:18},create(ctx){
-  const wrap=document.getElementById('canvas-wrap'),svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.classList.add('ddia-scene');svg.setAttribute('viewBox','0 0 740 450');svg.setAttribute('role','img');svg.setAttribute('aria-label',title);wrap.append(svg);
+  const wrap=document.getElementById('canvas-wrap'),svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.classList.add('ddia-scene');svg.setAttribute('viewBox','0 0 740 450');svg.setAttribute('role','img');svg.setAttribute('aria-label',title);const diagram=document.createElement('div');diagram.className='ddia-diagram-scroll';diagram.tabIndex=0;diagram.setAttribute('role','region');diagram.setAttribute('aria-label',title+' diagram');diagram.append(svg);wrap.append(diagram);
+  const diagramTools=document.createElement('div');diagramTools.className='ddia-diagram-tools';const enlarge=document.createElement('button'),hint=document.createElement('span');enlarge.textContent='Enlarge diagram';enlarge.setAttribute('aria-pressed','false');hint.textContent='';enlarge.onclick=()=>{const expanded=diagram.dataset.enlarged!=='true';diagram.dataset.enlarged=String(expanded);enlarge.setAttribute('aria-pressed',String(expanded));enlarge.textContent=expanded?'Fit diagram':'Enlarge diagram';hint.textContent=expanded?'Scroll sideways to read the diagram.':'';};diagramTools.append(enlarge,hint);(document.querySelector('.stage-head')??ctx.panel).append(diagramTools);
   const status=document.createElement('p');status.className='ddia-result';const details=document.createElement('details'),summary=document.createElement('summary'),p=document.createElement('p');summary.textContent='Model assumptions';p.textContent=limits;details.append(summary,p);ctx.panel.append(status,details);
   // Inspection controls belong to playback, never to the domain model inputs.
   const transport=document.createElement('div');transport.className='ddia-inspect';
@@ -14,7 +15,7 @@ export function continuousSvgDemo({id,title,params,controls,draw,loopFrame,limit
   const speedLabel=document.createElement('label');speedLabel.textContent='Speed';
   const speed=document.createElement('select');speed.setAttribute('aria-label','Animation speed');
   for(const [value,label]of [[.5,'½×'],[1,'1×']]){const option=document.createElement('option');option.value=String(value);option.textContent=label;speed.append(option);}speed.value='1';
-  positionLabel.append(seek);speedLabel.append(speed);transport.append(positionLabel,progress,speedLabel);ctx.panel.prepend(transport);
+  positionLabel.append(seek);speedLabel.append(speed);transport.append(positionLabel,progress,speedLabel);ctx.panel.insertBefore(transport,details);
   let playbackRate=1,timeOffset=0,inspection=null,pendingInspection=null;
   const controlRows=[...document.querySelectorAll('#controls > .ctl')];
   const syncVisibility=()=>{for(const [i,control]of controls.entries())if(control.visibleWhen&&controlRows[i])controlRows[i].hidden=!control.visibleWhen(ctx.params);};
@@ -31,6 +32,6 @@ export function continuousSvgDemo({id,title,params,controls,draw,loopFrame,limit
    seek.value=String(Math.min(phase,duration-2));progress.textContent=blend?'Replay':Math.round(Math.min(phase/(duration-2),1)*100)+'%';
    const mix=reduced.matches?1:smooth(elapsed/.65);svg.innerHTML=old&&mix<1?`<g opacity="${1-mix}" aria-hidden="true">${old}</g><g opacity="${mix}">${current}</g>`:current;if(mix>=1)old=null;if(status.textContent!==result.result)status.textContent=result.result;
   }
-  frame(ctx);return {frame,reset(){inspection=pendingInspection;timeOffset=inspection??0;pendingInspection=null;},onParams(){const paused=document.getElementById('play')?.getAttribute('aria-pressed')==='true';old=paused?null:current;pendingInspection=paused?inspection:null;elapsed=0;timeOffset=0;inspection=null;},dispose(){outgoing={wrap,svg:current,at:performance.now()};svg.remove();transport.remove();}};
+  frame(ctx);return {frame,reset(){inspection=pendingInspection;timeOffset=inspection??0;pendingInspection=null;},onParams(){const paused=document.getElementById('play')?.getAttribute('aria-pressed')==='true';old=paused?null:current;pendingInspection=paused?inspection:null;elapsed=0;timeOffset=0;inspection=null;},dispose(){outgoing={wrap,svg:current,at:performance.now()};diagram.remove();diagramTools.remove();transport.remove();}};
  }};
 }

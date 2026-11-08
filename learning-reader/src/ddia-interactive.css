@@ -8,3 +8,72 @@ body:has(.ddia-scene) #canvas-wrap{background:#fcfaf3}
 #canvas-wrap:has(.ddia-scene){min-height:260px}#canvas-wrap:has(.ddia-scene) #predict{z-index:3}
 body:has(.ddia-scene) #controls .ctl[hidden]{display:none}
 @media(max-width:800px){body:has(.ddia-scene) #stage{overflow-y:auto;display:block;height:56dvh;min-height:350px}#canvas-wrap:has(.ddia-scene){height:260px;min-height:260px}body:has(.ddia-scene) .stage-foot{max-height:none;overflow:visible}#panel .ddia-result{font-size:15px}}
+
+/* DDIA uses a full reading surface when two useful panes cannot fit. */
+.ddia-view-tabs{display:none}
+.ddia-reader{color-scheme:light}
+.ddia-reader .bar{flex-wrap:wrap}
+.ddia-reader .bar select{min-width:0}
+.ddia-reader button,.ddia-reader select,.ddia-reader summary{min-height:44px;font-size:13px;touch-action:manipulation}
+.ddia-reader input[type=range]{min-height:44px}
+body.ddia-reader #stage{overflow-y:auto}
+.ddia-reader .stage-head{padding:20px 24px 12px}
+.ddia-reader #canvas-wrap:has(.ddia-scene){flex:none;height:auto;aspect-ratio:740/450;min-height:0}
+.ddia-reader .stage-foot{flex:none;max-height:none;overflow:visible}
+.ddia-settings{border-block:1px solid #dedfd2;margin:12px 0;padding:4px 0}
+.ddia-settings summary{display:list-item;padding:12px 0;cursor:pointer;color:#3e543c}
+.ddia-settings summary:focus-visible{outline:2px solid #698560;outline-offset:3px}
+.ddia-reader #controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:8px 0 16px;gap:16px;font-size:13px}
+.ddia-reader .ctl{min-width:0;display:grid;grid-template-columns:1fr auto;gap:6px}.ddia-reader .ctl-name{white-space:normal}.ddia-reader .ctl input,.ddia-reader .ctl select{grid-column:1/-1}
+.ddia-reader .ctl input[type=range]{width:100%}
+.ddia-reader .ctl select{max-width:100%}
+.ddia-reader .ctl-val{font-size:12px}
+.ddia-reader #panel{font-size:14px}
+.ddia-reader #panel .ddia-result{font-size:18px}
+.ddia-reader #panel details{font-size:13px}
+.ddia-diagram-scroll{position:absolute;inset:0;overflow:auto;z-index:1;touch-action:pan-x pan-y;overscroll-behavior-x:contain}
+.ddia-diagram-scroll .ddia-scene{position:relative;display:block}
+.ddia-diagram-scroll[data-enlarged=true] .ddia-scene{width:740px;height:450px;max-width:none}
+.ddia-diagram-tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:0 0 12px;font-size:12px;color:#687260}
+.ddia-reader #canvas-wrap:has([data-enlarged=true]){height:450px;aspect-ratio:auto}
+@media(max-width:1100px){
+ .ddia-reader .bar{margin:0 12px;padding:8px 0;gap:8px;flex:none}
+ .ddia-reader .bar #chapter{flex:1 1 100%;max-width:100%}
+ .ddia-reader .bar #section{flex:1;max-width:100%;width:0}
+ .ddia-reader #pagelabel{display:none}
+ .ddia-view-tabs{display:flex;flex:none;gap:4px;padding:4px 12px 8px}
+ .ddia-view-tabs button{flex:1;background:#f8f5ed;border-color:#c8cdbd}
+ .ddia-view-tabs button[aria-pressed=true]{background:#4e684d;color:#fff}
+ .ddia-reader .split{position:relative;display:block;flex:1;min-height:0;margin:0 10px 10px}
+ .ddia-reader #divider{display:none}
+ body.ddia-reader #stage,.ddia-reader #reader{position:absolute;inset:0;width:100%;height:100%;min-height:0;max-height:none;box-sizing:border-box}
+ body.ddia-reader #stage{display:block;background:#fcfaf3;overflow:auto}
+ .ddia-reader[data-reading-view=read] #stage,.ddia-reader[data-reading-view=experiment] #reader{visibility:hidden;pointer-events:none}
+ .ddia-reader #column{padding:18px 14px 60vh 30px;max-width:920px;margin:auto}
+ .ddia-reader .stage-head{padding:20px 20px 12px}
+ .ddia-reader #demo-title{font-size:27px}
+ .ddia-reader #demo-note{font-size:16px;line-height:1.5}
+ .ddia-reader .stage-foot{padding:14px 20px 24px}
+ .ddia-reader #controls{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:480px){
+ .ddia-reader #controls{grid-template-columns:1fr}
+ .ddia-reader .bar #hold{font-size:12px;padding-inline:8px}
+ .ddia-reader .stage-head{padding:16px}
+ .ddia-reader .stage-foot{padding:12px 16px 24px}
+ .ddia-reader .transport{flex-wrap:wrap}
+ .ddia-reader #panel .ddia-inspect{flex-wrap:wrap}
+}
+
+@media(max-width:1100px){.ddia-reader .bar>.spacer{display:none}}
+
+/* Native WebKit selects need an explicit height for a reliable touch target. */
+.ddia-reader select{height:44px}
+.ddia-reader .ctl:has(input[type=checkbox]){display:flex;align-items:center;gap:10px;min-height:44px}
+.ddia-reader .ctl input[type=checkbox]{flex:none;width:22px;height:22px;margin:0}
+/* Expanded controls must not compress the heading into the diagram. */
+.ddia-reader .stage-head{flex:none}
+@media(max-width:1100px) and (max-height:500px){
+ .ddia-reader .bar{flex-wrap:nowrap}
+ .ddia-reader .bar #chapter{flex:0 1 30%;max-width:30%}
+}

@@ -37,8 +37,8 @@
     },
     {
       "path": "interactive/runtime.js",
-      "sha256": "0fad78d22fd9072897ed67f997f685e686b08a5920959b0545cca02c5d602b3f",
-      "bytes": 1622762
+      "sha256": "f2237edcaab5e54b7fe9b68fb662a3d5c6cf9d99e7738e78c4bbdb00266d2658",
+      "bytes": 1622933
     },
     {
       "path": "PDFJS-LICENSE.txt",
@@ -1387,12 +1387,12 @@
     },
     {
       "path": "runtime-profile.json",
-      "sha256": "134cb17b4c84e60f57cb1555cc90a5d264d83488d0f17ab092f65278d2336f76",
-      "bytes": 58293
+      "sha256": "830853fcea29ee039f0f2fad6da86fd00511789fccb426fe6874ce37b446f056",
+      "bytes": 58560
     },
     {
       "path": "site-config.json",
-      "sha256": "d148842e0c4e84ecb8e3b94aeb0b8414496d4a91f457dfec862a32ae9e32d4a9",
+      "sha256": "8a0e921db67ebc3725703db5fc455dbbd6b96b87302087409227b1838dd9d7c3",
       "bytes": 1644
     },
     {
@@ -1547,8 +1547,8 @@
     },
     {
       "path": "src/continuous-svg-demo.js",
-      "sha256": "d57c77976f1728179da6a7eda4095b78d023ac7c88b0e9cd91a6e76b2c85bf27",
-      "bytes": 4945
+      "sha256": "4ec3105b90c60db6eaf497ad78c72a4b7ded62a4ec78c2f46cf0e0a61c55bf62",
+      "bytes": 5886
     },
     {
       "path": "src/data-shape-model-v1.js",
@@ -1567,8 +1567,13 @@
     },
     {
       "path": "src/ddia-interactive.css",
-      "sha256": "4bd9763ae4453a7b82ac9250b88897b68d33f443ee1d02b965f116f113310cba",
-      "bytes": 2648
+      "sha256": "91f1d13ce1183b9f3dd120d422be7324312ca10e6df767c304b3cf0c0adeb410",
+      "bytes": 6831
+    },
+    {
+      "path": "src/ddia-reader-layout.js",
+      "sha256": "0555b1c1a35d0aa4ecfcfa68d7abe364ad7975c19001fa28e8079410ab3a7179",
+      "bytes": 1921
     },
     {
       "path": "src/ddia-story-cues-v1.js",
@@ -1642,8 +1647,8 @@
     },
     {
       "path": "src/feynman-book-theme.css",
-      "sha256": "0a9c21b36deeb9d1ca1e0ffa868b5e43a98c7c328fd1be8b583fd8507a3d2234",
-      "bytes": 4352
+      "sha256": "b2484f7eee1041c13ee680d0783fbebfc54a0c3b99699bf1000b1b8c5438cb63",
+      "bytes": 4456
     },
     {
       "path": "src/feynman-reference-book.js",
@@ -1652,8 +1657,8 @@
     },
     {
       "path": "src/feynman-reference.css",
-      "sha256": "ac319bb3e3f3bd1f13dd11609d7600a442b50e0181d2ec57c608bc9a81d78561",
-      "bytes": 1661
+      "sha256": "223f61402c42653eead1b2193f09540004345f17fdb9ff834316d0c133972e42",
+      "bytes": 2327
     },
     {
       "path": "src/flight-exploration.js",

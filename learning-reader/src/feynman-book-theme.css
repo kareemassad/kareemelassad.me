@@ -51,3 +51,5 @@ input[type=range],input[type=checkbox]{accent-color:#607d57}
 
 /* An open paper spread: model on the left, source on the right. */
 @media(max-width:800px){#stage{background:#fcfaf3}.split{box-shadow:0 3px 0 -1px #d8cdb8,0 8px 20px #51462b12}}
+/* Preserve the full heading when a short viewport limits the model area. */
+.stage-head{flex-shrink:0}

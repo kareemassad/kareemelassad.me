@@ -177,8 +177,8 @@
     },
     {
       "file": "src/continuous-svg-demo.js",
-      "sourceSHA256": "d57c77976f1728179da6a7eda4095b78d023ac7c88b0e9cd91a6e76b2c85bf27",
-      "publicSHA256": "d57c77976f1728179da6a7eda4095b78d023ac7c88b0e9cd91a6e76b2c85bf27",
+      "sourceSHA256": "4ec3105b90c60db6eaf497ad78c72a4b7ded62a4ec78c2f46cf0e0a61c55bf62",
+      "publicSHA256": "4ec3105b90c60db6eaf497ad78c72a4b7ded62a4ec78c2f46cf0e0a61c55bf62",
       "metadataAdapted": false
     },
     {
@@ -201,8 +201,14 @@
     },
     {
       "file": "src/ddia-interactive.css",
-      "sourceSHA256": "4bd9763ae4453a7b82ac9250b88897b68d33f443ee1d02b965f116f113310cba",
-      "publicSHA256": "4bd9763ae4453a7b82ac9250b88897b68d33f443ee1d02b965f116f113310cba",
+      "sourceSHA256": "91f1d13ce1183b9f3dd120d422be7324312ca10e6df767c304b3cf0c0adeb410",
+      "publicSHA256": "91f1d13ce1183b9f3dd120d422be7324312ca10e6df767c304b3cf0c0adeb410",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/ddia-reader-layout.js",
+      "sourceSHA256": "0555b1c1a35d0aa4ecfcfa68d7abe364ad7975c19001fa28e8079410ab3a7179",
+      "publicSHA256": "0555b1c1a35d0aa4ecfcfa68d7abe364ad7975c19001fa28e8079410ab3a7179",
       "metadataAdapted": false
     },
     {
@@ -291,8 +297,8 @@
     },
     {
       "file": "src/feynman-book-theme.css",
-      "sourceSHA256": "0a9c21b36deeb9d1ca1e0ffa868b5e43a98c7c328fd1be8b583fd8507a3d2234",
-      "publicSHA256": "0a9c21b36deeb9d1ca1e0ffa868b5e43a98c7c328fd1be8b583fd8507a3d2234",
+      "sourceSHA256": "b2484f7eee1041c13ee680d0783fbebfc54a0c3b99699bf1000b1b8c5438cb63",
+      "publicSHA256": "b2484f7eee1041c13ee680d0783fbebfc54a0c3b99699bf1000b1b8c5438cb63",
       "metadataAdapted": false
     },
     {
@@ -303,8 +309,8 @@
     },
     {
       "file": "src/feynman-reference.css",
-      "sourceSHA256": "ac319bb3e3f3bd1f13dd11609d7600a442b50e0181d2ec57c608bc9a81d78561",
-      "publicSHA256": "ac319bb3e3f3bd1f13dd11609d7600a442b50e0181d2ec57c608bc9a81d78561",
+      "sourceSHA256": "223f61402c42653eead1b2193f09540004345f17fdb9ff834316d0c133972e42",
+      "publicSHA256": "223f61402c42653eead1b2193f09540004345f17fdb9ff834316d0c133972e42",
       "metadataAdapted": false
     },
     {

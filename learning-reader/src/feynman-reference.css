@@ -13,3 +13,17 @@ body[data-reference-reader] #mobile-help{display:none!important}
 .reference-toolbar a{font-size:10px;color:#586654;text-underline-offset:3px}
 
 .reference-page-jump{display:flex;align-items:center;gap:4px;margin-left:auto}.reference-page-jump input{width:54px;padding:6px 3px;border:1px solid #c8baa3;border-radius:2px;background:#fcfaf3;color:#45503e;font-size:11px}.reference-page-jump button{padding:6px}.reference-toolbar a{margin-left:0}@media(max-width:600px){.reference-toolbar a{max-width:115px;font-size:9px}.reference-page-jump input{width:42px}.reference-toolbar button{padding:6px}.reference-toolbar{gap:6px}}
+
+/* Keep page navigation usable by touch in the outer book frame. */
+#reference-reader{grid-template-rows:auto minmax(0,1fr)}
+.reference-toolbar{min-height:56px;flex-wrap:wrap;gap:10px}
+.reference-toolbar button,.reference-page-jump input{min-height:44px;font-size:13px;touch-action:manipulation}
+.reference-page-jump input{font-size:16px;width:60px}
+.reference-toolbar a{line-height:1.4}
+@media(max-width:600px){
+ .reference-toolbar{gap:6px;padding:6px 8px}
+ .reference-toolbar>button{flex:1;max-width:160px}
+ .reference-page-jump input{width:58px}
+ .reference-page-jump button{min-width:44px}
+ .reference-toolbar a{flex-basis:100%;max-width:none;font-size:10px}
+}
