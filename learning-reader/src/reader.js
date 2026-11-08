@@ -32,7 +32,7 @@ const configuration=await siteConfiguration();
 const hostedLibrary=publicLibraryEnabled(configuration);
 import {SOURCE,passages,passageAt,sections} from './passages.js';
 import {initial,controls,draw} from './scenes.js';
-import {ScrollReader} from './scroll-reader.js';
+import {CancellableScrollReader as ScrollReader} from './cancellable-scroll-reader.js';
 import {BookShelf} from './shelf.js';
 import {PublicLibraryCatalog,publicLibraryEnabled} from './public-library-catalog.js';
 import {PublicLibraryStore} from './public-library-store.js';
@@ -41,6 +41,7 @@ import {normalizeTemplate,templateNames} from './templates.js';
 const $=id=>document.getElementById(id);
 let matched=false,active=null,state=null,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,states=new Map(),frame=0,last=0,shape='',lastMetrics='',speed=1,busy=false;
 const reader=new ScrollReader($('pdf-scroll'),positionChanged,status);
+let openingLoad=null;
 let shelf,preparedBook=null,loadedRevision=-1,currentSourceHash=null;
 const passageKey=passage=>JSON.stringify([passage?.packId||'',passage?.packVersion||0,passage?.id]);
 const learningModelFor=passage=>teachingModelFor(passage,currentSourceHash)||savedLearningModelFor(passage);
@@ -186,7 +187,11 @@ $('model-info').addEventListener('click',()=>{
  $('info').showModal();
 });
 async function openBook(book){
- if(busy)return null;busy=true;cancelAnimationFrame(frame);frame=0;status('Opening local PDF…');$('open-pdf').disabled=true;
+ book.signal?.throwIfAborted();
+ if(busy)return null;const operation={};openingLoad=operation;busy=true;
+ const release=()=>{if(openingLoad===operation){openingLoad=null;busy=false;$('open-pdf').disabled=false;}};
+ book.signal?.addEventListener('abort',release,{once:true});
+ cancelAnimationFrame(frame);frame=0;status('Opening local PDF…');$('open-pdf').disabled=true;
  try{
   if(book.id&&shelf.current?.id===book.id&&reader.document&&loadedRevision===shelf.catalog.revision){
    const stored=book.openingPosition||shelf.progress.get(book.id)?.position,saved=stored?{zoom:'fit',split:50,gap:0,left:0,...stored,hideAid:false}:null;
@@ -197,17 +202,18 @@ async function openBook(book){
    }
    status('');return {id:book.id,title:shelf.current.title,pages:reader.count};
   }
-  let file=book.file;if(!file){if(!book.localUrl&&book.id!==SOURCE.sha256)throw Error('Import the matching PDF to read this prepared book.');const response=await fetch(assetURL(book.localUrl||SOURCE.localUrl));if(!response.ok)throw Error(configuration.noUploads?'This hosted book could not be loaded. Please reload and try again.':'Sample PDF is missing. Select it with Open PDF.');file=await response.blob();}
-  if(file.size>MAX_PDF_BYTES)throw Error('This reader supports local PDFs up to 128 MiB.');const bytes=await file.arrayBuffer(),hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(x=>x.toString(16).padStart(2,'0')).join(''),sourceMatches=hash===SOURCE.sha256;
+  let file=book.file;if(!file){if(!book.localUrl&&book.id!==SOURCE.sha256)throw Error('Import the matching PDF to read this prepared book.');const response=await fetch(assetURL(book.localUrl||SOURCE.localUrl),{signal:book.signal});if(!response.ok)throw Error(configuration.noUploads?'This hosted book could not be loaded. Please reload and try again.':'Sample PDF is missing. Select it with Open PDF.');file=await response.blob();book.signal?.throwIfAborted();}
+  if(file.size>MAX_PDF_BYTES)throw Error('This reader supports local PDFs up to 128 MiB.');const bytes=await file.arrayBuffer(),hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(x=>x.toString(16).padStart(2,'0')).join(''),sourceMatches=hash===SOURCE.sha256;book.signal?.throwIfAborted();
   if(book.builtin&&book.id!==hash)throw Error(configuration.noUploads?'The hosted PDF does not match this book. Please report this error.':'This local PDF does not match the selected book. Import the matching PDF.');
   const saved={page:1,y:0,gap:0,zoom:'fit',split:50,left:0,...(book.openingPosition||shelf.progress.get(hash)?.position||{}),hideAid:false};
   reader.zoom=saved.zoom;$('zoom').value=saved.zoom;split(saved.split);$('workspace').classList.toggle('hide-aid',saved.hideAid);$('hide-aid').textContent=saved.hideAid?'Show demo':'Hide demo';
-  await reader.open(bytes,[],sourceMatches);preparedBook=await shelf.catalog.forBook(reader.document,hash);reader.markers=preparedBook?.breakpoints||[];reader.build();loadedRevision=shelf.catalog.revision;matched=!!preparedBook;navigation();states.clear();readingFollower.clear();active=null;
+  await reader.open(bytes,[],sourceMatches,{signal:book.signal});book.signal?.throwIfAborted();const prepared=await shelf.catalog.forBook(reader.document,hash);book.signal?.throwIfAborted();preparedBook=prepared;reader.markers=preparedBook?.breakpoints||[];reader.build();loadedRevision=shelf.catalog.revision;matched=!!preparedBook;navigation();states.clear();readingFollower.clear();active=null;
   const title=book.builtin?book.title:sourceMatches?'The Feynman Lectures on Physics':(file.name||book.title||'Local PDF');
   $('book-title').textContent=sourceMatches?'The Feynman Lectures · Vol. II':title;$('chapter').disabled=!matched;$('section').disabled=!matched;
   currentSourceHash=hash;reader.jump(saved.page,saved.y,false,saved.gap);$('pdf-scroll').scrollLeft=saved.left;status('');
-  return {id:hash,title,pages:reader.count,...(hostedLibrary?{coverDataUrl:await localPDFCover(reader.document)}:{})};
- }finally{busy=false;$('open-pdf').disabled=false;reader.schedule();}
+  const coverDataUrl=hostedLibrary?await localPDFCover(reader.document):null;book.signal?.throwIfAborted();
+  return {id:hash,title,pages:reader.count,...(hostedLibrary?{coverDataUrl}:{})};
+ }finally{book.signal?.removeEventListener('abort',release);if(openingLoad===operation){release();reader.schedule();}}
 }
 $('open-pdf').addEventListener('click',()=>$('pdf-file').click());$('pdf-file').addEventListener('change',e=>{if(e.target.files[0])shelf.openFile(e.target.files[0]);e.target.value='';});
 $('page-label').addEventListener('click',()=>{$('page-number').max=reader.count;$('page-number').value=reader.position().page;$('page-jump').showModal();$('page-number').select();});
@@ -234,6 +240,7 @@ import {installOrbitCompanion} from './orbit-companion-book.js';
 if(!configuration.noUploads)await installOrbitCompanion(shelf,configuration);
 import {installClockBinding} from './clock-binding-book.js';
 if(!configuration.noUploads)await installClockBinding(shelf);
+shelf.cozyEnabled=true;shelf.render();
 
 offlineCopy(configuration,message=>{const node=document.getElementById('offline-state');node.textContent=message;node.hidden=false;});
 

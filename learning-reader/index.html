@@ -1,7 +1,9 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Learning Reader · Feynman and DDIA</title><link rel="icon" href="./favicon.svg"><link rel="stylesheet" href="./src/reader.css">
-<link rel="stylesheet" href="./src/feynman-reference.css"><link rel="stylesheet" href="./src/orbital-flight.css"><link rel="stylesheet" href="./src/clock-path.css"><link rel="stylesheet" href="./src/replication.css"><link rel="stylesheet" href="./src/diagram-adapter.css"><link rel="stylesheet" href="./src/shelf.css"><script type="module" src="./src/reader.js"></script><link rel="stylesheet" href="./src/generated-view.css"><link rel="stylesheet" href="./src/library-shell.css"><link rel="stylesheet" href="./src/teaching-reader-v1.css"><script type="module" src="./src/library-shell.js"></script></head><body data-view="shelf">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f0e8"><title>Learning Reader · Feynman and DDIA</title><link rel="icon" href="./favicon.svg"><link rel="modulepreload" href="./src/cozy-shelf.js"><link rel="stylesheet" href="./src/reader.css">
+<link rel="stylesheet" href="./src/feynman-reference.css"><link rel="stylesheet" href="./src/orbital-flight.css"><link rel="stylesheet" href="./src/clock-path.css"><link rel="stylesheet" href="./src/replication.css"><link rel="stylesheet" href="./src/diagram-adapter.css"><link rel="stylesheet" href="./src/shelf.css"><script type="module" src="./src/reader.js"></script><link rel="stylesheet" href="./src/generated-view.css"><link rel="stylesheet" href="./src/library-shell.css"><link rel="stylesheet" href="./src/teaching-reader-v1.css"><script type="module" src="./src/library-shell.js"></script></head><body data-view="shelf" class="room-boot">
+<a class="skip-link" href="#main-content">Skip to books</a>
+<nav class="site-nav" aria-label="Site navigation"><a class="site-owner" href="https://kareemelassad.me/">Kareem El Assad</a><div class="site-links"><a href="https://kareemelassad.me/">Résumé <span aria-hidden="true">↗</span></a><a class="secondary-link" href="https://kareemelassad.me/#/bells">Bell Collection</a><a class="secondary-link" href="./" aria-current="page">Library</a><a class="secondary-link" href="https://kareemelassad.me/fantasy/">Fantasy Football</a></div></nav>
 <section id="shelf" aria-label="Library">
-  <div class="shelf-top">
+  <div class="shelf-top" hidden>
     <a class="room-mark" href="./" aria-label="Learning Reader library"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M4 6c4-1 7 0 10 2 3-2 6-3 10-2v16c-4-1-7 0-10 2-3-2-6-3-10-2zM14 8v16"/></svg><span>Learning Reader</span></a>
     <div class="shelf-tools">
       <button hidden disabled id="shelf-open-pdf" class="upload-book" title="Add a PDF to your library"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 13V3m-4 4 4-4 4 4M4 12v4a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-4"/></svg>Upload book</button>
@@ -17,9 +19,8 @@
       <input id="book-file" disabled type="file" accept=".prepared-book" hidden><input id="progress-file" disabled type="file" accept="application/json,.json" hidden>
     </div>
   </div>
-  <main class="shelf-content" aria-label="Your books">
-    <div class="shelf-intro"><span class="shelf-kicker">A PERSONAL READING ROOM</span><h1>Your library<span aria-hidden="true">.</span></h1><p>Choose a book. Continue from your last page.</p></div>
-    <div class="shelf-label"><span id="shelf-count">2 books</span></div>
+  <main id="main-content" class="shelf-content" tabindex="-1" aria-label="Your books"><h1 class="sr-only">Your books</h1><p id="shelf-startup" role="status">Loading books…</p>
+    <div class="shelf-label"><span>ON THE SHELF</span><span id="shelf-count">2 books</span></div>
     <div class="bookcase"><div id="book-row" class="book-row"></div><div class="shelf-ledge" aria-hidden="true"></div></div>
     <div id="shelf-empty" hidden><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M4 6c4-1 7 0 10 2 3-2 6-3 10-2v16c-4-1-7 0-10 2-3-2-6-3-10-2zM14 8v16"/></svg><h2>Upload your first book.</h2><p>Add a PDF to start reading.</p></div>
     <p id="shelf-notice" role="status" hidden></p>

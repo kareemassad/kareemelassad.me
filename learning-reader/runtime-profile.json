@@ -50,6 +50,12 @@
       "metadataAdapted": false
     },
     {
+      "file": "src/cancellable-scroll-reader.js",
+      "sourceSHA256": "075cf1573e3e059ab054741d12fd641a71ff958f44dedf5d6541b4d15c713c84",
+      "publicSHA256": "075cf1573e3e059ab054741d12fd641a71ff958f44dedf5d6541b4d15c713c84",
+      "metadataAdapted": false
+    },
+    {
       "file": "src/causal-models.js",
       "sourceSHA256": "9008d8fb83e89759d648fa7ecdad3588a170b5dfc259d7a6a117d4310f9413d0",
       "publicSHA256": "9008d8fb83e89759d648fa7ecdad3588a170b5dfc259d7a6a117d4310f9413d0",
@@ -182,6 +188,30 @@
       "metadataAdapted": false
     },
     {
+      "file": "src/cozy-c3po.svg",
+      "sourceSHA256": "8a9d266e13f352d3a248aef3c2df65258285c3207391e3ed7dbfc256b45e4bd1",
+      "publicSHA256": "8a9d266e13f352d3a248aef3c2df65258285c3207391e3ed7dbfc256b45e4bd1",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/cozy-feynman.svg",
+      "sourceSHA256": "e43ce5aae56af4f03aa367e315c8181dddf21f0c6f8cdc4e0466aec9488e165f",
+      "publicSHA256": "e43ce5aae56af4f03aa367e315c8181dddf21f0c6f8cdc4e0466aec9488e165f",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/cozy-shelf.js",
+      "sourceSHA256": "adfb2915cdce458df9f6e7038ed7b3bfecda5fc9d37447666bd1845564c5b7b3",
+      "publicSHA256": "adfb2915cdce458df9f6e7038ed7b3bfecda5fc9d37447666bd1845564c5b7b3",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/cozy-tony.svg",
+      "sourceSHA256": "3b9e5e93aa8f0ea1117f53f92aefeed5518c4faf5c6a4fcd87d1bfd5a13d4fa2",
+      "publicSHA256": "3b9e5e93aa8f0ea1117f53f92aefeed5518c4faf5c6a4fcd87d1bfd5a13d4fa2",
+      "metadataAdapted": false
+    },
+    {
       "file": "src/data-shape-model-v1.js",
       "sourceSHA256": "3faa1058eb014bffa7274316c3e5691c108c74f0b20bd42d60b85b60617db881",
       "publicSHA256": "3faa1058eb014bffa7274316c3e5691c108c74f0b20bd42d60b85b60617db881",
@@ -195,8 +225,8 @@
     },
     {
       "file": "src/ddia-interactive-book.js",
-      "sourceSHA256": "b9abbdfb2378063a555503c1570310d7c337e413d8cf4c2b97edfa91e80239d7",
-      "publicSHA256": "b9abbdfb2378063a555503c1570310d7c337e413d8cf4c2b97edfa91e80239d7",
+      "sourceSHA256": "fd73c4bc708000b0605f3dc0e0f4981c58f2b9f9270c23c70ca964b58bb96a68",
+      "publicSHA256": "fd73c4bc708000b0605f3dc0e0f4981c58f2b9f9270c23c70ca964b58bb96a68",
       "metadataAdapted": false
     },
     {
@@ -303,8 +333,8 @@
     },
     {
       "file": "src/feynman-reference-book.js",
-      "sourceSHA256": "fbe31e499d58e4fe278fd13e20d0b1f9f9bcccce6263575a79a819829daff5c0",
-      "publicSHA256": "fbe31e499d58e4fe278fd13e20d0b1f9f9bcccce6263575a79a819829daff5c0",
+      "sourceSHA256": "4b577b39e949b60e9680260bfdf20d5741e8fe59fc255b78723f4124b95b2d05",
+      "publicSHA256": "4b577b39e949b60e9680260bfdf20d5741e8fe59fc255b78723f4124b95b2d05",
       "metadataAdapted": false
     },
     {
@@ -405,8 +435,8 @@
     },
     {
       "file": "src/library-shell.css",
-      "sourceSHA256": "e685ba491eb7764c2e74e12250cc32110a4681fd9b487a0eacd2e5f6594ca8ad",
-      "publicSHA256": "e685ba491eb7764c2e74e12250cc32110a4681fd9b487a0eacd2e5f6594ca8ad",
+      "sourceSHA256": "8f292edd29bc7665be039f6b682783bfd2eefd8312eacdace248c77bef2a224f",
+      "publicSHA256": "8f292edd29bc7665be039f6b682783bfd2eefd8312eacdace248c77bef2a224f",
       "metadataAdapted": false
     },
     {
@@ -419,6 +449,18 @@
       "file": "src/library-store.js",
       "sourceSHA256": "ee4c961accf51c731a0cf8e989df827f84ba5fd9ecde6f446a60c77c0e97f73b",
       "publicSHA256": "ee4c961accf51c731a0cf8e989df827f84ba5fd9ecde6f446a60c77c0e97f73b",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/licenses/Bookshelf-animation-MIT.txt",
+      "sourceSHA256": "b802c2eed9f52fc2a5a2211d505ea174fc03f7bfda363fb43c56df4179bf5d9f",
+      "publicSHA256": "b802c2eed9f52fc2a5a2211d505ea174fc03f7bfda363fb43c56df4179bf5d9f",
+      "metadataAdapted": false
+    },
+    {
+      "file": "src/licenses/Three-MIT.txt",
+      "sourceSHA256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+      "publicSHA256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
       "metadataAdapted": false
     },
     {
@@ -609,8 +651,8 @@
     },
     {
       "file": "src/reader.js",
-      "sourceSHA256": "a193789154db0960de4afc4b89bde9a23897b03c700fda7a34617da72d1a390c",
-      "publicSHA256": "a193789154db0960de4afc4b89bde9a23897b03c700fda7a34617da72d1a390c",
+      "sourceSHA256": "c11bafa521fec6813ca08ffa618d7c72b0156b391c0929569e4993d0db18e44f",
+      "publicSHA256": "c11bafa521fec6813ca08ffa618d7c72b0156b391c0929569e4993d0db18e44f",
       "metadataAdapted": false
     },
     {
@@ -716,15 +758,21 @@
       "metadataAdapted": false
     },
     {
+      "file": "src/shelf-objects.js",
+      "sourceSHA256": "d629872818aac6c29bb9c930deb5255be14673b4181f27c445ab934d598e4894",
+      "publicSHA256": "d629872818aac6c29bb9c930deb5255be14673b4181f27c445ab934d598e4894",
+      "metadataAdapted": false
+    },
+    {
       "file": "src/shelf.css",
-      "sourceSHA256": "a2f2856d92274491d8c29fc14075d6d27860677c5deca7df46bcc2d32c8ca86b",
-      "publicSHA256": "a2f2856d92274491d8c29fc14075d6d27860677c5deca7df46bcc2d32c8ca86b",
+      "sourceSHA256": "5aece45aa41a1cbc44ba0af263bbe5501708c2a3551ea60d84214980ecdd9b53",
+      "publicSHA256": "5aece45aa41a1cbc44ba0af263bbe5501708c2a3551ea60d84214980ecdd9b53",
       "metadataAdapted": false
     },
     {
       "file": "src/shelf.js",
-      "sourceSHA256": "0890e69eb60a0441471d1001b51fc7020ac6b9496bf013de2ca1cdc39fab104a",
-      "publicSHA256": "0890e69eb60a0441471d1001b51fc7020ac6b9496bf013de2ca1cdc39fab104a",
+      "sourceSHA256": "8fbef5e7e1eeb831b8c8886b2019ca5cb96a61df8563fa523a19f2c5dedd30de",
+      "publicSHA256": "8fbef5e7e1eeb831b8c8886b2019ca5cb96a61df8563fa523a19f2c5dedd30de",
       "metadataAdapted": false
     },
     {
