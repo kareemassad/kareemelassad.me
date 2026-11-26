@@ -1,6 +1,16 @@
-// Manager identities stay attached to roster IDs, even when team names change.
+import currentOwners from './current-owners.mjs?v=83e2bd34c11e';
+import {personForOwner} from './people.mjs?v=83e2bd34c11e';
+// Legacy current-season labels remain for callers without report context.
 export const MANAGERS={1:'Stefan',2:'Logan',3:'Kareem',4:'Michael',5:'Russell',6:'Evan',7:'George',8:'Alois',9:'Mason',10:'Rory'};
 export const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export function identifyTeam(team,season){
+  const saved=String(season)===String(currentOwners.season)?currentOwners.teams.find(t=>t.id===team.id):null;
+  const explicit=Object.prototype.hasOwnProperty.call(team,'ownerId'),ownerId=explicit?team.ownerId:saved?.ownerId??null,person=personForOwner(ownerId);
+  const username=team.username??(!explicit||ownerId===saved?.ownerId?saved?.username:null)??null;
+  const displayName=team.displayName??(!explicit||ownerId===saved?.ownerId?saved?.displayName:null)??null;
+  // Unknown owners must not inherit the current manager of a reused roster slot.
+  return {...team,ownerId,username,displayName,personId:person?.id??(ownerId?'account:'+ownerId:`unmatched:${season}:${team.id}`),manager:person?.name??(ownerId?null:team.manager??null)};
+}
 export const manager=t=>t&&Object.prototype.hasOwnProperty.call(t,'manager')?(t.manager||t.name||'League team'):MANAGERS[t?.id]||t?.name||'League team';
 export const fullName=t=>t&&manager(t)!==t.name?`${manager(t)} · ${t.name}`:t?.name||'League team';
 export function teamIdentity(t,{badge=true,meta=null}={}){

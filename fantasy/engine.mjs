@@ -1,9 +1,10 @@
-import {MANAGERS} from './identity.mjs?v=9823585ce48b';
+import {MANAGERS,identifyTeam} from './identity.mjs?v=83e2bd34c11e';
 export const sum = xs => xs.reduce((a,b)=>a+b,0);
 export const compare = (a,b) => a>b ? 1 : a<b ? -1 : 0;
 export const record = xs => ({w:xs.filter(x=>x>0).length,l:xs.filter(x=>x<0).length,t:xs.filter(x=>x===0).length});
 export const recordText = r => `${r.w}–${r.l}${r.t?`–${r.t}`:''}`;
 export function createLeague(data) {
+  data={...data,teams:data.teams.map(team=>identifyTeam(team,data.season))};
   const ids=data.teams.map(t=>t.id), names=Object.fromEntries(data.teams.map(t=>[t.id,t.name]));
   const scores={}, opponents={};
   for(const week of data.weeks){scores[week.week]={}; opponents[week.week]={}; for(const m of week.matchups){

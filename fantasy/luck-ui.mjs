@@ -1,6 +1,6 @@
-import {scheduleLuckBreakdown} from './luck-model.mjs?v=9823585ce48b';
-import {mobileLuckWeeks} from './mobile-views.mjs?v=9823585ce48b';
-import {esc,manager,teamIdentity} from './identity.mjs?v=9823585ce48b';
+import {scheduleLuckBreakdown} from './luck-model.mjs?v=83e2bd34c11e';
+import {mobileLuckWeeks} from './mobile-views.mjs?v=83e2bd34c11e';
+import {esc,manager,teamIdentity} from './identity.mjs?v=83e2bd34c11e';
 const fixed=v=>Number(v).toFixed(2),points=v=>fixed(v/100);
 const signed=v=>Math.abs(v)<1e-9?'0.00':`${v>0?'+':'−'}${fixed(Math.abs(v))}`;
 const actualWins=t=>t.actual.w+t.actual.t*.5;

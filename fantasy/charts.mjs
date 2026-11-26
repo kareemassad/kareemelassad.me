@@ -1,16 +1,15 @@
-import {CHARTS,normalizeChartType,makeChartModel} from './chart-model.mjs?v=9823585ce48b';
-import {manager,fullName,esc} from './identity.mjs?v=9823585ce48b';
+import {CHARTS,normalizeChartType,makeChartModel} from './chart-model.mjs?v=83e2bd34c11e';
+import {manager,esc} from './identity.mjs?v=83e2bd34c11e';
 
 export function mountCharts(getLeague,toast){
   const $=s=>document.querySelector(s);
-  let type='pointsleft',mode='weekly',primary='all',comparison='none',lastWidth=0,frame=0,currentModel=null;
-  const lastView={rankings:'pointsleft',trends:'trend'};
+  let type='trend',mode='weekly',primary='3',comparison='none',lastWidth=0,frame=0,currentModel=null;
   let renderChart=null,rendererPromise=null;
   let hidden=new Set();
   function options(teams,first){return first+teams.map(t=>`<option value="${t.id}" title="${esc(t.name)}">${esc(manager(t))}</option>`).join('');}
   function renderControls(model){
     const teams=[...getLeague().teams].sort((a,b)=>manager(a).localeCompare(manager(b))),line=model.group==='trends';
-    $('#chart-type').innerHTML=CHARTS.filter(c=>c.group===model.group).map(c=>`<option value="${c.id}">${esc(c.label)}</option>`).join('');
+    $('#chart-type').innerHTML=CHARTS.map(c=>`<option value="${c.id}">${esc(c.label)}</option>`).join('');
     $('#chart-type').value=type;
     $('#chart-team-label').textContent='MANAGER';
     $('#chart-team').innerHTML=options(teams,line?`<option value="everyone">All managers</option><option value="baseline">${type==='luck'?'Zero-luck baseline only':'League average only'}</option>`:'<option value="all">All managers</option>');
@@ -42,7 +41,7 @@ export function mountCharts(getLeague,toast){
     if(renderChart){renderChart($('#chart-plot'),model);}
     else if(!rendererPromise){
       $('#chart-plot').innerHTML='<p class="chart-empty">Loading chart…</p>';
-      rendererPromise=import('./chart-lib.mjs?v=9823585ce48b').then(module=>{renderChart=module.renderChart;render();}).catch(()=>{rendererPromise=null;$('#chart-plot').innerHTML='<p class="chart-empty">Could not load the chart. Choose a graph to try again.</p>';});
+      rendererPromise=import('./chart-lib.mjs?v=83e2bd34c11e').then(module=>{renderChart=module.renderChart;render();}).catch(()=>{rendererPromise=null;$('#chart-plot').innerHTML='<p class="chart-empty">Could not load the chart. Choose a graph to try again.</p>';});
     }
   }
   function shareView(){
@@ -54,7 +53,7 @@ export function mountCharts(getLeague,toast){
     if(!location.hash.startsWith('#charts?'))return;
     const params=new URLSearchParams(location.hash.split('?')[1]);
     type=normalizeChartType(params.get('view'));mode=['weekly','rolling','cumulative'].includes(params.get('mode'))?params.get('mode'):'weekly';
-    primary=params.get('team')||'all';comparison=params.get('compare')||'none';lastView[CHARTS.find(c=>c.id===type).group]=type;
+    primary=params.get('team')||'all';comparison=params.get('compare')||'none';
     hidden=new Set((params.get('hide')||'').split(',').filter(Boolean));
     render();requestAnimationFrame(()=>$('#charts').scrollIntoView({block:'start'}));
   }
@@ -85,11 +84,7 @@ export function mountCharts(getLeague,toast){
       const url=URL.createObjectURL(png),a=document.createElement('a');a.href=url;a.download=`wg-${type}-week-${league.weeks.at(-1).week}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),5000);
     }catch{toast('Could not create the chart PNG. Please try again.');}
   }
-  $('#chart-groups').addEventListener('click',e=>{
-    const b=e.target.closest('[data-chart-group]');if(!b)return;const group=b.dataset.chartGroup,prior=CHARTS.find(c=>c.id===type).group;
-    if(group===prior)return;lastView[prior]=type;type=lastView[group];primary='all';comparison='none';render();shareView();
-  });
-  $('#chart-type').addEventListener('change',e=>{type=e.target.value;lastView[CHARTS.find(c=>c.id===type).group]=type;render();shareView();});
+  $('#chart-type').addEventListener('change',e=>{type=e.target.value;render();shareView();});
   $('#chart-team').addEventListener('change',e=>{primary=e.target.value;hidden.clear();if(primary===comparison)comparison='none';render();shareView();});
   $('#compare-team').addEventListener('change',e=>{comparison=e.target.value;render();shareView();});
   $('#trend-mode').addEventListener('change',e=>{mode=e.target.value;render();shareView();});

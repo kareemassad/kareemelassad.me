@@ -1,14 +1,14 @@
-import {perfectStandings,lineupManagerLeaders} from './best-lineups.mjs?v=9823585ce48b';
-import {recordText} from './engine.mjs?v=9823585ce48b';
-import {mobileStandings} from './mobile-views.mjs?v=9823585ce48b';
-import {benchRegrets} from './insights.mjs?v=9823585ce48b';
-import {teamIdentity,manager,fullName,playerPhoto} from './identity.mjs?v=9823585ce48b';
+import {perfectStandings,lineupManagerLeaders} from './best-lineups.mjs?v=83e2bd34c11e';
+import {recordText} from './engine.mjs?v=83e2bd34c11e';
+import {mobileStandings} from './mobile-views.mjs?v=83e2bd34c11e';
+import {benchRegrets} from './insights.mjs?v=83e2bd34c11e';
+import {teamIdentity,manager,fullName,playerPhoto} from './identity.mjs?v=83e2bd34c11e';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=v=>(v/100).toFixed(2),outcome=r=>r>0?'W':r<0?'L':'T',delta=v=>`${v>0?'+':v<0?'−':''}${Math.abs(v)}`;
 export function mountBestLineups(getLeague,toast){
   const $=s=>document.querySelector(s);let priorFocus=null;
-  function render(){const league=getLeague(),data=perfectStandings(league);$('#best-coverage').textContent=`${data.coverage.complete}/${data.coverage.required} lineups verified`;
-    if(!data.complete){$('#mobile-best-list').innerHTML='';$('#manager-spotlights').innerHTML='';$('#manager-ranking-note').hidden=true;$('#bench-receipts').innerHTML='';$('#best-table').innerHTML='';$('#best-empty').hidden=false;$('#best-empty').textContent='Complete, position-eligible historical lineups are required for every team before replaying the whole league. Saved lineup details are still loading or incomplete.';return;}
+  function render(){const league=getLeague(),data=perfectStandings(league);$('#save-best').disabled=!data.complete;$('#best-coverage').textContent=league.archived?`${league.season} archive · team scores only`:`${data.coverage.complete}/${data.coverage.required} lineups verified`;
+    if(!data.complete){$('#mobile-best-list').innerHTML='';$('#manager-spotlights').innerHTML='';$('#manager-ranking-note').hidden=true;$('#bench-receipts').innerHTML='';$('#best-table').innerHTML='';$('#best-empty').hidden=false;$('#best-empty').textContent=league.archived?'Player lineup records are not included in this archive. Use League records for historical results, or Schedules for score comparisons.':'Complete, position-eligible historical lineups are required for every team before replaying the whole league. Saved lineup details are still loading or incomplete.';return;}
     $('#best-empty').hidden=true;renderManagerLeaders(data);
     $('#best-table').innerHTML=`<caption class="sr-only">Everyone’s best lineup against everyone else’s best lineup, using the original weekly matchups. Select a team to inspect every week.</caption><thead><tr><th scope="col">TEAM</th><th scope="col">ACTUAL</th><th scope="col" title="Both sides use their best lineup every week">BOTH BEST</th><th scope="col">CHANGE</th><th scope="col" title="Only this manager improves their lineup, against actual opponents">OWN BEST</th><th scope="col">WINS FUMBLED*</th><th scope="col">PTS BENCHED</th></tr></thead><tbody>${data.teams.map((t,i)=>`<tr><th scope="row"><button class="best-team" data-best-team="${t.id}"><span class="best-rank">${String(i+1).padStart(2,'0')}</span>${teamIdentity(t)}<b aria-hidden="true">↗</b></button></th><td>${recordText(t.actual)}</td><td class="best-record">${recordText(t.perfect)}</td><td class="${t.winChange>0?'positive':t.winChange<0?'negative':''}">${delta(t.winChange)}</td><td>${recordText(t.ownOnly)}</td><td>${t.recoverableLosses}</td><td>${fmt(t.pointsLeft)}</td></tr>`).join('')}</tbody>`;
     const openIds=new Set(Array.from($('#mobile-best-list').querySelectorAll('details[open]')).map(d=>d.dataset.mobileTeam));$('#mobile-best-list').innerHTML=mobileStandings(data,openIds);

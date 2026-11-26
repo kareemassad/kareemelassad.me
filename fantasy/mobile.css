@@ -9,7 +9,7 @@
   .brand small{font-size:9px}
   .header-actions{flex:none}
   .header-actions .button{min-height:44px;padding:10px 12px;font-size:12px}
-  .topbar nav{position:fixed;top:auto;bottom:0;left:0;right:0;z-index:80;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;width:100%;margin:0;padding:7px max(8px,env(safe-area-inset-right,0px)) calc(7px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px));background:#f8faf5f5;border-top:1px solid #dce4d4;box-shadow:0 -5px 20px #193e3208;backdrop-filter:blur(14px)}
+  .topbar nav{position:fixed;top:auto;bottom:0;left:0;right:0;z-index:80;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;width:100%;margin:0;padding:7px max(8px,env(safe-area-inset-right,0px)) calc(7px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px));background:#f8faf5f5;border-top:1px solid #dce4d4;box-shadow:0 -5px 20px #193e3208;backdrop-filter:blur(14px)}
   .topbar nav a{display:grid;place-items:center;min-height:46px;padding:10px 4px;font-size:12px;border-radius:8px;white-space:nowrap}
   main{padding:0 14px 16px}
   .update-line{flex-direction:row;align-items:center;gap:10px;padding:13px 0 17px;font-size:10px}
