@@ -1,4 +1,4 @@
-import {MANAGERS} from './identity.mjs?v=dac01f61efdc';
+import {MANAGERS} from './identity.mjs?v=d83a020c391b';
 export const sum = xs => xs.reduce((a,b)=>a+b,0);
 export const compare = (a,b) => a>b ? 1 : a<b ? -1 : 0;
 export const record = xs => ({w:xs.filter(x=>x>0).length,l:xs.filter(x=>x<0).length,t:xs.filter(x=>x===0).length});
@@ -23,7 +23,7 @@ export function createLeague(data) {
     const expected=(allplay.w+allplay.t*.5)/(ids.length-1);
     const matrix=Object.fromEntries(ids.map(id=>[id,record(replay(team.id,id).map(x=>x.result))]));
     const wins=Object.values(matrix).map(r=>r.w+r.t*.5);
-    return {...team,manager:MANAGERS[team.id]||null,actual,allplay,expected,luck:actual.w+actual.t*.5-expected,matrix,pf:sum(own.map(x=>x.score))/100,pa:sum(own.map(x=>x.against))/100,best:Math.max(...wins),worst:Math.min(...wins)};
+    return {...team,manager:Object.prototype.hasOwnProperty.call(team,'manager')?team.manager:MANAGERS[team.id]||null,actual,allplay,expected,luck:actual.w+actual.t*.5-expected,matrix,pf:sum(own.map(x=>x.score))/100,pa:sum(own.map(x=>x.against))/100,best:Math.max(...wins),worst:Math.min(...wins)};
   });
   const byId=Object.fromEntries(teams.map(t=>[t.id,t]));
   return {...data,ids,names,scores,opponents,replay,teams,byId,weeksPlayed:data.weeks.length};

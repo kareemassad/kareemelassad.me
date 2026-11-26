@@ -1,0 +1,27 @@
+{
+  "repository": "kareemassad/schedule-lab",
+  "sourceSha": "cacb9ba1c50728feea0cc77c776d4458e0517493",
+  "files": {
+    "app.mjs": "79e67531500f5dd60e3e4b7eed350c3457e4733b1165ba95655915e4072858e3",
+    "best-lineups.mjs": "bc284f5bc5eabbdc70dd066da48c64eeede8b560f69d135c5012a5c865e8659b",
+    "best-ui.mjs": "0509a74a69101c981833d0a64e16c7faa185c53d0c3aa394ad7b722e35dec54e",
+    "chart-lib.mjs": "5699cbddda742ae0b16a3ed1a6808428e2926d29aea9fafeca4987e1aec06c58",
+    "chart-model.mjs": "af852fb83f778d5a1cc182cd4510a4b6249b05b62febf51904559779a75cfd93",
+    "charts.mjs": "e5cabd1a9da0ed7e4da513a010cca744ff4bbf570d5c9447ca1d9e89eb7b53cb",
+    "config.mjs": "50ae441a46dac56e1c2029efa67bc33c95797e43a4cc4dbe4c61ea3ac204aca5",
+    "data.mjs": "32c45a32a2767a768c312e93d316d520c2ad0ecf21ce35a69de35dcce314f7eb",
+    "engine.mjs": "d1b864e76c8a2755a6a4622a59061e2764fdbd11066a5cb3664bfb925d8e8260",
+    "favicon.svg": "2e73a80372f611df6d39b02a62e942a0866a3783e0f6d50e706a1336d2dfe751",
+    "history.mjs": "ad699e4e2b45de63c15111892ec78890ea3af689adaa1903983e3d934a1e6b9c",
+    "identity.mjs": "bfdbca75825ecacd16036418712fdec6ea33f33ee70abb04b9a611badf579b9a",
+    "index.html": "4d353898a06ac94e07a7f622c08eabb848fb3309037435bf8992df71411d0409",
+    "insights.mjs": "d0a6744a8f158674d8e4a3a3eb3dc833200974b341c8de4a34b61db74b9de699",
+    "interface.css": "ee34426fa32e1806f270675432838809a9dffefadc5dc5ff3dc32470a9815d93",
+    "luck-model.mjs": "2411ac8b57124a6150699c17fcae883fb20bfe721db8741576b4a2667f4172db",
+    "luck-ui.mjs": "d443ffb3aa220732694c16b70dc424b1dbc6d0f48d4140dfaf47c97eeb9c2f37",
+    "mobile-views.mjs": "fdf119d47261968f95186b78f8518faa6baf70d12380d64a1b083dd7c9b76db1",
+    "mobile.css": "90cd68c52eb87016b393e068f9b31efc85ea64408939936ac644f11e4183a720",
+    "navigation.mjs": "78bf151706154d98052782cab6f9d3bf07dbc46dd0d6dc2a91e84cd8ea8ef6f5",
+    "styles.css": "1e0164adc42a1819388f8b7ebb8ca1d60540eaf71013e7d934e6275ed849065a"
+  }
+}
