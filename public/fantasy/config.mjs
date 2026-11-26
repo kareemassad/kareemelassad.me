@@ -1,1 +1,1 @@
-export const API_BASE='https://wang-gang-schedule-lab.dapperwand11.chatgpt.site';
+export const API_BASE='https://wang-gang-schedule-lab.kareemery.chatgpt.site';

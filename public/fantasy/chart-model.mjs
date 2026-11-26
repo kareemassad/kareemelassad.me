@@ -1,6 +1,6 @@
-import {seasonInsights,benchRegrets,mean} from './insights.mjs?v=dac01f61efdc';
-import {perfectStandings} from './best-lineups.mjs?v=dac01f61efdc';
-import {manager,fullName} from './identity.mjs?v=dac01f61efdc';
+import {seasonInsights,benchRegrets,mean} from './insights.mjs?v=5089657d11c7';
+import {perfectStandings} from './best-lineups.mjs?v=5089657d11c7';
+import {manager,fullName} from './identity.mjs?v=5089657d11c7';
 
 export const CHARTS=[
   {id:'pointsleft',group:'rankings',label:'Points set on fire'},

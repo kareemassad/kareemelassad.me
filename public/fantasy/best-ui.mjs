@@ -1,8 +1,8 @@
-import {perfectStandings,lineupManagerLeaders} from './best-lineups.mjs?v=dac01f61efdc';
-import {recordText} from './engine.mjs?v=dac01f61efdc';
-import {mobileStandings} from './mobile-views.mjs?v=dac01f61efdc';
-import {benchRegrets} from './insights.mjs?v=dac01f61efdc';
-import {teamIdentity,manager,fullName,playerPhoto} from './identity.mjs?v=dac01f61efdc';
+import {perfectStandings,lineupManagerLeaders} from './best-lineups.mjs?v=5089657d11c7';
+import {recordText} from './engine.mjs?v=5089657d11c7';
+import {mobileStandings} from './mobile-views.mjs?v=5089657d11c7';
+import {benchRegrets} from './insights.mjs?v=5089657d11c7';
+import {teamIdentity,manager,fullName,playerPhoto} from './identity.mjs?v=5089657d11c7';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=v=>(v/100).toFixed(2),outcome=r=>r>0?'W':r<0?'L':'T',delta=v=>`${v>0?'+':v<0?'−':''}${Math.abs(v)}`;
 export function mountBestLineups(getLeague,toast){

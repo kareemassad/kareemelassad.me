@@ -1,5 +1,5 @@
-import {fitsSlot} from './insights.mjs?v=dac01f61efdc';
-import {record} from './engine.mjs?v=dac01f61efdc';
+import {fitsSlot} from './insights.mjs?v=5089657d11c7';
+import {record} from './engine.mjs?v=5089657d11c7';
 const cache=new WeakMap();
 export function lineupManagerLeaders(standings){
   if(!standings.complete)return null;

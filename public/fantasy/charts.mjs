@@ -1,5 +1,5 @@
-import {CHARTS,normalizeChartType,makeChartModel} from './chart-model.mjs?v=dac01f61efdc';
-import {manager,fullName,esc} from './identity.mjs?v=dac01f61efdc';
+import {CHARTS,normalizeChartType,makeChartModel} from './chart-model.mjs?v=5089657d11c7';
+import {manager,fullName,esc} from './identity.mjs?v=5089657d11c7';
 
 export function mountCharts(getLeague,toast){
   const $=s=>document.querySelector(s);
@@ -42,7 +42,7 @@ export function mountCharts(getLeague,toast){
     if(renderChart){renderChart($('#chart-plot'),model);}
     else if(!rendererPromise){
       $('#chart-plot').innerHTML='<p class="chart-empty">Loading chart…</p>';
-      rendererPromise=import('./chart-lib.mjs?v=dac01f61efdc').then(module=>{renderChart=module.renderChart;render();}).catch(()=>{rendererPromise=null;$('#chart-plot').innerHTML='<p class="chart-empty">Could not load the chart. Choose a graph to try again.</p>';});
+      rendererPromise=import('./chart-lib.mjs?v=5089657d11c7').then(module=>{renderChart=module.renderChart;render();}).catch(()=>{rendererPromise=null;$('#chart-plot').innerHTML='<p class="chart-empty">Could not load the chart. Choose a graph to try again.</p>';});
     }
   }
   function shareView(){
