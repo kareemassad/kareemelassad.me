@@ -1,5 +1,5 @@
-import {fitsSlot} from './insights.mjs?v=83e2bd34c11e';
-import {record} from './engine.mjs?v=83e2bd34c11e';
+import {fitsSlot} from './insights.mjs?v=9a469b449e9e';
+import {record} from './engine.mjs?v=9a469b449e9e';
 const cache=new WeakMap();
 export function lineupManagerLeaders(standings){
   if(!standings.complete)return null;
@@ -32,7 +32,7 @@ export function optimizeLineup(lineup,playerInfo){
     dp=next;paths=nextPaths;
   }
   let best=0;for(let mask=1;mask<size;mask++)if(dp[mask]>dp[best]||dp[mask]===dp[best]&&filled[mask]>filled[best])best=mask;
-  const assignments=slots.map((slot,i)=>({slot,id:null,points:0,originalId:lineup.starters[i].id}));
+  const assignments=slots.map((slot,i)=>({slot,id:null,points:0,originalId:lineup.starters[i].id,originalPoints:lineup.starters[i].points}));
   for(let node=paths[best];node;node=node.previous)assignments[node.slot]={...assignments[node.slot],id:node.id,points:pool.get(node.id).points};
   const actual=lineup.starters.reduce((s,p)=>s+p.points,0);
   return {ok:true,points:dp[best],actual,gain:dp[best]-actual,assignments};

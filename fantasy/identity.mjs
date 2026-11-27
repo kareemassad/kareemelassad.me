@@ -1,5 +1,5 @@
-import currentOwners from './current-owners.mjs?v=83e2bd34c11e';
-import {personForOwner} from './people.mjs?v=83e2bd34c11e';
+import currentOwners from './current-owners.mjs?v=9a469b449e9e';
+import {personForOwner} from './people.mjs?v=9a469b449e9e';
 // Legacy current-season labels remain for callers without report context.
 export const MANAGERS={1:'Stefan',2:'Logan',3:'Kareem',4:'Michael',5:'Russell',6:'Evan',7:'George',8:'Alois',9:'Mason',10:'Rory'};
 export const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -20,7 +20,7 @@ export function teamIdentity(t,{badge=true,meta=null}={}){
 export function playerPhoto(id,name){
   const initials=String(name||'').split(/\s+/).slice(0,2).map(s=>s[0]).join('').toUpperCase();
   const numeric=/^\d+$/.test(String(id));
-  return `<span class="player-photo" aria-hidden="true"><span>${esc(initials||'—')}</span>${numeric?`<img src="https://sleepercdn.com/content/nfl/players/thumb/${encodeURIComponent(id)}.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-player-photo>`:''}</span>`;
+  return `<span class="player-photo" aria-hidden="true"><span>${esc(initials||'—')}</span>${numeric?`<img width="64" height="64" src="https://sleepercdn.com/content/nfl/players/thumb/${encodeURIComponent(id)}.jpg" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-player-photo>`:''}</span>`;
 }
 // Failed or unavailable headshots leave the initials visible.
 export function enablePhotoFallback(){document.addEventListener('error',e=>{if(e.target?.matches?.('img[data-player-photo]'))e.target.hidden=true;},true);}

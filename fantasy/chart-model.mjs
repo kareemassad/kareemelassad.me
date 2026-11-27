@@ -1,5 +1,21 @@
-import {seasonInsights} from './insights.mjs?v=83e2bd34c11e';
-import {manager} from './identity.mjs?v=83e2bd34c11e';
+import {seasonInsights} from './insights.mjs?v=9a469b449e9e';
+import {manager} from './identity.mjs?v=9a469b449e9e';
+import {scheduleLuckBreakdown} from './luck-model.mjs?v=9a469b449e9e';
+
+export function chartPreset(league,preset){
+  if(preset==='everyone')return {type:'trend',primary:'everyone',comparison:'none',mode:'weekly'};
+  const teams=[...league.teams].sort((a,b)=>preset==='luck'?b.luck-a.luck||manager(a).localeCompare(manager(b)):b.pf-a.pf||manager(a).localeCompare(manager(b)));
+  return {type:preset==='luck'?'luck':'trend',primary:String(teams[0].id),comparison:String((preset==='luck'?teams.at(-1):teams[1]).id),mode:'weekly'};
+}
+export function chartStories(league,model){
+  const ids=model.series.filter(s=>s.key.startsWith('team')).map(s=>Number(s.key.slice(4))),rows=[];
+  for(const id of ids)for(const week of scheduleLuckBreakdown(league,id).weeks){
+    const average=league.ids.reduce((n,i)=>n+league.scores[week.week][i],0)/league.ids.length;
+    rows.push({...week,teamId:id,name:manager(league.byId[id]),opponentName:manager(league.byId[week.opponent]),importance:Math.abs(model.type==='luck'?week.difference:(week.score-average)/100)});
+  }
+  const seen=new Set();
+  return rows.sort((a,b)=>b.importance-a.importance||b.week-a.week||a.teamId-b.teamId).filter(row=>{const key=row.week+':'+[row.teamId,row.opponent].sort((a,b)=>a-b).join(':');if(row.importance<1e-9||seen.has(key))return false;seen.add(key);return true;}).slice(0,3);
+}
 
 export const CHARTS=[
   {id:'trend',group:'trends',label:'Scoring over time'},
@@ -35,7 +51,7 @@ export function makeChartModel(league,state={}){
   if(everyone){model.series=model.series.filter(s=>s.key==='baseline'||!hidden.includes(Number(s.key.slice(4))));model.subtitle=`${league.ids.length-hidden.length} of ${league.ids.length} managers shown. Select names in the legend to hide or show lines.`;}
   model.rows=league.weeks.map(({week},i)=>({week,baseline:baseline[i],...Object.fromEntries(selected.map(t=>['team'+t.id,t[key][i]]))}));
   model.domain=!luck&&mode==='cumulative'?[0,'auto']:['auto','auto'];
-  model.height=everyone?(compact?370:430):(compact?345:390);
+  model.height=everyone?(compact?370:430):(compact?310:360);
   model.detail=luck?'Above zero = more wins than expected from your weekly scores. Below zero = fewer. Expected wins comes from comparing the same week’s score against every other manager; open Schedule luck for the full calculation.':mode==='rolling'?'Each point averages the most recent three available weeks. The first two points use the available one or two weeks.':mode==='cumulative'?'Each point includes all points scored through that week. The league average uses every team.':'Each point is one finalized week. Hover, tap, or use the arrow keys for the exact scores.';
   return model;
 }

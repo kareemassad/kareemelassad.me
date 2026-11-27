@@ -1,0 +1,292 @@
+/* League members compare evidence. Desktop pairs a working view with its
+   explanation; mobile puts the chart or ranking first. Field green stays the
+   accent. Neutral surfaces, borders, and one readable type scale do the work. */
+:root{--paper:#f5f7f4;--muted:#536159;--line:#dce3dd;--ink:#1d2923}
+::selection{background:#d4ef8b;color:#193e32}
+main{max-width:1560px;padding:0 40px 40px}
+.topbar{padding:16px max(40px,calc((100vw - 1480px)/2));background:#fff;backdrop-filter:none;gap:40px}
+.topbar nav a{font-size:14px;padding:12px 16px;border-radius:6px}
+.topbar nav a[aria-current=page]{background:var(--green);color:white}
+.brand{font-size:18px}.brand small{font-size:10px}
+.button{font-size:14px;min-height:44px;box-shadow:none}
+.season-toolbar{padding-top:20px;font-size:14px}.season-toolbar select{font-size:16px}
+.update-line{padding:12px 0;font-size:13px}.update-line #update-status{font-size:12px}
+.season-navigation{margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.season-navigation a{font-weight:500;color:var(--muted)}
+.season-navigation a[aria-current=page]{background:transparent;color:var(--green);box-shadow:inset 0 -2px var(--green);border-radius:0}
+.section-heading h1,.section-heading h2{letter-spacing:-.03em}
+#charts>.section-heading{margin-bottom:20px}#charts>.section-heading h2{font-size:32px}
+.chart-panel{border:0;background:transparent;box-shadow:none;overflow:visible;border-radius:0}
+.chart-controls{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.chart-presets{padding:0;gap:8px}.chart-presets button{padding:12px 16px;font-weight:600;background:#fff;border-radius:6px}
+.chart-presets button[aria-pressed=true]{background:var(--green);border-color:var(--green);color:white}
+.chart-presets button:hover{background:#e9efe6;color:var(--green)}
+.chart-options{margin:0}.chart-options summary{font-size:14px;padding:12px 0}
+.chart-options[open]{flex-basis:100%;order:2}.chart-options .chart-toolbar{background:transparent;border:0;padding:8px 0 0}
+.chart-options .chart-toolbar label{font-size:12px;letter-spacing:0;color:var(--muted)}
+.chart-options select{font-size:16px;min-height:44px}
+.chart-workspace{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:start}
+.chart-main{min-width:0;background:white;border:1px solid var(--line);border-radius:12px;padding:24px 12px 12px}
+.chart-title{padding:0 16px 8px}.chart-title h3{font-size:26px;letter-spacing:-.025em}.chart-title #chart-subtitle{font-size:15px}
+.chart-title-tools{gap:10px}.chart-title-tools .chart-unit{font-size:12px;max-width:150px;line-height:1.5}
+.chart-takeaway{margin:4px 16px 12px;font-size:14px;font-weight:500;color:var(--muted);line-height:1.6;max-width:65ch}
+.chart-plot{padding:0 8px;min-width:0;width:100%}.library-chart{width:100%;min-width:0}
+.chart-legend{padding:12px 16px;gap:12px 20px}.chart-series-key{font-size:14px!important;min-height:36px}
+.chart-analysis{min-width:0;padding:4px 0}.chart-analysis>h3{font-size:18px;line-height:1.4;letter-spacing:-.015em;margin:0 0 16px}
+.chart-feature{margin:0;padding:0 0 20px;background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;font-size:16px;line-height:1.5}
+.chart-feature strong{font-weight:650}.chart-feature span{font-size:14px;line-height:1.6;margin-top:10px;color:var(--muted)}
+.chart-moments{display:block;padding:0}.chart-moments article{padding:20px 0;border:0;border-bottom:1px solid var(--line)}
+.chart-moments h4{font-size:14px;color:var(--muted);font-weight:500;margin-bottom:8px}
+.chart-moments strong{font-size:20px;letter-spacing:-.015em}.chart-moments p,.chart-moments small{font-size:14px;line-height:1.6}
+.chart-about{margin-top:20px}.chart-about summary{font-size:14px;min-height:44px;padding:12px 0}
+.chart-detail{background:transparent;padding:0;font-size:14px;border:0;max-width:70ch}
+#history{padding-top:24px}#history>.section-heading{display:flex;flex-direction:row;align-items:center;justify-content:space-between;margin-bottom:8px}
+#history>.section-heading h1{font-size:32px;letter-spacing:-.03em}#history .history-scope-label{display:flex;align-items:center;gap:12px;margin:0;font-size:14px}
+#history .history-scope-label select{margin:0;width:180px;font-size:16px}
+.history-coverage{font-size:14px;margin-bottom:8px}.history-status{margin:0 0 20px}.history-current{font-size:13px}
+.history-view-tabs{background:transparent;padding:0;border-radius:0;gap:24px;margin-bottom:24px;border-bottom:1px solid var(--line);width:100%}
+.history-view-tabs button{font-size:16px;font-weight:500;border-radius:0;padding:12px 0 16px;color:var(--muted)}
+.history-view-tabs button[aria-pressed=true],.history-view-tabs button[aria-pressed=true]:hover{box-shadow:inset 0 -3px var(--green);background:transparent;color:var(--green);font-weight:650}
+.history-view-tabs button:hover{background:transparent;color:var(--ink)}
+.history-workspace{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;align-items:start}
+.history-workspace>[data-history-panel=headtohead]{grid-column:1/-1}
+.history-record-controls{justify-content:space-between;gap:16px;margin:0 0 16px!important}
+#history .history-record-controls label{font-size:13px!important;color:var(--muted)}
+.history-workspace .panel{border-radius:12px;box-shadow:none}.history-workspace .panel>.table-scroll{padding:12px 20px}
+.history-standings{font-size:15px}.history-standings th,.history-standings td{padding:12px 10px}.history-standings thead th{font-size:13px}
+.history-standings .history-person strong{font-size:16px}.history-standings .history-person small{font-size:12px;line-height:1.5;margin-top:5px}
+.history-standings tr.selected{background:#edf3e5}.history-standings td:last-child{font-weight:650}
+#history-profile{position:sticky;top:96px;background:white;border:1px solid var(--line);border-radius:12px;padding:24px;min-width:0;max-height:none}
+#history-profile>.history-section-heading{margin:0 0 20px}#history-profile h2{font-size:24px;letter-spacing:-.025em}
+#history-person-summary{font-size:14px;line-height:1.7;color:var(--muted)}
+#history-profile .history-season-chart{padding:0;border:0;border-radius:0;background:transparent;margin:0 0 24px}
+.history-season-chart h3{font-size:15px;line-height:1.5;font-weight:600;margin-bottom:16px}
+.history-season-bar{grid-template-columns:52px minmax(0,1fr) 84px;gap:10px;margin:16px 0}
+.history-season-bar>span:first-child{font-size:15px}.history-season-bar small{font-size:11px}.history-season-bar strong{font-size:14px}
+.history-seasons{gap:0;border-top:1px solid var(--line)}.history-season-detail{border-bottom:1px solid var(--line)}
+.history-season-detail>summary{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;min-height:56px;cursor:pointer;padding:12px 0;font-size:15px;font-variant-numeric:tabular-nums}
+.history-season-detail>summary small{font-size:12px;color:var(--muted)}
+.history-season-detail>summary:hover{color:var(--green)}
+.history-season{padding:12px 0 20px;border:0;border-radius:0;display:block}.history-season>div:first-child,.history-season-record{display:none}
+.history-team b{font-size:15px}.history-season small{font-size:12px}.history-season dl{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding-top:16px;margin-top:16px}
+.history-season dd{font-size:18px}.history-season dt{font-size:12px}.history-season-luck{font-size:13px;margin-top:16px}
+.history-luck-panel{padding:8px 20px}.history-luck-axis,.history-luck-ranking>li{grid-template-columns:180px minmax(0,1fr) 110px;column-gap:16px}
+.history-luck-ranking>li{min-height:76px}.history-luck-calculation{font-size:12px}.history-luck-value>strong{font-size:20px}
+.history-luck-leaders{font-size:15px;margin:0 0 20px}.history-luck .history-section-heading h2{font-size:24px}
+.history-luck .history-section-heading p{font-size:14px}.history-method{font-size:14px;line-height:1.7;margin-top:24px}
+.history-method summary{font-size:14px}.history-method p{max-width:72ch}
+@media(min-width:1650px){.chart-workspace{grid-template-columns:minmax(0,1fr) 360px;gap:32px}.history-workspace{grid-template-columns:minmax(0,1fr) 400px;gap:32px}}
+@media(max-width:1100px){main{padding-left:24px;padding-right:24px}.topbar{padding-left:24px;padding-right:24px;gap:24px}.chart-workspace{grid-template-columns:minmax(0,1fr) 280px;gap:20px}.history-workspace{grid-template-columns:minmax(0,1fr) 320px;gap:20px}.history-luck-axis,.history-luck-ranking>li{grid-template-columns:120px minmax(0,1fr) 90px;column-gap:10px}.history-record-controls label{display:block!important}.history-record-controls select{margin-top:4px!important}}
+@media(max-width:1000px){.chart-workspace,.history-workspace{grid-template-columns:minmax(0,1fr)}#history-profile{position:static}.chart-analysis{padding-top:16px}.chart-moments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.chart-feature{max-width:70ch}.history-workspace{gap:24px}}
+@media(max-width:650px){main{padding:0 16px 24px}.topbar{padding:12px 16px;gap:12px}.brand{font-size:16px}.brand small{font-size:9px}.topbar nav a{font-size:13px;box-shadow:none}.topbar nav a[aria-current=page]{background:var(--green);color:white;border-radius:6px}.header-actions .button{font-size:12px}
+ #history{padding-top:20px}#history>.section-heading h1{font-size:25px}#history .history-scope-label{display:block;font-size:12px;max-width:44%}#history .history-scope-label select{font-size:14px;width:150px;margin-top:4px}.history-coverage{font-size:12px}.history-status{margin-bottom:12px}.history-current{font-size:12px}.history-view-tabs{gap:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:16px}.history-view-tabs button{font-size:14px;padding:12px 4px}
+ .history-record-controls{margin-bottom:12px!important}.history-workspace .panel>.table-scroll{padding:8px}.history-standings th:first-child{width:40%}.history-standings th,.history-standings td{font-size:13px;padding:10px 3px}.history-standings thead th{font-size:12px}.history-standings .history-person strong{font-size:14px}.history-standings .history-person small{font-size:11px}.history-record-controls select{width:100%;font-size:14px!important}.history-record-controls label{display:block!important}
+ #history-profile{padding:20px}.history-season-bar{grid-template-columns:55px minmax(0,1fr) 90px}.history-luck-axis,.history-luck-ranking>li{grid-template-columns:106px minmax(0,1fr) 70px;column-gap:8px}.history-luck-panel{padding:8px 12px}.history-luck .history-section-heading h2{font-size:23px}
+ #charts>.section-heading{margin-bottom:16px}#charts>.section-heading h2{font-size:25px}.chart-controls{gap:4px;margin-bottom:12px}.chart-presets{gap:6px;width:100%}.chart-presets button{font-size:13px;flex:1;min-width:0;padding:10px 6px}.chart-options{width:100%}.chart-options summary{font-size:13px;padding:12px 0}.chart-main{padding:20px 4px 8px}.chart-title{padding:0 12px 8px}.chart-title h3{font-size:24px}.chart-title #chart-subtitle{font-size:14px}.chart-title-tools .button{font-size:12px;padding:8px 12px}.chart-takeaway{font-size:13px;margin:4px 12px 8px}.chart-plot{padding:0;min-height:0}.chart-legend{padding:12px;gap:8px 16px}.chart-analysis>h3{font-size:20px}.chart-feature{font-size:16px}.chart-feature span,.chart-moments p,.chart-moments small{font-size:14px}.chart-moments{display:block}.chart-analysis{padding:0 4px}.chart-about{margin-top:12px}.chart-about summary{font-size:13px}
+}
+
+@media(min-width:651px){
+ #best-dialog {width:min(780px,95vw)}
+ .lineup-week .week-results {flex:1;grid-template-columns:1.05fr 1fr 1fr;align-items:center;gap:12px}
+}
+@media(max-width:360px){.topbar nav a {padding-inline:3px}}
+.season-context{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 0}.season-context .season-toolbar{padding:0;flex:1}.season-context .update-line{padding:0;display:flex;flex-direction:column;align-items:flex-end;gap:6px}.season-context .update-line #coverage{font-size:13px}.season-context .update-line #update-status{font-size:12px}
+body[data-view=history] .season-context{display:none}body[data-view=charts] .season-context #season-note{display:none}.chart-controls>.button{margin-left:auto}.chart-controls .chart-options{margin-left:auto}.chart-controls .chart-options[open]{margin-left:0}
+@media(max-width:650px){.season-context{gap:12px;padding:12px 0;align-items:center;flex-wrap:wrap}.season-context .season-toolbar{width:100%}.season-context .update-line{flex-direction:row;justify-content:space-between;width:100%;gap:8px;align-items:center}.season-context .update-line #coverage{font-size:12px}.season-context .update-line #update-status{font-size:11px}.chart-controls .chart-options{width:auto;flex:1;margin-left:0}.chart-controls .chart-options[open]{flex-basis:100%}.chart-controls>.button{font-size:12px;padding:10px 12px}.history-season-detail>summary{gap:8px}}
+.chart-takeaway{max-width:none}.chart-legend .chart-series-key:not(button){min-height:24px}.chart-title-tools .chart-unit{max-width:none}
+.topbar nav a{transition:none}
+.history-season-detail>summary{grid-template-columns:1fr auto auto 16px}.season-chevron{color:var(--muted);transition:transform .15s ease-out}.history-season-detail[open]>summary .season-chevron{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){.season-chevron{transition:none}}
+/* The schedule matrix is the shared league entry point. */
+body{font-family:'Public Sans',sans-serif}
+.update-frequency,body[data-view=report] #season-note{display:none}
+.schedule-focus{color:var(--ink)}
+.schedule-focus label{color:var(--muted)}
+@media(max-width:650px){.season-context .season-toolbar{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px}.season-context .season-toolbar select{width:100%;font-size:14px}.season-context .season-toolbar label{font-size:12px}.season-context .season-toolbar button{margin:0;font-size:12px;padding:8px 10px}.season-context .season-toolbar span{grid-column:1/-1;font-size:12px;width:auto}.season-navigation{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-bottom:20px}.season-navigation a{font-size:12px;padding:10px 4px;text-align:center;white-space:normal;line-height:1.5}.season-context .update-line #update-status{font-size:10px}}
+button,input,select,textarea{font-family:inherit}
+h1,h2,h3{ text-wrap:balance }
+.skip-link{position:fixed;top:12px;left:16px;z-index:1000;transform:translateY(-180%);background:var(--green);color:#fff;padding:14px 20px;border-radius:6px}
+.skip-link:focus{transform:translateY(0)}
+main:focus-visible{outline:2px solid var(--green);outline-offset:-2px}
+.text-link{color:var(--green);font-size:14px;font-weight:600;text-underline-offset:4px;text-decoration:underline;line-height:1.6}.text-link:hover{color:#101e18;text-decoration-thickness:2px}
+.schedule-focus{display:block;padding:24px 28px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:32px}
+.comparison-selectors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:700px;margin-bottom:24px}.comparison-selectors label{display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--muted)}.comparison-selectors select{width:100%;margin:0;min-height:48px;font-size:16px;background:#fff;color:var(--ink)}
+#focus-result{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:24px;align-items:center;margin:0 0 20px}.record-side{display:flex;flex-direction:column;gap:8px;min-width:0}.record-side>span{font-size:14px;line-height:1.5;color:var(--muted)}.record-side>strong{font-size:38px;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.03em;color:var(--ink)}
+.comparison-verdict{margin:0;font-size:20px;font-weight:600;line-height:1.4;color:var(--green)}.comparison-verdict small{display:block;font-size:13px;font-weight:400;margin-top:8px;color:var(--muted)}
+.schedule-shortcuts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}.schedule-shortcuts button{min-height:40px;padding:8px 14px;border:1px solid var(--line);border-radius:6px;background:#f5f7f4;color:var(--green);font-size:13px;font-weight:600;cursor:pointer}.schedule-shortcuts button:hover{background:#e6eddf;border-color:#9aac9b}
+.comparison-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px 20px}.comparison-note{max-width:90ch;color:var(--muted);font-size:12px;line-height:1.7;margin:20px 0 0}
+.schedule-grid>summary,.season-luck-details>summary{font-size:17px;font-weight:600;min-height:48px;padding:12px 0;cursor:pointer;color:var(--green)}
+.schedule-grid .grid-tools{margin:16px 0}.season-luck-details[open]>summary{margin-bottom:20px}
+.schedule-heading{margin:28px 0 24px}.schedule-heading h1{font-size:32px;font-weight:650;letter-spacing:-.03em;margin:0 0 12px}.schedule-heading p{font-size:15px;line-height:1.6;margin:0;max-width:80ch;color:var(--muted)}.schedule-heading .schedule-instruction{font-size:13px;margin-top:4px}
+.schedule-grid .grid-tools{margin:0 0 16px}.schedule-grid .controls{max-width:none;justify-content:flex-start}.schedule-grid .panel{box-shadow:none;border:1px solid var(--line);border-radius:12px}
+.schedule-grid .matrix{min-width:1080px;width:100%;table-layout:fixed;border-spacing:3px}.schedule-grid .matrix thead th:first-child,.schedule-grid .matrix tbody th{width:190px}.schedule-grid .matrix th:last-child{width:76px}.schedule-grid .matrix thead th{font-size:13px;letter-spacing:0;height:56px}.schedule-grid .matrix tbody th{height:46px}.schedule-grid .matrix .identity-text>strong{font-size:14px}.schedule-grid .matrix .identity-text>small{font-size:11px!important}.schedule-grid .matrix .manager-badge{display:none}.schedule-grid .record-cell{height:44px;min-height:44px;font-size:14px}.schedule-grid .matrix .rank{font-size:11px;width:20px}.schedule-grid .matrix td:last-child{font-size:14px;font-weight:650;color:var(--green)}.schedule-grid .matrix .team-label{max-width:160px}.schedule-grid .table-scroll{padding:12px}.schedule-grid .table-key{font-size:12px}
+.comparison-tool{margin-top:28px;border-top:1px solid var(--line)}.comparison-tool>summary{padding:16px 0;font-weight:600;font-size:16px;color:var(--green);cursor:pointer}.comparison-tool .schedule-focus{margin-top:8px;margin-bottom:0}
+.schedule-grid .table-key #download{width:auto;flex-basis:auto;margin-left:auto;font-size:12px}
+@media(min-width:880px){
+ body[data-view=report] main{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:24px}
+ body[data-view=report] main>*{grid-column:1/-1;min-width:0}
+ body[data-view=report] .season-context{grid-column:1;grid-row:1;padding:12px 0}
+ body[data-view=report] .season-navigation{grid-column:2;grid-row:1;align-self:center;margin:0;padding:0;border:0;gap:4px}
+ body[data-view=report] .season-navigation a{padding:12px 10px;font-size:13px}
+ body[data-view=report] .season-context .update-line{gap:4px;white-space:nowrap}
+ body[data-view=report] .season-toolbar{gap:8px}
+ body[data-view=report] .season-toolbar select{font-size:14px}
+ body[data-view=report] .season-toolbar button{font-size:12px;padding:8px 10px}
+ .schedule-heading{margin:8px 0 16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;align-items:center}
+ .schedule-heading h1{font-size:28px;margin:0 0 4px;grid-column:1/-1}
+ .schedule-heading p{font-size:14px}.schedule-heading .schedule-instruction{font-size:12px;margin:0}
+ .schedule-grid .grid-tools{margin-bottom:12px}.schedule-grid .matrix thead th{height:48px}
+}
+@media(max-width:650px){.schedule-heading{margin:20px 0}.schedule-heading h1{font-size:25px}.schedule-heading p{font-size:13px}.schedule-heading .schedule-instruction{font-size:12px;margin-top:8px}.schedule-grid .controls{display:flex!important;gap:8px}.schedule-grid .controls select{width:auto;flex:1;font-size:13px}.schedule-grid #download{width:100%;flex-basis:100%;font-size:13px}.schedule-grid .table-scroll{padding:6px}.schedule-grid .matrix{min-width:980px}.schedule-grid .matrix thead th:first-child,.schedule-grid .matrix tbody th{width:145px}.schedule-grid .matrix .team-label{max-width:120px}.schedule-grid .matrix .identity-text>strong{font-size:13px}.schedule-grid .matrix .identity-text>small{font-size:10px!important}.schedule-grid .matrix .rank{display:none}.schedule-grid .matrix thead th{font-size:12px}.schedule-grid .record-cell{font-size:13px}.schedule-grid .table-key{font-size:11px;gap:12px}.comparison-tool>summary{font-size:15px}}
+.button,button,a,select{-webkit-tap-highlight-color:#d4ef8b;touch-action:manipulation}dialog{overscroll-behavior:contain}
+@media(max-width:1000px){#focus-result{grid-template-columns:1fr 1fr}.comparison-verdict{grid-column:1/-1;font-size:18px}}
+@media(max-width:650px){.schedule-focus{padding:20px 16px;margin-bottom:24px}.comparison-selectors{gap:12px;margin-bottom:24px}.comparison-selectors label{font-size:12px}.comparison-selectors select{font-size:16px;padding-left:8px}#focus-result{gap:20px 16px}.record-side>span{font-size:12px}.record-side>strong{font-size:32px}.comparison-actions{gap:12px}.comparison-actions .button{flex:1;font-size:12px;padding:10px 8px}.comparison-actions .text-link{flex-basis:100%}.comparison-note{font-size:12px}.schedule-shortcuts{gap:6px}.schedule-shortcuts button{padding:8px 10px;font-size:12px}}
+
+/* Keep the complete grid inside laptop and embedded browser widths. */
+.row-toggle, main:not(:has(#load-error:not([hidden]))) #retry-update {display:none}
+.schedule-grid .matrix {min-width:0;width:100%}
+.schedule-grid .matrix thead th:first-child,.schedule-grid .matrix tbody th {width:clamp(112px,16vw,190px)}
+.schedule-grid .matrix thead th:last-child {width:6%}
+.schedule-grid .matrix th {white-space:normal;overflow-wrap:anywhere}
+.schedule-grid .matrix .team-label {max-width:calc(100% - 25px)}
+.schedule-grid .record-cell {width:100%;min-width:0;padding-inline:1px}
+.axis-description {color:var(--muted);margin:6px 0 18px}
+.rivalry-grid {min-width:0}
+.rivalry-grid .history-matrix {min-width:0;width:100%;table-layout:fixed}
+.history-matrix th,.history-matrix td {padding:3px}
+.history-matrix thead th {font-size:13px;white-space:normal;overflow-wrap:anywhere}
+.history-matrix th:first-child {width:9%;min-width:0}
+.history-matrix td button {width:100%;min-width:0;padding:2px;font-weight:600;border:0}
+.history-matrix .winning {background:#dfeddb;color:#234e37}
+.history-matrix .losing {background:#f1e4dd;color:#6e4234}
+.history-matrix .level {background:#eeeee5;color:#414938}
+.rivalry-highlights {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:28px 0}
+.rivalry-highlights section {min-width:0}
+.rivalry-highlights h3 {font-size:20px;margin:0 0 8px}
+.rivalry-highlights button,.lineup-week summary {display:flex;width:100%;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;text-align:left;color:var(--ink);background:none;border:0;border-bottom:1px solid var(--line);font:inherit;cursor:pointer}
+.rivalry-highlights button:hover,.lineup-board button:hover {color:var(--green);text-decoration:underline}
+.rivalry-highlights small {display:block;color:var(--muted);margin-top:3px}
+#pair-games>summary {cursor:pointer;font-weight:650;padding-block:12px}
+#charts .chart-workspace {display:block}
+#charts .chart-analysis {padding:12px 0}
+.chart-analysis summary {font-weight:600;cursor:pointer}
+#chart-takeaway,#chart-subtitle {display:none}
+#luck .luck-table {min-width:0;width:100%}
+#best .lineup-board {max-width:880px}
+.lineup-board .best-table {width:100%;min-width:0;border-collapse:collapse}
+.lineup-board .best-table th,.lineup-board .best-table td {height:auto;padding:12px 16px;position:static;white-space:normal;text-align:right}
+.lineup-board .best-table th:first-child {width:44%;text-align:left}
+.lineup-board .best-table tbody strong {color:var(--green);font-size:18px}
+.lineup-board button {font:inherit;font-weight:600;color:var(--ink);text-align:left;background:none;border:0;padding:8px 0;cursor:pointer}
+.lineup-week table {width:100%;margin:10px 0;text-align:left}
+.lineup-week p {margin:12px 0}
+.lineup-week th,.lineup-week td {padding:6px 4px}
+.lineup-week summary span {font-variant-numeric:tabular-nums}
+@media(max-width:1000px) {
+ .schedule-grid .table-scroll {padding:4px}
+ .schedule-grid .matrix thead th {font-size:12px}
+ .schedule-grid .matrix .rank {display:none}
+ .schedule-grid .matrix .team-label {max-width:100%}
+}
+@media(max-width:740px) {
+ .season-navigation,body[data-view=charts] .season-navigation {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px}
+ .season-navigation a {padding-inline:2px;font-size:12px}
+ .schedule-grid .table-scroll {padding:0}
+ .schedule-grid .matrix,.rivalry-grid .history-matrix {display:block;width:100%;min-width:0;border-spacing:0}
+ #matrix tbody,#history-matrix tbody,#matrix tr,#history-matrix tr {display:block}
+ #matrix thead,#history-matrix thead,#matrix .team-label,#matrix .rank,#history-matrix tbody th>span {display:none}
+ #matrix tbody th,#history-matrix tbody th {display:block;position:static;height:auto;width:100%;min-width:0;max-width:none;padding:0}
+ #matrix .row-toggle,#history-matrix .row-toggle {display:flex;justify-content:space-between;align-items:center;width:100%;min-height:48px;padding:10px 14px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:white;color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+ .row-toggle span {color:var(--green);font-size:13px}
+ #matrix td,#history-matrix td {display:none}
+ #matrix .expanded td[data-label],#history-matrix .expanded td[data-label] {display:flex;justify-content:space-between;align-items:center;gap:10px;padding:4px 14px;width:100%;height:auto}
+ .expanded td[data-label]::before {content:attr(data-label);font-size:14px;font-weight:500}
+ #matrix .expanded td button,#history-matrix .expanded td button {width:80px;min-height:40px;height:auto;padding:7px}
+ .rivalry-highlights {grid-template-columns:1fr;gap:20px}
+ .luck-table .manager-badge,.luck-table .identity-text>small {display:none}
+ #luck .luck-manager-column {width:29%}
+ #luck .luck-actual-column,#luck .luck-expected-column {width:15%}
+ #luck .luck-difference-column {width:41%}
+ #luck .luck-table td,#luck .luck-table th {padding:6px 4px}
+ #luck .luck-table thead th {font-size:11px;letter-spacing:0}
+ #luck .luck-table .luck-difference {display:grid;grid-template-columns:1fr 42px;align-items:center;gap:2px}
+ #luck .luck-table .luck-delta-track {display:block}
+ .lineup-board .best-table th,.lineup-board .best-table td {padding:8px}
+ .lineup-board .best-table th:first-child {width:40%}
+}
+
+.small-grid-note {display:none}
+.lineup-board .best-table thead th {font-size:13px;letter-spacing:0}
+@media(max-width:740px) {
+ .wide-grid-note {display:none}
+ .small-grid-note {display:block}
+ #matrix .row-toggle strong,#history-matrix .row-toggle strong {font-family:inherit;font-size:15px;font-weight:600;line-height:1.3;letter-spacing:0}
+ #luck .luck-table .luck-actual-column,#luck .luck-table .luck-expected-column,
+ #luck .luck-table tr>:nth-child(2),#luck .luck-table tr>:nth-child(3) {display:none}
+ #luck .luck-table .luck-manager-column {width:34%}
+ #luck .luck-table .luck-difference-column {width:66%}
+ #luck .luck-table .luck-difference {grid-template-columns:minmax(0,1fr) 48px}
+ #luck .luck-table td,#luck .luck-table th {padding-inline:10px}
+ #luck .luck-table td,#luck .luck-table tbody th {height:48px}
+ #luck .legend {display:none}
+ .lineup-board .best-table thead th {font-size:12px}
+}
+
+@media(min-width:741px) {
+ #report:not([hidden]) {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;column-gap:16px}
+ #report .schedule-heading {grid-column:1;grid-row:1;margin:8px 0 16px}
+ #report .schedule-heading p {margin:0}
+ #report .schedule-grid:not([hidden]) {display:contents}
+ #report .grid-tools {grid-column:2;grid-row:1;justify-self:end;margin:0 0 16px}
+ #report .panel,#schedule-loading,.comparison-tool {grid-column:1/-1}
+ .schedule-grid .matrix th:first-child {box-shadow:none;position:static}
+}
+
+@media(min-width:741px) and (max-height:820px) {
+ .schedule-grid .matrix tbody th,.schedule-grid .matrix .record-cell {height:39px;min-height:39px}
+ .schedule-grid .matrix thead th {height:40px}
+}
+
+.rivalry-highlights summary {padding:12px 0;color:var(--green);font-weight:600;cursor:pointer}
+
+.history-workspace {display:block}
+#history-detail {width:min(680px,calc(100% - 24px));padding:20px}
+#history-detail .dialog-top {align-items:center;gap:12px;margin-bottom:12px}
+#history-detail-title {font-size:clamp(18px,3vw,24px);line-height:1.25}
+#history-detail .history-season-detail>summary {grid-template-columns:1fr auto auto 16px}
+#history-detail .history-season-detail>summary small {min-width:78px;text-align:right}
+#history-detail .history-games {width:100%;min-width:0}
+#history-detail .history-games th,#history-detail .history-games td {overflow-wrap:anywhere}
+.lineup-board .best-table td {font-variant-numeric:tabular-nums}
+
+#lineup-opponents-label:not([hidden]) {display:flex;align-items:center;gap:10px;margin:0 0 14px;font-weight:600}
+#lineup-opponents {font:inherit;width:auto}
+.lineup-board .best-table {table-layout:fixed}
+.lineup-board .best-table th:first-child {width:35%}
+.lineup-board .best-table tbody tr {cursor:pointer}
+.lineup-board .best-table tbody tr:hover,.lineup-board .best-table tr:focus-within {background:#edf3e8}
+.win-delta {font-variant-numeric:tabular-nums;white-space:nowrap}
+.win-delta.gain {color:#216448}
+.win-delta.loss {color:#934b35}
+.win-delta.even {color:var(--muted)}
+.lineup-records {display:flex;gap:clamp(16px,5vw,40px);padding:8px 0 16px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.lineup-records span {font-size:13px;color:var(--muted)}
+.lineup-records b {display:block;font-size:20px;color:var(--ink)}
+#best-dialog-content h3 {font-size:16px}
+.lineup-week .week-results {display:grid;gap:4px;font-size:14px;text-align:left}
+.week-results b {font-size:16px}
+.lineup-week summary>.win-delta {margin-left:auto}
+.lineup-week summary::after {content:'▾';color:var(--muted)}
+.lineup-week[open]>summary::after {transform:rotate(180deg)}
+.lineup-swaps {padding:12px;background:var(--paper)}
+.lineup-swaps h4,.lineup-swaps h5 {margin:0 0 6px}
+.lineup-swaps>div {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.lineup-swaps ul {list-style:none;margin:0;padding:0}
+.lineup-swaps li {display:flex;justify-content:space-between;gap:6px;font-size:14px;padding-block:2px}
+.lineup-swaps h5 {color:var(--muted)}
+.unchanged-weeks>summary {padding:15px 0;cursor:pointer;font-weight:600;color:var(--green)}
+@media(max-width:650px){
+ .lineup-board .best-table th:first-child {width:30%}
+ .lineup-board .best-table th,.lineup-board .best-table td {padding-inline:6px}
+ .lineup-swaps>div {gap:12px}
+}

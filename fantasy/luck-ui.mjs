@@ -1,25 +1,15 @@
-import {scheduleLuckBreakdown} from './luck-model.mjs?v=83e2bd34c11e';
-import {mobileLuckWeeks} from './mobile-views.mjs?v=83e2bd34c11e';
-import {esc,manager,teamIdentity} from './identity.mjs?v=83e2bd34c11e';
+import {scheduleLuckBreakdown} from './luck-model.mjs?v=9a469b449e9e';
+import {mobileLuckWeeks} from './mobile-views.mjs?v=9a469b449e9e';
+import {esc,manager,teamIdentity} from './identity.mjs?v=9a469b449e9e';
 const fixed=v=>Number(v).toFixed(2),points=v=>fixed(v/100);
 const signed=v=>Math.abs(v)<1e-9?'0.00':`${v>0?'+':'−'}${fixed(Math.abs(v))}`;
 const actualWins=t=>t.actual.w+t.actual.t*.5;
 
 export function mountScheduleLuck(getLeague,toast){
   const $=s=>document.querySelector(s);let priorFocus=null;
-  const teamButton=t=>`<button class="luck-team-button" title="View weekly calculation" data-luck-team="${t.id}" aria-label="Show ${esc(manager(t))}’s weekly schedule luck calculation">${teamIdentity(t)}<span class="luck-calc-link" aria-hidden="true">↗</span></button>`;
+  const teamButton=t=>`<button class="luck-team-button" title="View weekly calculation" data-luck-team="${t.id}" aria-label="Show ${esc(manager(t))}’s weekly schedule luck calculation">${teamIdentity(t)}</button>`;
   function render(){
     const league=getLeague(),teams=[...league.teams].sort((a,b)=>Math.abs(a.luck-b.luck)<1e-9?manager(a).localeCompare(manager(b)):b.luck-a.luck);
-    const high=teams[0].luck,low=teams.at(-1).luck,n=league.ids.length-1,example=teams[0];
-    if(Math.abs(high-low)<1e-9){
-      $('#luck-spotlights').innerHTML='<div class="luck-level"><strong>Everyone is tied.</strong> Actual wins match expected wins for every manager.</div>';
-    }else{
-      $('#luck-spotlights').innerHTML=[['luckiest',high],['unluckiest',low]].map(([kind,value])=>{
-        const tied=teams.filter(t=>Math.abs(t.luck-value)<1e-9),title=(tied.length>1?'Joint ':'')+(kind==='luckiest'?'Luckiest bastard':'Unluckiest bastard');
-        return `<article class="luck-spotlight ${kind}"><h3>${title}</h3><div class="luck-spotlight-body"><div class="luck-leaders">${tied.map(teamButton).join('')}</div><div class="luck-spotlight-value"><strong>${signed(value)}</strong><span>wins ${value>0?'above':'below'} expected</span></div></div><p>${tied.map(t=>`${actualWins(t)} actual − ${fixed(t.expected)} expected`).join('<br>')}</p></article>`;
-      }).join('');
-    }
-    $('#luck-explainer').innerHTML=`<p><b>Expected wins:</b> each week, compare your score with the other ${n} scores. Each team you outscore counts 1; a tie counts ½. Divide by ${n}, then add the weekly results.</p><p><b>Luck in wins = actual wins − expected wins.</b> ${esc(manager(example))}: ${actualWins(example)} − ${fixed(example.expected)} = <strong class="${example.luck<0?'negative':'positive'}">${signed(example.luck)}</strong>.</p><p class="luck-explainer-hint">Select a manager for the weekly calculation. Positive = more wins; negative = fewer.</p>`;
     const scale=Math.max(1.75,...teams.map(t=>Math.abs(t.luck)*1.18));
     $('#luck-table-body').innerHTML=teams.map(t=>{
       const size=Math.abs(t.luck)/scale*43,negative=t.luck<0;

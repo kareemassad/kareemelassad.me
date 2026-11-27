@@ -1,40 +1,152 @@
-import {perfectStandings,lineupManagerLeaders} from './best-lineups.mjs?v=83e2bd34c11e';
-import {recordText} from './engine.mjs?v=83e2bd34c11e';
-import {mobileStandings} from './mobile-views.mjs?v=83e2bd34c11e';
-import {benchRegrets} from './insights.mjs?v=83e2bd34c11e';
-import {teamIdentity,manager,fullName,playerPhoto} from './identity.mjs?v=83e2bd34c11e';
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const fmt=v=>(v/100).toFixed(2),outcome=r=>r>0?'W':r<0?'L':'T',delta=v=>`${v>0?'+':v<0?'−':''}${Math.abs(v)}`;
+import {perfectStandings} from './best-lineups.mjs?v=9a469b449e9e';
+import {recordText} from './engine.mjs?v=9a469b449e9e';
+import {esc,manager} from './identity.mjs?v=9a469b449e9e';
+
+const points=cents=>(cents/100).toFixed(2);
+const outcome=value=>value>0?'Win':value<0?'Loss':'Tie';
+
+const signed=value=>value>0?'+'+value:value<0?'−'+Math.abs(value):'0';
+const wins=record=>record.w+record.t/2;
+const changeClass=value=>value>0?'gain':value<0?'loss':'even';
+
+function playerChanges(lineup,league,name){
+  const slots=lineup.assignments;
+  const before=new Set(slots.map(p=>p.originalId)),after=new Set(slots.map(p=>p.id));
+  const out=slots.filter(p=>p.originalId&&!after.has(p.originalId));
+  const added=slots.filter(p=>p.id&&!before.has(p.id));
+  if(!out.length&&!added.length)return '';
+  function list(players,id,score){
+    return players.map(p=>`<li><span>${esc(league.playerInfo?.[p[id]]?.name||'Recorded player')}</span><b>${points(p[score])}</b></li>`).join('')||'<li>Empty slot</li>';
+  }
+  return `<section class="lineup-swaps"><h4>${esc(name)} · ${lineup.gain?'+'+points(lineup.gain):'0.00'} pts</h4>
+    <div><section><h5>Out</h5><ul>${list(out,'originalId','originalPoints')}</ul></section>
+    <section><h5>In</h5><ul>${list(added,'id','points')}</ul></section></div></section>`;
+}
+
 export function mountBestLineups(getLeague,toast){
-  const $=s=>document.querySelector(s);let priorFocus=null;
-  function render(){const league=getLeague(),data=perfectStandings(league);$('#save-best').disabled=!data.complete;$('#best-coverage').textContent=league.archived?`${league.season} archive · team scores only`:`${data.coverage.complete}/${data.coverage.required} lineups verified`;
-    if(!data.complete){$('#mobile-best-list').innerHTML='';$('#manager-spotlights').innerHTML='';$('#manager-ranking-note').hidden=true;$('#bench-receipts').innerHTML='';$('#best-table').innerHTML='';$('#best-empty').hidden=false;$('#best-empty').textContent=league.archived?'Player lineup records are not included in this archive. Use League records for historical results, or Schedules for score comparisons.':'Complete, position-eligible historical lineups are required for every team before replaying the whole league. Saved lineup details are still loading or incomplete.';return;}
-    $('#best-empty').hidden=true;renderManagerLeaders(data);
-    $('#best-table').innerHTML=`<caption class="sr-only">Everyone’s best lineup against everyone else’s best lineup, using the original weekly matchups. Select a team to inspect every week.</caption><thead><tr><th scope="col">TEAM</th><th scope="col">ACTUAL</th><th scope="col" title="Both sides use their best lineup every week">BOTH BEST</th><th scope="col">CHANGE</th><th scope="col" title="Only this manager improves their lineup, against actual opponents">OWN BEST</th><th scope="col">WINS FUMBLED*</th><th scope="col">PTS BENCHED</th></tr></thead><tbody>${data.teams.map((t,i)=>`<tr><th scope="row"><button class="best-team" data-best-team="${t.id}"><span class="best-rank">${String(i+1).padStart(2,'0')}</span>${teamIdentity(t)}<b aria-hidden="true">↗</b></button></th><td>${recordText(t.actual)}</td><td class="best-record">${recordText(t.perfect)}</td><td class="${t.winChange>0?'positive':t.winChange<0?'negative':''}">${delta(t.winChange)}</td><td>${recordText(t.ownOnly)}</td><td>${t.recoverableLosses}</td><td>${fmt(t.pointsLeft)}</td></tr>`).join('')}</tbody>`;
-    const openIds=new Set(Array.from($('#mobile-best-list').querySelectorAll('details[open]')).map(d=>d.dataset.mobileTeam));$('#mobile-best-list').innerHTML=mobileStandings(data,openIds);
-    renderReceipts();
+  const $=id=>document.getElementById(id);
+  let previousFocus=null,selectedId=null;
+  const bothBest=()=>$('lineup-opponents').value==='best';
+  const replayRecord=team=>bothBest()?team.perfect:team.ownOnly;
+  function shareState(week){
+    const params=new URLSearchParams();
+    if(selectedId!==null)params.set('team',selectedId);
+    if(week)params.set('week',week);
+    if(bothBest())params.set('opponents','best');
+    history.replaceState(null,'',params.size?'#best?'+params:'#best');
   }
-  function renderManagerLeaders(data){
-    const leaders=lineupManagerLeaders(data);$('#manager-ranking-note').hidden=!leaders;
-    if(!leaders){$('#manager-spotlights').innerHTML='';return;}
-    if(leaders.allTied){$('#manager-spotlights').innerHTML=`<div class="luck-level"><strong>All managers tied at ${leaders.best[0].capture.toFixed(2)}% lineup efficiency.</strong></div>`;return;}
-    $('#manager-spotlights').innerHTML=[['best',leaders.best],['worst',leaders.worst]].map(([kind,teams])=>`<article class="manager-spotlight ${kind}-manager"><h3>${teams.length>1?'Joint ':''}${kind==='best'?'Lineup genius':'Lineup criminal'}</h3><div class="manager-spotlight-body"><div class="manager-leaders">${teams.map(t=>`<button class="manager-profile-button" data-manager-profile="${t.id}" aria-label="Inspect ${esc(manager(t))}’s weekly lineups">${teamIdentity(t)}<span aria-hidden="true">↗</span></button>`).join('')}</div><div class="manager-spotlight-value"><strong>${teams[0].capture.toFixed(2)}%</strong><span>lineup efficiency</span></div></div><div class="manager-mini-stats">${teams.map(t=>`<span>${teams.length>1?`<em>${esc(manager(t))}</em>`:''}<b>${fmt(t.pointsLeft)}</b><small>PTS BENCHED</small></span><span><b>${t.recoverableLosses}</b><small>WINS FUMBLED</small></span>`).join('')}</div></article>`).join('');
+  function render(){
+    const league=getLeague(),data=perfectStandings(league);
+    $('best-empty').hidden=data.complete;
+    $('save-best').hidden=!data.complete;
+    $('lineup-opponents-label').hidden=!data.complete;
+    $('best-table').parentElement.hidden=!data.complete;
+    if(!data.complete){
+      $('best-empty').textContent=league.archived?'Player lineups are not included in this archive.':'Waiting for verified player scores for every team.';
+      $('best-table').innerHTML='';
+      return;
+    }
+    const rows=data.teams.map(team=>{
+      const replay=replayRecord(team);
+      return {team,replay,delta:wins(replay)-wins(team.actual)};
+    }).sort((a,b)=>b.delta-a.delta||wins(b.team.actual)-wins(a.team.actual)||manager(a.team).localeCompare(manager(b.team)));
+    $('best-table').innerHTML=`<thead><tr><th>Manager</th><th>Actual record</th><th>Best lineup record</th><th title="Change in wins. A tie counts as half a win.">+/− wins</th></tr></thead>
+      <tbody>${rows.map(({team,replay,delta})=>`<tr data-team-id="${team.id}"><th scope="row"><button data-best-team="${team.id}" aria-haspopup="dialog">${esc(manager(team))}</button></th><td>${recordText(team.actual)}</td><td>${recordText(replay)}</td><td><b class="win-delta ${changeClass(delta)}">${signed(delta)}</b></td></tr>`).join('')}</tbody>`;
   }
-  function inspect(id,week=null){const league=getLeague(),data=perfectStandings(league),team=data.teams.find(t=>t.id===Number(id));if(!team)return;priorFocus=document.activeElement;
-    $('#best-dialog-content').innerHTML=`<h2>${esc(manager(team))}<small class="comparison-team">${esc(team.name)}</small></h2><div class="best-summary"><div><small>ACTUAL</small><strong>${recordText(team.actual)}</strong></div><span>→</span><div><small>EVERYONE’S BEST</small><strong>${recordText(team.perfect)}</strong></div><div><small>POINTS LEFT</small><strong>${fmt(team.pointsLeft)}</strong></div></div><p class="best-dialog-explain">Both teams use their highest-scoring position-eligible lineup in the original week. Tap a week to see the exact players selected.</p><div class="best-week-list">${team.weeks.map(w=>{const own=data.byWeek[w.week][team.id],other=data.byWeek[w.week][w.opponent],changed=w.actualResult!==w.perfectResult;const assignments=(side,optimized)=>`<div class="lineup-side"><h4>${teamIdentity(side)}</h4><table><thead><tr><th>SLOT</th><th>BEST LINEUP</th><th>PTS</th></tr></thead><tbody>${optimized.assignments.map((p,i)=>`<tr><td>${esc(p.slot)}</td><td><div class="lineup-player">${playerPhoto(p.id,league.playerInfo[p.id]?.name)}<span><b>${esc(p.id?league.playerInfo[p.id]?.name??'Recorded player':'Empty slot')}</b>${p.id!==p.originalId?`<small>Originally: ${esc(p.originalId?league.playerInfo[p.originalId]?.name??'recorded starter':'empty slot')}</small>`:''}</span></div></td><td>${fmt(p.points)}</td></tr>`).join('')}</tbody></table></div>`;return `<details class="best-week" data-week="${w.week}"><summary><span><i class="week-chip">W${w.week}</i> ${esc(manager(league.byId[w.opponent]))}<small>${esc(league.names[w.opponent])}</small></span><span>${outcome(w.actualResult)} → <b class="${changed?'result-change':''}">${outcome(w.perfectResult)}</b></span><span>${fmt(w.optimalFor)} – ${fmt(w.optimalAgainst)}</span></summary><p class="week-original">Actual: ${fmt(w.actualFor)} – ${fmt(w.actualAgainst)}. Own lineup gain: +${fmt(w.gain)}.${w.actualResult<0&&w.ownOnlyResult>0?' Optimizing only this team would beat the opponent’s actual score.':''}</p><div class="lineup-pair">${assignments(team,own)}${assignments(league.byId[w.opponent],other)}</div></details>`;}).join('')}</div><p class="detail-note">Hindsight only. Current position eligibility and recorded reserves are included; historical IR and lock restrictions are not reconstructed. Empty slots can score zero instead of starting a negative scorer.</p>`;
-    $('#best-dialog').showModal();if(week){const detail=$('#best-dialog').querySelector(`[data-week="${Number(week)}"]`);if(detail){detail.open=true;requestAnimationFrame(()=>detail.scrollIntoView({block:'start'}));}}history.replaceState(null,'',`#best?team=${team.id}${week?'&week='+Number(week):''}`);
+  function inspect(id,week){
+    const league=getLeague(),data=perfectStandings(league),team=data.teams.find(t=>t.id===Number(id));
+    const dialog=$('best-dialog');
+    if(!team){selectedId=null;if(dialog.open)dialog.close();return;}
+    $('lineup-replay-label').textContent=bothBest()?'Opponents · Best lineups':'Opponents · Actual lineups';
+    if(!dialog.open)previousFocus=$('best-table').querySelector(`[data-best-team="${team.id}"]`);
+    selectedId=team.id;
+    const replay=replayRecord(team),net=wins(replay)-wins(team.actual);
+    const changed=[],unchanged=[];
+    for(const w of team.weeks){
+      const result=bothBest()?w.perfectResult:w.ownOnlyResult;
+      const delta=(result-w.actualResult)/2;
+      const opponent=manager(league.byId[w.opponent]),against=bothBest()?w.optimalAgainst:w.actualAgainst;
+      const score=(a,b)=>points(a)+'–'+points(b);
+      const swaps=playerChanges(data.byWeek[w.week][team.id],league,manager(team))+
+        (bothBest()?playerChanges(data.byWeek[w.week][w.opponent],league,opponent):'');
+      const entry=`<details class="lineup-week" data-week="${w.week}" name="lineup-game"><summary>
+        <span class="week-results"><b>Week ${w.week} · vs ${esc(opponent)}</b>
+        <span>Actual · ${outcome(w.actualResult)} ${score(w.actualFor,w.actualAgainst)}</span>
+        <span>Replay · ${outcome(result)} ${score(w.optimalFor,against)}</span></span>
+        <b class="win-delta ${changeClass(delta)}">${signed(delta)}</b></summary>
+        ${swaps||'<p>Same starters.</p>'}</details>`;
+      (delta?changed:unchanged).push(entry);
+    }
+    $('best-dialog-content').innerHTML=`<h2 id="lineup-manager">${esc(manager(team))}</h2>
+      <div class="lineup-records"><span>Actual <b>${recordText(team.actual)}</b></span><span>Best lineup <b>${recordText(replay)}</b></span><span>+/− wins <b class="win-delta ${changeClass(net)}">${signed(net)}</b></span></div>
+      <h3>Changed results</h3><div class="changed-weeks">${changed.join('')||'<p>No result changed.</p>'}</div>
+      ${unchanged.length?`<details class="unchanged-weeks"><summary>Unchanged results (${unchanged.length})</summary>${unchanged.join('')}</details>`:''}`;
+    const detail=$('best-dialog-content').querySelector(`[data-week="${Number(week)}"]`);
+    if(detail){
+      const group=detail.closest('.unchanged-weeks');
+      if(group)group.open=true;
+      detail.open=true;
+    }
+    if(!dialog.open)dialog.showModal();
+    if(detail)detail.scrollIntoView({block:'nearest'});else dialog.scrollTop=0;
+    shareState(detail?.dataset.week);
   }
-  function close(){$('#best-dialog').close();history.replaceState(null,'','#best');if(priorFocus?.isConnected)priorFocus.focus();}
-  function readHash(){if(!location.hash.startsWith('#best?'))return;const params=new URLSearchParams(location.hash.split('?')[1]),id=params.get('team'),week=Number(params.get('week'));if(id&&perfectStandings(getLeague()).complete)inspect(id,week>0&&week<=14?week:null);}
-  async function saveStandings(){const league=getLeague(),data=perfectStandings(league);if(!data.complete){toast('Complete lineups are required before exporting.');return;}await document.fonts.ready;const canvas=document.createElement('canvas');canvas.width=2600;canvas.height=1610;const c=canvas.getContext('2d');c.fillStyle='#f6f6ef';c.fillRect(0,0,2600,1610);const text=(s,x,y,size=30,color='#1e2c26',bold=false,align='left')=>{c.font=`${bold?650:400} ${size}px Segoe UI,Arial`;c.fillStyle=color;c.textAlign=align;c.fillText(s,x,y);};text(`WG · ${league.season} · WEEKS ${league.weeks[0].week}–${league.weeks.at(-1).week}`,65,68,28,'#193e32',true);text('Start/sit crimes. Receipts attached.',60,172,78,'#1e2c26',true);text('Every team optimized, every week. Original head-to-head schedule. Full position-eligible lineups.',65,239,30,'#637165');const leaders=lineupManagerLeaders(data);if(leaders){[['best',leaders.best],['worst',leaders.worst]].forEach(([kind,teams],i)=>{const x=65+i*1250;c.fillStyle=kind==='best'?'#eaf3e1':'#f3e9df';c.fillRect(x,280,1220,155);text((teams.length>1?'JOINT ':'')+(kind==='best'?'LINEUP GENIUS':'LINEUP CRIMINAL')+(teams.length>1?'S':''),x+24,315,20,'#637165',true);text(teams.map(t=>manager(t)).join(' · '),x+24,365,34,'#193e32',true);text(teams[0].capture.toFixed(2)+'%',x+1196,365,44,kind==='best'?'#216c50':'#a45e3f',true,'right');text('Lineup efficiency = points started / optimal points · hindsight',x+24,409,20,'#637165');});}const centers=[700,990,1260,1550,1840,2220],labels=['ACTUAL','EVERYONE’S BEST','CHANGE','OWN BEST ONLY','WINS FUMBLED*','POINTS LEFT'];text('TEAM',80,506,23,'#637165',true);labels.forEach((s,i)=>text(s,centers[i],506,23,'#637165',true,'center'));data.teams.forEach((t,i)=>{const y=534+i*77;c.fillStyle=i%2===0?'white':'#f6f6ef';c.fillRect(65,y,2470,71);let size=29;c.font=`400 ${size}px Segoe UI`;while(c.measureText(t.name).width>520){size--;c.font=`400 ${size}px Segoe UI`;}text(manager(t),80,y+31,31,'#193e32',true);text(t.name,80,y+59,21,'#637165');const values=[recordText(t.actual),recordText(t.perfect),delta(t.winChange),recordText(t.ownOnly),t.recoverableLosses,fmt(t.pointsLeft)];values.forEach((s,j)=>text(s,centers[j],y+46,34,j===2&&t.winChange<0?'#a45e3f':j===2&&t.winChange>0?'#216c50':'#193e32',j===1,'center'));});text('Everyone’s best = both sides optimized. Own best only = just that row’s team optimized against actual opponents.',65,1380,27,'#637165');text('*Wins fumbled = actual losses that the team’s own best lineup flips against the opponent’s actual score.',65,1425,27,'#637165');text('Hindsight: current position eligibility and recorded reserves. Historical IR/lock restrictions are not reconstructed.',65,1470,26,'#637165');text('Empty slots score zero, so negative scorers may be benched. Equal team scores count as ties.',65,1515,26,'#637165');text('SLEEPER · THE SCHEDULE LAB',65,1570,21,'#193e32',true);const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob){toast('Could not export standings.');return;}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`wg-best-lineups-week-${league.weeks.at(-1).week}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),5000);}
-  function renderReceipts(){
-    const league=getLeague(),seen=new Set(),rows=[];
-    for(const r of benchRegrets(league)){if(seen.has(r.teamId))continue;seen.add(r.teamId);rows.push(r);if(rows.length===4)break;}
-    $('#bench-receipts').innerHTML=rows.map(r=>{const p=league.playerInfo[r.benchId],starter=league.playerInfo[r.starterId];return `<button class="receipt-card" data-receipt-team="${r.teamId}" data-receipt-week="${r.week}" aria-label="${esc(manager(league.byId[r.teamId]))}, Week ${r.week}: ${esc(p.name)}, ${fmt(r.gain)} points left. Open lineup details."><span class="receipt-context">WEEK ${r.week}<span>${esc(manager(league.byId[r.teamId]))}</span></span><span class="receipt-player">${playerPhoto(r.benchId,p.name)}<span><strong>${esc(p.name)}</strong><small>${esc(p.positions.join(' / '))} · ${fmt(r.benchPoints)} on the bench</small></span></span><span class="receipt-swap">Instead of ${esc(starter?.name||'an empty slot')} · ${fmt(r.starterPoints)}</span><span class="receipt-result"><b>+${fmt(r.gain)} <small>points</small></b><span>${r.scorelineFlip?'Fumbled the win':'See the lineup'} ↗</span></span></button>`;}).join('');
+  function close(){
+    $('best-dialog').close();
+    selectedId=null;shareState();
+    previousFocus?.focus();
   }
-  $('#manager-spotlights').addEventListener('click',e=>{const b=e.target.closest('[data-manager-profile]');if(b)inspect(b.dataset.managerProfile);});
-  $('#bench-receipts').addEventListener('click',e=>{const b=e.target.closest('[data-receipt-team]');if(b)inspect(b.dataset.receiptTeam,b.dataset.receiptWeek);});
-  $('#mobile-best-list').addEventListener('click',e=>{const b=e.target.closest('[data-best-team]');if(b)inspect(b.dataset.bestTeam);});
-  $('#best-table').addEventListener('click',e=>{const button=e.target.closest('[data-best-team]');if(button)inspect(button.dataset.bestTeam);});$('#close-best-dialog').addEventListener('click',close);$('#best-dialog').addEventListener('cancel',e=>{e.preventDefault();close();});$('#copy-best').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(location.href);toast('Comparison link copied.');}catch{toast('Copy the address-bar URL to share.');}});$('#save-best').addEventListener('click',saveStandings);
-  return {render,readHash};
+  $('best-table').addEventListener('click',event=>{
+    const row=event.target.closest('[data-team-id]');
+    if(row)inspect(row.dataset.teamId);
+  });
+  $('lineup-opponents').addEventListener('change',()=>{render();shareState();});
+  $('best-dialog-content').addEventListener('toggle',event=>{
+    if(!$('best-dialog').open||!event.target.matches('.lineup-week'))return;
+    const week=$('best-dialog-content').querySelector('.lineup-week[open]')?.dataset.week;
+    shareState(week);
+  },true);
+  $('save-best').addEventListener('click',async()=>{
+    const league=getLeague();
+    const rows=Array.from($('best-table').rows,row=>Array.from(row.cells,cell=>cell.innerText));
+    if(rows.length<2)return;
+    const canvas=document.createElement('canvas');
+    canvas.width=1200;
+    canvas.height=210+rows.length*66;
+    const ctx=canvas.getContext('2d');
+    ctx.fillStyle='#f6f6ef';ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle='#193e32';ctx.font='bold 42px sans-serif';ctx.fillText('Lineup records',40,62);
+    ctx.font='24px sans-serif';ctx.fillText(`WG Fantasy · ${league.season} · Through Week ${league.weeks.at(-1).week}`,40,105);
+    ctx.fillText('Opponents · '+(bothBest()?'Best lineups':'Actual lineups'),40,144);
+    rows.forEach((row,index)=>{
+      const y=184+index*66;
+      ctx.fillStyle=index%2?'#ffffff':'#e9eee6';ctx.fillRect(32,y,1136,64);
+      ctx.fillStyle='#193e32';ctx.font=index?'28px sans-serif':'bold 23px sans-serif';
+      row.forEach((value,column)=>{ctx.textAlign=column?'right':'left';ctx.fillText(value,[48,610,930,1140][column],y+41);});
+      ctx.textAlign='left';
+    });
+    const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+    if(!blob){toast('Could not save the lineup table.');return;}
+    const link=document.createElement('a');
+    link.href=URL.createObjectURL(blob);link.download=`wg-lineup-records-${league.season}.png`;link.click();
+    setTimeout(()=>URL.revokeObjectURL(link.href),5000);
+  });
+  $('close-best-dialog').addEventListener('click',close);
+  $('best-dialog').addEventListener('cancel',event=>{event.preventDefault();close();});
+  $('copy-best').addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(location.href);toast('Lineup link copied.');}
+    catch{toast('Copy the address-bar URL to share.');}
+  });
+  return {render,readHash(){
+    const [view,query]=location.hash.split('?');
+    const params=new URLSearchParams(query);
+    if(view!=='#best'||!params.has('team')){
+      selectedId=null;
+      if($('best-dialog').open)$('best-dialog').close();
+    }
+    if(view!=='#best')return;
+    const mode=params.get('opponents')==='best'?'best':'actual';
+    if($('lineup-opponents').value!==mode){$('lineup-opponents').value=mode;render();}
+    if(params.has('team'))inspect(params.get('team'),params.get('week'));
+  }};
 }

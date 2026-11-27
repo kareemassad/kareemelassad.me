@@ -1,16 +1,15 @@
-import {CHARTS,normalizeChartType,makeChartModel} from './chart-model.mjs?v=83e2bd34c11e';
-import {manager,esc} from './identity.mjs?v=83e2bd34c11e';
+import {CHARTS,makeChartModel,chartPreset,chartStories} from './chart-model.mjs?v=9a469b449e9e';
+import {manager,esc} from './identity.mjs?v=9a469b449e9e';
 
 export function mountCharts(getLeague,toast){
   const $=s=>document.querySelector(s);
-  let type='trend',mode='weekly',primary='3',comparison='none',lastWidth=0,frame=0,currentModel=null;
+  let type='trend',mode='weekly',primary='everyone',comparison='none',lastWidth=0,frame=0,currentModel=null;
   let renderChart=null,rendererPromise=null;
   let hidden=new Set();
+  function leagueEnd(){return getLeague().weeks.at(-1).week;}
   function options(teams,first){return first+teams.map(t=>`<option value="${t.id}" title="${esc(t.name)}">${esc(manager(t))}</option>`).join('');}
   function renderControls(model){
     const teams=[...getLeague().teams].sort((a,b)=>manager(a).localeCompare(manager(b))),line=model.group==='trends';
-    $('#chart-type').innerHTML=CHARTS.map(c=>`<option value="${c.id}">${esc(c.label)}</option>`).join('');
-    $('#chart-type').value=type;
     $('#chart-team-label').textContent='MANAGER';
     $('#chart-team').innerHTML=options(teams,line?`<option value="everyone">All managers</option><option value="baseline">${type==='luck'?'Zero-luck baseline only':'League average only'}</option>`:'<option value="all">All managers</option>');
     $('#chart-team').value=primary;
@@ -32,16 +31,23 @@ export function mountCharts(getLeague,toast){
     hidden=new Set(model.hidden.map(String));
     type=model.type;primary=model.primary===null?'all':String(model.primary);comparison=model.comparison===null?'none':String(model.comparison);currentModel=model;
     renderControls(model);
+    for(const b of document.querySelectorAll('[data-preset]')){const preset=chartPreset(getLeague(),b.dataset.preset);b.setAttribute('aria-pressed',String(type===preset.type&&primary===preset.primary&&comparison===preset.comparison));}
     $('#chart-title').textContent=model.title;$('#chart-subtitle').textContent=model.subtitle;
-    $('#chart-detail').textContent=model.detail||'Hover or tap a bar for its exact points and details.';
-    $('#chart-note').textContent=model.note;$('#chart-unit').textContent=model.axisLabel;
+    $('#chart-unit').textContent=model.axisLabel;
+    const latest=model.rows.at(-1),allShown=model.series.filter(s=>s.key!=='baseline'),ordered=[...allShown].sort((a,b)=>latest[b.key]-latest[a.key]),shown=ordered.length>2?[ordered[0],ordered.at(-1)]:allShown;
+    $('#chart-takeaway').textContent=shown.length?`${type==='trend'&&mode==='weekly'?'Week':'Through Week'} ${leagueEnd()}: `+shown.map(s=>`${s.name} ${type==='luck'&&latest[s.key]>0?'+':''}${Number(latest[s.key]).toFixed(2)} ${model.unit}${type==='luck'?' vs expected':''}`).join(' · '):type==='luck'?'Zero is the baseline: actual wins equal expected wins.':'The league average for each completed week.';
+    const stories=chartStories(getLeague(),model),feature=stories[0];
+    $('#chart-feature').innerHTML=feature?`<strong>Week ${feature.week}: ${esc(feature.name)} ${feature.result>0?'won':feature.result<0?'lost':'tied'} ${(feature.score/100).toFixed(2)}–${(feature.against/100).toFixed(2)}</strong><span>Outscored ${feature.beaten} of ${getLeague().teams.length-1} other teams${feature.tied?', tied '+feature.tied:''} · ${feature.actual} actual vs ${feature.expected.toFixed(2)} expected wins that week.</span>`:'';
+    $('#chart-feature').hidden=!feature;
+    $('#chart-moments').innerHTML=stories.slice(1).map(w=>`<article><h4>Week ${w.week} · ${esc(w.name)}</h4><strong>${(w.score/100).toFixed(2)}–${(w.against/100).toFixed(2)} ${w.result>0?'win':w.result<0?'loss':'tie'}</strong><p>vs ${esc(w.opponentName)} · outscored ${w.beaten} of ${getLeague().teams.length-1} other teams${w.tied?', tied '+w.tied:''}.</p><small>${w.actual} actual − ${w.expected.toFixed(2)} expected = ${w.difference>0?'+':''}${w.difference.toFixed(2)} wins that week</small></article>`).join('');
+
     $('#chart-legend').hidden=model.kind!=='line'||!!model.empty;
     $('#chart-legend').innerHTML=(model.legendSeries||model.series).map(s=>{const title=esc(s.key==='baseline'?(model.type==='luck'?'Actual wins equal expected wins':'Average of every league team'):s.teamName),inside=`<i style="background:${s.color}" class="${s.baseline?'baseline-key':''}"></i>${esc(s.name)}`;return model.everyone&&s.key!=='baseline'?`<button type="button" class="chart-series-key chart-series-toggle" data-series-key="${s.key}" data-series-team="${s.key.slice(4)}" aria-pressed="${!hidden.has(s.key.slice(4))}" aria-label="Show ${esc(s.name)}" title="${title}">${inside}</button>`:`<span class="chart-series-key" title="${title}">${inside}</span>`;}).join('')+(model.everyone&&hidden.size?'<button type="button" class="chart-series-key chart-series-toggle" data-show-all>Show all</button>':'');
     $('#download-chart').disabled=!renderChart||!!model.empty;
     if(renderChart){renderChart($('#chart-plot'),model);}
     else if(!rendererPromise){
       $('#chart-plot').innerHTML='<p class="chart-empty">Loading chart…</p>';
-      rendererPromise=import('./chart-lib.mjs?v=83e2bd34c11e').then(module=>{renderChart=module.renderChart;render();}).catch(()=>{rendererPromise=null;$('#chart-plot').innerHTML='<p class="chart-empty">Could not load the chart. Choose a graph to try again.</p>';});
+      rendererPromise=import('./chart-lib.mjs?v=9a469b449e9e').then(module=>{renderChart=module.renderChart;render();}).catch(()=>{rendererPromise=null;$('#chart-plot').innerHTML='<p class="chart-empty">Could not load the chart. Choose a graph to try again.</p>';});
     }
   }
   function shareView(){
@@ -50,10 +56,12 @@ export function mountCharts(getLeague,toast){
     history.replaceState(null,'',`#charts?${params}`);
   }
   function readView(){
-    if(!location.hash.startsWith('#charts?'))return;
-    const params=new URLSearchParams(location.hash.split('?')[1]);
-    type=normalizeChartType(params.get('view'));mode=['weekly','rolling','cumulative'].includes(params.get('mode'))?params.get('mode'):'weekly';
-    primary=params.get('team')||'all';comparison=params.get('compare')||'none';
+    const [section,query]=location.hash.split('?');
+    if(section!=='#charts')return;
+    const params=new URLSearchParams(query);
+    if(params.get('view')==='luck')return;
+    type='trend';mode=['weekly','rolling','cumulative'].includes(params.get('mode'))?params.get('mode'):'weekly';
+    primary=params.get('team')||'everyone';comparison=params.get('compare')||'none';
     hidden=new Set((params.get('hide')||'').split(',').filter(Boolean));
     render();requestAnimationFrame(()=>$('#charts').scrollIntoView({block:'start'}));
   }
@@ -72,7 +80,7 @@ export function mountCharts(getLeague,toast){
       ctx.font='600 23px Segoe UI';const titles=wrapText(ctx,model.title,w-40);
       ctx.font='12px Segoe UI';const subtitles=wrapText(ctx,model.subtitle,w-40),foot=[];
       if(model.kind==='line')foot.push(...wrapText(ctx,model.series.map(s=>s.name+(s.teamName?' · '+s.teamName:'')).join(' / '),w-40));
-      foot.push(...wrapText(ctx,model.detail,w-40),...wrapText(ctx,model.note,w-40));
+      foot.push(...wrapText(ctx,$('#chart-takeaway').textContent,w-40),...wrapText(ctx,$('#chart-feature').innerText.replace(/\s+/g,' '),w-40),...wrapText(ctx,model.detail,w-40),...wrapText(ctx,model.note,w-40));
       const header=65+titles.length*28+subtitles.length*17+16,scale=Math.max(1.5,1800/w);
       canvas.width=Math.ceil(w*scale);canvas.height=Math.ceil((header+h+45+foot.length*17)*scale);ctx.scale(scale,scale);
       ctx.fillStyle='#f6f6ef';ctx.fillRect(0,0,w,canvas.height/scale);ctx.fillStyle='#193e32';ctx.font='600 11px Segoe UI';
@@ -84,7 +92,7 @@ export function mountCharts(getLeague,toast){
       const url=URL.createObjectURL(png),a=document.createElement('a');a.href=url;a.download=`wg-${type}-week-${league.weeks.at(-1).week}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),5000);
     }catch{toast('Could not create the chart PNG. Please try again.');}
   }
-  $('#chart-type').addEventListener('change',e=>{type=e.target.value;render();shareView();});
+  $('#chart-presets').addEventListener('click',e=>{const b=e.target.closest('[data-preset]');if(!b)return;({type,mode,primary,comparison}=chartPreset(getLeague(),b.dataset.preset));hidden.clear();render();shareView();});
   $('#chart-team').addEventListener('change',e=>{primary=e.target.value;hidden.clear();if(primary===comparison)comparison='none';render();shareView();});
   $('#compare-team').addEventListener('change',e=>{comparison=e.target.value;render();shareView();});
   $('#trend-mode').addEventListener('change',e=>{mode=e.target.value;render();shareView();});

@@ -1,4 +1,4 @@
-import {createLeague} from './engine.mjs?v=83e2bd34c11e';
+import {createLeague} from './engine.mjs?v=9a469b449e9e';
 
 export function buildLeagueHistory(reports){
   const people=new Map(),games=[],seasons=[],seen=new Set();
@@ -37,5 +37,8 @@ export function headToHead(history,person,opponent){
   const meetings=history.games.filter(g=>g.home===person&&g.away===opponent||g.home===opponent&&g.away===person).map(g=>{const home=g.home===person;return {...g,score:home?g.homeScore:g.awayScore,against:home?g.awayScore:g.homeScore,team:home?g.homeTeam:g.awayTeam,opponentTeam:home?g.awayTeam:g.homeTeam};});
   let w=0,l=0,t=0,pointsFor=0,pointsAgainst=0;
   for(const g of meetings){pointsFor+=g.score;pointsAgainst+=g.against;if(g.score>g.against)w++;else if(g.score<g.against)l++;else t++;}
-  return {w,l,t,pointsFor,pointsAgainst,meetings};
+  const closest=[...meetings].sort((a,b)=>Math.abs(a.score-a.against)-Math.abs(b.score-b.against)||Number(b.season)-Number(a.season)||b.week-a.week)[0]??null;
+  const biggestWin=meetings.filter(g=>g.score>g.against).sort((a,b)=>(b.score-b.against)-(a.score-a.against))[0]??null;
+  const closeGames=meetings.filter(g=>Math.abs(g.score-g.against)<=500);
+  return {w,l,t,pointsFor,pointsAgainst,meetings,averageMargin:meetings.length?(pointsFor-pointsAgainst)/meetings.length:null,closest,biggestWin,closeRecord:{w:closeGames.filter(g=>g.score>g.against).length,l:closeGames.filter(g=>g.score<g.against).length,t:closeGames.filter(g=>g.score===g.against).length}};
 }
